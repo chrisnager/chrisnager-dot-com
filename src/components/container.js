@@ -5,12 +5,9 @@ import { jsx } from 'theme-ui'
 export default ({ children }) => (
   <div
     sx={{
-      maxWidth: 1180,
-      padding: 4,
-      bg: 'primary',
+      maxWidth: '65ch',
       mx: 'auto',
     }}
-  >
-    {children}
-  </div>
+    {...{ children }}
+  />
 )

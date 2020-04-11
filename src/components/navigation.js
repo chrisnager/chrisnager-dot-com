@@ -1,16 +1,36 @@
-import React from 'react'
+/** @jsx jsx */
+
+import { jsx, Flex } from 'theme-ui'
 import { Link } from 'gatsby'
-import styles from './navigation.module.css'
+
+const sx = {
+  p: 2,
+  display: 'block',
+  color: 'currentColor',
+}
+
+const links = [
+  { to: '/', children: 'Home' },
+  { to: '/blog', children: 'Blog' },
+]
 
 export default () => (
   <nav role="navigation">
-    <ul className={styles.navigation}>
-      <li className={styles.navigationItem}>
-        <Link to="/">Home</Link>
-      </li>
-      <li className={styles.navigationItem}>
-        <Link to="/blog/">Blog</Link>
-      </li>
-    </ul>
+    <Flex
+      as="ul"
+      sx={{
+        justifyContent: 'center',
+        listStyleType: 'none',
+        my: 0,
+        pl: 0,
+        bg: 'gold',
+      }}
+    >
+      {links.map(({ to, children }) => (
+        <li key={to}>
+          <Link {...{ sx, to, children }}></Link>
+        </li>
+      ))}
+    </Flex>
   </nav>
 )

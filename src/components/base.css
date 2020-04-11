@@ -1,21 +1,21 @@
 body {
-  font-family: system-ui, sans-serif;
-  font-size: 1em;
-  line-height: 1.65;
-  color: #373f49;
-  background: #eee;
   margin: 0;
+  font-size: 1em;
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+  color: #000;
+  background: #fff;
 }
 
 img {
-  display: block;
   width: 100%;
+  display: block;
 }
 
 h1,
 h2,
 h3 {
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: normal;
 }
 
