@@ -1,5 +1,16 @@
-import React from 'react'
+/** @jsx jsx */
+
+import { jsx } from 'theme-ui'
 
 export default ({ children }) => (
-  <div style={{ maxWidth: 1180, margin: '0 auto' }}>{children}</div>
+  <div
+    sx={{
+      maxWidth: 1180,
+      padding: 4,
+      bg: 'primary',
+      mx: 'auto',
+    }}
+  >
+    {children}
+  </div>
 )
