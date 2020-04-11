@@ -2,6 +2,7 @@
 
 import { jsx, Box } from 'theme-ui'
 import Navigation from './navigation'
+import './base.css'
 
 const Layout = ({ children }) => {
   return (
