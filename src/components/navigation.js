@@ -4,9 +4,10 @@ import { jsx, Flex } from 'theme-ui'
 import { Link } from 'gatsby'
 
 const sx = {
-  p: 2,
+  px: 3,
   display: 'block',
   color: 'currentColor',
+  textDecoration: 'none',
 }
 
 const links = [
@@ -19,18 +20,31 @@ export default () => (
     <Flex
       as="ul"
       sx={{
-        justifyContent: 'center',
-        listStyleType: 'none',
         my: 0,
         pl: 0,
-        bg: 'gold',
+        listStyleType: 'none',
       }}
     >
-      {links.map(({ to, children }) => (
-        <li key={to}>
-          <Link {...{ sx, to, children }}></Link>
-        </li>
-      ))}
+      <Flex
+        as={Link}
+        sx={{
+          width: '3rem',
+          height: '3rem',
+          justifyContent: 'center',
+          alignItems: 'center',
+          textDecoration: 'none',
+          bg: '#0cf',
+        }}
+      >
+        <span>CN</span>
+      </Flex>
+      <Flex sx={{ flex: 1, justifyContent: 'flex-end' }}>
+        {links.map(({ to, children }) => (
+          <Flex as="li" sx={{ alignItems: 'center' }} key={to}>
+            <Link {...{ sx, to, children }}></Link>
+          </Flex>
+        ))}
+      </Flex>
     </Flex>
   </nav>
 )
