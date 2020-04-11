@@ -1,26 +1,15 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.css'
-import Container from './container'
+/** @jsx jsx */
+
+import { jsx, Box } from 'theme-ui'
 import Navigation from './navigation'
 
-class Template extends React.Component {
-  render() {
-    const { location, children } = this.props
-    let header
-
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
-    }
-
-    return (
-      <Container>
-        <Navigation />
-        {children}
-      </Container>
-    )
-  }
+const Layout = ({ children }) => {
+  return (
+    <Box sx={{ maxWidth: '65ch', mx: 'auto' }}>
+      <Navigation />
+      {children}
+    </Box>
+  )
 }
 
-export default Template
+export default Layout
