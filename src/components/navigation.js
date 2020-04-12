@@ -12,14 +12,14 @@ const sx = {
 const links = [
   { to: `/`, children: `Home` },
   { to: `/about`, children: `Profile` },
-  { to: `/projects`, children: `Work` },
+  { to: `/work`, children: `Work` },
   { to: `/speaking`, children: `Speaking` },
   { to: `/blog`, children: `Blog` },
 ]
 
 export default () => (
   <nav role="navigation">
-    <Flex>
+    <Flex sx={{ mb: 4 }}>
       <Flex
         sx={{
           width: `5rem`,

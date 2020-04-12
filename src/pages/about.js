@@ -6,11 +6,11 @@ import Layout from '../components/layout'
 export default () => {
   return (
     <Layout>
-      <Box sx={{ px: 3 }}>
+      <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Text as="h1">Profile</Text>
         <Text as="p" sx={{ my: 3 }}>
           I'm a front end engineer with a background in design, a minimalist aesthetic, and a deep concern for
-          performance and accessibility. <a href="/">Learn more</a>
+          performance and accessibility.
         </Text>
 
         <p>
@@ -20,14 +20,30 @@ export default () => {
 
         <p>
           I’ve worked in many industries, from Advertising to Finance. I’ve been part of a{` `}
-          <a href="https://www.adweek.com/digital/salesforce-buys-buddy-media-689-million-140913/">
+          <a
+            href="https://www.adweek.com/digital/salesforce-buys-buddy-media-689-million-140913/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             near-billion dollar acquisition
           </a>
-          , built <a href="#">products millions have used</a>, helped{` `}
-          <a href="https://www.nytimes.com/2016/06/18/business/dealbook/iex-group-gains-approval-for-stock-exchange.html">
+          , built{' '}
+          <a href="https://salesforce.com" target="_blank" rel="noopener noreferrer">
+            products millions have used
+          </a>
+          , helped{` `}
+          <a
+            href="https://www.nytimes.com/2016/06/18/business/dealbook/iex-group-gains-approval-for-stock-exchange.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             launch America’s newest stock exchange
           </a>
-          , and am currently a founding member of a <a href="/">ground-level startup</a>.
+          , and am currently a founding member of a{' '}
+          <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
+            ground-level startup
+          </a>
+          .
         </p>
 
         <p>You may see me on the G train, speed-solving my Rubik’s cube.</p>
