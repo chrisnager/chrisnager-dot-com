@@ -9,7 +9,7 @@ import Social from './social'
 
 const Layout = ({ children }) => {
   return (
-    <Box sx={{ maxWidth: `55ch`, mx: `auto` }}>
+    <Box sx={{ maxWidth: `75ch`, mx: `auto` }}>
       <Navigation />
       {children}
       <Social />

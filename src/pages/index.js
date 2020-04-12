@@ -1,12 +1,13 @@
 /** @jsx jsx */
 
-import { jsx } from 'theme-ui'
+import { jsx, Box } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
+import Features from '../components/features'
 
 class RootIndex extends React.Component {
   render() {
@@ -16,7 +17,10 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        <Hero data={author.node} />
+        <Box sx={{ maxWidth: `50ch` }}>
+          <Hero data={author.node} />
+          <Features />
+        </Box>
       </Layout>
     )
   }
