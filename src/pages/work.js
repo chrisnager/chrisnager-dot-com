@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 
 const projects = [
+  { title: `Generative art`, summary: `Fun with generated patterns` },
   { title: `Emoonji`, summary: `A friendly chatbot that sends the current moon phases with emojis` },
   { title: `> Signum majoritatis`, summary: `A side-scrolling game built in a single string` },
   { title: `Give 'n' Go`, summary: `A curated gallery of Dribbble shots reworked as interactive CodePen pens` },
@@ -67,7 +68,7 @@ export default () => {
               <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
                 {project.title}
               </Text>
-              <Text as="p" sx={{ mt: 1, color: `var(--color)`, 'a:hover > &': { color: `var(--color)` } }}>
+              <Text as="p" sx={{ color: `var(--color)`, 'a:hover > &': { color: `var(--color)` } }}>
                 {project.summary}
               </Text>
             </Box>
