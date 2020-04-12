@@ -8,7 +8,7 @@ const projects = [
   {
     title: `Lifecycle of an icon`, // Mar 8, 2019
     summary: `Our icon creation process, from ideation to implementation`,
-    link: `https://twitter.com/chrisnager/status/1104089402228256770?s=20`,
+    link: `https://twitter.com/chrisnager/status/1104089402228256770`,
   },
   {
     title: `Zephyr`,
