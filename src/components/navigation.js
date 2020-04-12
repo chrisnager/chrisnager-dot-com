@@ -35,9 +35,6 @@ export default () => {
             display: `flex`,
             alignItems: `center`,
             justifyContent: `center`,
-            ':hover > svg > path, :focus > svg > path': {
-              stroke: `action`,
-            },
           }}
           to="/"
         >
