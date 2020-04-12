@@ -1,10 +1,15 @@
+:root {
+  --color: #000;
+  --background-color: #fff;
+}
+
 body {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.125em;
   line-height: 1.7;
   font-family: system-ui, sans-serif;
-  color: #000;
-  background: #fff;
+  color: var(--color);
+  background-color: var(--background-color);
 }
 
 img {
@@ -14,44 +19,4 @@ img {
 
 a {
   color: #0270c7;
-}
-
-.wrapper {
-  width: calc(100% - 10vmin);
-  margin: 0 auto;
-  padding: 5vmin 0;
-}
-
-/**
- * article grid
- */
-.article-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 5vmin;
-}
-
-/**
- *
- */
-.section-headline {
-  padding: 0 0 0.4em 0;
-  margin: 0 0 5vmin 0;
-  border-bottom: 1px solid #ddd;
-}
-
-/**
- *
- */
-.list-inline {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.list-inline li {
-  display: inline-block;
 }

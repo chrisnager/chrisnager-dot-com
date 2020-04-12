@@ -17,8 +17,8 @@ class BlogPostTemplate extends React.Component {
           <div>
             <Img alt={post.title} fluid={post.heroImage.fluid} />
           </div>
-          <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
+          <div>
+            <h1>{post.title}</h1>
             <p>{post.publishDate}</p>
             <div
               dangerouslySetInnerHTML={{
