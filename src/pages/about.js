@@ -124,48 +124,6 @@ Designed, sliced and developed website templates in Adobe Fireworks, Adobe Photo
 
 ---
 
-# Speaking
-
-## IEX Internal Company Presentation
-
-React: The library that powers our apps
-
-## IEX Internal Company Presentation
-
-Say hello to the IEX API
-
-## [TechCrunch Disrupt Hackathon Presentation 2017](https://techcrunch.com/video/whentho/591879ff1de5a12724606c06)
-
-When - Chatbot for location recommendations
-
-## Salesforce Internal UX and Engineering Presentation
-
-A new era for CSS
-
-## [TechCrunch Disrupt Hackathon Presentation 2015](https://techcrunch.com/video/cheer-me-up/518803581)
-
-Cheer me up - Fun, custom pages in seconds
-
-## [TechCrunch Disrupt Hackathon Presentation 2014](http://ustre.am/_3bGTL:2613)
-
-Jaunt - Let your friends be your city guides.
-
-## Salesforce Internal UX and Engineering Presentation
-
-Front End Standards
-
-## Scotch Time Tech & Design Podcast
-
-Working with Devs
-
-## BarCamp
-
-CSS3 Playground
-
-## Luckie Internal Design Presentation
-
-CSS3 Capabilities
-
 # Education
 
 ## Samford University

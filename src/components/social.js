@@ -12,6 +12,7 @@ const links = [
   { href: `https://twitter.com/chrisnager`, children: `Twitter` },
   { href: `https://github.com/chrisnager`, children: `GitHub` },
   { href: `https://codepen.io/chrisnager`, children: `CodePen` },
+  { href: `https://linkedin.com/in/chrisnager`, children: `LinkedIn` },
 ]
 
 export default () => (
