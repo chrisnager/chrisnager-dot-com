@@ -1,72 +1,102 @@
 /** @jsx jsx */
 
 import { jsx, Box, Text } from 'theme-ui'
+import React from 'react'
+import { graphql } from 'gatsby'
+import get from 'lodash/get'
+import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
-export default () => {
-  return (
-    <Layout>
-      <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Text as="h1">Profile</Text>
-        <Text as="p" sx={{ my: 3 }}>
-          I'm a front end engineer with a background in design, a minimalist aesthetic, and a deep concern for
-          performance and accessibility.
-        </Text>
+class AboutIndex extends React.Component {
+  render() {
+    const [author] = get(this, `props.data.allContentfulPerson.edges`)
 
-        <p>
-          I’m a software engineer with a background in design. My design and code come from a deep concern for
-          performance and accessibility.
-        </p>
+    return (
+      <Layout>
+        <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
+          <Text as="h1">Profile</Text>
+          <Text as="p" sx={{ my: 3 }}>
+            I'm a front end engineer with a background in design, a minimalist aesthetic, and a deep concern for
+            performance and accessibility.
+          </Text>
 
-        <p>
-          I’ve worked in many industries, from Advertising to Finance. I’ve been part of a{` `}
-          <a
-            href="https://www.adweek.com/digital/salesforce-buys-buddy-media-689-million-140913/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            near-billion dollar acquisition
-          </a>
-          , built{' '}
-          <a href="https://salesforce.com" target="_blank" rel="noopener noreferrer">
-            products millions have used
-          </a>
-          , helped{` `}
-          <a
-            href="https://www.nytimes.com/2016/06/18/business/dealbook/iex-group-gains-approval-for-stock-exchange.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            launch America’s newest stock exchange
-          </a>
-          , and am currently a founding member of a{' '}
-          <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
-            ground-level startup
-          </a>
-          .
-        </p>
+          <p>
+            I’m a software engineer with a background in design. My design and code come from a deep concern for
+            performance and accessibility.
+          </p>
 
-        <p>You may see me on the G train, speed-solving my Rubik’s cube.</p>
+          <Img fluid={author.node.heroImage.fluid} alt="" />
 
-        <p>
-          I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React
-          Native, TypeScript. Aside from these buzzword skills, what truly sets my work apart is my (deep) understanding
-          of CSS. I know when and how to use grid layouts and truly understanding the cascade. I’m particularly proud of
-          Zephyr, the design system I created for Air. It’s built in TypeScript and includes including cross-platform
-          foundations and components.
-        </p>
+          <p>
+            I’ve worked in many industries, from Advertising to Finance. I’ve been part of a{` `}
+            <a
+              href="https://www.adweek.com/digital/salesforce-buys-buddy-media-689-million-140913/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              near-billion dollar acquisition
+            </a>
+            , built{' '}
+            <a href="https://salesforce.com" target="_blank" rel="noopener noreferrer">
+              products millions have used
+            </a>
+            , helped{` `}
+            <a
+              href="https://www.nytimes.com/2016/06/18/business/dealbook/iex-group-gains-approval-for-stock-exchange.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              launch America’s newest stock exchange
+            </a>
+            , and am currently a founding member of a{' '}
+            <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
+              ground-level startup
+            </a>
+            .
+          </p>
 
-        <p>I’ve had opportunities to speak about my process and I host internal company teach-ins when appropriate.</p>
+          <p>You may see me on the G train, speed-solving my Rubik’s cube.</p>
 
-        <p>I learn everyday and have a passion for mentoring. As a team leader,</p>
+          <p>
+            I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React
+            Native, TypeScript. Aside from these buzzword skills, what truly sets my work apart is my (deep)
+            understanding of CSS. I know when and how to use grid layouts and truly understanding the cascade. I’m
+            particularly proud of Zephyr, the design system I created for Air. It’s built in TypeScript and includes
+            including cross-platform foundations and components.
+          </p>
 
-        <p>I’ve launched web, iOS, and Android apps for companies ranging from small to Coca Cola.</p>
+          <p>
+            I’ve had opportunities to speak about my process and I host internal company teach-ins when appropriate.
+          </p>
 
-        <p>I am in constant search of purpose-driven work.</p>
-      </Box>
-    </Layout>
-  )
+          <p>I learn everyday and have a passion for mentoring. As a team leader,</p>
+
+          <p>I’ve launched web, iOS, and Android apps for companies ranging from small to Coca Cola.</p>
+
+          <p>I am in constant search of purpose-driven work.</p>
+        </Box>
+      </Layout>
+    )
+  }
 }
+
+export default AboutIndex
+
+export const pageQuery = graphql`
+  query AboutQuery {
+    allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {
+      edges {
+        node {
+          heroImage: image {
+            fluid(maxWidth: 1150, resizingBehavior: PAD, background: "rgb:000000") {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 /*
 ---
