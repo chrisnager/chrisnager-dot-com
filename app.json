@@ -1,13 +1,8 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
-  "keywords": [
-    "contentful",
-    "gatsby",
-    "static",
-    "ssg"
-  ],
-  "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
+  "name": "Chris Nager",
+  "description": "Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design.",
+  "keywords": ["contentful", "gatsby", "static", "ssg"],
+  "repository": "https://github.com/chrisnager/chrisnager-dot-com",
   "success_url": "/",
   "buildpacks": [
     {
