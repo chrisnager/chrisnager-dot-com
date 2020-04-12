@@ -4,7 +4,7 @@ import { jsx, Flex } from 'theme-ui'
 
 const sx = {
   height: '2rem',
-  px: 2,
+  px: 3,
   alignItems: 'center',
 }
 
