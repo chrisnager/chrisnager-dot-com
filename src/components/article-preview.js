@@ -1,16 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-
-import styles from './article-preview.module.css'
+// import Img from 'gatsby-image'
 
 export default ({ article }) => (
-  <div className={styles.preview}>
-    <Img alt="" fluid={article.heroImage.fluid} />
-    <h3 className={styles.previewTitle}>
+  <div>
+    {/* <Img alt="" fluid={article.heroImage.fluid} /> */}
+    <small>{article.publishDate}</small>
+    <h3>
       <Link to={`/blog/${article.slug}`}>{article.title}</Link>
     </h3>
-    <small>{article.publishDate}</small>
     <div
       dangerouslySetInnerHTML={{
         __html: article.description.childMarkdownRemark.html,
@@ -18,7 +16,20 @@ export default ({ article }) => (
     />
     {article.tags &&
       article.tags.map(tag => (
-        <p className={styles.tag} key={tag}>
+        <p
+          sx={{
+            color: `#A0A0A0`,
+            textDecoration: `none`,
+            display: `inline-block`,
+            py: `.33333rem`,
+            px: `0.5rem`,
+            lineHeight: `1`,
+            borderRadius: `2px`,
+            border: `1px solid #A0A0A0`,
+            mr: `0.5em`,
+          }}
+          key={tag}
+        >
           {tag}
         </p>
       ))}

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import './base.css'
+import './index.css'
 
 import { jsx, Box } from 'theme-ui'
 

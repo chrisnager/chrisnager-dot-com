@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-size: 1em;
-  line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.7;
   font-family: system-ui, sans-serif;
   color: #000;
   background: #fff;
@@ -12,15 +12,8 @@ img {
   display: block;
 }
 
-h1,
-h2,
-h3 {
-  font-size: 2rem;
-  font-weight: normal;
-}
-
 a {
-  color: currentColor;
+  color: #0270c7;
 }
 
 .wrapper {

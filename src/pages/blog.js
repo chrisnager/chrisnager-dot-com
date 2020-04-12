@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx } from 'theme-ui'
+import { jsx, Box, Text } from 'theme-ui'
 
 import React from 'react'
 import { graphql } from 'gatsby'
@@ -16,35 +16,24 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div>
-          <Helmet title={siteTitle} />
-          <div
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '61.8vh',
-              maxHeight: '400px',
-              background: '#e1e1e1',
-              fontSize: '2em',
-              overflow: 'hidden',
-            }}
-          >
+        <Helmet title={siteTitle} />
+        <Box sx={{ px: 3 }}>
+          <Text as="h1" sx={{ fontWeight: 500 }}>
             Blog
-          </div>
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        </div>
+          </Text>
+          <Text as="p" sx={{ my: 3 }}>
+            Stuff I've written
+          </Text>
+          <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: 'none' }}>
+            {posts.map(({ node }) => {
+              return (
+                <Box as="li" key={node.slug}>
+                  <ArticlePreview article={node} />
+                </Box>
+              )
+            })}
+          </Box>
+        </Box>
       </Layout>
     )
   }
