@@ -1,19 +1,19 @@
 {
-  "name": "gatsby-contentful-starter",
-  "description": "Starter Contentful Gatsby Blog",
+  "name": "chrisnager",
+  "description": "Chris Nager - Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design.",
   "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
+  "author": "Chris Nager <cnager@gmail.com>",
   "bugs": {
-    "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
+    "url": "https://github.com/chrisnager/chrisnager-dot-com/issues"
   },
   "dependencies": {
-    "gatsby-image": "^2.2.43",
-    "gatsby-plugin-react-helmet": "^3.1.23",
-    "gatsby-plugin-sharp": "^2.4.10",
+    "gatsby-image": "^2.3.2",
+    "gatsby-plugin-react-helmet": "^3.2.2",
+    "gatsby-plugin-sharp": "^2.5.4",
     "gatsby-plugin-theme-ui": "^0.3.0",
-    "gatsby-source-contentful": "^2.1.94",
-    "gatsby-transformer-remark": "^2.6.57",
-    "gatsby-transformer-sharp": "^2.3.18",
+    "gatsby-source-contentful": "^2.2.7",
+    "gatsby-transformer-remark": "^2.7.1",
+    "gatsby-transformer-sharp": "^2.4.4",
     "lodash": "^4.17.15",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -35,7 +35,7 @@
     "rimraf": "^3.0.2",
     "yargs-parser": "^18.1.0"
   },
-  "homepage": "https://github.com/contentful-userland/gatsby-contentful-starter#readme",
+  "homepage": "https://chrisnager.com",
   "keywords": [
     "gatsby",
     "contentful"
@@ -44,7 +44,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful-userland/gatsby-contentful-starter.git"
+    "url": "git+https://github.com/chrisnager/chrisnager-dot-com.git"
   },
   "scripts": {
     "dev": "npm run develop",
