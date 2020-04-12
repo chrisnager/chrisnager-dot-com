@@ -13,11 +13,7 @@ console.log(`
 
   You can find all the needed information in your Contentful space under:
 
-  ${chalk.yellow(
-    `app.contentful.com ${chalk.red('->')} Space Settings ${chalk.red(
-      '->'
-    )} API keys`
-  )}
+  ${chalk.yellow(`app.contentful.com ${chalk.red('->')} Space Settings ${chalk.red('->')} API keys`)}
 
   The ${chalk.green('Content Management API Token')}
     will be used to import and write data to your space.
@@ -36,9 +32,7 @@ const questions = [
     name: 'spaceId',
     message: 'Your Space ID',
     when: !argv.spaceId && !process.env.CONTENTFUL_SPACE_ID,
-    validate: input =>
-      /^[a-z0-9]{12}$/.test(input) ||
-      'Space ID must be 12 lowercase characters',
+    validate: input => /^[a-z0-9]{12}$/.test(input) || 'Space ID must be 12 lowercase characters',
   },
   {
     name: 'managementToken',
@@ -64,9 +58,7 @@ inquirer
     accessToken = CONTENTFUL_ACCESS_TOKEN || argv.accessToken || accessToken
 
     console.log('Writing config file...')
-    const configFiles = [`.env.development`, `.env.production`].map(file =>
-      path.join(__dirname, '..', file)
-    )
+    const configFiles = [`.env.development`, `.env.production`].map(file => path.join(__dirname, '..', file))
 
     const fileContents =
       [
@@ -83,14 +75,8 @@ inquirer
     })
     return { spaceId, managementToken }
   })
-  .then(({ spaceId, managementToken }) =>
-    spaceImport({ spaceId, managementToken, content: exportFile })
-  )
+  .then(({ spaceId, managementToken }) => spaceImport({ spaceId, managementToken, content: exportFile }))
   .then((_, error) => {
-    console.log(
-      `All set! You can now run ${chalk.yellow(
-        'yarn run dev'
-      )} to see it in action.`
-    )
+    console.log(`All set! You can now run ${chalk.yellow('yarn run dev')} to see it in action.`)
   })
   .catch(error => console.error(error))

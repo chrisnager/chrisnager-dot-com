@@ -1,14 +1,14 @@
 export default {
   colors: {
-    text: '#333',
-    background: '#fff',
-    primary: '#639',
-    secondary: '#ff6347',
+    text: `#333`,
+    background: `#fff`,
+    primary: `#639`,
+    secondary: `#ff6347`,
   },
   fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'system-ui, sans-serif',
-    monospace: 'Menlo, monospace',
+    body: `system-ui, sans-serif`,
+    heading: `system-ui, sans-serif`,
+    monospace: `Menlo, monospace`,
   },
   fontWeights: {
     body: 400,

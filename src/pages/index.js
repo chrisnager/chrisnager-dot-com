@@ -1,18 +1,17 @@
 /** @jsx jsx */
 
-import { jsx, Text } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
-import Social from '../components/social'
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const siteTitle = get(this, `props.data.site.siteMetadata.title`)
+    const [author] = get(this, `props.data.allContentfulPerson.edges`)
 
     return (
       <Layout location={this.props.location}>

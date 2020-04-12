@@ -60,7 +60,7 @@ export default () => {
 
         <Box as="ul" sx={{ my: 0, pl: 0 }}>
           {projects.map(project => (
-            <Box key={project.title} as={Link} sx={{ mt: 4, display: 'block' }}>
+            <Box key={project.title} as={Link} sx={{ mt: 4, display: `block` }}>
               <Text as="h1" sx={{ fontSize: 4 }}>
                 {project.title}
               </Text>

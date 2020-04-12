@@ -3,15 +3,15 @@
 import { jsx, Flex } from 'theme-ui'
 
 const sx = {
-  height: '2rem',
+  height: `2rem`,
   px: 3,
-  alignItems: 'center',
+  alignItems: `center`,
 }
 
 const links = [
-  { href: 'https://twitter.com/chrisnager', children: 'Twitter' },
-  { href: 'https://github.com/chrisnager', children: 'GitHub' },
-  { href: 'https://codepen.io/chrisnager', children: 'CodePen' },
+  { href: `https://twitter.com/chrisnager`, children: `Twitter` },
+  { href: `https://github.com/chrisnager`, children: `GitHub` },
+  { href: `https://codepen.io/chrisnager`, children: `CodePen` },
 ]
 
 export default () => (

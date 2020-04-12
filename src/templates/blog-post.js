@@ -7,13 +7,13 @@ import Layout from '../components/layout'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const post = get(this.props, `data.contentfulBlogPost`)
+    const siteTitle = get(this.props, `data.site.siteMetadata.title`)
 
     return (
       <Layout location={this.props.location}>
         <div>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
+          <Helmet title={`${post.title} / ${siteTitle}`} />
           <div>
             <Img alt={post.title} fluid={post.heroImage.fluid} />
           </div>

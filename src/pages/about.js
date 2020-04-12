@@ -25,11 +25,11 @@ export default () => {
         </p>
 
         <p>
-          I’ve worked in many industries, from Advertising to Finance. I’ve been part of a{' '}
+          I’ve worked in many industries, from Advertising to Finance. I’ve been part of a{` `}
           <a href="https://www.adweek.com/digital/salesforce-buys-buddy-media-689-million-140913/">
             near-billion dollar acquisition
           </a>
-          , built <a href="#">products millions have used</a>, helped{' '}
+          , built <a href="#">products millions have used</a>, helped{` `}
           <a href="https://www.nytimes.com/2016/06/18/business/dealbook/iex-group-gains-approval-for-stock-exchange.html">
             launch America’s newest stock exchange
           </a>
