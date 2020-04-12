@@ -1,28 +1,19 @@
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+  }
+}
+
 :focus {
   outline: 6px double var(--action);
   outline-offset: 0.125em;
 }
 
 body {
-  --font-size: 1.25em;
-  --color: #d2f1f9;
-  --background-color: rgba(0, 0, 0, 0.9);
-  --action: #e42e2e;
-  --tag: rgba(255, 255, 255, 0.1);
-
   margin: 0;
-  font-size: var(--font-size);
+  font-size: 1.25em;
   line-height: 1.7;
   font-family: system-ui, sans-serif;
-  color: var(--color) !important;
-  background-color: var(--background-color) !important;
-}
-
-body.theme-ui-default {
-  --color: rgba(0, 0, 0, 0.9);
-  --background-color: #d2f1f9;
-  --action: #c50808; /* #0270c7; */
-  --tag: rgba(0, 0, 0, 0.1);
 }
 
 img {
@@ -31,7 +22,7 @@ img {
 }
 
 a {
-  color: var(--action);
+  color: #e42e2e; /* TODO: Make this a dynamic theme color */
   text-decoration: none;
 }
 

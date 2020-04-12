@@ -68,7 +68,7 @@ export default () => {
               <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
                 {project.title}
               </Text>
-              <Text as="p" sx={{ color: `var(--color)`, 'a:hover > &': { color: `var(--color)` } }}>
+              <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
                 {project.summary}
               </Text>
             </Box>

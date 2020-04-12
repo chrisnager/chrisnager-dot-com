@@ -26,7 +26,7 @@ export default ({ article }) => (
             px: `0.5rem`,
             borderWidth: `1px`,
             borderStyle: `solid`,
-            borderColor: `var(--tag)`,
+            borderColor: `tag`,
             display: `inline-block`,
             fontStyle: `italic`,
             lineHeight: `1`,

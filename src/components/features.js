@@ -24,8 +24,8 @@ export default () => (
               px: 2,
               display: `inline-block`,
               fontStyle: `italic`,
-              color: `var(--color)`,
-              bg: `var(--tag)`,
+              color: `text`,
+              bg: `tag`,
             }}
           >
             {category}
