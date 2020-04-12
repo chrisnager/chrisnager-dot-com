@@ -7,9 +7,7 @@ export default () => {
   return (
     <Layout>
       <Box sx={{ px: 3 }}>
-        <Text as="h1" sx={{ fontWeight: 500 }}>
-          Profile
-        </Text>
+        <Text as="h1">Profile</Text>
         <Text as="p" sx={{ my: 3 }}>
           I'm a front end engineer with a background in design, a minimalist aesthetic, and a deep concern for
           performance and accessibility. <a href="/">Learn more</a>

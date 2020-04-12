@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 // import Img from 'gatsby-image'
+import { Text } from 'theme-ui'
 
 export default ({ article }) => (
   <div>
@@ -16,22 +17,24 @@ export default ({ article }) => (
     />
     {article.tags &&
       article.tags.map(tag => (
-        <p
+        <Text
+          as="p"
+          key={tag}
           sx={{
-            color: `#A0A0A0`,
+            color: `var(--tag)`,
             textDecoration: `none`,
             display: `inline-block`,
             py: `.33333rem`,
             px: `0.5rem`,
             lineHeight: `1`,
-            borderRadius: `2px`,
-            border: `1px solid #A0A0A0`,
+            borderWidth: `1px`,
+            borderStyle: `solid`,
+            borderColor: `var(--tag)`,
             mr: `0.5em`,
           }}
-          key={tag}
         >
           {tag}
-        </p>
+        </Text>
       ))}
   </div>
 )

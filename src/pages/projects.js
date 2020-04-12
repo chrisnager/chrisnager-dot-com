@@ -51,9 +51,7 @@ export default () => {
   return (
     <Layout>
       <Box sx={{ px: 3 }}>
-        <Text as="h1" sx={{ fontWeight: 500 }}>
-          Projects
-        </Text>
+        <Text as="h1">Projects</Text>
         <Text as="p" sx={{ my: 3 }}>
           Fun stuff I've built
         </Text>

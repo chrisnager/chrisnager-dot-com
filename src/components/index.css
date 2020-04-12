@@ -3,6 +3,7 @@
   --color: #000;
   --background-color: #fff;
   --action: #b72424; /* #0270c7; */
+  --tag: #555;
 }
 
 :focus {

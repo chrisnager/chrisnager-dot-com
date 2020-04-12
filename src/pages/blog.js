@@ -18,9 +18,7 @@ class BlogIndex extends React.Component {
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
         <Box sx={{ px: 3 }}>
-          <Text as="h1" sx={{ fontWeight: 500 }}>
-            Blog
-          </Text>
+          <Text as="h1">Blog</Text>
           <Text as="p" sx={{ my: 3 }}>
             Stuff I've written
           </Text>
