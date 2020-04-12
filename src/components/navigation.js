@@ -13,6 +13,7 @@ const links = [
   { to: `/`, children: `Home` },
   { to: `/about`, children: `Profile` },
   { to: `/projects`, children: `Work` },
+  { to: `/speaking`, children: `Speaking` },
   { to: `/blog`, children: `Blog` },
 ]
 
