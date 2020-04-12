@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
-import { jsx, Flex } from 'theme-ui'
+import { jsx, Flex, Text } from 'theme-ui'
+import React from 'react'
 
 const sx = {
   height: `2rem`,
@@ -16,11 +17,16 @@ const links = [
 ]
 
 export default () => (
-  <Flex sx={{ my: 4 }}>
-    {links.map(({ href, children }) => (
-      <Flex key={href} as="a" target="_blank" rel="noopener noreferrer" {...{ sx, href }}>
-        <span {...{ children }} />
-      </Flex>
-    ))}
-  </Flex>
+  <>
+    <Flex sx={{ mt: 4, borderTopWidth: 1, borderTopStyle: `solid`, borderTopColor: `#ccc`, pt: 5, pb: 3 }}>
+      {links.map(({ href, children }) => (
+        <Flex key={href} as="a" target="_blank" rel="noopener noreferrer" {...{ sx, href }}>
+          <span {...{ children }} />
+        </Flex>
+      ))}
+    </Flex>
+    <Text as="p" sx={{ mb: 5, px: 3 }}>
+      <Text as="small">&copy; 2020 Chris Nager</Text>
+    </Text>
+  </>
 )
