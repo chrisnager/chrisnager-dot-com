@@ -7,6 +7,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
+import Social from '../components/social'
 
 class RootIndex extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
         <Hero data={author.node} />
+        <Social />
       </Layout>
     )
   }

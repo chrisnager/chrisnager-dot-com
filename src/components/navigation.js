@@ -7,7 +7,6 @@ const sx = {
   px: 3,
   display: 'block',
   color: 'currentColor',
-  textDecoration: 'none',
 }
 
 const links = [
@@ -32,7 +31,6 @@ export default () => (
           height: '3rem',
           justifyContent: 'center',
           alignItems: 'center',
-          textDecoration: 'none',
           bg: '#0cf',
         }}
       >
