@@ -18,7 +18,6 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
         <Hero data={author.node} />
-        <Social />
       </Layout>
     )
   }

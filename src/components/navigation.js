@@ -11,7 +11,9 @@ const sx = {
 
 const links = [
   { to: '/', children: 'Home' },
-  { to: '/blog', children: 'Blog' },
+  { to: '/about', children: 'Profile' },
+  { to: '/projects', children: 'Projects' },
+  { to: '/blog', children: 'Articles' },
 ]
 
 export default () => (
@@ -40,14 +42,14 @@ export default () => (
             fill="none"
             stroke="#000"
             strokeLinejoin="round"
-            strokeWidth="16px"
+            strokeWidth="12px"
           />
           <path
             d="M82,176.18,82,23.42a95.41,95.41,0,0,1,17.19-1.56,78.16,78.16,0,0,1,72,47.72l-43.2,18.25h0A31.26,31.26,0,0,0,81.67,74.08"
             fill="none"
             stroke="#000"
             strokeLinejoin="round"
-            strokeWidth="16px"
+            strokeWidth="12px"
           />
         </svg>
       </Flex>
