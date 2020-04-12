@@ -1,8 +1,10 @@
 /** @jsx jsx */
 
-import { jsx, Box } from 'theme-ui'
-import Navigation from './navigation'
 import './base.css'
+
+import { jsx, Box } from 'theme-ui'
+
+import Navigation from './navigation'
 
 const Layout = ({ children }) => {
   return (

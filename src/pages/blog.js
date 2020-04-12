@@ -1,8 +1,11 @@
+/** @jsx jsx */
+
+import { jsx } from 'theme-ui'
+
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './blog.module.css'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 
@@ -13,9 +16,22 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
+        <div>
           <Helmet title={siteTitle} />
-          <div className={styles.hero}>Blog</div>
+          <div
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: '61.8vh',
+              maxHeight: '400px',
+              background: '#e1e1e1',
+              fontSize: '2em',
+              overflow: 'hidden',
+            }}
+          >
+            Blog
+          </div>
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
             <ul className="article-list">
