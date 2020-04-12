@@ -17,7 +17,7 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        <Box sx={{ maxWidth: `50ch` }}>
+        <Box sx={{ maxWidth: `55ch` }}>
           <Hero data={author.node} />
           <Features />
         </Box>

@@ -18,18 +18,31 @@ export default () => (
             as={Link}
             to={`/${category.toLowerCase()}`}
             sx={{
+              borderWidth: 1,
+              borderStyle: `solid`,
+              borderColor: `transparent`,
               px: 2,
               display: `inline-block`,
               fontStyle: `italic`,
-              borderWidth: 1,
-              borderStyle: `solid`,
-              borderColor: `#ccc`,
               color: `var(--color)`,
+              backgroundColor: `var(--tag)`,
             }}
           >
             {category}
-          </Text>{' '}
-          <Text as="a" href={link} target="_blank" rel="noopener noreferrer">
+          </Text>
+          <Text
+            as="a"
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              px: 2,
+              display: `inline-block`,
+              borderWidth: 1,
+              borderStyle: `solid`,
+              borderColor: `transparent`,
+            }}
+          >
             {title}
           </Text>
         </Box>

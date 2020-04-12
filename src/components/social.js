@@ -18,7 +18,7 @@ const links = [
 
 export default () => (
   <>
-    <Flex sx={{ mt: 4, borderTopWidth: 1, borderTopStyle: `solid`, borderTopColor: `#ccc`, pt: 5, pb: 3 }}>
+    <Flex sx={{ mt: 4, borderTopWidth: 1, borderTopStyle: `solid`, borderTopColor: `var(--tag)`, pt: 5, pb: 3 }}>
       {links.map(({ href, children }) => (
         <Flex key={href} as="a" target="_blank" rel="noopener noreferrer" {...{ sx, href }}>
           <span {...{ children }} />

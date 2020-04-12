@@ -1,14 +1,14 @@
 :root {
   --font-size: 1.25em;
-  --color: #000;
-  --background-color: #fff;
-  --action: #b72424; /* #0270c7; */
-  --tag: #555;
+  --color: rgba(0, 0, 0, 0.9);
+  --background-color: #d2f1f9;
+  --action: #c50808; /* #0270c7; */
+  --tag: rgba(0, 0, 0, 0.1);
 }
 
 :focus {
   outline: 6px double var(--action);
-  outline-offset: 0.25em;
+  outline-offset: 0.125em;
 }
 
 body {
@@ -16,8 +16,8 @@ body {
   font-size: var(--font-size);
   line-height: 1.7;
   font-family: system-ui, sans-serif;
-  color: var(--color);
-  background-color: var(--background-color);
+  color: var(--color) !important;
+  background-color: var(--background-color) !important;
 }
 
 img {
@@ -38,4 +38,8 @@ h1,
 h2,
 h3 {
   font-weight: 500;
+}
+
+h1 {
+  line-height: 1.4;
 }

@@ -21,16 +21,16 @@ export default ({ article }) => (
           as="p"
           key={tag}
           sx={{
-            color: `var(--tag)`,
-            textDecoration: `none`,
-            display: `inline-block`,
+            mr: `0.5em`,
             py: `.33333rem`,
             px: `0.5rem`,
-            lineHeight: `1`,
             borderWidth: `1px`,
             borderStyle: `solid`,
             borderColor: `var(--tag)`,
-            mr: `0.5em`,
+            display: `inline-block`,
+            fontStyle: `italic`,
+            lineHeight: `1`,
+            textDecoration: `none`,
           }}
         >
           {tag}
