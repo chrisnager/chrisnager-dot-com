@@ -21,69 +21,72 @@ export default () => {
   const [colorMode, setColorMode] = useColorMode()
 
   return (
-    <nav role="navigation">
-      <Flex sx={{ mb: 4 }}>
-        <Flex
+    <Flex as="nav" role="navigation" sx={{ height: `7rem`, mb: 4, px: 2 }}>
+      <Flex
+        sx={{
+          justifyContent: `center`,
+          alignItems: `center`,
+        }}
+      >
+        <Link
           sx={{
-            width: `5rem`,
-            height: `7rem`,
-            pl: 2,
-            pr: 3,
-            justifyContent: `center`,
+            width: `3rem`,
+            height: `3rem`,
+            display: `flex`,
             alignItems: `center`,
+            justifyContent: `center`,
+            ':hover > svg > path, :focus > svg > path': {
+              stroke: `action`,
+            },
           }}
+          to="/"
         >
-          <Link
-            sx={{
-              width: `2.5rem`,
-              height: `2.5rem`,
-              ':hover > svg > path, :focus > svg > path': {
-                stroke: `action`,
-              },
-            }}
-            to="/"
-          >
-            <Logo />
-          </Link>
-        </Flex>
-        <Flex
-          as="ul"
-          sx={{
-            my: 0,
-            pl: 0,
-            flex: 1,
-            justifyContent: `flex-end`,
-            listStyleType: `none`,
-          }}
-        >
-          {links.map(({ to, children }) => (
-            <Flex as="li" sx={{ alignItems: `center` }} key={to}>
-              <Link {...{ sx, to, children }}></Link>
-            </Flex>
-          ))}
-        </Flex>
-        <button
-          onClick={() => setColorMode(colorMode === `default` ? `dark` : `default`)}
-          aria-label="Toggle color mode"
-          sx={{
-            appearance: `none`,
-            display: `inline-block`,
-            textAlign: `center`,
-            lineHeight: `inherit`,
-            textDecoration: `none`,
-            fontSize: `1.5rem`,
-            fontWeight: `normal`,
-            m: 0,
-            border: 0,
-            py: 0,
-            px: 3,
-            color: `inherit`,
-            bg: 'transparent',
-          }}
-        >
-          ☼
-        </button>
+          <Logo />
+        </Link>
       </Flex>
-    </nav>
+      <Flex
+        as="ul"
+        sx={{
+          my: 0,
+          pl: 0,
+          flex: 1,
+          justifyContent: `flex-end`,
+          listStyleType: `none`,
+        }}
+      >
+        {links.map(({ to, children }) => (
+          <Flex as="li" sx={{ alignItems: `center` }} key={to}>
+            <Link {...{ sx: { ...sx, height: 48, display: `flex`, alignItems: `center` }, to, children }}></Link>
+          </Flex>
+        ))}
+        <Flex as="li" sx={{ alignItems: `center` }}>
+          <button
+            onClick={() => setColorMode(colorMode === `default` ? `dark` : `default`)}
+            aria-label="Toggle color mode"
+            sx={{
+              width: 48,
+              height: 48,
+              appearance: `none`,
+              display: `inline-block`,
+              textAlign: `center`,
+              lineHeight: `inherit`,
+              textDecoration: `none`,
+              fontSize: `1.5rem`,
+              fontWeight: `normal`,
+              m: 0,
+              border: 0,
+              pt: 0,
+              px: 3,
+              pb: `6px`,
+              color: `action`,
+              cursor: `pointer`,
+              bg: 'transparent',
+            }}
+          >
+            ☼
+          </button>
+        </Flex>
+      </Flex>
+    </Flex>
   )
 }
