@@ -60,7 +60,12 @@ export default () => {
 
         <Box as="ul" sx={{ my: 0, pl: 0 }}>
           {projects.map(project => (
-            <Box key={project.title} as={Link} sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}>
+            <Box
+              key={project.title}
+              as={Link}
+              to="/"
+              sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}
+            >
               <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
                 {project.title}
               </Text>
