@@ -11,13 +11,9 @@ export default () => {
           Profile
         </Text>
         <Text as="p" sx={{ my: 3 }}>
-          Stuff about me.
+          I'm a front end engineer with a background in design, a minimalist aesthetic, and a deep concern for
+          performance and accessibility. <a href="/">Learn more</a>
         </Text>
-
-        <p>
-          Front end engineer with a background in design, a minimalist aesthetic, and a deep concern for performance and
-          accessibility. <a href="/">Learn more</a>
-        </p>
 
         <p>
           I’m a software engineer with a background in design. My design and code come from a deep concern for

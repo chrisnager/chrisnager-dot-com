@@ -15,7 +15,7 @@ const links = [
 ]
 
 export default () => (
-  <Flex>
+  <Flex sx={{ my: 4 }}>
     {links.map(({ href, children }) => (
       <Flex key={href} as="a" target="_blank" rel="noopener noreferrer" {...{ sx, href }}>
         <span {...{ children }} />

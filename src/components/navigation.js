@@ -39,7 +39,7 @@ export default () => (
           sx={{
             width: `2.5rem`,
             height: `2.5rem`,
-            `:hover > svg > path, :focus > svg > path`: {
+            ':hover > svg > path, :focus > svg > path': {
               stroke: `var(--action)`,
             },
           }}

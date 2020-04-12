@@ -60,11 +60,11 @@ export default () => {
 
         <Box as="ul" sx={{ my: 0, pl: 0 }}>
           {projects.map(project => (
-            <Box key={project.title} as={Link} sx={{ mt: 4, display: `block` }}>
-              <Text as="h1" sx={{ fontSize: 4 }}>
+            <Box key={project.title} as={Link} sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}>
+              <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
                 {project.title}
               </Text>
-              <Text as="p" sx={{ mt: 1 }}>
+              <Text as="p" sx={{ mt: 1, color: `var(--color)`, 'a:hover > &': { color: `var(--color)` } }}>
                 {project.summary}
               </Text>
             </Box>

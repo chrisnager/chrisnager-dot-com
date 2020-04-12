@@ -1,12 +1,18 @@
 :root {
+  --font-size: 1.125em;
   --color: #000;
   --background-color: #fff;
-  --action: #0270c7;
+  --action: #b72424; /* #0270c7; */
+}
+
+:focus {
+  outline: 6px double var(--action);
+  outline-offset: 0.25em;
 }
 
 body {
   margin: 0;
-  font-size: 1.125em;
+  font-size: var(--font-size);
   line-height: 1.7;
   font-family: system-ui, sans-serif;
   color: var(--color);
@@ -20,4 +26,15 @@ img {
 
 a {
   color: var(--action);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
 }
