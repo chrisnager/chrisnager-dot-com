@@ -9,7 +9,7 @@ import Layout from '../components/layout'
 
 class AboutIndex extends React.Component {
   render() {
-    const [author] = get(this, `props.data.allContentfulPerson.edges`)
+    const { fluid } = get(this, `props.data.allContentfulPerson.edges[0].node.heroImage`)
 
     return (
       <Layout>
@@ -25,7 +25,7 @@ class AboutIndex extends React.Component {
             performance and accessibility.
           </p>
 
-          <Img fluid={author.node.heroImage.fluid} alt="" />
+          <Img {...{ fluid }} alt="" />
 
           <p>
             I’ve worked in many industries, from Advertising to Finance. I’ve been part of a{` `}
