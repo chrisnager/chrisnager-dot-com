@@ -15,9 +15,7 @@ if (!spaceId || !accessToken) {
 }
 
 module.exports = {
-  siteMetadata: {
-    title: 'Gatsby Contentful starter',
-  },
+  siteMetadata: { title: 'Gatsby Contentful starter' },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
     'gatsby-plugin-theme-ui',
@@ -31,9 +29,11 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-html-attributes',
-      options: {
-        lang: 'en',
-      },
+      options: { lang: 'en' },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: { trackingId: 'UA-3632655-1' },
     },
   ],
 }
