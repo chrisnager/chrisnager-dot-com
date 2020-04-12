@@ -5,14 +5,14 @@ import { Link } from 'gatsby'
 
 const sx = {
   px: 3,
-  display: 'block',
+  display: `block`,
 }
 
 const links = [
-  { to: '/', children: 'Home' },
-  { to: '/about', children: 'Profile' },
-  { to: '/projects', children: 'Projects' },
-  { to: '/blog', children: 'Articles' },
+  { to: `/`, children: `Home` },
+  { to: `/about`, children: `Profile` },
+  { to: `/projects`, children: `Work` },
+  { to: `/blog`, children: `Blog` },
 ]
 
 export default () => (
@@ -22,23 +22,26 @@ export default () => (
       sx={{
         my: 0,
         pl: 0,
-        listStyleType: 'none',
+        listStyleType: `none`,
       }}
     >
       <Flex
         sx={{
-          width: '5rem',
-          height: '7rem',
+          width: `5rem`,
+          height: `7rem`,
           pl: 2,
           pr: 3,
-          justifyContent: 'center',
-          alignItems: 'center',
+          justifyContent: `center`,
+          alignItems: `center`,
         }}
       >
         <Link
           sx={{
-            width: '2.5rem',
-            height: '2.5rem',
+            width: `2.5rem`,
+            height: `2.5rem`,
+            `:hover > svg > path, :focus > svg > path`: {
+              stroke: `var(--action)`,
+            },
           }}
         >
           <svg
@@ -46,7 +49,7 @@ export default () => (
             viewBox="0 0 200 200"
             width="2.5rem"
             height="2.5rem"
-            style={{ display: 'block' }}
+            style={{ display: `block` }}
           >
             <path
               d="M21,100A78.06,78.06,0,0,1,52.25,37.48h0v125h0a78.17,78.17,0,0,0,118.52-31.26l-43-18.76.15-.33a31.26,31.26,0,0,1-44.43,14.9"
@@ -65,9 +68,9 @@ export default () => (
           </svg>
         </Link>
       </Flex>
-      <Flex sx={{ flex: 1, justifyContent: 'flex-end' }}>
+      <Flex sx={{ flex: 1, justifyContent: `flex-end` }}>
         {links.map(({ to, children }) => (
-          <Flex as="li" sx={{ alignItems: 'center' }} key={to}>
+          <Flex as="li" sx={{ alignItems: `center` }} key={to}>
             <Link {...{ sx, to, children }}></Link>
           </Flex>
         ))}

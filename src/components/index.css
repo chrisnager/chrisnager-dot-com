@@ -1,6 +1,7 @@
 :root {
   --color: #000;
   --background-color: #fff;
+  --action: #0270c7;
 }
 
 body {
@@ -18,5 +19,5 @@ img {
 }
 
 a {
-  color: #0270c7;
+  color: var(--action);
 }
