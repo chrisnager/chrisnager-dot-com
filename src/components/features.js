@@ -25,7 +25,7 @@ export default () => (
               display: `inline-block`,
               fontStyle: `italic`,
               color: `var(--color)`,
-              backgroundColor: `var(--tag)`,
+              bg: `var(--tag)`,
             }}
           >
             {category}
