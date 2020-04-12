@@ -9,7 +9,7 @@ export default ({ data }) => (
     <Text as="p" sx={{ my: 3, fontSize: 4 }}>
       {data.shortBio.shortBio}
       <br />
-      <Link to="/about" sx={{ fontSize: 3 }}>
+      <Link to="/profile" sx={{ fontSize: 3 }}>
         Learn more
       </Link>
     </Text>

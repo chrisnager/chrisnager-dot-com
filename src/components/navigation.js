@@ -11,7 +11,7 @@ const sx = {
 
 const links = [
   { to: `/`, children: `Home` },
-  { to: `/about`, children: `Profile` },
+  { to: `/profile`, children: `Profile` },
   { to: `/work`, children: `Projects` },
   { to: `/speaking`, children: `Speaking` },
   { to: `/blog`, children: `Blog` },

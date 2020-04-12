@@ -7,7 +7,7 @@ import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
-class AboutIndex extends React.Component {
+class ProfileIndex extends React.Component {
   render() {
     const { fluid } = get(this, `props.data.allContentfulPerson.edges[0].node.heroImage`)
 
@@ -80,10 +80,10 @@ class AboutIndex extends React.Component {
   }
 }
 
-export default AboutIndex
+export default ProfileIndex
 
 export const pageQuery = graphql`
-  query AboutQuery {
+  query ProfileQuery {
     allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {
       edges {
         node {
