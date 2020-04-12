@@ -1,3 +1,3 @@
 # chrisnager.com
 
-Personal site
+Chris Nager's site
