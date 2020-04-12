@@ -46,7 +46,7 @@ const projects = [
 export default () => {
   return (
     <Layout>
-      <Box sx={{ px: 3 }}>
+      <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Text as="h1">Speaking</Text>
         <Text as="p" sx={{ my: 3 }}>
           Fun stuff I've presented

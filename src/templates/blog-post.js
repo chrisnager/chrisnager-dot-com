@@ -1,3 +1,6 @@
+/** @jsx jsx */
+
+import { jsx, Box, Text } from 'theme-ui'
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
@@ -12,13 +15,11 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div>
+        <Img alt={post.title} fluid={post.heroImage.fluid} />
+        <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
           <Helmet title={`${post.title} / ${siteTitle}`} />
           <div>
-            <Img alt={post.title} fluid={post.heroImage.fluid} />
-          </div>
-          <div>
-            <h1>{post.title}</h1>
+            <Text as="h1">{post.title}</Text>
             <p>{post.publishDate}</p>
             <div
               dangerouslySetInnerHTML={{
@@ -26,7 +27,7 @@ class BlogPostTemplate extends React.Component {
               }}
             />
           </div>
-        </div>
+        </Box>
       </Layout>
     )
   }
@@ -45,7 +46,7 @@ export const pageQuery = graphql`
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
+        fluid(maxWidth: 1820, maxHeight: 800, background: "rgb:000000") {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }

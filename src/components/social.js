@@ -27,6 +27,12 @@ export default () => (
     </Flex>
     <Text as="p" sx={{ mb: 5, px: 3 }}>
       <Text as="small">&copy; 2020 Chris Nager</Text>
+      <span> &middot; </span>
+      <Text as="small">
+        <Text as="a" href="https://github.com/chrisnager/chrisnager-dot-com" target="_blank" rel="noopener noreferrer">
+          Source
+        </Text>
+      </Text>
     </Text>
   </>
 )
