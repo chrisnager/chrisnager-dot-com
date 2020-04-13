@@ -55,7 +55,10 @@ class ProfileIndex extends React.Component {
             .
           </p>
 
-          <p>You may see me on the G train, speed-solving my Rubik’s cube.</p>
+          <p>
+            Pre-quarantine, you may have seen me on the G train,{' '}
+            <a href="https://www.instagram.com/p/BsE0AVMCUnt/">speed-solving my Rubik’s cube</a>.
+          </p>
 
           <p>
             I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React

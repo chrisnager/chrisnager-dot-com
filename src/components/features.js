@@ -4,7 +4,7 @@ import { jsx, Box, Text } from 'theme-ui'
 import { Link } from 'gatsby'
 
 const features = [
-  { category: `Work`, title: `Emoonji`, link: `/` },
+  { category: `Projects`, title: `Emoonji`, link: `/` },
   { category: `Speaking`, title: `Lifecycle of an icon`, link: `/` },
   { category: `Blog`, title: `Gatsby × Contentful`, link: `/` },
 ]
