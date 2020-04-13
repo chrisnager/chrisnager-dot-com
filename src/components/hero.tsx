@@ -1,7 +1,8 @@
 /** @jsx jsx */
 
-import { jsx, Box, Text } from 'theme-ui'
 import { Link } from 'gatsby'
+// @ts-ignore
+import { Box, jsx, Text } from 'theme-ui'
 
 export default ({ data }) => (
   <Box sx={{ px: 3 }}>

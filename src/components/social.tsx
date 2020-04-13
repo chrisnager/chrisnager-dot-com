@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
-import { jsx, Flex, Text } from 'theme-ui'
-import React from 'react'
+// @ts-ignore
+import { Box, Flex, jsx, Text } from 'theme-ui'
 
 const sx = {
   height: `2rem`,
@@ -17,7 +17,7 @@ const links = [
 ]
 
 export default () => (
-  <>
+  <Box>
     <Flex
       sx={{
         mt: 4,
@@ -43,5 +43,5 @@ export default () => (
         </Text>
       </Text>
     </Text>
-  </>
+  </Box>
 )

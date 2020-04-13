@@ -1,13 +1,15 @@
 /** @jsx jsx */
 
-import { jsx, Box } from 'theme-ui'
-import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import React from 'react'
 import Helmet from 'react-helmet'
+// @ts-ignore
+import { Box, jsx } from 'theme-ui'
+
+import Features from '../components/features'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
-import Features from '../components/features'
 
 class RootIndex extends React.Component {
   render() {
@@ -15,7 +17,9 @@ class RootIndex extends React.Component {
     const [author] = get(this, `props.data.allContentfulPerson.edges`)
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
+        {/* 
+        // @ts-ignore */}
         <Helmet title={siteTitle} />
         <Box sx={{ maxWidth: `55ch` }}>
           <Hero data={author.node} />

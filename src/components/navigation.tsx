@@ -1,7 +1,9 @@
 /** @jsx jsx */
 
-import { jsx, Flex, useColorMode } from 'theme-ui'
 import { Link } from 'gatsby'
+// @ts-ignore
+import { Box, Flex, jsx, useColorMode } from 'theme-ui'
+
 import Logo from './logo'
 
 const sx = {
@@ -53,11 +55,12 @@ export default () => {
       >
         {links.map(({ to, children }) => (
           <Flex as="li" sx={{ alignItems: `center` }} key={to}>
-            <Link {...{ sx: { ...sx, height: 48, display: `flex`, alignItems: `center` }, to, children }}></Link>
+            <Link {...{ sx: { px: 3, height: 48, display: `flex`, alignItems: `center` }, to, children }}></Link>
           </Flex>
         ))}
         <Flex as="li" sx={{ alignItems: `center` }}>
-          <button
+          <Box
+            as="button"
             onClick={() => setColorMode(colorMode === `default` ? `dark` : `default`)}
             aria-label="Toggle color mode"
             sx={{
@@ -84,7 +87,7 @@ export default () => {
             }}
           >
             ☼
-          </button>
+          </Box>
         </Flex>
       </Flex>
     </Flex>

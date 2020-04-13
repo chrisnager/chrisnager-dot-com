@@ -1,7 +1,9 @@
 /** @jsx jsx */
 
-import { jsx, Box, Text } from 'theme-ui'
 import { Link } from 'gatsby'
+// @ts-ignore
+import { Box, jsx, Text } from 'theme-ui'
+
 import Layout from '../components/layout'
 
 const projects = [

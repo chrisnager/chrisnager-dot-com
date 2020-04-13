@@ -1,13 +1,14 @@
 /** @jsx jsx */
 
-import { jsx, Box, Text } from 'theme-ui'
-
-import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import React from 'react'
 import Helmet from 'react-helmet'
-import Layout from '../components/layout'
+// @ts-ignore
+import { Box, jsx, Text } from 'theme-ui'
+
 import ArticlePreview from '../components/article-preview'
+import Layout from '../components/layout'
 
 class BlogIndex extends React.Component {
   render() {
@@ -15,7 +16,9 @@ class BlogIndex extends React.Component {
     const posts = get(this, `props.data.allContentfulBlogPost.edges`)
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
+        {/* 
+        // @ts-ignore */}
         <Helmet title={siteTitle} />
         <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
           <Text as="h1">Blog</Text>

@@ -1,10 +1,11 @@
 /** @jsx jsx */
 
-import { jsx, Box, Text } from 'theme-ui'
-import React from 'react'
 import { graphql } from 'gatsby'
-import get from 'lodash/get'
 import Img from 'gatsby-image'
+import get from 'lodash/get'
+import React from 'react'
+import { Box, jsx, Text } from 'theme-ui'
+
 import Layout from '../components/layout'
 
 class ProfileIndex extends React.Component {

@@ -1,11 +1,13 @@
 /** @jsx jsx */
 
-import { jsx, Box, Text } from 'theme-ui'
-import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import get from 'lodash/get'
 import Img from 'gatsby-image'
+import get from 'lodash/get'
+import React from 'react'
+import Helmet from 'react-helmet'
+// @ts-ignore
+import { Box, jsx, Text } from 'theme-ui'
+
 import Layout from '../components/layout'
 
 class BlogPostTemplate extends React.Component {
@@ -14,9 +16,11 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, `data.site.siteMetadata.title`)
 
     return (
-      <Layout location={this.props.location}>
+      <Layout>
         <Img alt={post.title} fluid={post.heroImage.fluid} />
         <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
+          {/* 
+          // @ts-ignore */}
           <Helmet title={`${post.title} / ${siteTitle}`} />
           <div>
             <Text as="h1">{post.title}</Text>

@@ -1,11 +1,12 @@
 /** @jsx jsx */
 
-import { Global } from '@emotion/core';
-import Helmet from 'react-helmet';
-import { Box, jsx } from 'theme-ui';
+import { Global } from '@emotion/core'
+import Helmet from 'react-helmet'
+// @ts-ignore
+import { Box, jsx } from 'theme-ui'
 
-import Navigation from './navigation';
-import Social from './social';
+import Navigation from './navigation'
+import Social from './social'
 
 const Layout = ({ children }) => {
   return (
@@ -55,7 +56,8 @@ const Layout = ({ children }) => {
           }      
       `}
       />
-
+      {/*
+      // @ts-ignore */}
       <Helmet>
         <link rel="icon" media="(prefers-color-scheme:dark)" href="favicon-dark.ico" type="image/x-icon" />
         <link rel="icon" media="(prefers-color-scheme:light)" href="favicon.ico" type="image/x-icon" />

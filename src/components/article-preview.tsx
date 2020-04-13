@@ -1,7 +1,9 @@
-import React from 'react'
 import { Link } from 'gatsby'
-// import Img from 'gatsby-image'
+import React from 'react'
+// @ts-ignore
 import { Text } from 'theme-ui'
+
+// import Img from 'gatsby-image'
 
 export default ({ article }) => (
   <div>
