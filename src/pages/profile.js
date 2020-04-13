@@ -15,17 +15,17 @@ class ProfileIndex extends React.Component {
       <Layout>
         <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
           <Text as="h1">Profile</Text>
-          <Text as="p" sx={{ my: 3 }}>
+          <Text as="p" sx={{ my: 3, fontSize: 4 }}>
             I'm a front end engineer with a background in design, a minimalist aesthetic, and a deep concern for
             performance and accessibility.
           </Text>
+
+          <Img {...{ fluid }} alt="" />
 
           <p>
             I’m a software engineer with a background in design. My design and code come from a deep concern for
             performance and accessibility.
           </p>
-
-          <Img {...{ fluid }} alt="" />
 
           <p>
             I’ve worked in many industries, from Advertising to Finance. I’ve been part of a{` `}

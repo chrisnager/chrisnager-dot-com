@@ -19,7 +19,7 @@ class BlogIndex extends React.Component {
         <Helmet title={siteTitle} />
         <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
           <Text as="h1">Blog</Text>
-          <Text as="p" sx={{ my: 3 }}>
+          <Text as="p" sx={{ my: 3, fontSize: 4 }}>
             Stuff I've written
           </Text>
           <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>

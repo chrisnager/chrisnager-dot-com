@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx, Box, Text } from 'theme-ui'
+import { jsx, Box, Flex, Text } from 'theme-ui'
 import { Link } from 'gatsby'
 import Layout from '../components/layout'
 
@@ -53,25 +53,23 @@ export default () => {
     <Layout>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Text as="h1">Projects</Text>
-        <Text as="p" sx={{ my: 3 }}>
+        <Text as="p" sx={{ my: 3, fontSize: 4 }}>
           Fun stuff I've built
         </Text>
 
-        <Box as="ul" sx={{ my: 0, pl: 0 }}>
+        <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
           {projects.map(project => (
-            <Box
-              key={project.title}
-              as={Link}
-              to="/"
-              sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}
-            >
-              <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
-                {project.title}
-              </Text>
-              <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
-                {project.summary}
-              </Text>
-            </Box>
+            <Flex key={project.title} as={Link} to="/" sx={{ mt: 4, ':hover': { textDecoration: `none` } }}>
+              <Box sx={{ size: 80, mr: 2, flex: `0 0 80px`, bg: `action` }} />
+              <Box>
+                <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
+                  {project.title}
+                </Text>
+                <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
+                  {project.summary}
+                </Text>
+              </Box>
+            </Flex>
           ))}
         </Box>
       </Box>

@@ -48,7 +48,7 @@ export default () => {
     <Layout>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Text as="h1">Speaking</Text>
-        <Text as="p" sx={{ my: 3 }}>
+        <Text as="p" sx={{ my: 3, fontSize: 4 }}>
           Fun stuff I've presented
         </Text>
 
