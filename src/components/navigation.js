@@ -75,9 +75,12 @@ export default () => {
               pt: 0,
               px: 3,
               pb: `6px`,
-              color: `action`,
+              color: `text`,
               cursor: `pointer`,
               bg: 'transparent',
+              ':hover': {
+                color: `action`,
+              },
             }}
           >
             ☼
