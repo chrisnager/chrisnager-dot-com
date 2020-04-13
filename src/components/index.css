@@ -5,7 +5,7 @@
 }
 
 :focus {
-  outline: 6px double var(--action);
+  outline: 6px double #e42e2e; /* TODO: Make this a dynamic theme color */
   outline-offset: 0.125em;
 }
 
