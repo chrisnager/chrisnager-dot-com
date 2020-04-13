@@ -1,10 +1,11 @@
 /** @jsx jsx */
 
-import { jsx, Box } from 'theme-ui'
-import { Global } from '@emotion/core'
-import Helmet from 'react-helmet'
-import Navigation from './navigation'
-import Social from './social'
+import { Global } from '@emotion/core';
+import Helmet from 'react-helmet';
+import { Box, jsx } from 'theme-ui';
+
+import Navigation from './navigation';
+import Social from './social';
 
 const Layout = ({ children }) => {
   return (
@@ -60,7 +61,7 @@ const Layout = ({ children }) => {
         <link rel="icon" media="(prefers-color-scheme:light)" href="favicon.ico" type="image/x-icon" />
         <script
           src="https://unpkg.com/favicon-switcher@1.2.2/dist/index.js"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
           type="application/javascript"
         ></script>
       </Helmet>

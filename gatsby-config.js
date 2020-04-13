@@ -18,22 +18,23 @@ module.exports = {
   siteMetadata: { title: 'Gatsby Contentful starter' },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
-    'gatsby-plugin-theme-ui',
-    'gatsby-transformer-remark',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
+    `gatsby-plugin-theme-ui`,
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-typescript`,
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
     },
     {
-      resolve: 'gatsby-plugin-html-attributes',
-      options: { lang: 'en' },
+      resolve: `gatsby-plugin-html-attributes`,
+      options: { lang: `en` },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
-      options: { trackingId: 'UA-3632655-1' },
+      options: { trackingId: `UA-3632655-1` },
     },
   ],
 }
