@@ -5,7 +5,6 @@ import Img from 'gatsby-image'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
-// @ts-ignore
 import { Box, jsx, Text } from 'theme-ui'
 
 import Layout from '../components/layout'

@@ -1,6 +1,5 @@
 import { Link } from 'gatsby'
 import React from 'react'
-// @ts-ignore
 import { Text } from 'theme-ui'
 
 // import Img from 'gatsby-image'

@@ -1,6 +1,5 @@
 /** @jsx jsx */
 
-// @ts-ignore
 import { Box, jsx } from 'theme-ui'
 
 export default () => (

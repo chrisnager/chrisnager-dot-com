@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
-// @ts-ignore
 import { Box, jsx } from 'theme-ui'
 
 import Features from '../components/features'

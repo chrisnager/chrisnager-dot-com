@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
 import { Link } from 'gatsby'
-// @ts-ignore
 import { Box, Flex, jsx, useColorMode } from 'theme-ui'
 
 import Logo from './logo'

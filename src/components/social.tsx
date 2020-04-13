@@ -1,6 +1,5 @@
 /** @jsx jsx */
 
-// @ts-ignore
 import { Box, Flex, jsx, Text } from 'theme-ui'
 
 const sx = {

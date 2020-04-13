@@ -2,7 +2,6 @@
 
 import { Global } from '@emotion/core'
 import Helmet from 'react-helmet'
-// @ts-ignore
 import { Box, jsx } from 'theme-ui'
 
 import Navigation from './navigation'
