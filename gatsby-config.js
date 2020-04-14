@@ -24,6 +24,8 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
+    `gatsby-transformer-screenshot`,
+    `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-source-contentful`,
       options: contentfulConfig,
@@ -35,6 +37,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: { trackingId: `UA-3632655-1` },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: './src/data',
+      },
     },
   ],
 }
