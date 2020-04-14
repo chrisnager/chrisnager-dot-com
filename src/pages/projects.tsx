@@ -17,7 +17,14 @@ export default ({ data }) => {
 
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
           {data.allSitesYaml.edges.map(({ node }) => (
-            <Flex key={node.name} as={Link} to={node.url} sx={{ mt: 4, ':hover': { textDecoration: `none` } }}>
+            <Flex
+              key={node.name}
+              as="a"
+              href={node.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ mt: 4, ':hover': { textDecoration: `none` } }}
+            >
               <Box sx={{ size: 80, mr: 2, flex: `0 0 80px`, bg: `action` }}>
                 {node.childScreenshot && (
                   <Img resolutions={node.childScreenshot.screenshotFile.childImageSharp.resolutions} alt={node.name} />
@@ -50,7 +57,7 @@ export const pageQuery = graphql`
           childScreenshot {
             screenshotFile {
               childImageSharp {
-                resolutions(width: 384, height: 288) {
+                resolutions(width: 80, height: 80) {
                   ...GatsbyImageSharpResolutions
                 }
               }
