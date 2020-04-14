@@ -1,0 +1,78 @@
+- url: http://chrisnager.com/generative-art
+  name: Generative art
+  summary: Fun with generated patterns
+- url: http://bit.do/emoonji
+  title: Emoonji
+  summary: A friendly chatbot that sends the current moon phases with emojis
+- url: http://bit.ly/smajor
+  title: \> Signum majoritatis
+  summary: A side-scrolling game built in a single string
+- url: http://give-n-go.co
+  title: Give 'n' Go
+  summary: A curated gallery of Dribbble shots reworked as interactive CodePen pens
+- url: http://cheermeup.website
+  name: Cheer me up
+  summary: Fun, custom pages in seconds
+- url: http://chrisnager.com/ungrid
+  name: ungrid
+  summary: the simplest responsive css grid
+- url: /simple-paper-spinner
+  title: Simple <paper-spinner>
+  summary: How to rebuild Google's Material Design <paper-spinner> with a single div and CSS animations
+- url: http://chrisnager.com/until
+  name: Until
+  summary: Are we there yet?
+- url: http://vimeo.com/71911497
+  title: UN Disaster Response
+  summary: Currently working with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations
+- url: http://disruptnyhackathon.challengepost.com/submissions/23514-jaunt
+  title: Jaunt
+  summary: Let your friends be your city guides. (TechCrunch Disrupt Hackathon app entry)
+- url: http://chrisnager.com/cursors
+  name: Cursors
+  summary: All available cursors
+- url: http://chrisnager.com/simple-debug.css
+  name: simple-debug.css
+  summary: Debug your layouts with one line of CSS
+- url: http://chrisnager.com/palette
+  name: palette
+  summary: A simple color palette
+- url: /short-color-names
+  title: ✂ short color names
+  summary: The 44 CSS color names that are as short as or shorter than their corresponding hexcodes.
+- url: http://chrisnager.com/hexcodes
+  name: hexcodes
+  summary: All possible three digit hexcodes
+- url: /tiny-google-fonts
+  title: tiny google fonts
+  summary: Strip down your google fonts significantly to only include the characters you're actually using
+- url: http://chrisnager.com/birthday-hex
+  name: Birthday hex
+  summary: Find your birthday hexcode
+- url: /svg-please
+  title: SVG Please
+  summary: Simple script to replace your bitmap icons with inline SVGs with bitmap fallback built in
+- url: http://fav5.co
+  name: \#Fav5
+  summary: What are your five most important items?
+- url: http://chrisnager.com/twadlib
+  name: Twadlib!
+  summary: Ad-lib your tweets
+- url: http://chrisnager.com/bliss
+  name: Bliss
+  summary: Beautifully lean, ideal style sheets
+- url: http://chrisnager.com/crafted-css
+  name: Crafted CSS
+  summary: A personal compilation of CSS practices I follow
+- url: http://chrisnager.com/social-logos/
+  name: Social Logos
+  summary: Download official social logos
+- url: http://v2.chrisnager.com
+  name: chrisnager.com v2
+  summary: Care to reminisce?
+- url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
+  title: Ben Thomson Photo
+  summary: Awwwards Site of the Day
+- url: http://coding.smashingmagazine.com/2010/07/12/css3-design-contest-results/
+  title: Totally Fresh
+  summary: Experimental CSS3 design featured on Smashing Magazine
