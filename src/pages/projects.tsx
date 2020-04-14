@@ -1,84 +1,12 @@
 /** @jsx jsx */
 
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
+import Img from 'gatsby-image'
 import { Box, Flex, jsx, Text } from 'theme-ui'
 
 import Layout from '../components/layout'
 
-const projects = [
-  { title: `Generative art`, summary: `Fun with generated patterns` },
-  {
-    link: `http://bit.do/emoonji`,
-    title: `Emoonji`,
-    summary: `A friendly chatbot that sends the current moon phases with emojis`,
-  },
-  {
-    link: `http://bit.ly/smajor`,
-    title: `> Signum majoritatis`,
-    summary: `A side-scrolling game built in a single string`,
-  },
-  {
-    link: `http://give-n-go.co`,
-    title: `Give 'n' Go`,
-    summary: `A curated gallery of Dribbble shots reworked as interactive CodePen pens`,
-  },
-  { link: `http://cheermeup.website`, title: `Cheer me up`, summary: `Fun, custom pages in seconds` },
-  { link: `/ungrid`, title: `ungrid`, summary: `the simplest responsive css grid` },
-  {
-    link: `/simple-paper-spinner`,
-    title: `Simple <paper-spinner>`,
-    summary: `How to rebuild Google's Material Design <paper-spinner> with a single div and CSS animations`,
-  },
-  { link: `/until`, title: `Until`, summary: `Are we there yet?` },
-  {
-    link: `http://vimeo.com/71911497`,
-    title: `UN Disaster Response`,
-    summary: `Currently working with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations`,
-  },
-  {
-    link: `http://disruptnyhackathon.challengepost.com/submissions/23514-jaunt`,
-    title: `Jaunt`,
-    summary: `Let your friends be your city guides. (TechCrunch Disrupt Hackathon app entry)`,
-  },
-  { link: `/cursors`, title: `Cursors`, summary: `All available cursors` },
-  { link: `/simple-debug.css`, title: `simple-debug.css`, summary: `Debug your layouts with one line of CSS` },
-  { link: `/palette`, title: `palette`, summary: `A simple color palette` },
-  {
-    link: `/short-color-names`,
-    title: `✂ short color names`,
-    summary: `The 44 CSS color names that are as short as or shorter than their corresponding hexcodes.`,
-  },
-  { link: `/hexcodes`, title: `hexcodes`, summary: `All possible three digit hexcodes` },
-  {
-    link: `/tiny-google-fonts`,
-    title: `tiny google fonts`,
-    summary: `Strip down your google fonts significantly to only include the characters you're actually using`,
-  },
-  { link: `/birthday-hex`, title: `Birthday hex`, summary: `Find your birthday hexcode` },
-  {
-    link: `/svg-please`,
-    title: `SVG Please`,
-    summary: `Simple script to replace your bitmap icons with inline SVGs with bitmap fallback built in`,
-  },
-  { link: `http://fav5.co`, title: `#Fav5`, summary: `What are your five most important items?` },
-  { link: `/twadlib`, title: `Twadlib!`, summary: `Ad-lib your tweets` },
-  { link: `/bliss`, title: `Bliss`, summary: `Beautifully lean, ideal style sheets` },
-  { link: `/crafted-css`, title: `Crafted CSS`, summary: `A personal compilation of CSS practices I follow` },
-  { link: `/social-logos/`, title: `Social Logos`, summary: `Download official social logos` },
-  { link: `http://v2.chrisnager.com`, title: `chrisnager.com v2`, summary: `Care to reminisce?` },
-  {
-    link: `http://www.awwwards.com/web-design-awards/ben-thomson-photography`,
-    title: `Ben Thomson Photo`,
-    summary: `Awwwards Site of the Day`,
-  },
-  {
-    link: `http://coding.smashingmagazine.com/2010/07/12/css3-design-contest-results/`,
-    title: `Totally Fresh`,
-    summary: `Experimental CSS3 design featured on Smashing Magazine`,
-  },
-]
-
-export default () => {
+export default ({ data }) => {
   return (
     <Layout>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
@@ -88,15 +16,19 @@ export default () => {
         </Text>
 
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
-          {projects.map(project => (
-            <Flex key={project.title} as={Link} to={project.link} sx={{ mt: 4, ':hover': { textDecoration: `none` } }}>
-              <Box sx={{ size: 80, mr: 2, flex: `0 0 80px`, bg: `action` }} />
+          {data.allSitesYaml.edges.map(({ node }) => (
+            <Flex key={node.name} as={Link} to={node.url} sx={{ mt: 4, ':hover': { textDecoration: `none` } }}>
+              <Box sx={{ size: 80, mr: 2, flex: `0 0 80px`, bg: `action` }}>
+                {node.childScreenshot && (
+                  <Img resolutions={node.childScreenshot.screenshotFile.childImageSharp.resolutions} alt={node.name} />
+                )}
+              </Box>
               <Box>
                 <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
-                  {project.title}
+                  {node.name}
                 </Text>
                 <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
-                  {project.summary}
+                  {node.summary}
                 </Text>
               </Box>
             </Flex>
@@ -106,6 +38,29 @@ export default () => {
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  query ProjectsQuery {
+    allSitesYaml {
+      edges {
+        node {
+          url
+          name
+          summary
+          childScreenshot {
+            screenshotFile {
+              childImageSharp {
+                resolutions(width: 384, height: 288) {
+                  ...GatsbyImageSharpResolutions
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 /*
 ---
