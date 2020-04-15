@@ -1,84 +1,161 @@
+# Projects
 - url: http://chrisnager.com/generative-art/bendies/
   name: Bendies
   summary: Fun with generated patterns (generative art)
+  page: projects
 - url: http://chrisnager.com/generative-art/diagonals/
   name: Diagonals
   summary: Fun with generated patterns (generative art)
+  page: projects
 - url: http://chrisnager.com/generative-art/corners/
   name: Corners
   summary: Fun with generated patterns (generative art)
+  page: projects
 - url: http://bit.do/emoonji
   name: Emoonji
   summary: A friendly chatbot that sends the current moon phases with emojis
+  page: projects
 - url: http://bit.ly/smajor
   name: Signum majoritatis
   summary: A side-scrolling game built in a single string
+  page: projects
 - url: http://give-n-go.co
   name: Give 'n' Go
   summary: A curated gallery of Dribbble shots reworked as interactive CodePen pens
+  page: projects
 - url: http://cheermeup.website
   name: Cheer me up
   summary: Fun, custom pages in seconds
+  page: projects
 - url: http://chrisnager.com/ungrid
   name: ungrid
   summary: the simplest responsive css grid
+  page: projects
 - url: http://chrisnager.com/simple-paper-spinner
   name: Simple <paper-spinner>
   summary: How to rebuild Google's Material Design <paper-spinner> with a single div and CSS animations
+  page: projects
 - url: http://chrisnager.com/until
   name: Until
   summary: Are we there yet?
+  page: projects
 - url: http://vimeo.com/71911497
   name: UN Disaster Response
   summary: Currently working with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations
+  page: projects
 - url: http://disruptnyhackathon.challengepost.com/submissions/23514-jaunt
   name: Jaunt
   summary: Let your friends be your city guides. (TechCrunch Disrupt Hackathon app entry)
+  page: projects
 - url: http://chrisnager.com/cursors
   name: Cursors
   summary: All available cursors
+  page: projects
 - url: http://chrisnager.com/simple-debug.css
   name: simple-debug.css
   summary: Debug your layouts with one line of CSS
+  page: projects
 - url: http://chrisnager.com/simple-palette/
   name: simple-palette
   summary: A simple color palette
+  page: projects
 - url: http://chrisnager.com/short-color-names
   name: ✂ short color names
   summary: The 44 CSS color names that are as short as or shorter than their corresponding hexcodes.
+  page: projects
 - url: http://chrisnager.com/hexcodes
   name: hexcodes
   summary: All possible three digit hexcodes
+  page: projects
 - url: http://chrisnager.com/tiny-google-fonts
   name: tiny google fonts
   summary: Strip down your google fonts significantly to only include the characters you're actually using
+  page: projects
 - url: http://chrisnager.com/birthday-hex
   name: Birthday hex
   summary: Find your birthday hexcode
+  page: projects
 - url: http://chrisnager.com/svg-please
   name: SVG Please
   summary: Simple script to replace your bitmap icons with inline SVGs with bitmap fallback built in
+  page: projects
 - url: http://fav5.co
   name: Fav5
   summary: What are your five most important items?
+  page: projects
 - url: http://chrisnager.com/twadlib
   name: Twadlib!
   summary: Ad-lib your tweets
+  page: projects
 - url: http://chrisnager.com/bliss
   name: Bliss
   summary: Beautifully lean, ideal style sheets
+  page: projects
 - url: http://chrisnager.com/crafted-css
   name: Crafted CSS
   summary: A personal compilation of CSS practices I follow
+  page: projects
 - url: http://chrisnager.com/social-logos/
   name: Social Logos
   summary: Download official social logos
+  page: projects
 - url: http://v2.chrisnager.com
   name: chrisnager.com v2
   summary: Care to reminisce?
+  page: projects
 - url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
   name: Ben Thomson Photo
   summary: Awwwards Site of the Day
+  page: projects
 - url: http://coding.smashingmagazine.com/2010/07/12/css3-design-contest-results/
   name: Totally Fresh
   summary: Experimental CSS3 design featured on Smashing Magazine
+  page: projects
+
+# Speaking
+- name: Lifecycle of an icon
+  summary: Our icon creation process, from ideation to implementation
+  page: speaking
+  url: https://twitter.com/chrisnager/status/1104089402228256770
+  date: Mar 8, 2019
+- name: Zephyr
+  summary: A deep dive into our design system at Air
+  page: speaking
+  url: /zephyr
+- name: Design system
+  summary: Part 1 - Typography, icons, and documentation
+  page: speaking
+  date: July 9 2018
+- name: IEX Internal Company Presentation
+  summary: React - The library that powers our apps
+  page: speaking
+- name: IEX Internal Company Presentation
+  summary: Say hello to the IEX API
+  page: speaking
+- name: TechCrunch Disrupt Hackathon Presentation 2017
+  summary: When - Chatbot for location recommendations
+  page: speaking
+  url: https://techcrunch.com/video/whentho/591879ff1de5a12724606c06
+- name: Salesforce Internal UX and Engineering Presentation
+  summary: A new era for CSS
+  page: speaking
+- name: TechCrunch Disrupt Hackathon Presentation 2015
+  summary: Cheer me up - Fun, custom pages in seconds
+  page: speaking
+  url: https://techcrunch.com/video/cheer-me-up/518803581
+- name: TechCrunch Disrupt Hackathon Presentation 2014
+  summary: Jaunt - Let your friends be your city guides.
+  page: speaking
+  url: http://ustre.am/_3bGTL:2613
+- name: Salesforce Internal UX and Engineering Presentation
+  summary: Front End Standards
+  page: speaking
+- name: Scotch Time Tech & Design Podcast
+  summary: Working with Devs
+  page: speaking
+- name: BarCamp
+  summary: CSS3 Playground
+  page: speaking
+- name: Luckie Internal Design Presentation
+  summary: CSS3 Capabilities
+  page: speaking
