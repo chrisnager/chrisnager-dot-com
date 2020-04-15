@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Box, Flex, jsx, Text } from 'theme-ui'
 
