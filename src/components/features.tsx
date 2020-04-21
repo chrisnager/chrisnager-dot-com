@@ -3,20 +3,15 @@
 import { Link } from 'gatsby'
 import { Box, jsx, Text } from 'theme-ui'
 
-const features = [
-  { category: `Projects`, title: `Emoonji`, link: `/` },
-  { category: `Speaking`, title: `Lifecycle of an icon`, link: `/` },
-  { category: `Blog`, title: `Gatsby × Contentful`, link: `/` },
-]
-
-export default () => (
+const Features = ({ data }) => (
   <Box sx={{ my: 5, px: 3 }}>
     <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: 'none' }}>
-      {features.map(({ category, link, title }) => (
-        <Box key={title} as="li" sx={{ my: 2 }}>
+      {console.log({ data })}
+      {data.map(({ node }) => (
+        <Box key={node.title} as="li" sx={{ my: 2 }}>
           <Text
             as={Link}
-            to={`/${category.toLowerCase()}`}
+            to={`/${node.category.toLowerCase()}`}
             sx={{
               borderWidth: 1,
               borderStyle: `solid`,
@@ -28,11 +23,11 @@ export default () => (
               bg: `tag`,
             }}
           >
-            {category}
+            {node.category}
           </Text>
           <Text
             as="a"
-            href={link}
+            href={node.link}
             target="_blank"
             rel="noopener noreferrer"
             sx={{
@@ -43,10 +38,12 @@ export default () => (
               borderColor: `transparent`,
             }}
           >
-            {title}
+            {node.title}
           </Text>
         </Box>
       ))}
     </Box>
   </Box>
 )
+
+export default Features
