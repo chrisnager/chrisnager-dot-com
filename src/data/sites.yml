@@ -1,116 +1,244 @@
 # Projects
+- url: http://supportnycdtc.com
+  name: Support NYC DTC
+  summary: Mapbox
+  page: projects
+  tags: mapbox, react, mdx, typescript
+  featured: false
+- url: http://air.inc
+  name: Air site
+  summary: Air
+  page: projects
+  tags: design
+  featured: false
+- url: https://zephyr.air.inc/foundations/color
+  name: Zephyr color contrast
+  summary: WCAG 2.0 color contrast picker
+  page: projects
+  tags: accessibility
+  featured: true
+- url: https://zephyr.air.inc/icon-theming
+  name: Zephyr icon theming
+  summary: Icon theming picker
+  page: projects
+  tags: design hand-off, svg, developer experience
+  featured: true
+- url: http://zephyr.air.inc/
+  name: Zephyr
+  summary: Design system and component library for Air, built with Gatsby, docz, React, MDX, and styled-system
+  page: projects
+  tags: design
+  featured: false
+- url: http://iextrading.com
+  name: IEX iOS and Android apps
+  summary: IEX iOS and Android apps
+  page: projects
+  tags: design
+  featured: false
+- url: http://iextrading.com
+  name: IEX site
+  summary: Creative blend of SSR + React + BassCSS, with Lighthouse scores of 100
+  page: projects
+  tags: design
+  featured: false
+- url: http://stocks.iextrading.com
+  name: Stocks
+  summary: IEX
+  page: projects
+  tags: design
+  featured: true
+- url: https://iextrading.com/apps/market/
+  name: Market
+  summary: IEX
+  page: projects
+  tags: design
+  featured: false
+- url: https://iextrading.com/brand/
+  name: IEX branding and guidelines
+  summary: IEX
+  page: projects
+  tags: design
+  featured: true
+- url: https://iextrading.com/developers/docs
+  name: The IEX API
+  summary: The IEX API (now a part of the IEX Cloud)
+  page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/generative-art/bendies/
   name: Bendies
   summary: Fun with generated patterns (generative art)
   page: projects
+  tags: design
+  featured: true
 - url: http://chrisnager.com/generative-art/diagonals/
   name: Diagonals
   summary: Fun with generated patterns (generative art)
   page: projects
+  tags: design
+  featured: true
 - url: http://chrisnager.com/generative-art/corners/
   name: Corners
   summary: Fun with generated patterns (generative art)
   page: projects
+  tags: design
+  featured: false
 - url: http://bit.do/emoonji
   name: Emoonji
   summary: A friendly chatbot that sends the current moon phases with emojis
   page: projects
+  tags: design
+  featured: true
 - url: http://bit.ly/smajor
   name: Signum majoritatis
   summary: A side-scrolling game built in a single string
   page: projects
+  tags: design
+  featured: false
 - url: http://give-n-go.co
   name: Give 'n' Go
   summary: A curated gallery of Dribbble shots reworked as interactive CodePen pens
   page: projects
+  tags: design
+  featured: false
 - url: http://cheermeup.website
   name: Cheer me up
   summary: Fun, custom pages in seconds
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/ungrid
   name: ungrid
   summary: the simplest responsive css grid
   page: projects
+  tags: design
+  featured: true
 - url: http://chrisnager.com/simple-paper-spinner
   name: Simple <paper-spinner>
   summary: How to rebuild Google's Material Design <paper-spinner> with a single div and CSS animations
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/until
   name: Until
   summary: Are we there yet?
   page: projects
+  tags: design
+  featured: false
 - url: http://vimeo.com/71911497
   name: UN Disaster Response
   summary: Currently working with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations
   page: projects
+  tags: design
+  featured: false
 - url: http://disruptnyhackathon.challengepost.com/submissions/23514-jaunt
   name: Jaunt
   summary: Let your friends be your city guides. (TechCrunch Disrupt Hackathon app entry)
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/cursors
   name: Cursors
   summary: All available cursors
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/simple-debug.css
   name: simple-debug.css
   summary: Debug your layouts with one line of CSS
   page: projects
+  tags: design
+  featured: true
 - url: http://chrisnager.com/simple-palette/
   name: simple-palette
   summary: A simple color palette
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/short-color-names
   name: ✂ short color names
   summary: The 44 CSS color names that are as short as or shorter than their corresponding hexcodes.
   page: projects
+  tags: design
+  featured: true
 - url: http://chrisnager.com/hexcodes
   name: hexcodes
   summary: All possible three digit hexcodes
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/tiny-google-fonts
   name: tiny google fonts
   summary: Strip down your google fonts significantly to only include the characters you're actually using
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/birthday-hex
   name: Birthday hex
   summary: Find your birthday hexcode
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/svg-please
   name: SVG Please
   summary: Simple script to replace your bitmap icons with inline SVGs with bitmap fallback built in
   page: projects
+  tags: design
+  featured: false
 - url: http://fav5.co
   name: Fav5
   summary: What are your five most important items?
   page: projects
+  tags: design
+  featured: false
+- url: http://v3.chrisnager.com
+  name: chrisnager.com v3
+  summary: Previous
+  page: projects
+  tags: design, BEM, semantic, jekyll, github pages
+  featured: false
 - url: http://chrisnager.com/twadlib
   name: Twadlib!
   summary: Ad-lib your tweets
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/bliss
   name: Bliss
   summary: Beautifully lean, ideal style sheets
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/crafted-css
   name: Crafted CSS
   summary: A personal compilation of CSS practices I follow
   page: projects
+  tags: design
+  featured: false
 - url: http://chrisnager.com/social-logos/
   name: Social Logos
   summary: Download official social logos
   page: projects
+  tags: design
+  featured: false
 - url: http://v2.chrisnager.com
   name: chrisnager.com v2
   summary: Care to reminisce?
   page: projects
+  tags: design
+  featured: false
 - url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
   name: Ben Thomson Photo
   summary: Awwwards Site of the Day
   page: projects
+  tags: design
+  featured: false
 - url: http://coding.smashingmagazine.com/2010/07/12/css3-design-contest-results/
   name: Totally Fresh
   summary: Experimental CSS3 design featured on Smashing Magazine
   page: projects
+  tags: design
+  featured: false
 
 # Speaking
 - name: Lifecycle of an icon
