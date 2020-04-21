@@ -12,9 +12,14 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
-    `gatsby-transformer-screenshot`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-transformer-screenshot`,
+      options: {
+        nodeTypes: [`ProjectsYaml`, `SpeakingYaml`],
+      },
+    },
     {
       resolve: `gatsby-plugin-html-attributes`,
       options: { lang: `en` },
