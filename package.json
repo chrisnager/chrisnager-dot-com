@@ -15,7 +15,6 @@
     "gatsby-plugin-sharp": "^2.5.4",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-plugin-typescript": "^2.3.1",
-    "gatsby-source-contentful": "^2.2.7",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-remark": "^2.7.1",
     "gatsby-transformer-screenshot": "^2.2.1",
@@ -31,7 +30,6 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "chalk": "^3.0.0",
-    "contentful-import": "^7.7.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
@@ -44,8 +42,7 @@
   },
   "homepage": "https://chrisnager.com",
   "keywords": [
-    "gatsby",
-    "contentful"
+    "gatsby"
   ],
   "license": "MIT",
   "main": "n/a",

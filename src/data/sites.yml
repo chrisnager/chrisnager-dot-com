@@ -191,6 +191,12 @@
   page: projects
   tags: design
   featured: false
+- url: https://www.youtube.com/embed/295brS23_4I
+  name: Salesforce Marketing Cloud
+  summary: Worked on this product with brilliant engineers and designers
+  page: projects
+  tags: js, css, accessibility
+  featured: true
 - url: http://v3.chrisnager.com
   name: chrisnager.com v3
   summary: Previous

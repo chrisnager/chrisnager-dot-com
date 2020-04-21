@@ -36,7 +36,6 @@ public
 .cache
 
 # Secrets
-.contentful.json
 .env*
 
 # Miscellaneous

@@ -1,7 +1,7 @@
 {
   "name": "Chris Nager",
   "description": "Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design.",
-  "keywords": ["contentful", "gatsby", "static", "ssg"],
+  "keywords": ["gatsby", "static", "ssg"],
   "repository": "https://github.com/chrisnager/chrisnager-dot-com",
   "success_url": "/",
   "buildpacks": [
