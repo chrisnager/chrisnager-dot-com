@@ -14,6 +14,7 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-transformer-screenshot`,
     `gatsby-transformer-yaml`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-plugin-html-attributes`,
       options: { lang: `en` },
