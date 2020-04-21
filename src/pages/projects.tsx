@@ -16,7 +16,7 @@ export default ({ data }) => {
         </Text>
 
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
-          {data.allSitesYaml.edges
+          {data.allProjectsYaml.edges
             .filter(({ node }) => node.page === `projects` && node.featured)
             .map(({ node }) => (
               <Flex
@@ -46,7 +46,7 @@ export default ({ data }) => {
               </Flex>
             ))}
 
-          {data.allSitesYaml.edges
+          {data.allProjectsYaml.edges
             .filter(({ node }) => node.page === `projects` && !node.featured)
             .map(({ node }) => (
               <Flex
@@ -83,7 +83,7 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query ProjectsQuery {
-    allSitesYaml {
+    allProjectsYaml {
       edges {
         node {
           url

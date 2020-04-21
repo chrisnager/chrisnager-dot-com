@@ -13,7 +13,7 @@ export default ({ data }) => {
           Fun stuff I've presented
         </Text>
         <Box as="ul" sx={{ my: 0, pl: 0 }}>
-          {data.allSitesYaml.edges
+          {data.allSpeakingYaml.edges
             .filter(({ node }) => node.page === `speaking`)
             .map(({ node }) => (
               <Box
@@ -41,7 +41,7 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query SpeakingQuery {
-    allSitesYaml {
+    allSpeakingYaml {
       edges {
         node {
           url
