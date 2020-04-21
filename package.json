@@ -7,9 +7,15 @@
     "url": "https://github.com/chrisnager/chrisnager-dot-com/issues"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
     "@types/theme-ui": "^0.3.1",
+    "babel-plugin-macros": "^2.8.0",
     "gatsby-image": "^2.3.2",
     "gatsby-plugin-google-analytics": "^2.2.2",
     "gatsby-plugin-html-attributes": "^1.0.5",
@@ -54,7 +60,7 @@
     "url": "git+https://github.com/chrisnager/chrisnager-dot-com.git"
   },
   "scripts": {
-    "dev": "npm run develop",
+    "dev": "GATSBY_SCREENSHOT_PLACEHOLDER=true npm run develop",
     "develop": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
