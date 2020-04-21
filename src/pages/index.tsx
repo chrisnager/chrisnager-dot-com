@@ -10,26 +10,39 @@ import Features from '../components/features'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 
-const RootIndex = () => {
-  console.log('props', get(this, `props`))
+const RootIndex = ({ data }) => {
+  // console.log('props', get(this, `props`))
 
   // const siteTitle = get(this, `props.data.site.siteMetadata.title`)
   // const [author] = get(this, `props.data.allContentfulPerson.edges`)
 
-  return (
+  return data.allHomeYaml.edges.map(({ node }) => (
     <Layout>
       {/* 
         // @ts-ignore */}
-      {/* <Helmet title={siteTitle} /> */}
+      <Helmet title={node.title} />
       <Box sx={{ maxWidth: `55ch` }}>
-        {/* <Hero data={author.node} /> */}
+        <Hero {...{ data: node }} />
         <Features />
       </Box>
     </Layout>
-  )
+  ))
 }
 
 export default RootIndex
+
+export const pageQuery = graphql`
+  query HomeQuery {
+    allHomeYaml {
+      edges {
+        node {
+          title
+          description
+        }
+      }
+    }
+  }
+`
 
 // export const pageQuery = graphql`
 //   query HomeQuery {
