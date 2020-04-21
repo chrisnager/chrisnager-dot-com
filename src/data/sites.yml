@@ -1,11 +1,17 @@
 # Projects
-- url: http://supportnycdtc.com
+- url: http://cuber.club
+  name: Cuber club
+  summary: Rubik's cube as a MIDI controller
+  page: projects
+  tags: design, js, accessibility, music
+  featured: true
+- url: https://supportnycdtc.com
   name: Support NYC DTC
   summary: Mapbox
   page: projects
   tags: mapbox, react, mdx, typescript
   featured: false
-- url: http://air.inc
+- url: https://air.inc
   name: Air site
   summary: Air
   page: projects
@@ -23,25 +29,25 @@
   page: projects
   tags: design hand-off, svg, developer experience
   featured: true
-- url: http://zephyr.air.inc/
+- url: https://zephyr.air.inc/
   name: Zephyr
   summary: Design system and component library for Air, built with Gatsby, docz, React, MDX, and styled-system
   page: projects
   tags: design
   featured: false
-- url: http://iextrading.com
+- url: https://iextrading.com
   name: IEX iOS and Android apps
   summary: IEX iOS and Android apps
   page: projects
   tags: design
   featured: false
-- url: http://iextrading.com
+- url: https://iextrading.com
   name: IEX site
   summary: Creative blend of SSR + React + BassCSS, with Lighthouse scores of 100
   page: projects
   tags: design
   featured: false
-- url: http://stocks.iextrading.com
+- url: https://stocks.iextrading.com
   name: Stocks
   summary: IEX
   page: projects
