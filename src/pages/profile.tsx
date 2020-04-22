@@ -2,16 +2,19 @@
 
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx, Text } from 'theme-ui'
 
 import Layout from '../components/layout'
 
-const ProfileIndex = ({ data }) => {
+export interface ProfileIndexProps {
+  data: { file: any }
+}
+
+const ProfileIndex: FC<ProfileIndexProps> = ({ data }) => {
   return (
     <Layout>
-      {/* 
-        // @ts-ignore */}
       <Helmet title="Profile / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Text as="h1">Profile</Text>
@@ -64,8 +67,8 @@ const ProfileIndex = ({ data }) => {
           I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React
           Native, TypeScript. Aside from these buzzword skills, what truly sets my work apart is my (deep) understanding
           of CSS. I know when and how to use grid layouts and truly understanding the cascade. I’m particularly proud of
-          Zephyr, the design system I created for Air. It’s built in TypeScript and includes including cross-platform
-          foundations and components.
+          [Zephyr](https://zephyr.air.inc), the design system I created for Air. It’s built in TypeScript and includes
+          including cross-platform foundations and components.
         </p>
 
         <p>I’ve had opportunities to speak about my process and I host internal company teach-ins when appropriate.</p>
