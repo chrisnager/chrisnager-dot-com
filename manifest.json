@@ -1,0 +1,13 @@
+{
+  "name": "Chris Nager - Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design.",
+  "short_name": "Chris Nager",
+  "icons": [
+    {
+      "src": "google-touch-icon.png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "fullscreen"
+}
