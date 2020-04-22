@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import { graphql } from 'gatsby'
+import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
 
@@ -8,14 +9,18 @@ import ArticlePreview from '../components/article-preview'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 
-const BlogIndex = ({ data }) => {
+export interface BlogProps {
+  data: any
+}
+
+const Blog: FC<BlogProps> = ({ data }) => {
   return (
     <Layout>
       <Helmet title="Blog / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Blog" description="Stuff I've written" />
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
-          {data.allPostsYaml.edges.map(({ node }) => {
+          {data.allPostsYaml.edges.map(({ node }: { node: any }) => {
             return (
               <Box as="li" key={node.slug}>
                 <ArticlePreview article={node} />
@@ -28,10 +33,10 @@ const BlogIndex = ({ data }) => {
   )
 }
 
-export default BlogIndex
+export default Blog
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
+  query BlogQuery {
     allPostsYaml(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {

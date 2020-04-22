@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import { graphql } from 'gatsby'
+import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
 
@@ -8,7 +9,11 @@ import Features from '../components/features'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 
-const RootIndex = ({ data }) => {
+export interface HomeProps {
+  data: any
+}
+
+const Home: FC<HomeProps> = ({ data }) => {
   return (
     <Layout>
       <Helmet title={data.allDataYaml.edges[0].node.title} />
@@ -20,7 +25,7 @@ const RootIndex = ({ data }) => {
   )
 }
 
-export default RootIndex
+export default Home
 
 export const pageQuery = graphql`
   query HomeQuery {

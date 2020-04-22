@@ -1,11 +1,16 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby'
+import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx, Text } from 'theme-ui'
 
 import Layout from '../components/layout'
 
-export default ({ data }) => {
+export interface SpeakingProps {
+  data: any
+}
+
+const Speaking: FC<SpeakingProps> = ({ data }) => {
   return (
     <Layout>
       <Helmet title="Speaking / Chris Nager" />
@@ -15,31 +20,36 @@ export default ({ data }) => {
           Fun stuff I've presented
         </Text>
         <Box as="ul" sx={{ my: 0, pl: 0 }}>
-          {data.allSpeakingYaml.edges.map(({ node }) => (
-            <Box
-              key={node.summary}
-              as={node.url ? `a` : `div`}
-              href={!!node.url ? node.url : undefined}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}
-            >
-              <Text as="p" sx={{ mt: 1, fontSize: 2, color: `text`, 'a:hover > &': { color: `text` } }}>
-                {node.date}
-              </Text>
-              <Text as="h2" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
-                {node.name}
-              </Text>
-              <Text as="p" sx={{ mt: 1, color: `text`, 'a:hover > &': { color: `text` } }}>
-                {node.summary}
-              </Text>
-            </Box>
-          ))}
+          {data.allSpeakingYaml.edges.map(
+            ({ node }: { node: { summary: string; url: string; date: string; name: string } }) => (
+              <Box
+                key={node.summary}
+                as={node.url ? `a` : `div`}
+                // @ts-ignore
+                href={!!node.url ? node.url : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}
+              >
+                <Text as="p" sx={{ mt: 1, fontSize: 2, color: `text`, 'a:hover > &': { color: `text` } }}>
+                  {node.date}
+                </Text>
+                <Text as="h2" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
+                  {node.name}
+                </Text>
+                <Text as="p" sx={{ mt: 1, color: `text`, 'a:hover > &': { color: `text` } }}>
+                  {node.summary}
+                </Text>
+              </Box>
+            ),
+          )}
         </Box>
       </Box>
     </Layout>
   )
 }
+
+export default Speaking
 
 export const pageQuery = graphql`
   query SpeakingQuery {

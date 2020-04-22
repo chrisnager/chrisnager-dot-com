@@ -8,11 +8,21 @@ import { Box, jsx, Text } from 'theme-ui'
 
 import Layout from '../components/layout'
 
-export interface ProfileIndexProps {
-  data: { file: any }
+export interface ProfileProps {
+  data: {
+    file: {
+      childImageSharp: { fluid: any }
+    }
+  }
 }
 
-const ProfileIndex: FC<ProfileIndexProps> = ({ data }) => {
+const Profile: FC<ProfileProps> = ({
+  data: {
+    file: {
+      childImageSharp: { fluid },
+    },
+  },
+}) => {
   return (
     <Layout>
       <Helmet title="Profile / Chris Nager" />
@@ -23,7 +33,7 @@ const ProfileIndex: FC<ProfileIndexProps> = ({ data }) => {
           performance and accessibility.
         </Text>
 
-        <Img fluid={data.file.childImageSharp.fluid} alt="Hat" />
+        <Img {...{ fluid }} alt="Chris Nager, smiling and wearing a hat" />
 
         <p>
           I’m a software engineer with a background in design and over a decade of work expereince. My design and code
@@ -83,7 +93,7 @@ const ProfileIndex: FC<ProfileIndexProps> = ({ data }) => {
   )
 }
 
-export default ProfileIndex
+export default Profile
 
 export const pageQuery = graphql`
   query ProfileQuery {
