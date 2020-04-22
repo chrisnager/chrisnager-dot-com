@@ -1,6 +1,39 @@
+- title: Takeaways from F8 2018
+  slug: takeaways-from-f8-2018
+  url: https://medium.com/@chrisnager/takeaways-from-f8-2018-3dde54919490
+  publishDate: 2018-05-11
+  tags: [conference]
+  heroImage: f8.png
+  content: takeaways-from-f8-2018.mdx
+
 - title: Case for a monorepo
   slug: case-for-a-monorepo
+  url:
   publishDate: 2018-03-20
   tags: [developer experience (DX), monorepo]
   heroImage: monorepo.png
   content: case-for-a-monorepo.mdx
+
+- title: Stack your classes within template literals
+  slug: stack-your-classes-within-template-literals
+  url: https://medium.com/@chrisnager/stack-your-classes-within-template-literals-d537bf463d4a
+  publishDate: 2016-03-09
+  tags: [developer experience (DX), CSS-in-JS]
+  heroImage: monorepo.png
+  content: stack-your-classes-within-template-literals.mdx
+
+- title: Center and crop images with a single line of CSS
+  slug: center-and-crop-images-with-a-single-line-of-css
+  url: https://medium.com/@chrisnager/center-and-crop-images-with-a-single-line-of-css-ad140d5b4a87
+  publishDate: 2015-01-19
+  tags: [CSS]
+  heroImage: monorepo.png
+  content: center-and-crop-images-with-a-single-line-of-css.mdx
+
+- title: Bespoke SVG Reference
+  slug: bespoke-svg-reference
+  url: https://medium.com/@chrisnager/bespoke-svg-reference-e22eb733272
+  publishDate: 2014-05-23
+  tags: [SVG, documentation]
+  heroImage: monorepo.png
+  content: bespoke-svg-reference.mdx

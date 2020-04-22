@@ -39,9 +39,10 @@ export const pageQuery = graphql`
     allPostsYaml(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
-          title
           slug
+          url
           publishDate(formatString: "MMMM Do, YYYY")
+          title
           tags
         }
       }
