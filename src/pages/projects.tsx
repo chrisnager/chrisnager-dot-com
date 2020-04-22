@@ -10,6 +10,9 @@ import Tag from '../components/tag'
 export default ({ data }) => {
   return (
     <Layout>
+      {/* 
+        // @ts-ignore */}
+      <Helmet title="Projects / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Text as="h1">Projects</Text>
         <Text as="p" sx={{ my: 3, fontSize: 4 }}>

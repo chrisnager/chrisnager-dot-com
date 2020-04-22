@@ -9,6 +9,9 @@ import Layout from '../components/layout'
 const ProfileIndex = ({ data }) => {
   return (
     <Layout>
+      {/* 
+        // @ts-ignore */}
+      <Helmet title="Profile / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Text as="h1">Profile</Text>
         <Text as="p" sx={{ my: 3, fontSize: 4 }}>
