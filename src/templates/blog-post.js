@@ -2,7 +2,6 @@
 
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import get from 'lodash/get'
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx, Text } from 'theme-ui'

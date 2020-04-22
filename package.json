@@ -7,6 +7,13 @@
     "url": "https://github.com/chrisnager/chrisnager-dot-com/issues"
   },
   "dependencies": {
+    "gatsby-image": "^2.3.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-helmet": "^5.2.1",
+    "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.9.0",
@@ -15,8 +22,12 @@
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
     "@types/theme-ui": "^0.3.1",
+    "babel-eslint": "^10.1.0",
     "babel-plugin-macros": "^2.8.0",
-    "gatsby-image": "^2.3.2",
+    "chalk": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
     "gatsby-plugin-google-analytics": "^2.2.2",
     "gatsby-plugin-html-attributes": "^1.0.5",
     "gatsby-plugin-mdx": "^1.1.9",
@@ -29,29 +40,19 @@
     "gatsby-transformer-screenshot": "^2.2.1",
     "gatsby-transformer-sharp": "^2.4.4",
     "gatsby-transformer-yaml": "^2.3.1",
-    "lodash": "^4.17.15",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-helmet": "^5.2.1",
-    "sharp": "^0.25.1",
-    "theme-ui": "^0.3.1"
-  },
-  "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "chalk": "^3.0.0",
-    "dotenv": "^8.2.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.19.0",
     "gatsby": "^2.19.37",
     "gh-pages": "^2.2.0",
     "inquirer": "^7.1.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
+    "sharp": "^0.25.1",
     "yargs-parser": "^18.1.0"
   },
   "homepage": "https://chrisnager.com",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "static",
+    "ssg"
   ],
   "license": "MIT",
   "main": "n/a",

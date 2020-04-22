@@ -58,13 +58,16 @@ const Layout = ({ children }) => {
       {/*
       // @ts-ignore */}
       <Helmet>
+        {/* <meta name="theme-color" content={`background`} />
+        <link rel="icon" href="favicon.svg" />
+        <link rel="mask-icon" href="mask-icon.svg" color="#000000" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" /> */}
+        <link rel="manifest" href="manifest.json" />
+
         <link rel="icon" media="(prefers-color-scheme:dark)" href="favicon-dark.ico" type="image/x-icon" />
         <link rel="icon" media="(prefers-color-scheme:light)" href="favicon.ico" type="image/x-icon" />
-        <script
-          src="https://unpkg.com/favicon-switcher@1.2.2/dist/index.js"
-          crossOrigin="anonymous"
-          type="application/javascript"
-        ></script>
+
+        <script async src="../scripts/favicon-switcher@1.2.2.js"></script>
       </Helmet>
       <Navigation />
       {children}
