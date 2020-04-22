@@ -64,7 +64,13 @@ export default () => (
         </Text>
       </Text>
       <p>
-        <Text as="small">Gatsby-built, Netlify-hosted, Lighthouse-approved.</Text>
+        <Text as="small">
+          Gatsby-built, Netlify-hosted,{' '}
+          <a href="https://build-5b4e1699-6760-4465-9eb8-a15a076fb3e6.gtsb.io/reports/lighthouse/index.html">
+            Lighthouse-approved
+          </a>
+          .
+        </Text>
       </p>
     </Box>
   </Box>
