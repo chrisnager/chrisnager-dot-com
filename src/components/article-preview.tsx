@@ -9,7 +9,7 @@ import Tag from './tag'
 export default ({ article: { url, slug, publishDate, title, tags } }) => (
   <Box
     as="a"
-    to={url}
+    href={url}
     target="_blank"
     rel="noopener noreferrer"
     sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}
