@@ -38,8 +38,7 @@ export default () => (
           color: `background`,
         }}
       >
-        <span sx={{ fontStyle: `normal`, fontSize: 2, position: `relative`, top: `-1px` }}>☆</span> Currently looking
-        for new opportunities.
+        I'm currently looking for new opportunities.
       </Text>
     </Box>
 
@@ -61,6 +60,17 @@ export default () => (
       <Text as="small">
         <Text as="a" href="https://github.com/chrisnager/chrisnager-dot-com" target="_blank" rel="noopener noreferrer">
           Source
+        </Text>
+      </Text>
+      <span> &middot; </span>
+      <Text as="small">
+        <Text
+          as="a"
+          href="https://www.notion.so/chrisnager/ChrisNager-com-a8e63b19f10a4b0580ff029355e28dd8"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Follow my progress
         </Text>
       </Text>
       <p>

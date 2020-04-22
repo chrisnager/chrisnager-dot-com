@@ -1,13 +1,14 @@
 /** @jsx jsx */
 
 import { Global } from '@emotion/core'
+import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
 
 import Navigation from './navigation'
 import Social from './social'
 
-const Layout = ({ children }) => {
+const Layout: FC = ({ children }) => {
   return (
     <Box sx={{ maxWidth: `75ch`, mx: `auto` }}>
       <Global
@@ -64,8 +65,6 @@ const Layout = ({ children }) => {
 
         <link rel="icon" media="(prefers-color-scheme:dark)" href="favicon-dark.ico" type="image/x-icon" />
         <link rel="icon" media="(prefers-color-scheme:light)" href="favicon.ico" type="image/x-icon" />
-
-        <script async src="../scripts/favicon-switcher@1.2.2.js"></script>
       </Helmet>
       <Navigation />
       {children}
