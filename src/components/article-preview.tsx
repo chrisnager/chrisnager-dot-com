@@ -1,36 +1,21 @@
+/** @jsx jsx */
+
 import { Link } from 'gatsby'
-import React from 'react'
-import { Text } from 'theme-ui'
+import { Box, jsx, Text } from 'theme-ui'
+
+import Tag from './tag'
 
 // import Img from 'gatsby-image'
 
-export default ({ article }) => (
-  <div>
-    <small>{article.publishDate}</small>
-    <h3>
-      <Link to={`/blog/${article.slug}`}>{article.title}</Link>
-    </h3>
+export default ({ article: { slug, publishDate, title, tags } }) => (
+  <Box as={Link} to={`/blog/${slug}`} sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}>
+    <Text as="small" sx={{ mt: 1, fontSize: 2, color: `text`, 'a:hover > &': { color: `text` } }}>
+      {publishDate}
+    </Text>
+    <Text as="h2" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
+      {title}
+    </Text>
 
-    {article.tags &&
-      article.tags.map(tag => (
-        <Text
-          as="p"
-          key={tag}
-          sx={{
-            mr: `0.5em`,
-            py: `.33333rem`,
-            px: `0.5rem`,
-            borderWidth: `1px`,
-            borderStyle: `solid`,
-            borderColor: `tag`,
-            display: `inline-block`,
-            fontStyle: `italic`,
-            lineHeight: `1`,
-            textDecoration: `none`,
-          }}
-        >
-          {tag}
-        </Text>
-      ))}
-  </div>
+    {!!tags.length && tags.map(tag => <Tag>{tag}</Tag>)}
+  </Box>
 )
