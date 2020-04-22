@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Box, jsx, Text } from 'theme-ui'
 
 import Layout from '../components/layout'
@@ -18,8 +18,10 @@ export default ({ data }) => {
             .map(({ node }) => (
               <Box
                 key={node.summary}
-                as={node.url ? Link : `div`}
-                to={node.url ? node.url : undefined}
+                as={node.url ? `a` : `div`}
+                href={!!node.url ? node.url : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}
               >
                 <Text as="p" sx={{ mt: 1, color: `text`, 'a:hover > &': { color: `text` } }}>

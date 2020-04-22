@@ -6,7 +6,7 @@
 - name: Zephyr
   summary: A deep dive into our design system at Air
   page: speaking
-  url: /zephyr
+  url: http://chrisnager.com/zephyr
 - name: Design system
   summary: Part 1 - Typography, icons, and documentation
   page: speaking

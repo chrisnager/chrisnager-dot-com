@@ -2,15 +2,11 @@
 
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import get from 'lodash/get'
-import React from 'react'
 import { Box, jsx, Text } from 'theme-ui'
 
 import Layout from '../components/layout'
 
-const ProfileIndex = () => {
-  // const { fluid } = get(this, `props.data.allContentfulPerson.edges[0].node.heroImage`)
-
+const ProfileIndex = ({ data }) => {
   return (
     <Layout>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
@@ -20,7 +16,7 @@ const ProfileIndex = () => {
           performance and accessibility.
         </Text>
 
-        {/* <Img {...{ fluid }} alt="" /> */}
+        <Img fluid={data.file.childImageSharp.fluid} alt="Hat" />
 
         <p>
           I’m a software engineer with a background in design. My design and code come from a deep concern for
@@ -48,11 +44,11 @@ const ProfileIndex = () => {
           >
             launch America’s newest stock exchange
           </a>
-          , and am currently a founding member of a{' '}
+          , most recently was a founding member of a{' '}
           <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
-            ground-level startup
+            ground-level SAAS startup
           </a>
-          .
+          , and am now ready for a new challenge.
         </p>
 
         <p>
@@ -81,6 +77,18 @@ const ProfileIndex = () => {
 }
 
 export default ProfileIndex
+
+export const pageQuery = graphql`
+  query ProfileQuery {
+    file(relativePath: { eq: "images/hat.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 // export const pageQuery = graphql`
 //   query ProfileQuery {

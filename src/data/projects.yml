@@ -1,6 +1,6 @@
-- url: http://cuber.club
+- url: http://cuber.club/dj
   name: Cuber club
-  summary: Rubik's cube as a MIDI controller
+  summary: DJ with your Rubik's cube as a MIDI controller
   page: projects
   tags: design, js, accessibility, music
   featured: true

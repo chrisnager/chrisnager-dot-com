@@ -8,12 +8,17 @@ module.exports = {
   plugins: [
     `gatsby-plugin-theme-ui`,
     `gatsby-transformer-remark`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-mdx`,
+
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: { path: `./src/data/` },
+    },
     {
       resolve: `gatsby-transformer-screenshot`,
       options: {
@@ -28,12 +33,19 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: { trackingId: `UA-3632655-1` },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'data',
-        path: './src/data',
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `./src/images`,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `data`,
+    //     path: `./src/data`,
+    //   },
+    // },
   ],
 }
