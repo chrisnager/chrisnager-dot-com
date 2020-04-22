@@ -2,6 +2,7 @@
 
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import Helmet from 'react-helmet'
 import { Box, jsx, Text } from 'theme-ui'
 
 import Layout from '../components/layout'

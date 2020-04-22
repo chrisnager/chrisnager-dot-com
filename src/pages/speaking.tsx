@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 import { Box, jsx, Text } from 'theme-ui'
 
 import Layout from '../components/layout'
