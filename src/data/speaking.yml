@@ -1,46 +1,32 @@
 - name: Lifecycle of an icon
   summary: Our icon creation process, from ideation to implementation
-  page: speaking
   url: https://twitter.com/chrisnager/status/1104089402228256770
   date: Mar 8, 2019
 - name: Zephyr
   summary: A deep dive into our design system at Air
-  page: speaking
   url: http://chrisnager.com/zephyr
 - name: Design system
   summary: Part 1 - Typography, icons, and documentation
-  page: speaking
   date: July 9 2018
 - name: IEX Internal Company Presentation
   summary: React - The library that powers our apps
-  page: speaking
 - name: IEX Internal Company Presentation
   summary: Say hello to the IEX API
-  page: speaking
 - name: TechCrunch Disrupt Hackathon Presentation 2017
   summary: When - Chatbot for location recommendations
-  page: speaking
   url: https://techcrunch.com/video/whentho/591879ff1de5a12724606c06
 - name: Salesforce Internal UX and Engineering Presentation
   summary: A new era for CSS
-  page: speaking
 - name: TechCrunch Disrupt Hackathon Presentation 2015
   summary: Cheer me up - Fun, custom pages in seconds
-  page: speaking
   url: https://techcrunch.com/video/cheer-me-up/518803581
 - name: TechCrunch Disrupt Hackathon Presentation 2014
   summary: Jaunt - Let your friends be your city guides.
-  page: speaking
-  url: http://ustre.am/_3bGTL:2613
 - name: Salesforce Internal UX and Engineering Presentation
   summary: Front End Standards
-  page: speaking
 - name: Scotch Time Tech & Design Podcast
   summary: Working with Devs
-  page: speaking
 - name: BarCamp
   summary: CSS3 Playground
-  page: speaking
 - name: Luckie Internal Design Presentation
   summary: CSS3 Capabilities
-  page: speaking
