@@ -11,8 +11,6 @@ import Layout from '../components/layout'
 const BlogIndex = ({ data }) => {
   return (
     <Layout>
-      {/* 
-        // @ts-ignore */}
       <Helmet title="Blog / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Blog" description="Stuff I've written" />

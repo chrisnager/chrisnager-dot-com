@@ -26,8 +26,8 @@ const ProfileIndex: FC<ProfileIndexProps> = ({ data }) => {
         <Img fluid={data.file.childImageSharp.fluid} alt="Hat" />
 
         <p>
-          I’m a software engineer with a background in design. My design and code come from a deep concern for
-          performance and accessibility.
+          I’m a software engineer with a background in design and over a decade of work expereince. My design and code
+          come from a deep concern for performance and accessibility.
         </p>
 
         <p>

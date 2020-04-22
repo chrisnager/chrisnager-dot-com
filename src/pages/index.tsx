@@ -11,8 +11,6 @@ import Layout from '../components/layout'
 const RootIndex = ({ data }) => {
   return (
     <Layout>
-      {/* 
-        // @ts-ignore */}
       <Helmet title={data.allDataYaml.edges[0].node.title} />
       <Box sx={{ maxWidth: `55ch` }}>
         <Hero data={data.allDataYaml.edges[0].node} />

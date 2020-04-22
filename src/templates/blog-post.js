@@ -16,8 +16,6 @@ const BlogPostTemplate = () => {
     <Layout>
       {/* <Img alt={post.title} fluid={post.heroImage.fluid} /> */}
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        {/* 
-          // @ts-ignore */}
         {/* <Helmet title={`${post.title} / ${siteTitle}`} /> */}
         <div>
           {/* <Text as="h1">{post.title}</Text> */}

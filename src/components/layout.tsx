@@ -55,8 +55,6 @@ const Layout = ({ children }) => {
           }      
       `}
       />
-      {/*
-      // @ts-ignore */}
       <Helmet>
         {/* <meta name="theme-color" content={`background`} />
         <link rel="icon" href="favicon.svg" />

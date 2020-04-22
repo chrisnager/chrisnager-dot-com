@@ -8,8 +8,6 @@ import Layout from '../components/layout'
 export default ({ data }) => {
   return (
     <Layout>
-      {/* 
-        // @ts-ignore */}
       <Helmet title="Speaking / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Text as="h1">Speaking</Text>
