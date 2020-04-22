@@ -6,16 +6,11 @@ import { Text } from 'theme-ui'
 
 export default ({ article }) => (
   <div>
-    {/* <Img alt="" fluid={article.heroImage.fluid} /> */}
     <small>{article.publishDate}</small>
     <h3>
       <Link to={`/blog/${article.slug}`}>{article.title}</Link>
     </h3>
-    <div
-      dangerouslySetInnerHTML={{
-        __html: article.description.childMarkdownRemark.html,
-      }}
-    />
+
     {article.tags &&
       article.tags.map(tag => (
         <Text

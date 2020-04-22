@@ -12,7 +12,6 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-mdx`,
-
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
