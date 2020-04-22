@@ -52,9 +52,20 @@ export default () => {
           listStyleType: `none`,
         }}
       >
-        {links.map(({ to, children }) => (
+        {links.map(({ to, children }, index) => (
           <Flex as="li" sx={{ alignItems: `center` }} key={to}>
-            <Link {...{ sx: { px: 3, height: 48, display: `flex`, alignItems: `center` }, to, children }}></Link>
+            <Link
+              {...{
+                sx: {
+                  px: 3,
+                  height: 48,
+                  display: [`Home`, `Speaking`].includes(children) ? [`none`, `flex`] : `flex`,
+                  alignItems: `center`,
+                },
+                to,
+                children,
+              }}
+            />
           </Flex>
         ))}
         <Flex as="li" sx={{ alignItems: `center` }}>
@@ -66,26 +77,24 @@ export default () => {
               width: 48,
               height: 48,
               appearance: `none`,
-              display: `inline-block`,
-              textAlign: `center`,
-              lineHeight: `inherit`,
-              textDecoration: `none`,
-              fontSize: `1.5rem`,
+              display: `flex`,
+              justifyContent: `center`,
+              alignItems: `center`,
+              lineHeight: 1,
+              fontSize: 5,
               fontWeight: `normal`,
               m: 0,
               border: 0,
-              pt: 0,
-              px: 3,
-              pb: `6px`,
+              p: 0,
               color: `text`,
               cursor: `pointer`,
-              bg: 'transparent',
+              bg: `transparent`,
               ':hover': {
                 color: `action`,
               },
             }}
           >
-            ☼
+            <span sx={{ position: `relative`, top: -1 }}>☼</span>
           </Box>
         </Flex>
       </Flex>

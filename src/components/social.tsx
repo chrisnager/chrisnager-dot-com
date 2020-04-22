@@ -17,13 +17,35 @@ const links = [
 
 export default () => (
   <Box>
-    <Flex
+    <p
       sx={{
         mt: 4,
         borderTopWidth: 1,
         borderTopStyle: `solid`,
         borderTopColor: `tag`,
         pt: 5,
+        px: 2,
+      }}
+    >
+      <Text
+        as="mark"
+        sx={{
+          fontWeight: `500`,
+          px: 2,
+          display: `inline-block`,
+          fontStyle: `italic`,
+          bg: `text`,
+          color: `background`,
+        }}
+      >
+        <span sx={{ fontStyle: `normal`, fontSize: 2, position: `relative`, top: `-1px` }}>☆</span> Currently looking
+        for new opportunities.
+      </Text>
+    </p>
+
+    <Flex
+      sx={{
+        mt: 4,
         pb: 3,
       }}
     >
@@ -41,6 +63,9 @@ export default () => (
           Source
         </Text>
       </Text>
+      <p>
+        <Text as="small">Gatsby-built, Netlify-hosted, Lighthouse-approved.</Text>
+      </p>
     </Text>
   </Box>
 )
