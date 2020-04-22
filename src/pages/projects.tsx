@@ -17,7 +17,7 @@ export default ({ data }) => {
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Text as="h1">Projects</Text>
         <Text as="p" sx={{ my: 3, fontSize: 4 }}>
-          Fun stuff I've built
+          Some fun things I've built
         </Text>
 
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
@@ -27,12 +27,13 @@ export default ({ data }) => {
               <Flex
                 key={name}
                 as="a"
+                // @ts-ignore
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ mt: 4, ':hover': { textDecoration: `none` } }}
               >
-                <Box sx={{ size: 120, mr: 2, flex: `0 0 120px`, bg: `action` }}>
+                <Box sx={{ width: 120, height: 120, mr: 2, flex: `0 0 120px`, bg: `action` }}>
                   {childScreenshot && <Img fluid={childScreenshot.screenshotFile.childImageSharp.fluid} alt={name} />}
                 </Box>
                 <Box>
@@ -55,12 +56,13 @@ export default ({ data }) => {
               <Flex
                 key={name}
                 as="a"
+                // @ts-ignore
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ mt: 4, ':hover': { textDecoration: `none` } }}
               >
-                <Box sx={{ size: 80, mr: 2, flex: `0 0 80px`, bg: `action` }}>
+                <Box sx={{ width: 80, height: 80, mr: 2, flex: `0 0 80px`, bg: `action` }}>
                   {childScreenshot && <Img fluid={childScreenshot.screenshotFile.childImageSharp.fluid} alt={name} />}
                 </Box>
                 <Box>
