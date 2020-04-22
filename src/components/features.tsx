@@ -6,7 +6,6 @@ import { Box, jsx, Text } from 'theme-ui'
 const Features = ({ data }) => (
   <Box sx={{ my: 5, px: 3 }}>
     <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: 'none' }}>
-      {console.log({ data })}
       {data.map(({ node }) => (
         <Box key={node.title} as="li" sx={{ my: 2 }}>
           <Text

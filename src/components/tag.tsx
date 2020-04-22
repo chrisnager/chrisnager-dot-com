@@ -5,7 +5,7 @@ import { jsx, Text } from 'theme-ui'
 
 const Tag: FC<{ children: string }> = ({ children }, index) => (
   <Text
-    as="p"
+    as="span"
     key={`${children}-${index}`}
     sx={{
       mr: `0.5em`,

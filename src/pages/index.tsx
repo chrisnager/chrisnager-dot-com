@@ -11,7 +11,6 @@ import Layout from '../components/layout'
 const RootIndex = ({ data }) => {
   return (
     <Layout>
-      {console.log({ data })}
       {/* 
         // @ts-ignore */}
       <Helmet title={data.allDataYaml.edges[0].node.title} />

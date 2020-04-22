@@ -39,7 +39,7 @@ export default ({ data }) => {
                     {summary}
                   </Text>
                   <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
-                    {!!tags && !!tags.length && tags.map(tag => <Tag>{tag}</Tag>)}
+                    {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
                   </Text>
                 </Box>
               </Flex>
@@ -66,7 +66,7 @@ export default ({ data }) => {
                   <Text as="p" sx={{ fontSize: 2, color: `text`, 'a:hover > &': { color: `text` } }}>
                     {summary}
                   </Text>
-                  {!!tags && !!tags.length && tags.map(tag => <Tag>{tag}</Tag>)}
+                  {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
                 </Box>
               </Flex>
             ))}

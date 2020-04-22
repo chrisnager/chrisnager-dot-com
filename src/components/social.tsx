@@ -17,7 +17,7 @@ const links = [
 
 export default () => (
   <Box>
-    <p
+    <Box
       sx={{
         mt: 4,
         borderTopWidth: 1,
@@ -41,7 +41,7 @@ export default () => (
         <span sx={{ fontStyle: `normal`, fontSize: 2, position: `relative`, top: `-1px` }}>☆</span> Currently looking
         for new opportunities.
       </Text>
-    </p>
+    </Box>
 
     <Flex
       sx={{
@@ -55,7 +55,7 @@ export default () => (
         </Flex>
       ))}
     </Flex>
-    <Text as="p" sx={{ mb: 5, px: 3 }}>
+    <Box sx={{ mb: 5, px: 3 }}>
       <Text as="small">&copy; 2020 Chris Nager</Text>
       <span> &middot; </span>
       <Text as="small">
@@ -66,6 +66,6 @@ export default () => (
       <p>
         <Text as="small">Gatsby-built, Netlify-hosted, Lighthouse-approved.</Text>
       </p>
-    </Text>
+    </Box>
   </Box>
 )
