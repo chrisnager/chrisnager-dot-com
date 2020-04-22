@@ -3,8 +3,11 @@ require('dotenv').config({
 })
 
 module.exports = {
-  siteMetadata: { title: 'Chris Nager' },
-  pathPrefix: '/',
+  siteMetadata: {
+    title: `Chris Nager`,
+    description: `Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design.`,
+  },
+  pathPrefix: `/`,
   plugins: [
     `gatsby-plugin-theme-ui`,
     `gatsby-transformer-remark`,
