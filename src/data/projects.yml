@@ -1,38 +1,62 @@
+- url: https://supportnycdtc.com
+  name: Support NYC DTC
+  summary: Interactive map meant to support the DTC brands of NYC affected by COVID-19, recently featured in the Wall Street Journal and in Mapbox's newsletter
+  page: projects
+  tags: [mapbox, react, mdx, typescript]
+  featured: true
 - url: http://cuber.club/dj
   name: Cuber club
   summary: DJ with your Rubik's cube as a MIDI controller
   page: projects
-  tags: [design, js, accessibility, music]
+  tags: [web bluetooth api, design, js, accessibility, music]
   featured: true
-- url: https://supportnycdtc.com
-  name: Support NYC DTC
-  summary: Mapbox
+- url: https://iextrading.com/apps/stocks/
+  name: Stocks
+  summary: Search stocks, compare peers, see industry news, create watchlists
   page: projects
-  tags: [mapbox, react, mdx, typescript]
-  featured: false
-- url: https://air.inc
-  name: Air site
-  summary: Air
-  page: projects
-  tags: [design]
-  featured: false
+  tags: [design, api, react, js, html, css, performance, dark mode, charting, local storage]
+  featured: true
 - url: https://zephyr.air.inc/foundations/color
-  name: Zephyr color contrast
-  summary: WCAG 2.0 color contrast picker
+  name: Color contrast
+  summary: WCAG 2.0 color contrast picker for the Zephyr design system
   page: projects
   tags: [accessibility]
   featured: true
+- url: http://bit.do/emoonji
+  name: Emoonji
+  summary: A friendly chatbot that sends the current moon phases with emojis
+  page: projects
+  tags: [Facebook Messenger bot, design]
+  featured: true
+- url: http://chrisnager.com/generative-art/bendies/
+  name: Bendies
+  summary: Fun with generated pattern
+  page: projects
+  tags: [generative art]
+  featured: true
+- url: http://chrisnager.com/ungrid
+  name: ungrid
+  summary: the simplest responsive css grid
+  page: projects
+  tags: [design]
+  featured: true
+- url: https://air.inc
+  name: air.inc
+  summary: Site for Air
+  page: projects
+  tags: [design]
+  featured: false
 - url: https://zephyr.air.inc/icon-theming
-  name: Zephyr icon theming
-  summary: Icon theming picker
+  name: Icon theming
+  summary: Icon theming tool for the Zephyr design system
   page: projects
   tags: [design hand-off, svg, developer experience (DX)]
   featured: true
 - url: https://zephyr.air.inc/
   name: Zephyr
-  summary: Design system and component library for Air, built with Gatsby, docz, React, MDX, and styled-system
+  summary: Design system and component library for Air
   page: projects
-  tags: [design]
+  tags: [design, Gatsby, docz, React, MDX, and styled-system]
   featured: false
 - url: https://iextrading.com
   name: IEX iOS and Android apps
@@ -41,17 +65,11 @@
   tags: [design]
   featured: false
 - url: https://iextrading.com
-  name: IEX site
-  summary: Creative blend of SSR + React + BassCSS, with Lighthouse scores of 100
+  name: iextrading.com
+  summary: Site for IEX, creative blend of SSR + React, with Lighthouse scores of 100
   page: projects
-  tags: [design]
+  tags: [ssr, react, BassCSS, design]
   featured: false
-- url: https://stocks.iextrading.com
-  name: Stocks
-  summary: IEX
-  page: projects
-  tags: [design]
-  featured: true
 - url: https://iextrading.com/apps/market/
   name: Market
   summary: IEX
@@ -70,30 +88,18 @@
   page: projects
   tags: [design]
   featured: false
-- url: http://chrisnager.com/generative-art/bendies/
-  name: Bendies
-  summary: Fun with generated patterns (generative art)
-  page: projects
-  tags: [design]
-  featured: true
 - url: http://chrisnager.com/generative-art/diagonals/
   name: Diagonals
-  summary: Fun with generated patterns (generative art)
+  summary: Fun with generated patterns
   page: projects
-  tags: [design]
+  tags: [generative art]
   featured: true
 - url: http://chrisnager.com/generative-art/corners/
   name: Corners
-  summary: Fun with generated patterns (generative art)
+  summary: Fun with generated patterns
   page: projects
-  tags: [design]
+  tags: [generative art]
   featured: false
-- url: http://bit.do/emoonji
-  name: Emoonji
-  summary: A friendly chatbot that sends the current moon phases with emojis
-  page: projects
-  tags: [design]
-  featured: true
 - url: http://bit.ly/smajor
   name: Signum majoritatis
   summary: A side-scrolling game built in a single string
@@ -112,12 +118,6 @@
   page: projects
   tags: [design]
   featured: false
-- url: http://chrisnager.com/ungrid
-  name: ungrid
-  summary: the simplest responsive css grid
-  page: projects
-  tags: [design]
-  featured: true
 - url: http://chrisnager.com/simple-paper-spinner
   name: Simple <paper-spinner>
   summary: How to rebuild Google's Material Design <paper-spinner> with a single div and CSS animations
