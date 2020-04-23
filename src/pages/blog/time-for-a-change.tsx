@@ -1,5 +1,6 @@
 /** @jsx jsx */
 
+import Img from 'gatsby-image'
 import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
@@ -7,7 +8,21 @@ import { Box, jsx } from 'theme-ui'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
-const NotFound: FC = () => {
+export interface NotFoundProps {
+  data: {
+    file: {
+      childImageSharp: { fluid: any }
+    }
+  }
+}
+
+const NotFound: FC<NotFoundProps> = ({
+  data: {
+    file: {
+      childImageSharp: { fluid },
+    },
+  },
+}) => {
   return (
     <Layout>
       <Helmet>
@@ -23,6 +38,7 @@ const NotFound: FC = () => {
           title="Time for a change"
           description="I am proud to announce the new ChrisNager.com. This version is built on Gatsby, and hosted on Netlify."
         />
+
         <p>
           I'm project managing myself and sticking to a plan. Feel free to{` `}
           <a
@@ -34,6 +50,15 @@ const NotFound: FC = () => {
           </a>
           .
         </p>
+
+        <a
+          href="https://www.notion.so/chrisnager/ChrisNager-com-a8e63b19f10a4b0580ff029355e28dd8"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Img {...{ fluid }} alt="Kanban board, titled 'ChrisNager.com', full of tasks" />
+        </a>
+
         <p>My goals for this version of the site are making sure it:</p>
         <ul>
           <li>Tells my story</li>
@@ -51,3 +76,15 @@ const NotFound: FC = () => {
 }
 
 export default NotFound
+
+export const pageQuery = graphql`
+  query NotFoundQuery {
+    file(relativePath: { eq: "images/progress.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
