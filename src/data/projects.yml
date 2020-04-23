@@ -20,7 +20,7 @@
   name: Color contrast
   summary: WCAG 2.0 color contrast picker for the Zephyr design system
   page: projects
-  tags: [accessibility]
+  tags: [accessibility, color]
   featured: true
 - url: http://bit.do/emoonji
   name: Emoonji
@@ -38,19 +38,25 @@
   name: ungrid
   summary: the simplest responsive css grid
   page: projects
-  tags: [design]
+  tags: [tooling, css]
   featured: true
 - url: https://air.inc
   name: air.inc
   summary: Site for Air
   page: projects
-  tags: [design]
+  tags: [react, styled-system, typography]
   featured: false
 - url: https://zephyr.air.inc/icon-theming
   name: Icon theming
   summary: Icon theming tool for the Zephyr design system
   page: projects
   tags: [design hand-off, svg, developer experience (DX)]
+  featured: true
+- url: https://www.youtube.com/embed/295brS23_4I
+  name: Salesforce Marketing Cloud
+  summary: Worked on this product with brilliant engineers and designers
+  page: projects
+  tags: [js, css, accessibility]
   featured: true
 - url: https://zephyr.air.inc/
   name: Zephyr
@@ -134,7 +140,7 @@
   name: UN Disaster Response
   summary: Currently working with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations
   page: projects
-  tags: [design]
+  tags: [ux, html, css, js, design]
   featured: false
 - url: http://disruptnyhackathon.challengepost.com/submissions/23514-jaunt
   name: Jaunt
@@ -146,43 +152,43 @@
   name: Cursors
   summary: All available cursors
   page: projects
-  tags: [design]
+  tags: [design, html, css]
   featured: false
 - url: http://chrisnager.com/simple-debug.css
   name: simple-debug.css
   summary: Debug your layouts with one line of CSS
   page: projects
-  tags: [design]
+  tags: [css, tooling]
   featured: true
 - url: http://chrisnager.com/simple-palette/
   name: simple-palette
   summary: A simple color palette
   page: projects
-  tags: [design]
+  tags: [color, css]
   featured: false
 - url: http://chrisnager.com/short-color-names
   name: ✂ short color names
   summary: The 44 CSS color names that are as short as or shorter than their corresponding hexcodes.
   page: projects
-  tags: [design]
+  tags: [color, css]
   featured: true
 - url: http://chrisnager.com/hexcodes
   name: hexcodes
   summary: All possible three digit hexcodes
   page: projects
-  tags: [design]
+  tags: [color, css]
   featured: false
 - url: http://chrisnager.com/tiny-google-fonts
   name: tiny google fonts
   summary: Strip down your google fonts significantly to only include the characters you're actually using
   page: projects
-  tags: [design]
+  tags: [performance, typography]
   featured: false
 - url: http://chrisnager.com/birthday-hex
   name: Birthday hex
   summary: Find your birthday hexcode
   page: projects
-  tags: [design]
+  tags: [color]
   featured: false
 - url: http://chrisnager.com/svg-please
   name: SVG Please
@@ -196,57 +202,51 @@
   page: projects
   tags: [design]
   featured: false
-- url: https://www.youtube.com/embed/295brS23_4I
-  name: Salesforce Marketing Cloud
-  summary: Worked on this product with brilliant engineers and designers
-  page: projects
-  tags: [js, css, accessibility]
-  featured: true
 - url: http://v3.chrisnager.com
   name: chrisnager.com v3
   summary: Previous
   page: projects
-  tags: [design, BEM, semantic, jekyll, github pages]
+  tags: [design, BEM, semantic html, jekyll, github pages]
   featured: false
 - url: http://chrisnager.com/twadlib
   name: Twadlib!
-  summary: Ad-lib your tweets
+  summary: Ad-lib your tweets, submitted as a 10K Apart Challenge app entry
   page: projects
-  tags: [design]
+  tags: [design, html, css, js, Twitter API]
   featured: false
 - url: http://chrisnager.com/bliss
   name: Bliss
   summary: Beautifully lean, ideal style sheets
   page: projects
-  tags: [design]
+  tags: [css, framework, developer experience (DX)]
   featured: false
 - url: http://chrisnager.com/crafted-css
   name: Crafted CSS
   summary: A personal compilation of CSS practices I follow
   page: projects
-  tags: [design]
+  tags: [css, developer experience (DX), tooling]
   featured: false
 - url: http://chrisnager.com/social-logos/
   name: Social Logos
   summary: Download official social logos
   page: projects
-  tags: [design]
+  tags: [tooling]
   featured: false
 - url: http://v2.chrisnager.com
   name: chrisnager.com v2
   summary: Care to reminisce?
   page: projects
-  tags: [design]
+  tags: [design, html, css, js]
   featured: false
 - url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
   name: Ben Thomson Photo
   summary: Awwwards Site of the Day
   page: projects
-  tags: [design]
+  tags: [branding, design, ux, html, css, js, award-winning]
   featured: false
 - url: http://coding.smashingmagazine.com/2010/07/12/css3-design-contest-results/
   name: Totally Fresh
   summary: Experimental CSS3 design featured on Smashing Magazine
   page: projects
-  tags: [design]
+  tags: [design, html, css]
   featured: false
