@@ -1,32 +1,43 @@
-- name: Lifecycle of an icon
-  summary: Our icon creation process, from ideation to implementation
-  url: https://twitter.com/chrisnager/status/1104089402228256770
-  date: Mar 8, 2019
 - name: Zephyr
   summary: A deep dive into our design system at Air
   url: http://chrisnager.com/zephyr
+  date: January 31, 2020
+- name: Lifecycle of an icon
+  summary: Our icon creation process, from ideation to implementation
+  url: https://twitter.com/chrisnager/status/1104089402228256770
+  date: March 8, 2019
 - name: Design system
-  summary: Part 1 - Typography, icons, and documentation
-  date: July 9 2018
-- name: IEX Internal Company Presentation
-  summary: React - The library that powers our apps
-- name: IEX Internal Company Presentation
-  summary: Say hello to the IEX API
-- name: TechCrunch Disrupt Hackathon Presentation 2017
-  summary: When - Chatbot for location recommendations
+  summary: Part 1 - Typography, icons, and documentation (internal Air presentation)
+  date: July 9, 2018
+- name: React - The library that powers our apps
+  summary: IEX internal company presentation
+  date: In 2016
+- name: Say hello to the IEX API
+  summary: IEX internal company presentation
+  date: In 2015
+- name: When - Chatbot for location recommendations
+  summary: TechCrunch Disrupt Hackathon 2017 presentation
   url: https://techcrunch.com/video/whentho/591879ff1de5a12724606c06
-- name: Salesforce Internal UX and Engineering Presentation
-  summary: A new era for CSS
-- name: TechCrunch Disrupt Hackathon Presentation 2015
-  summary: Cheer me up - Fun, custom pages in seconds
+  date: In 2017
+- name: A new era for CSS
+  summary: Salesforce Internal UX and Engineering Presentation
+  date: In 2015
+- name: Cheer me up - Fun, custom pages in seconds
+  summary: TechCrunch Disrupt Hackathon 2015 presentation
   url: https://techcrunch.com/video/cheer-me-up/518803581
-- name: TechCrunch Disrupt Hackathon Presentation 2014
-  summary: Jaunt - Let your friends be your city guides.
-- name: Salesforce Internal UX and Engineering Presentation
-  summary: Front End Standards
-- name: Scotch Time Tech & Design Podcast
-  summary: Working with Devs
-- name: BarCamp
-  summary: CSS3 Playground
-- name: Luckie Internal Design Presentation
-  summary: CSS3 Capabilities
+  date: In 2015
+- name: Front End Standards
+  summary: Salesforce Internal UX and Engineering Presentation
+  date: July, 27 2015
+- name: Jaunt - Let your friends be your city guides
+  summary: TechCrunch Disrupt Hackathon 2014 presentation
+  date: In 2014
+- name: Working with Devs
+  summary: Scotch Time Tech & Design Podcast
+  date: February 16, 2014
+- name: CSS3 Capabilities
+  summary: Luckie Internal Design Presentation
+  date: In 2011
+- name: CSS3 Playground
+  summary: Presented at BarCamp
+  date: August 28, 2010
