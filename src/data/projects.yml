@@ -2,7 +2,7 @@
   name: Support NYC DTC
   summary: Interactive map to support the DTC brands of NYC affected by COVID-19, recently featured in the Wall Street Journal and in Mapbox's newsletter
   page: projects
-  tags: [mapbox, react, mdx, typescript]
+  tags: [mapbox, react, mdx, typescript, project management]
   featured: true
 - url: http://cuber.club/dj
   name: Cuber club
@@ -44,7 +44,7 @@
   name: air.inc
   summary: Site for Air
   page: projects
-  tags: [react, styled-system, typography]
+  tags: [react, styled-system, typography, color, project management]
   featured: false
 - url: https://zephyr.air.inc/icon-theming
   name: Icon theming
@@ -62,7 +62,7 @@
   name: Zephyr
   summary: Design system and component library for Air
   page: projects
-  tags: [design, Gatsby, docz, React, MDX, and styled-system]
+  tags: [design, Gatsby, docz, React, MDX, and styled-system, project management]
   featured: false
 - url: https://iextrading.com
   name: IEX iOS and Android apps

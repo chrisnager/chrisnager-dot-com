@@ -30,19 +30,14 @@ const Profile: FC<ProfileProps> = ({
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro
           title="Profile"
-          description="I'm a front end engineer with a background in design, a minimalist aesthetic, and a deep concern for
+          description="I'm a front end engineer with a background in design, over a decade of work expereince, a minimalist aesthetic, and a deep concern for
           performance and accessibility."
         />
 
         <Img {...{ fluid }} alt="Chris Nager, smiling and wearing a hat" />
 
         <p>
-          I’m a software engineer with a background in design and over a decade of work expereince. My design and code
-          come from a deep concern for performance and accessibility.
-        </p>
-
-        <p>
-          I’ve worked in many industries, from Advertising to Finance. I’ve been part of a{` `}
+          I’ve worked across industries, from Advertising to Finance. I’ve been part of a{` `}
           <a
             href="https://www.adweek.com/digital/salesforce-buys-buddy-media-689-million-140913/"
             target="_blank"
@@ -66,27 +61,37 @@ const Profile: FC<ProfileProps> = ({
           <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
             ground-level SAAS startup
           </a>
-          , and am now ready for a new challenge.
+          , and am now <mark>ready for a new challenge</mark>.
         </p>
 
         <p>
           Pre-quarantine, you may have seen me on the G train,{' '}
-          <a href="https://www.instagram.com/p/BsE0AVMCUnt/">speed-solving my Rubik’s cube</a>.
+          <a href="https://www.instagram.com/p/BsE0AVMCUnt/" target="_blank" rel="noopener noreferrer">
+            speed-solving my Rubik’s cube
+          </a>
+          .
         </p>
 
         <p>
           I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React
-          Native, TypeScript. Aside from these buzzword skills, what truly sets my work apart is my (deep) understanding
-          of CSS. I know when and how to use grid layouts and truly understanding the cascade. I’m particularly proud of
-          [Zephyr](https://zephyr.air.inc), the design system I created for Air. It’s built in TypeScript and includes
-          including cross-platform foundations and components.
+          Native, TypeScript, Theme-UI, and Gatsby. Aside from these buzzword skills, what truly sets my work apart is
+          my deep understanding of CSS. I know when and how to use flexbox versus grid layouts, and truly understanding
+          the cascade. I’m particularly proud of{' '}
+          <a href="https://zephyr.air.inc" target="_blank" rel="noopener noreferrer">
+            Zephyr
+          </a>
+          , the design system I created for Air. It’s built in TypeScript and includes cross-platform (web/iOS/Android)
+          foundations and components.
         </p>
 
-        <p>I’ve had opportunities to speak about my process and I host internal company teach-ins when appropriate.</p>
+        <p>I’ve had opportunities to speak about my process, and I host internal company teach-ins when appropriate.</p>
 
-        <p>I learn everyday and have a passion for mentoring. As a team leader,</p>
+        <p>
+          I learn everyday and have a passion for mentoring. As a team leader, I make sure to keep a positive attitude
+          to keep everyone inspired to see the project through and put in their best efforts.
+        </p>
 
-        <p>I’ve launched web, iOS, and Android apps for companies ranging from small to Coca Cola.</p>
+        {/* <p>I’ve launched web, iOS, and Android apps for companies ranging from small to Coca Cola.</p> */}
 
         <p>I am in constant search of purpose-driven work.</p>
       </Box>
