@@ -18,7 +18,7 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
         <title>Speaking / Chris Nager</title>
         <meta
           name="description"
-          content="Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design."
+          content="Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design."
         />
       </Helmet>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>

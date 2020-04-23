@@ -29,7 +29,7 @@ const NotFound: FC<NotFoundProps> = ({
         <title>Time for a change / Blog / Chris Nager</title>
         <meta
           name="description"
-          content="Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design."
+          content="Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design."
         />
       </Helmet>
 

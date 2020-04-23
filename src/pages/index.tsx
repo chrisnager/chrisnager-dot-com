@@ -20,7 +20,7 @@ const Home: FC<HomeProps> = ({ data }) => {
         <title>{data.allDataYaml.edges[0].node.title}</title>
         <meta
           name="description"
-          content="Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design."
+          content="Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design."
         />
       </Helmet>
       <Box sx={{ maxWidth: `55ch` }}>
