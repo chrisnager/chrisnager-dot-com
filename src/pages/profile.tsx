@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { FC } from 'react'
 import Helmet from 'react-helmet'
-import { Box, jsx, Text } from 'theme-ui'
+import { Box, jsx } from 'theme-ui'
 
 import Intro from '../components/intro'
 import Layout from '../components/layout'
@@ -45,7 +45,7 @@ const Profile: FC<ProfileProps> = ({
           >
             near-billion dollar acquisition
           </a>
-          , built{' '}
+          , built{` `}
           <a href="https://salesforce.com" target="_blank" rel="noopener noreferrer">
             products millions have used
           </a>
@@ -57,15 +57,28 @@ const Profile: FC<ProfileProps> = ({
           >
             launch America’s newest stock exchange
           </a>
-          , most recently was a founding member of a{' '}
+          , most recently was a founding member of a{` `}
           <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
-            ground-level SAAS startup
+            ground-level SaaS startup
           </a>
-          , and am now <mark>ready for a new challenge</mark>.
+          , and am now{` `}
+          <mark
+            sx={{
+              fontWeight: `500`,
+              px: 2,
+              display: `inline-block`,
+              fontStyle: `italic`,
+              bg: `text`,
+              color: `background`,
+            }}
+          >
+            ready for a new challenge
+          </mark>
+          .
         </p>
 
         <p>
-          Pre-quarantine, you may have seen me on the G train,{' '}
+          Pre-quarantine, you may have seen me on the G train,{` `}
           <a href="https://www.instagram.com/p/BsE0AVMCUnt/" target="_blank" rel="noopener noreferrer">
             speed-solving my Rubik’s cube
           </a>
@@ -76,7 +89,7 @@ const Profile: FC<ProfileProps> = ({
           I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React
           Native, TypeScript, Theme-UI, and Gatsby. Aside from these buzzword skills, what truly sets my work apart is
           my deep understanding of CSS. I know when and how to use flexbox versus grid layouts, and truly understanding
-          the cascade. I’m particularly proud of{' '}
+          the cascade. I’m particularly proud of{` `}
           <a href="https://zephyr.air.inc" target="_blank" rel="noopener noreferrer">
             Zephyr
           </a>

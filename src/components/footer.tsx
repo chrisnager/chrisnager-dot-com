@@ -1,5 +1,6 @@
 /** @jsx jsx */
 
+import { FC } from 'react'
 import { Box, Flex, jsx, Text } from 'theme-ui'
 
 const links = [
@@ -21,8 +22,7 @@ const Footer: FC = () => (
         px: 3,
       }}
     >
-      <Text
-        as="mark"
+      <mark
         sx={{
           fontWeight: `500`,
           px: 2,
@@ -33,7 +33,7 @@ const Footer: FC = () => (
         }}
       >
         I'm currently looking for new opportunities.
-      </Text>
+      </mark>
     </Box>
 
     <Flex
@@ -80,7 +80,7 @@ const Footer: FC = () => (
         <Text as="small">
           Gatsby-built, Netlify-hosted,{' '}
           <a
-            href="https://build-5b4e1699-6760-4465-9eb8-a15a076fb3e6.gtsb.io/reports/lighthouse/index.html"
+            href="https://build-393fed5e-446b-4d61-8c60-c1923376ecb2.gtsb.io/reports/lighthouse/index.html"
             target="_blank"
             rel="noopener noreferrer"
           >
