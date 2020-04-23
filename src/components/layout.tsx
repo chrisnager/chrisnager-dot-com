@@ -30,7 +30,7 @@ const Layout: FC = ({ children }) => {
             line-height: 1.7;
             font-family: system-ui, sans-serif;
           }
-          
+
           img {
             width: 100%;
             display: block;
