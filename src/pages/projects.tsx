@@ -19,7 +19,7 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
     <Layout>
       <Helmet title="Projects / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Intro title="Projects" description="Some fun things I've built" />
+        <Intro title="Projects" description="A handful of things I've built" />
 
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
           {data.allProjectsYaml.edges
@@ -61,9 +61,9 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
                     <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
                       {summary}
                     </Text>
-                    <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
+                    <Box sx={{ mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
                       {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
-                    </Text>
+                    </Box>
                   </Box>
                 </Flex>
               ),

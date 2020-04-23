@@ -1,29 +1,26 @@
 /** @jsx jsx */
 
 import { FC } from 'react'
-import { jsx, Text } from 'theme-ui'
+import { jsx } from 'theme-ui'
 
-const Tag: FC<{ children: string }> = ({ children }, index) => (
-  <Text
-    as="span"
+const Tag: FC = ({ children }, index) => (
+  <span
     key={`${children}-${index}`}
     sx={{
-      mr: `0.5em`,
-      py: `.33333rem`,
-      px: `0.5rem`,
-      borderWidth: `1px`,
+      mr: 2,
+      borderWidth: 1,
       borderStyle: `solid`,
       borderColor: `tag`,
+      py: 1,
+      px: 2,
       display: `inline-block`,
       fontStyle: `italic`,
       fontSize: 2,
-      lineHeight: `1`,
-      textDecoration: `none`,
+      lineHeight: 1,
       color: `text`,
     }}
-  >
-    {children}
-  </Text>
+    {...{ children }}
+  />
 )
 
 export default Tag
