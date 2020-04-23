@@ -31,7 +31,7 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, publishDate, 
       {title}
     </Text>
 
-    {!!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+    <Box sx={{ mx: -2 }}>{!!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Box>
   </Box>
 )
 
