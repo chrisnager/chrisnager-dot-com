@@ -5,8 +5,8 @@ import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
 
+import Footer from './footer'
 import Navigation from './navigation'
-import Social from './social'
 
 const Layout: FC = ({ children }) => {
   return (
@@ -68,7 +68,7 @@ const Layout: FC = ({ children }) => {
       </Helmet>
       <Navigation />
       {children}
-      <Social />
+      <Footer />
     </Box>
   )
 }

@@ -6,6 +6,7 @@ import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, Flex, jsx, Text } from 'theme-ui'
 
+import Intro from '../components/intro'
 import Layout from '../components/layout'
 import Tag from '../components/tag'
 
@@ -18,10 +19,7 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
     <Layout>
       <Helmet title="Projects / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Text as="h1">Projects</Text>
-        <Text as="p" sx={{ my: 3, fontSize: 4 }}>
-          Some fun things I've built
-        </Text>
+        <Intro title="Projects" description="Some fun things I've built" />
 
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
           {data.allProjectsYaml.edges
@@ -53,7 +51,7 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
                   rel="noopener noreferrer"
                   sx={{ mt: 4, ':hover': { textDecoration: `none` } }}
                 >
-                  <Box sx={{ width: 120, height: 120, mr: 2, flex: `0 0 120px`, bg: `action` }}>
+                  <Box sx={{ width: 120, height: 120, mr: 3, flex: `0 0 120px`, bg: `action` }}>
                     {childScreenshot && <Img fluid={childScreenshot.screenshotFile.childImageSharp.fluid} alt={name} />}
                   </Box>
                   <Box>

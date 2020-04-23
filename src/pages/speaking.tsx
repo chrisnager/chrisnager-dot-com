@@ -4,6 +4,7 @@ import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx, Text } from 'theme-ui'
 
+import Intro from '../components/intro'
 import Layout from '../components/layout'
 
 export interface SpeakingProps {
@@ -15,10 +16,8 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
     <Layout>
       <Helmet title="Speaking / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Text as="h1">Speaking</Text>
-        <Text as="p" sx={{ my: 3, fontSize: 4 }}>
-          Fun stuff I've presented
-        </Text>
+        <Intro title="Speaking" description="Fun stuff I've presented" />
+
         <Box as="ul" sx={{ my: 0, pl: 0 }}>
           {data.allSpeakingYaml.edges.map(
             ({ node }: { node: { summary: string; url: string; date: string; name: string } }) => (

@@ -6,6 +6,7 @@ import { FC } from 'react'
 import Helmet from 'react-helmet'
 import { Box, jsx, Text } from 'theme-ui'
 
+import Intro from '../components/intro'
 import Layout from '../components/layout'
 
 export interface ProfileProps {
@@ -27,11 +28,11 @@ const Profile: FC<ProfileProps> = ({
     <Layout>
       <Helmet title="Profile / Chris Nager" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Text as="h1">Profile</Text>
-        <Text as="p" sx={{ my: 3, fontSize: 4 }}>
-          I'm a front end engineer with a background in design, a minimalist aesthetic, and a deep concern for
-          performance and accessibility.
-        </Text>
+        <Intro
+          title="Profile"
+          description="I'm a front end engineer with a background in design, a minimalist aesthetic, and a deep concern for
+          performance and accessibility."
+        />
 
         <Img {...{ fluid }} alt="Chris Nager, smiling and wearing a hat" />
 

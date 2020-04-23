@@ -1,9 +1,10 @@
 /** @jsx jsx */
 
 import { Link } from 'gatsby'
+import { FC } from 'react'
 import { Box, jsx, Text } from 'theme-ui'
 
-export default ({ data }) => (
+const Hero: FC = ({ data }) => (
   <Box sx={{ px: 3 }}>
     <Text as="h1">{data.title}</Text>
     <Text as="p" sx={{ my: 3, fontSize: 4 }}>
@@ -15,3 +16,5 @@ export default ({ data }) => (
     </Text>
   </Box>
 )
+
+export default Hero
