@@ -18,7 +18,11 @@ const NotFound: FC = () => {
         />
         <p>
           I'm project managing myself and sticking to a plan. Feel free to{` `}
-          <a href="https://www.notion.so/chrisnager/ChrisNager-com-a8e63b19f10a4b0580ff029355e28dd8">
+          <a
+            href="https://www.notion.so/chrisnager/ChrisNager-com-a8e63b19f10a4b0580ff029355e28dd8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             track my progress
           </a>
           .
