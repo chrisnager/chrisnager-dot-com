@@ -17,7 +17,13 @@ export interface ProjectsProps {
 const Projects: FC<ProjectsProps> = ({ data }) => {
   return (
     <Layout>
-      <Helmet title="Projects / Chris Nager" />
+      <Helmet>
+        <title>Projects / Chris Nager</title>
+        <meta
+          name="description"
+          content="Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design."
+        />
+      </Helmet>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Projects" description="A handful of things I've built" />
 

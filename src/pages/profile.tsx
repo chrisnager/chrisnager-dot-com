@@ -26,7 +26,13 @@ const Profile: FC<ProfileProps> = ({
 }) => {
   return (
     <Layout>
-      <Helmet title="Profile / Chris Nager" />
+      <Helmet>
+        <title>Profile / Chris Nager</title>
+        <meta
+          name="description"
+          content="Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design."
+        />
+      </Helmet>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro
           title="Profile"

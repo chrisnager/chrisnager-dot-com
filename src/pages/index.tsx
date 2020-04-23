@@ -16,7 +16,13 @@ export interface HomeProps {
 const Home: FC<HomeProps> = ({ data }) => {
   return (
     <Layout>
-      <Helmet title={data.allDataYaml.edges[0].node.title} />
+      <Helmet>
+        <title>{data.allDataYaml.edges[0].node.title}</title>
+        <meta
+          name="description"
+          content="Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design."
+        />
+      </Helmet>
       <Box sx={{ maxWidth: `55ch` }}>
         <Hero data={data.allDataYaml.edges[0].node} />
         <Features data={data.allFeaturesYaml.edges} />

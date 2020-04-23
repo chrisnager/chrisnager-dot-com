@@ -16,7 +16,13 @@ export interface BlogProps {
 const Blog: FC<BlogProps> = ({ data }) => {
   return (
     <Layout>
-      <Helmet title="Blog / Chris Nager" />
+      <Helmet>
+        <title>Blog / Chris Nager</title>
+        <meta
+          name="description"
+          content="Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design."
+        />
+      </Helmet>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Blog" description="Stuff I've written" />
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>

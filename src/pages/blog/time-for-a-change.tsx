@@ -10,7 +10,14 @@ import Layout from '../../components/layout'
 const NotFound: FC = () => {
   return (
     <Layout>
-      <Helmet title="Time for a change / Blog / Chris Nager" />
+      <Helmet>
+        <title>Time for a change / Blog / Chris Nager</title>
+        <meta
+          name="description"
+          content="Developer and designer in Brooklyn, NY passionate about performance, accessiblity, and systematic design."
+        />
+      </Helmet>
+
       <Box sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
           title="Time for a change"
