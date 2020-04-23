@@ -4,13 +4,20 @@ import { Link } from 'gatsby'
 import { FC } from 'react'
 import { Box, jsx, Text } from 'theme-ui'
 
-const Hero: FC = ({ data }) => (
+export interface HeroProps {
+  data: {
+    title: string
+    description: string
+  }
+}
+
+const Hero: FC<HeroProps> = ({ data: { title, description } }) => (
   <Box sx={{ px: 3 }}>
-    <Text as="h1">{data.title}</Text>
+    <Text as="h1">{title}</Text>
     <Text as="p" sx={{ my: 3, fontSize: 4 }}>
-      {data.description}
+      {description}
       <br />
-      <Link to="/profile" sx={{ fontSize: 3 }}>
+      <Link to="/profile" aria-label="Learn more about Chris Nager" sx={{ fontSize: 3 }}>
         Learn more
       </Link>
     </Text>
