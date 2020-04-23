@@ -36,13 +36,24 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
                 rel="noopener noreferrer"
                 sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}
               >
-                <Text as="p" sx={{ mt: 1, fontSize: 2, color: `text`, 'a:hover > &': { color: `text` } }}>
+                <Text
+                  as="p"
+                  sx={{
+                    mt: 1,
+                    fontSize: 2,
+                    color: `text`,
+                    'a:hover > &': { color: `text` },
+                  }}
+                >
                   {node.date}
                 </Text>
                 <Text as="h2" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
                   {node.name}
                 </Text>
-                <Text as="p" sx={{ mt: 1, color: `text`, 'a:hover > &': { color: `text` } }}>
+                <Text
+                  as="p"
+                  sx={{ mt: 1, fontFamily: `Georgia, serif`, color: `text`, 'a:hover > &': { color: `text` } }}
+                >
                   {node.summary}
                 </Text>
               </Box>

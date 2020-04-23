@@ -15,7 +15,7 @@ const Hero: FC<HeroProps> = ({ data: { title, description } }) => (
   <Box sx={{ px: 3 }}>
     <Text as="h1">{title}</Text>
     <Text as="p" sx={{ my: 3, fontSize: 4 }}>
-      <span sx={{ fontFamily: `serif` }}>{description}</span>
+      <span sx={{ fontFamily: `Georgia, serif` }}>{description}</span>
       <br />
       <Link to="/profile" aria-label="Learn more about Chris Nager" sx={{ fontSize: 3 }}>
         Learn more

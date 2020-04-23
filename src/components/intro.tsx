@@ -12,7 +12,7 @@ const Intro: FC<IntroProps> = ({ title, description }) => {
   return (
     <Box>
       <Text as="h1">{title}</Text>
-      <Text as="p" sx={{ my: 3, fontSize: 4, fontFamily: `serif` }}>
+      <Text as="p" sx={{ my: 3, fontSize: 4, fontFamily: `Georgia, serif` }}>
         {description}
       </Text>
     </Box>

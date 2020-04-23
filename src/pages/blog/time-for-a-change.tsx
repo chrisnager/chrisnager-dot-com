@@ -39,7 +39,7 @@ const NotFound: FC<NotFoundProps> = ({
           description="I am proud to announce the new ChrisNager.com. This version is built on Gatsby, and hosted on Netlify."
         />
 
-        <p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>
           I'm project managing myself and sticking to a plan. Feel free to{` `}
           <a
             href="https://www.notion.so/chrisnager/ChrisNager-com-a8e63b19f10a4b0580ff029355e28dd8"
@@ -59,8 +59,8 @@ const NotFound: FC<NotFoundProps> = ({
           <Img {...{ fluid }} alt="Kanban board, titled 'ChrisNager.com', full of tasks" />
         </a>
 
-        <p>My goals for this version of the site are making sure it:</p>
-        <ul>
+        <p sx={{ fontFamily: `Georgia, serif` }}>My goals for this version of the site are making sure it:</p>
+        <ul sx={{ fontFamily: `Georgia, serif` }}>
           <li>Tells my story</li>
           <li>Is fast</li>
           <li>Is accessible</li>

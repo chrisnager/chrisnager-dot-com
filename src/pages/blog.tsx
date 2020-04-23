@@ -24,7 +24,7 @@ const Blog: FC<BlogProps> = ({ data }) => {
         />
       </Helmet>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Intro title="Blog" description="Stuff I've written" />
+        <Intro title="Blog" description="My thoughts and process written down" />
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
           {data.allPostsYaml.edges.map(({ node }: { node: any }) => {
             return (

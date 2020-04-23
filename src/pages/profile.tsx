@@ -42,7 +42,7 @@ const Profile: FC<ProfileProps> = ({
 
         <Img {...{ fluid }} alt="Chris Nager, smiling and wearing a hat" />
 
-        <p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>
           I’ve worked across industries, from Advertising to Finance. I’ve been part of a{` `}
           <a
             href="https://www.adweek.com/digital/salesforce-buys-buddy-media-689-million-140913/"
@@ -83,7 +83,7 @@ const Profile: FC<ProfileProps> = ({
           .
         </p>
 
-        <p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>
           Pre-quarantine, you may have seen me on the G train,{` `}
           <a href="https://www.instagram.com/p/BsE0AVMCUnt/" target="_blank" rel="noopener noreferrer">
             speed-solving my Rubik’s cube
@@ -91,7 +91,7 @@ const Profile: FC<ProfileProps> = ({
           .
         </p>
 
-        <p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>
           I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React
           Native, TypeScript, Theme-UI, and Gatsby. Aside from these buzzword skills, what truly sets my work apart is
           my deep understanding of CSS. I know when and how to use flexbox versus grid layouts, and truly understanding
@@ -103,16 +103,18 @@ const Profile: FC<ProfileProps> = ({
           foundations and components.
         </p>
 
-        <p>I’ve had opportunities to speak about my process, and I host internal company teach-ins when appropriate.</p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>
+          I’ve had opportunities to speak about my process, and I host internal company teach-ins when appropriate.
+        </p>
 
-        <p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>
           I learn everyday and have a passion for mentoring. As a team leader, I make sure to keep a positive attitude
           to keep everyone inspired to see the project through and put in their best efforts.
         </p>
 
         {/* <p>I’ve launched web, iOS, and Android apps for companies ranging from small to Coca Cola.</p> */}
 
-        <p>I am in constant search of purpose-driven work.</p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>I am in constant search of purpose-driven work.</p>
       </Box>
     </Layout>
   )
