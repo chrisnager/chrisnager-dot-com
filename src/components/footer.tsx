@@ -22,18 +22,23 @@ const Footer: FC = () => (
         px: 3,
       }}
     >
-      <mark
+      <a
+        href="mailto:chris@chrisnager.com"
+        target="_blank"
+        rel="noopener noreferrer"
         sx={{
-          fontWeight: `500`,
+          borderWidth: 1,
+          borderStyle: `solid`,
+          borderColor: `transparent`,
           px: 2,
           display: `inline-block`,
-          fontStyle: `italic`,
-          bg: `text`,
-          color: `background`,
+          fontFamily: `Georgia, serif`,
+          color: `text`,
+          bg: `tag`,
         }}
       >
         I'm currently looking for new opportunities.
-      </mark>
+      </a>
     </Box>
 
     <Flex

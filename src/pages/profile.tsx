@@ -68,18 +68,22 @@ const Profile: FC<ProfileProps> = ({
             ground-level SaaS startup
           </a>
           , and am now{` `}
-          <mark
+          <a
+            href="mailto:chris@chrisnager.com"
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
-              fontWeight: `500`,
+              borderWidth: 1,
+              borderStyle: `solid`,
+              borderColor: `transparent`,
               px: 2,
               display: `inline-block`,
-              fontStyle: `italic`,
-              bg: `text`,
-              color: `background`,
+              color: `text`,
+              bg: `tag`,
             }}
           >
             ready for a new challenge
-          </mark>
+          </a>
           .
         </p>
 

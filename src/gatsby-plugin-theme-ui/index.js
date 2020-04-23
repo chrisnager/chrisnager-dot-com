@@ -4,13 +4,13 @@ export default {
     text: `rgba(0, 0, 0, 0.9)`,
     background: `#d2f1f9`,
     action: `#c50808`,
-    tag: `rgba(0, 0, 0, 0.1)`,
+    tag: `rgba(0, 0, 0, 0.05)`,
     modes: {
       dark: {
         text: `#d2f1f9`,
         background: `rgba(0, 0, 0, 0.9)`,
         action: `#e42e2e`,
-        tag: `rgba(255, 255, 255, 0.1)`,
+        tag: `rgba(255, 255, 255, 0.05)`,
       },
     },
   },
