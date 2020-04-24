@@ -29,7 +29,7 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
 
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
           {data.allProjectsYaml.edges
-            .filter(({ node: { featured } }: { node: { featured: boolean } }) => featured)
+            // .filter(({ node: { featured } }: { node: { featured: boolean } }) => featured)
             .map(
               ({
                 node: { name, url, childScreenshot, summary, tags },
@@ -48,75 +48,43 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
                   tags: string[]
                 }
               }) => (
-                <Flex
-                  key={name}
-                  as="a"
-                  // @ts-ignore
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ mt: 4, ':hover': { textDecoration: `none` } }}
-                >
-                  <Box sx={{ width: 120, height: 120, mr: 3, flex: `0 0 120px`, bg: `action` }}>
-                    {childScreenshot && <Img fluid={childScreenshot.screenshotFile.childImageSharp.fluid} alt={name} />}
-                  </Box>
-                  <Box>
-                    <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
-                      {name}
-                    </Text>
-                    <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
-                      {summary}
-                    </Text>
-                    <Box sx={{ mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
-                      {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                <Box key={name} as="li" sx={{ mt: 4, display: [`block`, `flex`] }}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
+                  >
+                    <Box
+                      sx={{
+                        size: [`auto`, 120],
+                        mr: [0, 3],
+                        flex: [`auto`, `0 0 120px`],
+                        overflowY: `hidden`,
+                        bg: `action`,
+                      }}
+                    >
+                      {childScreenshot && (
+                        <Img
+                          sizes={{ ...childScreenshot.screenshotFile.childImageSharp.fluid, aspectRatio: 16 / 9 }}
+                          imgStyle={{ objectPosition: `center top` }}
+                          alt={name}
+                        />
+                      )}
                     </Box>
-                  </Box>
-                </Flex>
-              ),
-            )}
-
-          {data.allProjectsYaml.edges
-            .filter(({ node: { featured } }: { node: { featured: boolean } }) => !featured)
-            .map(
-              ({
-                node: { name, url, childScreenshot, summary, tags },
-              }: {
-                node: {
-                  name: string
-                  url: string
-                  childScreenshot: {
-                    screenshotFile: {
-                      childImageSharp: {
-                        fluid: any
-                      }
-                    }
-                  }
-                  summary: string
-                  tags: string[]
-                }
-              }) => (
-                <Flex
-                  key={name}
-                  as="a"
-                  // @ts-ignore
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ mt: 4, ':hover': { textDecoration: `none` } }}
-                >
-                  <Box sx={{ width: 80, height: 80, mr: 2, flex: `0 0 80px`, bg: `action` }}>
-                    {childScreenshot && <Img fluid={childScreenshot.screenshotFile.childImageSharp.fluid} alt={name} />}
-                  </Box>
-                  <Box>
-                    <Text as="h1" sx={{ fontSize: 3, 'a:hover > &': { textDecoration: `underline` } }}>
-                      {name}
-                    </Text>
-                    <Text as="p" sx={{ fontSize: 2, color: `text`, 'a:hover > &': { color: `text` } }}>
-                      {summary}
-                    </Text>
-                    {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
-                  </Box>
-                </Flex>
+                    <Box sx={{ pt: 3 }}>
+                      <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
+                        {name}
+                      </Text>
+                      <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
+                        {summary}
+                      </Text>
+                      <Box sx={{ mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
+                        {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                      </Box>
+                    </Box>
+                  </a>
+                </Box>
               ),
             )}
         </Box>
@@ -140,7 +108,7 @@ export const pageQuery = graphql`
           childScreenshot {
             screenshotFile {
               childImageSharp {
-                fluid(maxWidth: 240, maxHeight: 240) {
+                fluid {
                   ...GatsbyImageSharpFluid
                 }
               }

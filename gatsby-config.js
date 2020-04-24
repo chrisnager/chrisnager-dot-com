@@ -24,7 +24,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-screenshot`,
       options: {
-        nodeTypes: [`ProjectsYaml`, `SpeakingYaml`],
+        nodeTypes: [`ProjectsYaml`],
       },
     },
     {
