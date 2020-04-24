@@ -7,6 +7,7 @@ const links = [
   { href: `https://twitter.com/chrisnager`, children: `Twitter` },
   { href: `https://github.com/chrisnager`, children: `GitHub` },
   { href: `https://codepen.io/chrisnager`, children: `CodePen` },
+  { href: `https://medium.com/@chrisnager`, children: `Medium` },
   { href: `https://linkedin.com/in/chrisnager`, children: `LinkedIn` },
 ]
 
@@ -49,12 +50,12 @@ const Footer: FC = () => (
       }}
     >
       {links.map(({ href, children }) => (
-        <Flex key={href} sx={{ flexBasis: [`50%`, `auto`] }}>
+        <Flex key={href} sx={{ flexBasis: [`calc(100% / 3)`, `auto`] }}>
           <a
             target="_blank"
             rel="noopener noreferrer"
             {...{ href, children }}
-            sx={{ px: [2, 3], display: `flex`, alignItems: `center` }}
+            sx={{ height: 48, display: `flex`, alignItems: `center`, px: [2, 3] }}
           />
         </Flex>
       ))}
