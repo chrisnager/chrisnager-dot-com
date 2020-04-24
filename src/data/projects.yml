@@ -202,7 +202,7 @@
 #   name: chrisnager.com v2
 #   summary: Care to reminisce?
 #   tags: [design, HTML, CSS, JS]
-  featured: false
+#   featured: false
 - url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
   name: Ben Thomson Photo
   summary: Awwwards Site of the Day
