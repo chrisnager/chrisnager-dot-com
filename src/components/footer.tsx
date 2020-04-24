@@ -19,7 +19,7 @@ const Footer: FC = () => (
         borderTopStyle: `solid`,
         borderTopColor: `tag`,
         pt: 5,
-        px: 3,
+        px: 2,
       }}
     >
       <a

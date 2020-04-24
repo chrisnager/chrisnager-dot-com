@@ -76,7 +76,7 @@ const Profile: FC<ProfileProps> = ({
               borderWidth: 1,
               borderStyle: `solid`,
               borderColor: `transparent`,
-              px: 2,
+              px: 1,
               display: `inline-block`,
               color: `text`,
               bg: `tag`,
@@ -99,7 +99,7 @@ const Profile: FC<ProfileProps> = ({
           I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React
           Native, TypeScript, Testing Library, Theme-UI, and Gatsby. Aside from these buzzword skills, what truly sets
           my work apart is my deep understanding of CSS. I know when and how to use flexbox versus grid layouts, and
-          truly understanding the cascade. I’m particularly proud of{` `}
+          truly understand the cascade. I’m particularly proud of{` `}
           <a href="https://zephyr.air.inc" target="_blank" rel="noopener noreferrer">
             Zephyr
           </a>

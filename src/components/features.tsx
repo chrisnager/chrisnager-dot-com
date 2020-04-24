@@ -17,7 +17,7 @@ export interface FeaturesProps {
 }
 
 const Features: FC<FeaturesProps> = ({ data }) => (
-  <Box sx={{ my: 5, px: 3 }}>
+  <Box sx={{ my: 5, px: 2 }}>
     <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: 'none' }}>
       {data.map(({ node }) => (
         <Box key={node.title} as="li" sx={{ my: 2 }}>

@@ -8,9 +8,6 @@ const Tag: FC = ({ children }, index) => (
     key={`${children}-${index}`}
     sx={{
       mr: 2,
-      borderWidth: 1,
-      borderStyle: `solid`,
-      borderColor: `tag`,
       py: 1,
       px: 2,
       display: `inline-block`,
@@ -18,6 +15,7 @@ const Tag: FC = ({ children }, index) => (
       fontSize: 2,
       lineHeight: 1,
       color: `text`,
+      backgroundColor: `tag`,
     }}
     {...{ children }}
   />
