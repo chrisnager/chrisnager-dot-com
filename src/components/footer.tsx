@@ -85,7 +85,7 @@ const Footer: FC = () => (
         <Text as="small">
           Gatsby-built, Netlify-hosted,{' '}
           <a
-            href="https://build-e9e910e8-93bc-4704-81ff-051a24cfc3ad.gtsb.io/reports/lighthouse/index.html"
+            href="https://lighthouse-dot-webdotdevsite.appspot.com//lh/html?url=https%3A%2F%2Fchrisnager.com"
             target="_blank"
             rel="noopener noreferrer"
           >
