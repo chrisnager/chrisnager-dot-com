@@ -67,14 +67,14 @@ const NotFound: FC<NotFoundProps> = ({
           <li>Is accessible</li>
           <li>Can be used offline</li>
           <li>Includes a full-fledged dark mode</li>
-          <li>Is easy to maintain/update</li>
-          <li>Is fun to explore</li>
           <li>Displays nicely on mobile</li>
+          <li>Is easy to maintain and update</li>
+          <li>Is fun to explore</li>
         </ul>
 
-        <p sx={{ fontFamily: `Georgia, serif` }}>
+        {/* <p sx={{ fontFamily: `Georgia, serif` }}>
           With this new site, I'm also looking to make some changes personally and professionally.
-        </p>
+        </p> */}
       </Box>
     </Layout>
   )
