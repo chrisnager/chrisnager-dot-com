@@ -48,22 +48,14 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
                   tags: string[]
                 }
               }) => (
-                <Box key={name} as="li" sx={{ mt: 4, display: [`block`, `flex`] }}>
+                <Box key={name} as="li" sx={{ mt: 4, display: `block` }}>
                   <a
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
                   >
-                    <Box
-                      sx={{
-                        size: [`auto`, 120],
-                        mr: [0, 3],
-                        flex: [`auto`, `0 0 120px`],
-                        overflowY: `hidden`,
-                        bg: `action`,
-                      }}
-                    >
+                    <Box sx={{ bg: `action` }}>
                       {childScreenshot && (
                         <Img
                           sizes={{ ...childScreenshot.screenshotFile.childImageSharp.fluid, aspectRatio: 16 / 9 }}
