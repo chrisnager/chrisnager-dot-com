@@ -117,7 +117,7 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
 
         <p>Simple, semantic, and IE8+ compatible.</p>
 
-        <hr sx={{ my: 5 }} />
+        <hr sx={{ my: 5, border: 0, height: 1, bg: `divider` }} />
 
         <p>
           After figuring all this out, I later found that I was not the first to think of this, but in fact similar

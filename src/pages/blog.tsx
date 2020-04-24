@@ -43,12 +43,12 @@ export default Blog
 
 export const pageQuery = graphql`
   query BlogQuery {
-    allPostsYaml(sort: { fields: [publishDate], order: DESC }) {
+    allPostsYaml(sort: { fields: [date], order: DESC }) {
       edges {
         node {
           slug
           url
-          publishDate(formatString: "MMMM Do, YYYY")
+          date(formatString: "MMMM Do, YYYY")
           title
           tags
         }

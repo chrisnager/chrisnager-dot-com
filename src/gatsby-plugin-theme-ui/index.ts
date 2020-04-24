@@ -5,6 +5,7 @@ export default {
     background: `#dfeff3`,
     action: `#c50808`,
     tag: `rgba(0, 0, 0, 0.0375)`,
+    divider: `rgba(0, 0, 0, 0.125)`,
     selection: `#c1e0ff`,
     modes: {
       dark: {
@@ -12,6 +13,7 @@ export default {
         background: `#0e1010`,
         action: `#6bb1da`,
         tag: `rgba(255, 255, 255, 0.0375)`,
+        divider: `rgba(255, 255, 255, 0.125)`,
         selection: `#7d8585`,
       },
     },

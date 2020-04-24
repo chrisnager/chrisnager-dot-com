@@ -1,41 +1,41 @@
 - title: Time for a change
   slug: time-for-a-change
   url: /blog/time-for-a-change
-  publishDate: 2020-04-23
+  date: 2020-04-23
   tags: [news]
 
 - title: Takeaways from F8 2018
   slug: takeaways-from-f8-2018
   url: https://medium.com/@chrisnager/takeaways-from-f8-2018-3dde54919490
-  publishDate: 2018-05-11
+  date: 2018-05-11
   tags: [conference]
 
 - title: Case for a monorepo
   slug: case-for-a-monorepo
   url: https://medium.com/@chrisnager/case-for-a-monorepo-28cebf26e1aa
-  publishDate: 2018-03-20
+  date: 2018-03-20
   tags: [developer experience (DX), monorepo]
 
 - title: Stack your classes within template literals
   slug: stack-your-classes-within-template-literals
   url: https://medium.com/@chrisnager/stack-your-classes-within-template-literals-d537bf463d4a
-  publishDate: 2016-03-09
+  date: 2016-03-09
   tags: [developer experience (DX), CSS-in-JS]
 
 - title: Center and crop images with a single line of CSS
   slug: center-and-crop-images-with-a-single-line-of-css
   url: https://medium.com/@chrisnager/center-and-crop-images-with-a-single-line-of-css-ad140d5b4a87
-  publishDate: 2015-01-19
+  date: 2015-01-19
   tags: [CSS]
 
 - title: Bespoke SVG Reference
   slug: bespoke-svg-reference
   url: https://medium.com/@chrisnager/bespoke-svg-reference-e22eb733272
-  publishDate: 2014-05-23
+  date: 2014-05-23
   tags: [SVG, documentation]
 
 - title: Simple vertical centering with CSS
   slug: simple-vertical-centering-with-css
   url: /blog/simple-vertical-centering-with-css
-  publishDate: 2014-01-10
+  date: 2014-01-10
   tags: [CSS]

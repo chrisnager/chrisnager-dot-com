@@ -18,7 +18,7 @@ const Footer: FC = () => (
         mt: 4,
         borderTopWidth: 1,
         borderTopStyle: `solid`,
-        borderTopColor: `tag`,
+        borderTopColor: `divider`,
         pt: 5,
         px: 2,
       }}
