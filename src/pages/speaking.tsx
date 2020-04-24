@@ -28,7 +28,7 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
           {data.allSpeakingYaml.edges.map(
             ({ node }: { node: { summary: string; url: string; date: string; name: string } }) => (
               <Box
-                key={node.summary}
+                key={node.name}
                 as={node.url ? `a` : `div`}
                 // @ts-ignore
                 href={!!node.url ? node.url : undefined}
