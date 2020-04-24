@@ -1,6 +1,6 @@
 - name: Zephyr
   summary: A deep dive into our design system at Air
-  url: http://chrisnager.com/zephyr
+  url: https://chrisnager.github.io/zephyr
   date: January 31, 2020
 - name: Lifecycle of an icon
   summary: Our icon creation process, from ideation to implementation
