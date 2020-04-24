@@ -19,13 +19,13 @@
 - name: Say hello to the IEX API
   summary: IEX internal company presentation
   date: In 2015
-- name: A new era for CSS
-  summary: Salesforce Internal UX and Engineering Presentation
-  date: In 2014
 - name: Cheer me up - Fun, custom pages in seconds
   summary: TechCrunch Disrupt Hackathon 2015 presentation
   url: https://techcrunch.com/video/cheer-me-up/518803581
   date: In 2015
+- name: A new era for CSS
+  summary: Salesforce Internal UX and Engineering Presentation
+  date: In 2014
 - name: Jaunt - Let your friends be your city guides
   summary: TechCrunch Disrupt Hackathon 2014 presentation
   date: In 2014
