@@ -1,15 +1,15 @@
 export default {
   useColorSchemeMediaQuery: true,
   colors: {
-    text: `rgba(0, 0, 0, 0.9)`,
-    background: `#d2f1f9`,
+    text: `#1d2021`,
+    background: `#dfeff3`,
     action: `#c50808`,
     tag: `rgba(0, 0, 0, 0.05)`,
     modes: {
       dark: {
-        text: `#d2f1f9`,
-        background: `rgba(0, 0, 0, 0.9)`,
-        action: `#e42e2e`,
+        text: `#dfeff3`,
+        background: `#0e1010`,
+        action: `#6bb1da`,
         tag: `rgba(255, 255, 255, 0.05)`,
       },
     },
