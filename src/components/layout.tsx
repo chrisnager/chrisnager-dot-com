@@ -13,10 +13,8 @@ const Layout: FC = ({ children }) => {
     <Box sx={{ maxWidth: `75ch`, mx: `auto` }}>
       <Global
         styles={theme => `
-          @media (prefers-reduced-motion: reduce) {
-            * {
-              animation: none !important;
-            }
+          ::selection {
+            background-color: ${theme.colors.selection};
           }
           
           :focus {
