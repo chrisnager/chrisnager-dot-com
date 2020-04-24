@@ -34,7 +34,6 @@ const Layout: FC = ({ children }) => {
           a {
             color: ${theme.colors.action};
             text-decoration: none;
-            text-underline-position: under;
           }
           
           a:hover {
@@ -56,8 +55,8 @@ const Layout: FC = ({ children }) => {
         {/* <meta name="theme-color" content={`background`} />
         <link rel="icon" href="favicon.svg" />
         <link rel="mask-icon" href="mask-icon.svg" color="#000000" />
-        <link rel="apple-touch-icon" href="apple-touch-icon.png" /> */}
-        <link rel="manifest" href="manifest.json" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <link rel="manifest" href="manifest.json" /> */}
 
         <link rel="icon" media="(prefers-color-scheme:dark)" href="favicon-dark.ico" type="image/x-icon" />
         <link rel="icon" media="(prefers-color-scheme:light)" href="favicon.ico" type="image/x-icon" />

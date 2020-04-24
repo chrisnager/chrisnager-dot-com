@@ -9,7 +9,7 @@ import { Box, jsx } from 'theme-ui'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
-export interface NotFoundProps {
+export interface BlogPostTimeForAChangeProps {
   data: {
     file: {
       childImageSharp: { fluid: any }
@@ -17,7 +17,7 @@ export interface NotFoundProps {
   }
 }
 
-const NotFound: FC<NotFoundProps> = ({
+const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = ({
   data: {
     file: {
       childImageSharp: { fluid },
@@ -80,10 +80,10 @@ const NotFound: FC<NotFoundProps> = ({
   )
 }
 
-export default NotFound
+export default BlogPostTimeForAChange
 
 export const pageQuery = graphql`
-  query NotFoundQuery {
+  query BlogPostTimeForAChangeQuery {
     file(relativePath: { eq: "images/progress.png" }) {
       childImageSharp {
         fluid {
