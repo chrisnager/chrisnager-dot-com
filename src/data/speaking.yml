@@ -9,32 +9,32 @@
 - name: Design system
   summary: Part 1 - Typography, icons, and documentation (internal Air presentation)
   date: July 9, 2018
+- name: When - Chatbot for location recommendations
+  summary: TechCrunch Disrupt Hackathon 2017 presentation
+  url: https://techcrunch.com/video/whentho/591879ff1de5a12724606c06
+  date: In 2017
 - name: React - The library that powers our apps
   summary: IEX internal company presentation
   date: In 2016
 - name: Say hello to the IEX API
   summary: IEX internal company presentation
   date: In 2015
-- name: When - Chatbot for location recommendations
-  summary: TechCrunch Disrupt Hackathon 2017 presentation
-  url: https://techcrunch.com/video/whentho/591879ff1de5a12724606c06
-  date: In 2017
 - name: A new era for CSS
   summary: Salesforce Internal UX and Engineering Presentation
-  date: In 2015
+  date: In 2014
 - name: Cheer me up - Fun, custom pages in seconds
   summary: TechCrunch Disrupt Hackathon 2015 presentation
   url: https://techcrunch.com/video/cheer-me-up/518803581
   date: In 2015
-- name: Front End Standards
-  summary: Salesforce Internal UX and Engineering Presentation
-  date: July, 27 2015
 - name: Jaunt - Let your friends be your city guides
   summary: TechCrunch Disrupt Hackathon 2014 presentation
   date: In 2014
 - name: Working with Devs
   summary: Scotch Time Tech & Design Podcast
   date: February 16, 2014
+- name: Front End Standards
+  summary: Salesforce Internal UX and Engineering Presentation
+  date: In 2013
 - name: CSS3 Capabilities
   summary: Luckie Internal Design Presentation
   date: In 2011
