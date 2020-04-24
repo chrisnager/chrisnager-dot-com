@@ -97,9 +97,9 @@ const Profile: FC<ProfileProps> = ({
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
           I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React
-          Native, TypeScript, React Testing Library, Theme-UI, and Gatsby. Aside from these buzzword skills, what truly
-          sets my work apart is my deep understanding of CSS. I know when and how to use flexbox versus grid layouts,
-          and truly understanding the cascade. I’m particularly proud of{` `}
+          Native, TypeScript, Testing Library, Theme-UI, and Gatsby. Aside from these buzzword skills, what truly sets
+          my work apart is my deep understanding of CSS. I know when and how to use flexbox versus grid layouts, and
+          truly understanding the cascade. I’m particularly proud of{` `}
           <a href="https://zephyr.air.inc" target="_blank" rel="noopener noreferrer">
             Zephyr
           </a>
