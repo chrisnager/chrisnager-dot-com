@@ -1,5 +1,6 @@
 /** @jsx jsx */
 
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { FC } from 'react'
 import Helmet from 'react-helmet'
