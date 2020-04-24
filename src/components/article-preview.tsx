@@ -21,9 +21,9 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, publishDate, 
     href={url}
     target="_blank"
     rel="noopener noreferrer"
-    sx={{ mt: 4, display: `block`, ':hover': { textDecoration: `none` } }}
+    sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
   >
-    <Text as="small" sx={{ mt: 1, fontSize: 2, color: `text`, 'a:hover > &': { color: `text` } }}>
+    <Text as="p" sx={{ fontSize: 2, color: `text`, 'a:hover > &': { color: `text` } }}>
       {publishDate}
     </Text>
 

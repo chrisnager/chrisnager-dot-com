@@ -28,7 +28,7 @@ const Blog: FC<BlogProps> = ({ data }) => {
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
           {data.allPostsYaml.edges.map(({ node }: { node: any }) => {
             return (
-              <Box as="li" key={node.slug}>
+              <Box as="li" key={node.slug} sx={{ pt: 4 }}>
                 <ArticlePreview article={node} />
               </Box>
             )

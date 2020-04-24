@@ -17,18 +17,17 @@ export default {
     },
   },
   fonts: {
-    body: `system-ui, sans-serif`,
-    heading: `system-ui, sans-serif`,
+    body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    heading: `inherit`,
     monospace: `Menlo, monospace`,
   },
   fontWeights: {
     body: 400,
-    heading: 700,
-    bold: 700,
+    heading: 500,
+    bold: 600,
   },
   lineHeights: {
-    body: 1.5,
-    heading: 1.125,
+    body: 1.7,
+    heading: 1.1275,
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 }
