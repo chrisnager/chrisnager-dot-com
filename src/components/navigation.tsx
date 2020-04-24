@@ -57,7 +57,7 @@ export default () => {
             <Link
               {...{
                 sx: {
-                  px: 3,
+                  px: [2, 3],
                   height: 48,
                   display: [`Home`, `Speaking`].includes(children) ? [`none`, `flex`] : `flex`,
                   alignItems: `center`,

@@ -11,7 +11,7 @@ const links = [
 ]
 
 const Footer: FC = () => (
-  <Box>
+  <Box sx={{ pb: 5 }}>
     <Box
       sx={{
         mt: 4,
@@ -44,28 +44,27 @@ const Footer: FC = () => (
     <Flex
       sx={{
         mt: 4,
-        pb: 3,
+        px: [2, 0],
+        flexWrap: `wrap`,
       }}
     >
       {links.map(({ href, children }) => (
-        <a
-          key={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{
-            height: `2rem`,
-            px: 3,
-            alignItems: `center`,
-          }}
-          {...{ href }}
-        >
-          <span {...{ children }} />
-        </a>
+        <Flex key={href} sx={{ flexBasis: [`50%`, `auto`] }}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            {...{ href, children }}
+            sx={{ px: [2, 3], display: `flex`, alignItems: `center` }}
+          />
+        </Flex>
       ))}
     </Flex>
-    <Box sx={{ mb: 5, px: 3 }}>
-      <Text as="small">&copy; 2020 Chris Nager</Text>
-      <span> &middot; </span>
+
+    <Box sx={{ mt: 4, px: 3 }}>
+      <Text as="small" sx={{ display: [`block`] }}>
+        &copy; 2020 Chris Nager
+      </Text>
+      <span sx={{ display: [`none`] }}> &middot; </span>
       <Text as="small">
         <a href="https://github.com/chrisnager/chrisnager-dot-com" target="_blank" rel="noopener noreferrer">
           Source
@@ -81,9 +80,12 @@ const Footer: FC = () => (
           Follow my progress
         </a>
       </Text>
-      <p>
-        <Text as="small">
-          Gatsby-built, Netlify-hosted,{' '}
+    </Box>
+
+    <Box as="p" sx={{ mt: 4, mx: 3 }}>
+      <Text as="small">
+        Gatsby-built, Netlify-hosted,{' '}
+        <span sx={{ display: [`block`, `inline`] }}>
           <a
             href="https://lighthouse-dot-webdotdevsite.appspot.com//lh/html?url=https%3A%2F%2Fchrisnager.com"
             target="_blank"
@@ -92,8 +94,8 @@ const Footer: FC = () => (
             Lighthouse-approved
           </a>
           {` ( 💯).`}
-        </Text>
-      </p>
+        </span>
+      </Text>
     </Box>
   </Box>
 )
