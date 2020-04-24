@@ -24,9 +24,7 @@ const Layout: FC = ({ children }) => {
           
           body {
             margin: 0;
-            font-size: 1.25em;
-            line-height: 1.7;
-            font-family: system-ui, sans-serif;
+            font: 1.25em/${theme.lineHeights.body} ${theme.fonts.body};
           }
 
           img {
@@ -44,14 +42,10 @@ const Layout: FC = ({ children }) => {
           }
           
           h1,
-          h2,
-          h3 {
-            font-weight: 500;
-          }
-          
-          h1 {
-            line-height: 1.4;
-          }      
+          h2 {
+            font-weight: ${theme.fontWeights.heading};
+            line-height: ${theme.lineHeights.heading};
+          }    
       `}
       />
       <Helmet>
