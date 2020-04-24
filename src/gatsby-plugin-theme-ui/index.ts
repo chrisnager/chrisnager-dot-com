@@ -30,4 +30,7 @@ export default {
     body: 1.7,
     heading: 1.1275,
   },
+  filters: {
+    emoji: `hue-rotate(150deg) brightness(1.25)`,
+  },
 }

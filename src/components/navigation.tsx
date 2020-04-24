@@ -5,11 +5,6 @@ import { Box, Flex, jsx, useColorMode } from 'theme-ui'
 
 import Logo from './logo'
 
-const sx = {
-  px: 3,
-  display: `block`,
-}
-
 const links = [
   { to: `/`, children: `Home` },
   { to: `/profile`, children: `Profile` },
@@ -22,7 +17,7 @@ export default () => {
   const [colorMode, setColorMode] = useColorMode()
 
   return (
-    <Flex as="nav" role="navigation" sx={{ height: `7rem`, mb: 4, px: 2 }}>
+    <Flex as="nav" role="navigation" sx={{ height: `7rem`, mb: [4, 5], px: 2 }}>
       <Flex
         sx={{
           justifyContent: `center`,

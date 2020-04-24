@@ -94,7 +94,9 @@ const Footer: FC = () => (
           >
             Lighthouse-approved
           </a>
-          {` ( 💯).`}
+          {` ( `}
+          <span className="💯">💯</span>
+          {`).`}
         </span>
       </Text>
     </Box>

@@ -23,7 +23,6 @@ const Layout: FC = ({ children }) => {
           }
           
           body {
-            margin: 0;
             font: 1.25em/${theme.lineHeights.body} ${theme.fonts.body};
           }
 
@@ -35,6 +34,7 @@ const Layout: FC = ({ children }) => {
           a {
             color: ${theme.colors.action};
             text-decoration: none;
+            text-underline-position: under;
           }
           
           a:hover {
@@ -45,7 +45,11 @@ const Layout: FC = ({ children }) => {
           h2 {
             font-weight: ${theme.fontWeights.heading};
             line-height: ${theme.lineHeights.heading};
-          }    
+          }
+
+          .💯 {
+            filter: ${theme.filters.emoji};
+          }
       `}
       />
       <Helmet>
