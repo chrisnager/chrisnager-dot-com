@@ -52,14 +52,17 @@ const Layout: FC = ({ children }) => {
       `}
       />
       <Helmet>
-        {/* <meta name="theme-color" content={`background`} />
-        <link rel="icon" href="favicon.svg" />
-        <link rel="mask-icon" href="mask-icon.svg" color="#000000" />
-        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-        <link rel="manifest" href="manifest.json" /> */}
+        {/* TODO: Add 32 x 32 favicon.ico fallback to root */}
 
-        <link rel="icon" media="(prefers-color-scheme:dark)" href="favicon-dark.ico" type="image/x-icon" />
-        <link rel="icon" media="(prefers-color-scheme:light)" href="favicon.ico" type="image/x-icon" />
+        {/* TODO: Make content hexcode match dynamic background color */}
+        <meta name="theme-color" content="#dfeff3" />
+
+        <link rel="icon" href="favicon.svg" />
+        <link rel="mask-icon" href="favicon.svg" color="#000000" />
+
+        {/* TODO: Add Apple icon */}
+        {/* <link rel="apple-touch-icon" href="apple-touch-icon.png" /> */}
+        <link rel="manifest" href="manifest.json" />
       </Helmet>
       <Navigation />
       {children}
