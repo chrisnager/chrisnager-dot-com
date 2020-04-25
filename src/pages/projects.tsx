@@ -3,9 +3,9 @@
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { FC } from 'react'
-import Helmet from 'react-helmet'
-import { Box, Flex, jsx, Text } from 'theme-ui'
+import { Box, jsx, Text } from 'theme-ui'
 
+import Halo from '../components/halo'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 import Tag from '../components/tag'
@@ -17,13 +17,7 @@ export interface ProjectsProps {
 const Projects: FC<ProjectsProps> = ({ data }) => {
   return (
     <Layout>
-      <Helmet>
-        <title>Projects / Chris Nager</title>
-        <meta
-          name="description"
-          content="Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design."
-        />
-      </Helmet>
+      <Halo title="Projects" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Projects" description="A handful of things I've built" />
 

@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { graphql } from 'gatsby'
 import { FC } from 'react'
-import Helmet from 'react-helmet'
 import { Box, jsx, Text } from 'theme-ui'
 
+import Halo from '../components/halo'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 
@@ -14,13 +14,7 @@ export interface SpeakingProps {
 const Speaking: FC<SpeakingProps> = ({ data }) => {
   return (
     <Layout>
-      <Helmet>
-        <title>Speaking / Chris Nager</title>
-        <meta
-          name="description"
-          content="Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design."
-        />
-      </Helmet>
+      <Halo title="Speaking" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Speaking" description="Fun stuff I've presented" />
 

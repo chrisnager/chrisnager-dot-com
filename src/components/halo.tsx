@@ -10,6 +10,7 @@ const base = {
   description: `Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design.`,
   image: `logo.png`,
   author: `@chrisnager`,
+  hasCodePenEmbed: false,
 }
 
 export interface HaloProps {
@@ -18,11 +19,12 @@ export interface HaloProps {
   description?: string
   image?: string
   author?: string
+  hasCodePenEmbed?: boolean
 }
 
-const Halo: FC<HaloProps> = ({ title, url, description, image, author } = base) => (
+const Halo: FC<HaloProps> = ({ title, url, description, image, author, hasCodePenEmbed } = base) => (
   <Helmet>
-    <title>{title}</title>
+    <title>{`${title}${title === base.title ? `` : ` / Chris Nager`}`}}</title>
     <link rel="canonical" href={url} />
     <meta name="description" content={description} />
     <meta name="image" content={image} />
@@ -67,6 +69,8 @@ const Halo: FC<HaloProps> = ({ title, url, description, image, author } = base) 
     {/* <link rel="shortcut icon" href="http://chrisnager.com/img/logo.png" /> */}
     {/* <link rel="icon" type="image/png" href="http://chrisnager.com/img/logo.png" /> */}
     {/* <link rel="apple-touch-icon" href="http://chrisnager.com/img/logo.png" /> */}
+
+    {hasCodePenEmbed && <script async src="https://static.codepen.io/assets/embed/ei.js"></script>}
   </Helmet>
 )
 

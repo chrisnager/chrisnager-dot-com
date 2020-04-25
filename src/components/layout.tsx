@@ -5,7 +5,6 @@ import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
 
 import Footer from './footer'
-import Halo from './halo'
 import Navigation from './navigation'
 
 const Layout: FC = ({ children }) => {
@@ -51,7 +50,7 @@ const Layout: FC = ({ children }) => {
           }
       `}
       />
-      <Halo />
+
       <Navigation />
       <main>{children}</main>
       <Footer />

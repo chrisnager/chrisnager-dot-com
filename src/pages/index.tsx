@@ -2,10 +2,10 @@
 
 import { graphql } from 'gatsby'
 import { FC } from 'react'
-import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
 
 import Features from '../components/features'
+import Halo from '../components/halo'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 
@@ -16,13 +16,7 @@ export interface HomeProps {
 const Home: FC<HomeProps> = ({ data }) => {
   return (
     <Layout>
-      <Helmet>
-        <title>{data.allDataYaml.edges[0].node.title}</title>
-        <meta
-          name="description"
-          content="Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design."
-        />
-      </Helmet>
+      <Halo />
       <Box sx={{ maxWidth: `55ch` }}>
         <Hero data={data.allDataYaml.edges[0].node} />
         <Features data={data.allFeaturesYaml.edges} />

@@ -3,9 +3,9 @@
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { FC } from 'react'
-import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
 
+import Halo from '../../components/halo'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
@@ -26,14 +26,11 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
 }) => {
   return (
     <Layout>
-      <Helmet>
-        <title>Simple vertical centering with CSS / Blog / Chris Nager</title>
-        <meta
-          name="description"
-          content="Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design."
-        />
-        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-      </Helmet>
+      <Halo
+        title="Simple vertical centering with CSS / Blog"
+        description="I had an epiphany yesterday."
+        hasCodePenEmbed
+      />
 
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro title="Simple vertical centering with CSS" description="I had an epiphany yesterday." />

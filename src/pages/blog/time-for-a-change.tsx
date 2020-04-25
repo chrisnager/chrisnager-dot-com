@@ -3,9 +3,9 @@
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { FC } from 'react'
-import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
 
+import Halo from '../../components/halo'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
@@ -26,13 +26,10 @@ const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = ({
 }) => {
   return (
     <Layout>
-      <Helmet>
-        <title>Time for a change / Blog / Chris Nager</title>
-        <meta
-          name="description"
-          content="Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design."
-        />
-      </Helmet>
+      <Halo
+        title="Time for a change / Blog"
+        description="I am proud to announce the new ChrisNager.com. This version is built on Gatsby, and hosted on Netlify."
+      />
 
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro

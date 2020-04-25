@@ -2,10 +2,10 @@
 
 import { graphql } from 'gatsby'
 import { FC } from 'react'
-import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
 
 import ArticlePreview from '../components/article-preview'
+import Halo from '../components/halo'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 
@@ -16,13 +16,7 @@ export interface BlogProps {
 const Blog: FC<BlogProps> = ({ data }) => {
   return (
     <Layout>
-      <Helmet>
-        <title>Blog / Chris Nager</title>
-        <meta
-          name="description"
-          content="Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design."
-        />
-      </Helmet>
+      <Halo title="Blog" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Blog" description="My thoughts and process written down" />
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
