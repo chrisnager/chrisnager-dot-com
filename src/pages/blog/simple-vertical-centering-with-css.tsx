@@ -71,7 +71,7 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
           height, you would need to add <code>vertical-align: middle</code> to the <code>img</code>.
         </p>
 
-        <p>
+        <div>
           <Img
             {...{ fluid }}
             alt="Logo for ChrisNager.com"
@@ -79,7 +79,7 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
           />
           {` `}
           This is my logo
-        </p>
+        </div>
 
         <p>
           This happens because <code>img</code> is an inline element. Pseudo elements also render as inline elements.
