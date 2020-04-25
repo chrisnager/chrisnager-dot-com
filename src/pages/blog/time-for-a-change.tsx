@@ -28,6 +28,7 @@ const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = ({
     <Layout>
       <Halo
         title="Time for a change / Blog"
+        url="https://chrisnager.com/blog/time-for-a-change"
         description="I am proud to announce the new ChrisNager.com. This version is built on Gatsby, and hosted on Netlify."
       />
 

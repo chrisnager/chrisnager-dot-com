@@ -14,7 +14,7 @@ export interface SpeakingProps {
 const Speaking: FC<SpeakingProps> = ({ data }) => {
   return (
     <Layout>
-      <Halo title="Speaking" />
+      <Halo title="Speaking" url="https://chrisnager.com/speaking" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Speaking" description="Fun stuff I've presented" />
 

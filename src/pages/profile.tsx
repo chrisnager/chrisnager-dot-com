@@ -26,7 +26,7 @@ const Profile: FC<ProfileProps> = ({
 }) => {
   return (
     <Layout>
-      <Halo title="Profile" />
+      <Halo title="Profile" url="https://chrisnager.com/profile" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro
           title="Profile"

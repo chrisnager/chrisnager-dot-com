@@ -17,7 +17,7 @@ export interface ProjectsProps {
 const Projects: FC<ProjectsProps> = ({ data }) => {
   return (
     <Layout>
-      <Halo title="Projects" />
+      <Halo title="Projects" url="https://chrisnager.com/projects" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Projects" description="A handful of things I've built" />
 

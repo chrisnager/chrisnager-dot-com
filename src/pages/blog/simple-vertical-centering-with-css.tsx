@@ -28,6 +28,7 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
     <Layout>
       <Halo
         title="Simple vertical centering with CSS / Blog"
+        url="https://chrisnager.com/blog/simple-vertical-centering-with-css"
         description="I had an epiphany yesterday."
         hasCodePenEmbed
       />
