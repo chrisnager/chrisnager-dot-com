@@ -12,7 +12,7 @@ const links = [
 ]
 
 const Footer: FC = () => (
-  <Box sx={{ pb: 5 }}>
+  <Box as="footer" sx={{ pb: 5 }}>
     <Box
       sx={{
         mt: 4,

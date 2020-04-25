@@ -63,7 +63,7 @@ const Layout: FC = ({ children }) => {
         <link rel="manifest" href="manifest.json" />
       </Helmet>
       <Navigation />
-      {children}
+      <main>{children}</main>
       <Footer />
     </Box>
   )
