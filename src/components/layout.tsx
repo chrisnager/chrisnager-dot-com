@@ -52,8 +52,6 @@ const Layout: FC = ({ children }) => {
       `}
       />
       <Helmet>
-        {/* TODO: Add 32 x 32 favicon.ico fallback to root */}
-
         {/* TODO: Make content hexcode match dynamic background color */}
         <meta name="theme-color" content="#dfeff3" />
 
