@@ -34,7 +34,7 @@ const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = ({
         />
       </Helmet>
 
-      <Box sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
+      <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
           title="Time for a change"
           description="I am proud to announce the new ChrisNager.com. This version is built on Gatsby, and hosted on Netlify."

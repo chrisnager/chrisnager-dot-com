@@ -35,7 +35,7 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
         <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
       </Helmet>
 
-      <Box sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
+      <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro title="Simple vertical centering with CSS" description="I had an epiphany yesterday." />
 
         <p
