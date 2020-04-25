@@ -44,10 +44,6 @@ const Layout: FC = ({ children }) => {
             font-weight: ${theme.fontWeights.heading};
             line-height: ${theme.lineHeights.heading};
           }
-
-          .💯 {
-            filter: ${theme.filters.emoji};
-          }
       `}
       />
 
