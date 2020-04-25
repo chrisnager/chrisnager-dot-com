@@ -2,10 +2,10 @@
 
 import { Global } from '@emotion/core'
 import { FC } from 'react'
-import Helmet from 'react-helmet'
 import { Box, jsx } from 'theme-ui'
 
 import Footer from './footer'
+import Halo from './halo'
 import Navigation from './navigation'
 
 const Layout: FC = ({ children }) => {
@@ -51,17 +51,7 @@ const Layout: FC = ({ children }) => {
           }
       `}
       />
-      <Helmet>
-        {/* TODO: Make content hexcode match dynamic background color */}
-        <meta name="theme-color" content="#dfeff3" />
-
-        <link rel="icon" href="favicon.svg" />
-        <link rel="mask-icon" href="favicon.svg" color="#000000" />
-
-        {/* TODO: Add Apple icon */}
-        {/* <link rel="apple-touch-icon" href="apple-touch-icon.png" /> */}
-        <link rel="manifest" href="manifest.json" />
-      </Helmet>
+      <Halo />
       <Navigation />
       <main>{children}</main>
       <Footer />
