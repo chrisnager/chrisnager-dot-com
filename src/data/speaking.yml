@@ -2,10 +2,14 @@
   summary: A deep dive into our design system at Air
   url: https://chrisnager.github.io/zephyr
   date: January 31, 2020
+- name: Designing today's digital products
+  summary: Organized, hosted, and spoke at our second Brooklyn Technology Startups event
+  url: https://www.meetup.com/Brooklyn-Technology-Startups/events/263459622/
+  date: September 11, 2019
 - name: Lifecycle of an icon
-  summary: Our icon creation process, from ideation to implementation
+  summary: Our icon creation process, from ideation to implementation / Organized, hosted, and spoke at our first Brooklyn Technology Startups event
   url: https://twitter.com/chrisnager/status/1104089402228256770
-  date: March 8, 2019
+  date: March 6, 2019
 - name: Design system
   summary: Part 1 - Typography, icons, and documentation (internal Air presentation)
   date: July 9, 2018
@@ -29,15 +33,15 @@
 - name: Jaunt - Let your friends be your city guides
   summary: TechCrunch Disrupt Hackathon 2014 presentation
   date: In 2014
-- name: Working with Devs
+- name: Working with devs
   summary: Scotch Time Tech & Design Podcast
   date: February 16, 2014
-- name: Front End Standards
+- name: Front end standards
   summary: Salesforce Internal UX and Engineering Presentation
   date: In 2013
-- name: CSS3 Capabilities
+- name: CSS3 capabilities
   summary: Luckie Internal Design Presentation
   date: In 2011
-- name: CSS3 Playground
+- name: CSS3 playground
   summary: Presented at BarCamp
   date: August 28, 2010
