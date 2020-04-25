@@ -22,7 +22,14 @@ export interface HaloProps {
   hasCodePenEmbed?: boolean
 }
 
-const Halo: FC<HaloProps> = ({ title, url, description, image, author, hasCodePenEmbed } = base) => (
+const Halo: FC<HaloProps> = ({
+  title = base.title,
+  url = base.url,
+  description = base.description,
+  image = base.image,
+  author = base.author,
+  hasCodePenEmbed = base.hasCodePenEmbed,
+}) => (
   <Helmet>
     <title>{`${title}${title === base.title ? `` : ` / Chris Nager`}`}</title>
     <link rel="canonical" href={url} />
@@ -35,6 +42,7 @@ const Halo: FC<HaloProps> = ({ title, url, description, image, author, hasCodePe
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
+    {/* 1200 x 628px */}
 
     {/* Twitter */}
     <meta name="twitter:card" content="summary_large_image" />
@@ -42,6 +50,7 @@ const Halo: FC<HaloProps> = ({ title, url, description, image, author, hasCodePe
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+    {/* 1200 x 628px */}
 
     {/* Icons */}
     {/* TODO: Make content hexcode match dynamic background color */}
