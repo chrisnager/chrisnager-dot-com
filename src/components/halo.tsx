@@ -24,7 +24,7 @@ export interface HaloProps {
 
 const Halo: FC<HaloProps> = ({ title, url, description, image, author, hasCodePenEmbed } = base) => (
   <Helmet>
-    <title>{`${title}${title === base.title ? `` : ` / Chris Nager`}`}}</title>
+    <title>{`${title}${title === base.title ? `` : ` / Chris Nager`}`}</title>
     <link rel="canonical" href={url} />
     <meta name="description" content={description} />
     <meta name="image" content={image} />
