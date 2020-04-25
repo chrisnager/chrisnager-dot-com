@@ -3,14 +3,11 @@
   "short_name": "Chris Nager",
   "icons": [
     {
-      // TODO: Add Google icon
       "src": "google-touch-icon.png",
       "sizes": "512x512"
     }
   ],
-  // Add dynamic colors
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
-
+  "background_color": "#dfeff3",
+  "theme_color": "#dfeff3",
   "display": "fullscreen"
 }
