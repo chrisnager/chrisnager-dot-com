@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
@@ -102,7 +102,8 @@ const Profile: FC<ProfileProps> = ({
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I’ve had opportunities to speak about my process, and I host internal company teach-ins when appropriate.
+          I’ve had opportunities to <Link to="/speaking">speak about my process</Link>, and I host internal company
+          teach-ins when appropriate.
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
