@@ -4,18 +4,18 @@
   tags: [Mapbox, React, MDX, Typescript, project management]
   featured: true
 - url: http://cuber.club/dj
-  name: Cuber club
+  name: Cube DJ
   summary: DJ with your Rubik's cube as a MIDI controller
   tags: [Web Bluetooth API, Web Audio API, design, JS, accessibility, music]
   featured: true
 - url: https://iextrading.com/apps/stocks/
   name: Stocks
-  summary: Search stocks, compare peers, see industry news, create watchlists
+  summary: IEX Stocks app - Search stocks, compare peers, see industry news, create watchlists
   tags: [design, API, React, JS, HTML, CSS, performance, dark mode, charting, local storage]
   featured: true
 - url: https://zephyr.air.inc/foundations/color
   name: Color contrast
-  summary: WCAG 2.0 color contrast picker for the Zephyr design system
+  summary: WCAG 2.0 color contrast checker for the Zephyr design system
   tags: [accessibility, color]
   featured: true
 - url: http://bit.do/emoonji
@@ -25,7 +25,7 @@
   featured: true
 - url: https://chrisnager.github.io/generative-art/bendies
   name: Bendies
-  summary: Fun with generated pattern
+  summary: Fun with generated patterns
   tags: [generative art]
   featured: true
 - url: https://chrisnager.github.io/ungrid
@@ -40,7 +40,7 @@
   featured: false
 - url: https://www.youtube.com/embed/295brS23_4I
   name: Salesforce Marketing Cloud
-  summary: Worked on this product with brilliant engineers and designers
+  summary: Collaborated on this product
   tags: [JS, CSS, accessibility]
   featured: true
 - url: https://zephyr.air.inc/
@@ -58,11 +58,6 @@
   summary: Fun with generated patterns
   tags: [generative art]
   featured: true
-- url: https://chrisnager.github.io/generative-art/corners
-  name: Corners
-  summary: Fun with generated patterns
-  tags: [generative art]
-  featured: false
 - url: https://zephyr.air.inc/icon-theming
   name: Icon theming
   summary: Icon theming tool for the Zephyr design system
@@ -70,13 +65,18 @@
   featured: true
 - url: https://iextrading.com/apps/market/
   name: Market
-  summary: IEX
+  summary: Web app for IEX that displays near real-time market volume
   tags: [UX, HTML, CSS, JS]
   featured: false
 - url: http://bit.ly/smajor
   name: Signum majoritatis
   summary: A side-scrolling game built in a single string
   tags: [gaming, JS]
+  featured: false
+- url: https://chrisnager.github.io/generative-art/corners
+  name: Corners
+  summary: Fun with generated patterns
+  tags: [generative art]
   featured: false
 - url: http://give-n-go.co
   name: Give 'n' Go
@@ -85,7 +85,7 @@
   featured: false
 - url: https://iextrading.com/apps
   name: IEX iOS and Android apps
-  summary: IEX iOS and Android apps
+  summary: Created iOS and Android apps for IEX
   tags: [React Native, iOS, Android, UX, UI]
   featured: false
 - url: https://devpost.com/software/cheer-me-up
@@ -105,7 +105,7 @@
   featured: false
 - url: http://vimeo.com/71911497
   name: UN Disaster Response
-  summary: Currently working with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations
+  summary: Worked with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations
   tags: [UX, HTML, CSS, JS, design]
   featured: false
 - url: http://disruptnyhackathon.challengepost.com/submissions/23514-jaunt
@@ -125,7 +125,7 @@
   featured: true
 - url: https://iextrading.com/developers/docs
   name: The IEX API
-  summary: The IEX API (now a part of the IEX Cloud)
+  summary: The IEX API (now part of the IEX Cloud)
   tags: [documentation, REST, developer experience (DX)]
   featured: false
 - url: https://chrisnager.github.io/simple-palette
@@ -140,7 +140,7 @@
   featured: false
 - url: https://chrisnager.github.io/short-color-names
   name: ✂ short color names
-  summary: The 44 CSS color names that are as short as or shorter than their corresponding hexcodes.
+  summary: The 44 CSS color names that are as short as or shorter than their corresponding hexcodes
   tags: [color, CSS]
   featured: true
 - url: https://iextrading.com/brand/
