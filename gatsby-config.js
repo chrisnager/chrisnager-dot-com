@@ -17,7 +17,6 @@ module.exports = {
     // `gatsby-plugin-mdx`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-no-javascript`,
     {
       resolve: `gatsby-source-filesystem`,
       options: { path: `./src/data/` },
