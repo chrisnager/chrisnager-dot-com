@@ -18,7 +18,7 @@ const Blog: FC<BlogProps> = ({ data }) => {
     <Layout>
       <Halo title="Blog" url="https://chrisnager.com/blog" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Intro title="Blog" description="My thoughts and process written down" />
+        <Intro title="Blog" description="My written thoughts." />
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
           {data.allPostsYaml.edges.map(({ node }: { node: any }) => {
             return (
