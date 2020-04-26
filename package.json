@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "gatsby-image": "^2.3.2",
+    "gatsby-plugin-no-javascript": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
@@ -67,7 +68,7 @@
     "url": "git+https://github.com/chrisnager/chrisnager-dot-com.git"
   },
   "scripts": {
-    "dev": "GATSBY_SCREENSHOT_PLACEHOLDER=true npm run develop",
+    "dev": "npm run develop",
     "develop": "gatsby develop",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
