@@ -37,7 +37,7 @@ const Profile: FC<ProfileProps> = ({
         <Img {...{ fluid }} alt="Chris Nager, smiling and wearing a hat" />
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I’ve worked across industries, from Advertising to Finance. I’ve been part of a{` `}
+          I’ve worked across industries, from Advertising to Finance. I’ve been through a{` `}
           <a
             href="https://www.adweek.com/digital/salesforce-buys-buddy-media-689-million-140913/"
             target="_blank"
@@ -57,9 +57,9 @@ const Profile: FC<ProfileProps> = ({
           >
             launch America’s newest stock exchange
           </a>
-          , most recently was a founding member of a{` `}
+          , was a founding member of a{` `}
           <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
-            ground-level SaaS startup
+            SaaS startup
           </a>
           , and am now{` `}
           <a
@@ -70,7 +70,6 @@ const Profile: FC<ProfileProps> = ({
               borderWidth: 1,
               borderStyle: `solid`,
               borderColor: `transparent`,
-              px: 1,
               display: `inline-block`,
               color: `text`,
               bg: `tag`,
@@ -90,10 +89,10 @@ const Profile: FC<ProfileProps> = ({
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I specialize in UX (User Experience) and DX (Developer Experience). My current passion stack is React, React
-          Native, TypeScript, Testing Library, Theme-UI, and Gatsby. Aside from these buzzword skills, what truly sets
-          my work apart is my deep understanding of CSS. I know when and how to use flexbox versus grid layouts, and
-          truly understand the cascade. I’m particularly proud of{` `}
+          I specialize in user experience (UX) and developer experience (DX). My current passion stack is React, React
+          Native, TypeScript, Testing Library, Theme-UI, and Gatsby. What truly sets my work apart is my deep
+          understanding of CSS. I know when and how to use flexbox versus grid layouts, and truly understand the
+          cascade. I’m particularly proud of{` `}
           <a href="https://zephyr.air.inc" target="_blank" rel="noopener noreferrer">
             Zephyr
           </a>
@@ -102,16 +101,16 @@ const Profile: FC<ProfileProps> = ({
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I’ve had opportunities to <Link to="/speaking">speak about my process</Link>, and I host internal company
-          teach-ins when appropriate.
+          I’ve had opportunities to <Link to="/speaking">speak about my development process</Link>, and hosted meetups
+          and internal company teach-ins.
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I learn everyday and have a passion for mentoring. As a team leader, I make sure to keep a positive attitude
-          to keep everyone inspired to see the project through and put in their best efforts.
+          I learn everyday and have a passion for mentoring. As a team leader, I keep a positive attitude to inspire my
+          teammates to give their best efforts.
         </p>
 
-        <p sx={{ fontFamily: `Georgia, serif` }}>I am in constant search of purpose-driven work.</p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>I care about purpose-driven work.</p>
       </Box>
     </Layout>
   )
