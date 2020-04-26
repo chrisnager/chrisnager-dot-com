@@ -3,9 +3,9 @@
 import { FC } from 'react'
 import { jsx } from 'theme-ui'
 
-const Tag: FC = ({ children }, index) => (
+const Tag: FC = ({ children }) => (
   <span
-    key={`${children}-${index}`}
+    key={children}
     sx={{
       mr: 2,
       py: 1,

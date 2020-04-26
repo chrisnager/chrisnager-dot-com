@@ -13,7 +13,7 @@ const links = [
   { to: `/blog`, children: `Blog` },
 ]
 
-export default () => {
+const Navigation: FC = () => {
   const [colorMode, setColorMode] = useColorMode()
 
   return (
@@ -115,3 +115,5 @@ export default () => {
     </header>
   )
 }
+
+export default Navigation
