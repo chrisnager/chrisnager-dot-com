@@ -41,7 +41,7 @@
 - url: https://iextrading.com
   name: iextrading.com
   summary: Site for IEX, creative blend of SSR + React, with Lighthouse scores of 100
-  tags: [ssr, React, BassCSS, design]
+  tags: [ssr, React, Basscss, design]
 - url: https://chrisnager.github.io/generative-art/diagonals
   name: Diagonals
   summary: Fun with generated patterns
@@ -81,7 +81,7 @@
 - url: https://chrisnager.github.io/until
   name: Until
   summary: Are we there yet?
-  tags: [React, design, BassCSS]
+  tags: [React, design, Basscss]
 - url: http://vimeo.com/71911497
   name: UN Disaster Response
   summary: Worked with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations
@@ -158,10 +158,6 @@
   name: Social Logos
   summary: Download official social logos
   tags: [tooling]
-# - url: https://chrisnager.github.io
-#   name: chrisnager.com v2
-#   summary: Care to reminisce?
-#   tags: [design, HTML, CSS, JS]
 - url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
   name: Ben Thomson Photo
   summary: Awwwards Site of the Day
