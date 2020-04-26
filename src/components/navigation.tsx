@@ -72,25 +72,42 @@ export default () => {
               sx={{
                 width: 48,
                 height: 48,
-                appearance: `none`,
+                m: 0,
+                border: 0,
+                p: 0,
                 display: `flex`,
                 justifyContent: `center`,
                 alignItems: `center`,
                 lineHeight: 1,
-                fontSize: 5,
-                fontWeight: `normal`,
-                m: 0,
-                border: 0,
-                p: 0,
                 color: `text`,
                 cursor: `pointer`,
                 bg: `transparent`,
+                appearance: `none`,
                 ':hover': {
                   color: `action`,
                 },
               }}
             >
-              <span sx={{ position: `relative`, top: -1 }}>☼</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                width="20"
+                height="20"
+                sx={{
+                  border: `1px solid`,
+                  borderRadius: `50%`,
+                  bg: `currentcolor`,
+                }}
+              >
+                <path
+                  d="M14.53 10.53a7 7 0 01-9.058-9.058A7.003 7.003 0 008 15a7.002 7.002 0 006.53-4.47z"
+                  sx={{
+                    fill: 'background',
+                    fillRule: 'evenodd',
+                    clipRule: 'evenodd',
+                  }}
+                />
+              </svg>
             </Box>
           </Flex>
         </Flex>
