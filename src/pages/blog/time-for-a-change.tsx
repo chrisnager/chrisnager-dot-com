@@ -29,13 +29,13 @@ const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = ({
       <Halo
         title="Time for a change / Blog"
         url="https://chrisnager.com/blog/time-for-a-change"
-        description="I am proud to announce the new ChrisNager.com. This version is built on Gatsby, and hosted on Netlify."
+        description="I am proud to announce the new ChrisNager.com. This version is built with Gatsby and hosted on Netlify."
       />
 
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
           title="Time for a change"
-          description="I am proud to announce the new ChrisNager.com. This version is built on Gatsby, and hosted on Netlify."
+          description="I am proud to announce the new ChrisNager.com. This version is built with Gatsby and hosted on Netlify."
         />
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
@@ -69,10 +69,6 @@ const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = ({
           <li>Is easy to maintain and update</li>
           <li>Is fun to explore</li>
         </ul>
-
-        {/* <p sx={{ fontFamily: `Georgia, serif` }}>
-          With this new site, I'm also looking to make some changes personally and professionally.
-        </p> */}
       </Box>
     </Layout>
   )
