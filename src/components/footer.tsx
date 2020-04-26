@@ -41,7 +41,7 @@ const Footer: FC = () => {
             bg: `tag`,
           }}
         >
-          I'm currently looking for new opportunities.
+          I'm looking for new opportunities.
         </a>
       </Box>
 
