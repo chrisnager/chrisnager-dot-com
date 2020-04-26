@@ -30,7 +30,7 @@ const Profile: FC<ProfileProps> = ({
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro
           title="Profile"
-          description="I'm a front end engineer with a background in design, over a decade of work expereince, a minimalist aesthetic, and a deep concern for
+          description="I'm a front end engineer with a background in design, over a decade of work experience, a minimalist aesthetic, and a deep concern for
           performance and accessibility."
         />
 
