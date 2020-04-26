@@ -22,57 +22,61 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
         <Intro title="Projects" description="A handful of things I've built." />
 
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
-          {data.allProjectsYaml.edges
-            // .filter(({ node: { featured } }: { node: { featured: boolean } }) => featured)
-            .map(
-              ({
-                node: { name, url, childScreenshot, summary, tags },
-              }: {
-                node: {
-                  name: string
-                  url: string
-                  childScreenshot: {
-                    screenshotFile: {
-                      childImageSharp: {
-                        fluid: any
-                      }
+          {data.allProjectsYaml.edges.map(
+            ({
+              node: { name, url, childScreenshot, summary, tags },
+            }: {
+              node: {
+                name: string
+                url: string
+                childScreenshot: {
+                  screenshotFile: {
+                    childImageSharp: {
+                      fluid: any
                     }
                   }
-                  summary: string
-                  tags: string[]
                 }
-              }) => (
-                <Box key={name} as="li" sx={{ mt: 4, display: `block` }}>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
-                  >
-                    <Box sx={{ bg: `action` }}>
-                      {childScreenshot && (
-                        <Img
-                          sizes={{ ...childScreenshot.screenshotFile.childImageSharp.fluid, aspectRatio: 16 / 9 }}
-                          imgStyle={{ objectPosition: `center top` }}
-                          alt={name}
-                        />
-                      )}
+                summary: string
+                tags: string[]
+              }
+            }) => (
+              <Box key={name} as="li" sx={{ mt: 4, display: `block` }}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
+                >
+                  <Box sx={{ bg: `action` }}>
+                    {childScreenshot && (
+                      <Img
+                        sizes={{ ...childScreenshot.screenshotFile.childImageSharp.fluid, aspectRatio: 16 / 9 }}
+                        imgStyle={{ objectPosition: `center top` }}
+                        alt={name}
+                      />
+                    )}
+                  </Box>
+
+                  <Box sx={{ pt: 3 }}>
+                    <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
+                      {name}
+                    </Text>
+
+                    <Text
+                      as="p"
+                      sx={{ mt: 1, fontFamily: `Georgia, serif`, color: `text`, 'a:hover > &': { color: `text` } }}
+                    >
+                      {summary}
+                    </Text>
+
+                    <Box sx={{ mt: `2px`, mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
+                      {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
                     </Box>
-                    <Box sx={{ pt: 3 }}>
-                      <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
-                        {name}
-                      </Text>
-                      <Text as="p" sx={{ color: `text`, 'a:hover > &': { color: `text` } }}>
-                        {summary}
-                      </Text>
-                      <Box sx={{ mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
-                        {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
-                      </Box>
-                    </Box>
-                  </a>
-                </Box>
-              ),
-            )}
+                  </Box>
+                </a>
+              </Box>
+            ),
+          )}
         </Box>
       </Box>
     </Layout>
@@ -90,7 +94,6 @@ export const pageQuery = graphql`
           name
           summary
           tags
-          featured
           childScreenshot {
             screenshotFile {
               childImageSharp {

@@ -32,11 +32,11 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, date, title, 
         {date}
       </Text>
 
-      <Text as="h2" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
+      <Text as="h2" sx={{ mt: 1, fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
         {title}
       </Text>
 
-      <Box sx={{ mx: -2 }}>{!!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Box>
+      <Box sx={{ mt: `2px`, mx: -2 }}>{!!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Box>
     </Box>
   )
 }
