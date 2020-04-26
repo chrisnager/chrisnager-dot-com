@@ -16,7 +16,7 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
     <Layout>
       <Halo title="Speaking" url="https://chrisnager.com/speaking" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Intro title="Speaking" description="Fun stuff I've presented" />
+        <Intro title="Speaking" description="Fun stuff I've presented." />
 
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
           {data.allSpeakingYaml.edges.map(
