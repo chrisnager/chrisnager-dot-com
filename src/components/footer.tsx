@@ -101,7 +101,7 @@ const Footer: FC = () => {
             <span
               sx={{
                 filter:
-                  colorMode == `dark` ? `hue-rotate(110deg) brightness(2.25)` : `hue-rotate(100deg) brightness(1.25)`,
+                  colorMode === `dark` ? `hue-rotate(110deg) brightness(2.25)` : `hue-rotate(100deg) brightness(1.25)`,
               }}
             >
               💯
