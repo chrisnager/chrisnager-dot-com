@@ -34,8 +34,104 @@
   date: 2014-05-23
   tags: [SVG, documentation]
 
+- title: Analog-style LED clock concept
+  slug: analog-style-led-clock-concept
+  url: /analog-style-led-clock-concept
+  date: 2014-03-25
+  tags: [CSS]
+
 - title: Simple vertical centering with CSS
   slug: simple-vertical-centering-with-css
   url: /blog/simple-vertical-centering-with-css
   date: 2014-01-10
   tags: [CSS]
+
+- title: NYC Subway Lines reimagined with long shadow design
+  slug: nyc-subway-lines-reimagined-with-longshadowdesign
+  url: /nyc-subway-lines-reimagined-with-longshadowdesign
+  date: 2013-06-29
+  tags: [CSS]
+
+- title: Time-based media queries
+  slug: time-based-media-queries
+  url: /time-based-media-queries
+  date: 2013-03-25
+  tags: [CSS, ideas]
+
+- title: Hue bump with Sass @for control directive
+  slug: hue-bump-with-sass-for-control-directive
+  url: /hue-bump-with-sass-for-control-directive
+  date: 2013-01-17
+  tags: [CSS, Sass]
+
+- title: Display icons with custom data-attributes
+  slug: display-icons-with-custom-data-attributes
+  url: /display-icons-with-custom-data-attributes
+  date: 2012-12-21
+  tags: [CSS]
+
+- title: Circles
+  slug: circles
+  url: /circles
+  date: 2012-12-19
+  tags: [CSS]
+
+- title: Video and audio in CSS
+  slug: video-and-audio-in-css
+  url: /video-and-audio-in-css
+  date: 2012-12-04
+  tags: [CSS, ideas]
+
+- title: Natural curves
+  slug: natural-curves
+  url: /natural-curves
+  date: 2012-11-08
+  tags: [CSS]
+
+- title: My initials
+  slug: my-initials
+  url: /my-initials
+  date: 2012-10-23
+  tags: [CSS]
+
+- title: Touchable textures with CSS - can you feel me?
+  slug: touchable-textures-with-css-can-you-feel-me
+  url: /touchable-textures-with-css-can-you-feel-me
+  date: 2012-10-18
+  tags: [CSS, ideas]
+
+- title: Further simplified hexcodes
+  slug: further-simplified-hexcodes
+  url: /further-simplified-hexcodes
+  date: 2012-12-18
+  tags: [CSS, ideas]
+
+- title: Box sizing for pseudo elements
+  slug: box-sizing-for-pseudo-elements
+  url: /box-sizing-for-pseudo-elements
+  date: 2012-12-09
+  tags: [CSS]
+
+- title: An Event Apart and a Designer’s View of the Web
+  slug: an-event-apart-and-a-designer-e2-80-99s-view-of-the-web
+  url: /an-event-apart-and-a-designer-e2-80-99s-view-of-the-web
+  date: 2011-12-23
+  tags: [news]
+
+- title: CSS3 ::selection background color trick
+  slug: css3-selection-background-color-trick
+  url: /css3-selection-background-color-trick
+  date: 2011-12-09
+  tags: [CSS]
+
+- title: Chris Nager 2012 (Responsive design)
+  slug: chris-nager-2012
+  url: /chris-nager-2012
+  date: 2011-08-18
+  tags: [responsive design, news]
+
+- title: ChrisNager.com v2 is live
+  slug: chrisnager-com-v2-is-live
+  url: chrisnager-com-v2-is-live
+  date: 2011-06-12
+  tags: [news]
