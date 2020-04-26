@@ -43,6 +43,7 @@ const Layout: FC = ({ children }) => {
           h2 {
             font-weight: ${theme.fontWeights.heading};
             line-height: ${theme.lineHeights.heading};
+            letter-spacing: -0.00625em;
           }
       `}
       />
