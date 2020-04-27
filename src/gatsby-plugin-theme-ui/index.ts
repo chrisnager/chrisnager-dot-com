@@ -3,7 +3,7 @@ export default {
   colors: {
     text: `#1d2021`,
     background: `#dfeff3`,
-    action: `#c50808`,
+    action: `#9e0d0d`,
     tag: `rgb(0 0 0 / 3.75%)`,
     divider: `rgb(0 0 0 / 12.5%)`,
     selection: `#c1e0ff`,
