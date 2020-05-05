@@ -35,7 +35,7 @@ const BlogPostVideoAndAudioInCss: FC = () => {
           <a href="http://marisapassos.com" target="_blank" rel="noopener noreferrer">
             marisapassos.com
           </a>
-          . Your only option is to include it in your HTML. That works, but if the video is essentially decoration or
+          ). Your only option is to include it in your HTML. That works, but if the video is essentially decoration or
           serves as a supporting style for the real content (in the HTML), then I say it belongs in the presentational
           layer (the CSS).
         </p>
