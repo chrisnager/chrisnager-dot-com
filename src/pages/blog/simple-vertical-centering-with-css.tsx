@@ -35,7 +35,7 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
 
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
-          date="January 10, 2014"
+          date="January 10th, 2014"
           title="Simple vertical centering with CSS"
           description="I had an epiphany yesterday."
         />

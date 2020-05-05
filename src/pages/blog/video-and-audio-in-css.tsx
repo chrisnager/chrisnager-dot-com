@@ -19,7 +19,7 @@ const BlogPostVideoAndAudioInCss: FC = () => {
 
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
-          date="December 4, 2012"
+          date="December 4th, 2012"
           title="Video and audio in CSS"
           description="Video, audio, and images are all types of multimedia."
         />
