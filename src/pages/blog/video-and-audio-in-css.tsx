@@ -25,9 +25,9 @@ const BlogPostVideoAndAudioInCss: FC = () => {
         />
 
         <p>
-          Currently only images are aloud in our CSS. In many cases video and audio require controls and are a core part
-          of the page content. Sometimes, though, they are strictly used as background decoration and do not require
-          controls.
+          Currently only images are allowed in our CSS. In many cases video and audio require controls and are a core
+          part of the page content. Sometimes, though, they are strictly used as background decoration and do not
+          require controls.
         </p>
 
         <p>
