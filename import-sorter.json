@@ -15,7 +15,7 @@
     },
     {
       "name": "Third party",
-      "regex": "^([A-Za-z]|@(?!(air/|local/))).*",
+      "regex": "^[A-Za-z@].*",
       "orderLevel": 2
     },
     {

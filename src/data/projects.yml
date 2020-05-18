@@ -2,6 +2,10 @@
   name: Support NYC DTC
   summary: Interactive map to support the DTC brands of NYC affected by COVID-19, recently featured in the Wall Street Journal and in Mapbox's newsletter
   tags: [Mapbox, React, MDX, Typescript, project management]
+- url: https://vercel.com/integrations/giphy
+  name: GIPHY Vercel integration
+  summary: Discover GIFs from GIPHY in your Vercel Dashboard, built for the Vercel Hackathon
+  tags: [Vercel integration, JavaScript, GIPHY API]
 - url: http://cuber.club/dj
   name: Cube DJ
   summary: DJ with your Rubik's cube as a MIDI controller
@@ -9,7 +13,7 @@
 - url: https://iextrading.com/apps/stocks/
   name: Stocks
   summary: IEX Stocks app - Search stocks, compare peers, see industry news, create watchlists
-  tags: [design, API, React, JS, HTML, CSS, performance, dark mode, charting, local storage]
+  tags: [design, API, React, JavaScript, HTML, CSS, performance, dark mode, charting, local storage]
 - url: https://zephyr.air.inc/foundations/color
   name: Color contrast
   summary: WCAG 2.0 color contrast checker for the Zephyr design system
@@ -37,7 +41,7 @@
 - url: https://www.youtube.com/embed/295brS23_4I
   name: Salesforce Marketing Cloud
   summary: Collaborated on this product
-  tags: [JS, CSS, accessibility]
+  tags: [JavaScript, CSS, accessibility]
 - url: https://chrisnager.github.io/generative-art/diagonals
   name: Diagonals
   summary: Fun with generated patterns
@@ -69,11 +73,11 @@
 - url: https://iextrading.com/apps/market/
   name: Market
   summary: Web app for IEX that displays near real-time market volume
-  tags: [UX, HTML, CSS, JS]
+  tags: [UX, HTML, CSS, JavaScript]
 - url: http://bit.ly/smajor
   name: Signum majoritatis
   summary: A side-scrolling game built in a single string
-  tags: [gaming, JS]
+  tags: [gaming, JavaScript]
 - url: https://chrisnager.github.io/generative-art/corners
   name: Corners
   summary: Fun with generated patterns
@@ -81,7 +85,7 @@
 - url: http://give-n-go.co
   name: Give 'n' Go
   summary: A curated gallery of Dribbble shots reworked as interactive CodePen pens
-  tags: [community, HTML, CSS, JS, cms]
+  tags: [community, HTML, CSS, JavaScript, cms]
 - url: https://iextrading.com/apps
   name: IEX iOS and Android apps
   summary: Created iOS and Android apps for IEX
@@ -89,7 +93,7 @@
 - url: https://devpost.com/software/cheer-me-up
   name: Cheer me up
   summary: Fun, custom pages in seconds
-  tags: [design, HTML, CSS, JS]
+  tags: [design, HTML, CSS, JavaScript]
 - url: https://chrisnager.github.io/until
   name: Until
   summary: Are we there yet?
@@ -97,11 +101,11 @@
 - url: http://vimeo.com/71911497
   name: UN Disaster Response
   summary: Worked with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations
-  tags: [UX, HTML, CSS, JS, design]
+  tags: [UX, HTML, CSS, JavaScript, design]
 - url: http://disruptnyhackathon.challengepost.com/submissions/23514-jaunt
   name: Jaunt
   summary: Let your friends be your city guides. (TechCrunch Disrupt Hackathon app entry)
-  tags: [design, prototype, HTML, CSS, JS]
+  tags: [design, prototype, HTML, CSS, JavaScript]
 - url: https://chrisnager.github.io/cursors
   name: Cursors
   summary: All available cursors
@@ -145,7 +149,7 @@
 - url: https://chrisnager.github.io/twadlib
   name: Twadlib!
   summary: Ad-lib your tweets, submitted as a 10K Apart Challenge app entry
-  tags: [design, HTML, CSS, JS, Twitter API]
+  tags: [design, HTML, CSS, JavaScript, Twitter API]
 - url: https://chrisnager.github.io/bliss
   name: Bliss
   summary: Beautifully lean, ideal style sheets
@@ -161,7 +165,7 @@
 - url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
   name: Ben Thomson Photo
   summary: Awwwards Site of the Day
-  tags: [branding, design, UX, HTML, CSS, JS, cms, award-winning]
+  tags: [branding, design, UX, HTML, CSS, JavaScript, cms, award-winning]
 - url: http://coding.smashingmagazine.com/2010/07/12/css3-design-contest-results/
   name: Totally Fresh
   summary: Experimental CSS3 design featured on Smashing Magazine
