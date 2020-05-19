@@ -11,7 +11,7 @@
 /simple-palette https://chrisnager.github.io/simple-palette
 /short-color-names https://chrisnager.github.io/short-color-names
 /hexcodes https://chrisnager.github.io/hexcodes
-/tiny-google-fonts https://chrisnager.github.io/tiny-google-fonts
+/tiny-google-fonts/* https://tiny-google-fonts.netlify.app/:splat 200
 /birthday-hex https://chrisnager.github.io/birthday-hex
 /svg-please https://chrisnager.github.io/svg-please
 /twadlib https://chrisnager.github.io/twadlib
