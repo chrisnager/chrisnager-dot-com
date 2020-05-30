@@ -16,38 +16,13 @@ const Footer: FC = () => {
 
   return (
     <Box as="footer" sx={{ pb: 5 }}>
-      <Box
+      <Flex
         sx={{
           mt: 4,
           borderTopWidth: 1,
           borderTopStyle: `solid`,
           borderTopColor: `divider`,
-          pt: 5,
-          px: 2,
-        }}
-      >
-        <a
-          href="mailto:chris@chrisnager.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{
-            borderWidth: 1,
-            borderStyle: `solid`,
-            borderColor: `transparent`,
-            px: 2,
-            display: `inline-block`,
-            fontFamily: `Georgia, serif`,
-            color: `text`,
-            bg: `tag`,
-          }}
-        >
-          I'm looking for new opportunities.
-        </a>
-      </Box>
-
-      <Flex
-        sx={{
-          mt: 4,
+          pt: `3.5rem`,
           px: [2, 0],
           flexWrap: `wrap`,
         }}

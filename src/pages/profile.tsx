@@ -57,25 +57,9 @@ const Profile: FC<ProfileProps> = ({
           >
             launch America’s newest stock exchange
           </a>
-          , was a founding member of a{` `}
+          , and most recently was a founding member of a{` `}
           <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
             SaaS startup
-          </a>
-          , and am now{` `}
-          <a
-            href="mailto:chris@chrisnager.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              borderWidth: 1,
-              borderStyle: `solid`,
-              borderColor: `transparent`,
-              display: `inline-block`,
-              color: `text`,
-              bg: `tag`,
-            }}
-          >
-            ready for a new challenge
           </a>
           .
         </p>
