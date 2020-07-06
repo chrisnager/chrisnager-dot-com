@@ -57,11 +57,11 @@ const Profile: FC<ProfileProps> = ({
           >
             launch America’s newest stock exchange
           </a>
-          , and most recently was a founding member of a{` `}
+          , was a founding member of a{` `}
           <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
             SaaS startup
           </a>
-          .
+          , and am now building CartaX at <a href="https://carta.com/">Carta</a>.
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
