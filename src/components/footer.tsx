@@ -41,7 +41,7 @@ const Footer: FC = () => {
 
       <Box sx={{ mt: 4, px: 3 }}>
         <Text as="small" sx={{ display: [`block`] }}>
-          &copy; 2020 Chris Nager
+          &copy; 2022 Chris Nager
         </Text>
         <span sx={{ display: [`none`] }}> &middot; </span>
         <Text as="small">
