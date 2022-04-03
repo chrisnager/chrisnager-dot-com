@@ -61,12 +61,12 @@ const Profile: FC<ProfileProps> = ({
           <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
             SaaS startup
           </a>
-          , and am now building{` `}
+          , and am now managing the Design Technology team for{` `}
           <a href="https://cartax.com" target="_blank" rel="noopener noreferrer">
             CartaX
           </a>
           {` `}
-          at Carta .
+          at Carta.
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
