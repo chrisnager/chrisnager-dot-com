@@ -362,14 +362,14 @@ ${blocks.slice(15, 20).join(``)}
 ${blocks.slice(20, 25).join(``)}
 ${blocks.slice(25, 30).join(``)}
 
-https://snordle.netlify.app`
+`
 
         if (navigator.share) {
           try {
             await navigator.share({
               title: `Snordle 🐍`,
               text: shareTextBlock,
-              url: `https://snordle.netlify.app`,
+              url: `https://chrisnager.com/snordle`,
             })
           } catch ({ message }) {
             console.error(`Share failure`, message)
