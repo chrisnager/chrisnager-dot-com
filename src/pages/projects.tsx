@@ -40,17 +40,17 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
                 tags: string[]
               }
             }) => {
-              const formattedName = `${name
+              const formattedName = name
                 .toLowerCase()
-                .replaceAll(`✂ `, ``)
-                .replaceAll(` `, `-`)
-                .replaceAll(`.`, `-`)
-                .replaceAll(`!`, ``)
-                .replaceAll(`'`, ``)
-                .replaceAll(`'`, ``)
-                .replaceAll(`<`, ``)
-                .replaceAll(`>`, ``)
-                .replaceAll(`#`, ``)}`
+                .replace(/✂ /g, ``)
+                .replace(/\s/g, `-`)
+                .replace(/\./g, `-`)
+                .replace(/!/g, ``)
+                .replace(/'/g, ``)
+                .replace(/'/g, ``)
+                .replace(/</g, ``)
+                .replace(/>/g, ``)
+                .replace(/#/g, ``)
 
               return (
                 <Box key={name} id={formattedName} as="li" sx={{ mt: 4, display: `block` }}>
@@ -64,7 +64,7 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
                       <img
                         alt=""
                         src={`/images/projects/${`${formattedName}.png`}`}
-                        sx={{ aspectRatio: `16 / 9`, objectPosition: `center top` }}
+                        sx={{ aspectRatio: `16 / 9`, objectFit: `cover`, objectPosition: `center top` }}
                       />
 
                       {/* {childScreenshot && (
