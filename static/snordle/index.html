@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snordle</title>
+    <meta name="description" content="Swipe or use the arrow keys to play SNAKE on a Wordle-style board." />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>"
+    />
+
+    <style>
+      html,
+      body {
+        position: fixed;
+        touch-action: none;
+        overflow-y: hidden;
+        overscroll-behavior-y: contain;
+      }
+
+      body {
+        height: 95vh;
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #f8f8f8;
+      }
+
+      main {
+        padding-top: 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        display: grid;
+        place-items: center;
+      }
+
+      header {
+        padding-top: 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      header > *,
+      footer > * {
+        max-width: 30rem;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      canvas {
+        border: 1px solid;
+        display: block;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      footer {
+        padding: 1rem;
+      }
+
+      footer > p {
+        margin-top: 0;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      textarea {
+        width: 100%;
+        resize: none;
+      }
+
+      textarea:focus {
+        height: 10rem;
+      }
+
+      #arrow {
+        margin-top: 1rem;
+        width: 3rem;
+        aspect-ratio: 1;
+        background-color: rgb(0 0 0 / 0.125);
+        border-radius: 0.25rem;
+        display: grid;
+        place-items: center;
+        font-size: 2rem;
+      }
+
+      /* TODO: Set theme for dark color scheme */
+      /* @media (prefers-color-scheme: dark) {} */
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Snordle 🐍</h1>
+      <p>Swipe or use the arrow keys to play SNAKE on a Wordle-style board.</p>
+      <p>
+        Score: <b id="score">0</b> &middot; Best: <b id="best">0</b> &middot;
+        <button id="share" type="button">Share</button>
+      </p>
+      <div id="arrow"></div>
+    </header>
+
+    <main>
+      <canvas width="250" height="300"></canvas>
+    </main>
+
+    <footer>
+      <p>
+        <textarea id="share-text">Snordle 🐍 0/28</textarea>
+        <small><a href="https://chrisnager.com">Chris Nager</a> made this.</small>
+      </p>
+    </footer>
+
+    <script id="pieces">
+      board = document.querySelector(`canvas`)
+      context = board.getContext(`2d`)
+
+      // Width of a single square
+      let gs = 50
+
+      // Tile count
+      let tcx = 5
+      let tcy = 6
+
+      // Speed of snake (higher is faster)
+      let speed = 4
+
+      // Apple position (begins at 15, 15)
+      let ax = 3
+      let ay = 3
+
+      // X and Y velocity (begins at zero so the snake doesn't move)
+      let xv = 0
+      let yv = 0
+
+      // Start with our snake in the center
+      let px = 0
+      let py = 0
+
+      // This contains the coordinates for our snake parts
+      let trail = []
+
+      // Length of snake
+      let tail = 2
+
+      // Score
+      let score = 0
+    </script>
+
+    <script id="controls">
+      // Snake movements
+      const moveUp = () => {
+        xv = 0
+        yv = -1
+        arrowElement.innerHTML = `⬆️`
+      }
+
+      const moveRight = () => {
+        xv = 1
+        yv = 0
+        arrowElement.innerHTML = `➡`
+      }
+
+      const moveDown = () => {
+        xv = 0
+        yv = 1
+        arrowElement.innerHTML = `⬇️`
+      }
+
+      const moveLeft = () => {
+        xv = -1
+        yv = 0
+        arrowElement.innerHTML = `⬅️`
+      }
+
+      const arrowElement = document.getElementById(`arrow`)
+
+      // Keyboard
+      document.addEventListener(`keydown`, ({ key }) => {
+        switch (key) {
+          case `ArrowUp`:
+            moveUp()
+            break
+
+          case `ArrowRight`:
+            moveRight()
+            break
+
+          case `ArrowDown`:
+            moveDown()
+            break
+
+          case `ArrowLeft`:
+            moveLeft()
+            break
+        }
+      })
+
+      // Swiping/dragging
+      const directions = ['up', 'right', 'down', 'left']
+      let startX = 0
+      let startY = 0
+      let endX = 0
+      let endY = 0
+
+      function lock(event) {
+        startX = event.type === 'mousedown' ? event.screenX : event.changedTouches[0].screenX
+        startY = event.type === 'mousedown' ? event.screenY : event.changedTouches[0].screenY
+      }
+
+      function release(event) {
+        if (!startX) return
+        endX = event.type === 'mouseup' ? event.screenX : event.changedTouches[0].screenX
+        endY = event.type === 'mouseup' ? event.screenY : event.changedTouches[0].screenY
+
+        handleSwipe()
+      }
+
+      document.addEventListener('mousedown', lock)
+      document.addEventListener('touchstart', lock)
+      document.addEventListener('mouseup', release)
+      document.addEventListener('touchend', release)
+
+      function resetCoordinates() {
+        startX = 0
+        startY = 0
+        endX = 0
+        endY = 0
+      }
+
+      function handleSwipe() {
+        const deltaX = Math.abs(startX - endX)
+        const deltaY = Math.abs(startY - endY)
+
+        if (endY < startY && deltaY > deltaX) {
+          moveUp()
+          resetCoordinates()
+          return
+        }
+
+        if (endX > startX && deltaX > deltaY) {
+          moveRight()
+          resetCoordinates()
+          return
+        }
+
+        if (endY > startY && deltaY > deltaX) {
+          moveDown()
+          resetCoordinates()
+          return
+        }
+
+        if (endX < startX && deltaX > deltaY) {
+          moveLeft()
+          resetCoordinates()
+          return
+        }
+      }
+    </script>
+
+    <script id="clock">
+      setInterval(() => {
+        const scoreElement = document.getElementById(`score`)
+        const bestElement = document.getElementById(`best`)
+
+        // Move the game cursor
+        px += xv
+        py += yv
+
+        // When overflowing from left edge, wrap to right edge
+        if (px < 0) px = tcx - 1
+
+        // Handle overflow from right edge to left
+        if (px > tcx - 1) px = 0
+
+        // Handle overflow from top to bottom
+        if (py < 0) py = tcy - 1
+
+        // Handle overflow from bottom to top
+        if (py > tcy - 1) py = 0
+
+        // Draw the background
+        context.fillStyle = `#000`
+        context.fillRect(0, 0, 250, 300)
+
+        // Draw gray squares
+        context.fillStyle = `#fff`
+        for (let i = 0; i < 6; i++) {
+          context.fillRect(1, i * gs + 1, gs - 2, gs - 2)
+          context.fillRect(gs + 1, i * gs + 1, gs - 2, gs - 2)
+          context.fillRect(gs * 2 + 1, i * gs + 1, gs - 2, gs - 2)
+          context.fillRect(gs * 3 + 1, i * gs + 1, gs - 2, gs - 2)
+          context.fillRect(gs * 4 + 1, i * gs + 1, gs - 2, gs - 2)
+        }
+
+        // Draw the snake
+        context.fillStyle = `#6aaa64`
+        for (let i = 0; i < trail.length; i++) {
+          context.fillRect(trail[i].x * gs + 1, trail[i].y * gs + 1, gs - 2, gs - 2)
+          if (trail[i].x == px && trail[i].y == py) {
+            tail = 2
+            score = 0
+            scoreElement.innerHTML = score
+            if (score > bestElement.innerHTML) bestElement.innerHTML = score
+          }
+        }
+
+        // Push a new square to the array at our cursor
+        trail.push({ x: px, y: py })
+        while (trail.length > tail) trail.shift()
+
+        // Case: Handle collision with apple
+        if (ax == px && ay == py) {
+          ax = Math.floor(Math.random() * tcx)
+          ay = Math.floor(Math.random() * tcy)
+          tail++
+          score++
+          scoreElement.innerHTML = score
+          if (score > bestElement.innerHTML) bestElement.innerHTML = score
+        }
+
+        // Draw our apple
+        context.fillStyle = `#c9b458`
+        context.fillRect(ax * gs + 1, ay * gs + 1, gs - 2, gs - 2)
+      }, 1000 / speed)
+
+      // Resource for initial SNAKE engine
+      // https://codepen.io/kidGodzilla/pen/dRZGdO
+
+      // Resource for swipe-controlled movements
+      // https://codepen.io/Coding_Journey/pen/pQvKOj
+    </script>
+
+    <script id="share">
+      const shareElement = document.getElementById(`share`)
+
+      shareElement.addEventListener('click', async () => {
+        const highScore = +best.innerHTML
+        const greenSquares = Array(2 + highScore).fill(`🟩`)
+        const graySquares = Array(27 - highScore).fill(`⬜`)
+        const yellowSquares = Array(1).fill(`🟨`)
+        const blocks = [...greenSquares, ...graySquares, ...yellowSquares]
+
+        const shareTextBlock = `Snordle 🐍 ${highScore}/28
+
+${blocks.slice(0, 5).join(``)}
+${blocks.slice(5, 10).join(``)}
+${blocks.slice(10, 15).join(``)}
+${blocks.slice(15, 20).join(``)}
+${blocks.slice(20, 25).join(``)}
+${blocks.slice(25, 30).join(``)}
+
+https://snordle.netlify.app`
+
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: `Snordle 🐍`,
+              text: shareTextBlock,
+              url: `https://snordle.netlify.app`,
+            })
+          } catch ({ message }) {
+            console.error(`Share failure`, message)
+          }
+        } else {
+          function copy() {
+            var copyText = document.querySelector('#share-text')
+            copyText.innerHTML = shareTextBlock
+            copyText.select()
+            document.execCommand('copy')
+          }
+
+          copy()
+        }
+      })
+    </script>
+  </body>
+</html>
