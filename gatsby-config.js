@@ -1,4 +1,4 @@
-require('dotenv').config({
+require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
@@ -20,12 +20,12 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: { path: `./src/data/` },
     },
-    {
-      resolve: `gatsby-transformer-screenshot`,
-      options: {
-        nodeTypes: [`ProjectsYaml`],
-      },
-    },
+    // {
+    //   resolve: `gatsby-transformer-screenshot`,
+    //   options: {
+    //     nodeTypes: [`ProjectsYaml`],
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-html-attributes`,
       options: { lang: `en` },

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 import { FC } from 'react'
 import { Box, jsx, Text } from 'theme-ui'
 
@@ -24,58 +24,85 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
           {data.allProjectsYaml.edges.map(
             ({
-              node: { name, url, childScreenshot, summary, tags },
+              node: { name, url, summary, tags },
             }: {
               node: {
                 name: string
                 url: string
-                childScreenshot: {
-                  screenshotFile: {
-                    childImageSharp: {
-                      fluid: any
-                    }
-                  }
-                }
+                // childScreenshot: {
+                //   screenshotFile: {
+                //     childImageSharp: {
+                //       fluid: any
+                //     }
+                //   }
+                // }
                 summary: string
                 tags: string[]
               }
-            }) => (
-              <Box key={name} as="li" sx={{ mt: 4, display: `block` }}>
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
-                >
-                  <Box sx={{ bg: `action` }}>
-                    {childScreenshot && (
-                      <Img
-                        sizes={{ ...childScreenshot.screenshotFile.childImageSharp.fluid, aspectRatio: 16 / 9 }}
-                        imgStyle={{ objectPosition: `center top` }}
-                        alt={name}
+            }) => {
+              const formattedName = `${name
+                .toLowerCase()
+                .replaceAll(`✂ `, ``)
+                .replaceAll(` `, `-`)
+                .replaceAll(`.`, `-`)
+                .replaceAll(`!`, ``)
+                .replaceAll(`'`, ``)
+                .replaceAll(`'`, ``)
+                .replaceAll(`<`, ``)
+                .replaceAll(`>`, ``)
+                .replaceAll(`#`, ``)}`
+
+              return (
+                <Box key={name} id={formattedName} as="li" sx={{ mt: 4, display: `block` }}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
+                  >
+                    <Box sx={{ bg: `action` }}>
+                      <img
+                        alt=""
+                        src={`/images/projects/${`${formattedName}.png`}`}
+                        sx={{ aspectRatio: `16 / 9`, objectPosition: `center top` }}
                       />
-                    )}
-                  </Box>
 
-                  <Box sx={{ pt: 3 }}>
-                    <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
-                      {name}
-                    </Text>
-
-                    <Text
-                      as="p"
-                      sx={{ mt: 1, fontFamily: `Georgia, serif`, color: `text`, 'a:hover > &': { color: `text` } }}
-                    >
-                      {summary}
-                    </Text>
-
-                    <Box sx={{ mt: `2px`, mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
-                      {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                      {/* {childScreenshot && (
+                          <Img
+                            sizes={{ ...childScreenshot.screenshotFile.childImageSharp.fluid, aspectRatio: 16 / 9 }}
+                            imgStyle={{ objectPosition: `center top` }}
+                            alt={name}
+                          />
+                        )} */}
                     </Box>
-                  </Box>
-                </a>
-              </Box>
-            ),
+
+                    <Box sx={{ pt: 3 }}>
+                      <Text as="h1" sx={{ fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
+                        {name}
+                      </Text>
+
+                      <Text
+                        as="p"
+                        sx={{
+                          mt: 1,
+                          fontFamily: `Georgia, serif`,
+                          color: `text`,
+                          'a:hover > &': { color: `text` },
+                        }}
+                      >
+                        {summary}
+                      </Text>
+
+                      <Box sx={{ mt: `2px`, mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
+                        {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                      </Box>
+                    </Box>
+                  </a>
+                </Box>
+              )
+              //       }
+              //     })
+            },
           )}
         </Box>
       </Box>
@@ -94,13 +121,17 @@ export const pageQuery = graphql`
           name
           summary
           tags
-          childScreenshot {
-            screenshotFile {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+        }
+      }
+    }
+
+    allFile {
+      edges {
+        node {
+          childImageSharp {
+            fluid {
+              originalName
+              ...GatsbyImageSharpFluid
             }
           }
         }
