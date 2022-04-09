@@ -1,9 +1,12 @@
-- category: Projects
-  title: Support NYC DTC
-  link: https://supportnycdtc.com
 - category: Speaking
-  title: Lifecycle of an icon
-  link: https://youtu.be/QCizRxi0fek
+  title: 'CodePen Radio 362: Chris Nager'
+  link: https://blog.codepen.io/2022/04/06/362-chris-nager
+- category: Projects
+  title: Snordle 🐍
+  link: https://chrisnager.com/snordle
 - category: Blog
   title: Time for a change
   link: /blog/time-for-a-change
+- category: Speaking
+  title: Lifecycle of an icon
+  link: https://youtu.be/QCizRxi0fek
