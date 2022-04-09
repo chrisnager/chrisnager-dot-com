@@ -15,6 +15,10 @@
   name: Cube DJ
   summary: DJ with your Rubik's cube as a MIDI controller
   tags: [Web Bluetooth API, Web Audio API, NextJS, design, React, accessibility, music]
+- url: https://www.gatsbyjs.com/showcase/chrisnager.com
+  name: chrisnager.com v4
+  summary: chrisnager.com featured in Gatsby's showcase
+  tags: [design, content, semantic HTML, CSS, TypeScript, React, GraphQL, Gatsby, Netlify]
 - url: https://iextrading.com/apps/stocks/
   name: Stocks
   summary: IEX Stocks app - Search stocks, compare peers, see industry news, create watchlists
