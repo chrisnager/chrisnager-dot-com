@@ -1,3 +1,7 @@
+- name: 'CodePen Radio 362: Chris Nager'
+  summary: Chat about web accessibility and new CSS features
+  url: https://blog.codepen.io/2022/04/06/362-chris-nager
+  date: April 6, 2022
 - name: Zephyr
   summary: A deep dive into our design system at Air
   url: https://chrisnager.github.io/zephyr
