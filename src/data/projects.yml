@@ -1,4 +1,15 @@
-# https://twitter.com/chrisnager/status/1334261919126052864
+# - url: https://twitter.com/chrisnager/status/1334261919126052864
+#   name: CartaX
+#   summary: One small step for Carta, one giant leap for private markets
+#   tags: [branding, logo design, team management, product management, Gatsby, Netlify, TypeScript, CSS]
+- url: https://haiku-chrisnager.netlify.app
+  name: hAIku
+  summary: Write a haiku with AI.
+  tags: [AI, GPT-4, OpenAI API]
+- url: https://chrisnager-tiles.netlify.app
+  name: Tiles
+  summary: Generative typeface
+  tags: [typeface design, typography, design, SVG, TypeScript, CSS]
 - url: https://chrisnager.com/snordle
   name: Snordle
   summary: Swipe or use the arrow keys to play SNAKE on a Wordle-style board.
