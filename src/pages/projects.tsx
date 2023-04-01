@@ -18,7 +18,7 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
     <Layout>
       <Halo title="Projects" url="https://chrisnager.com/projects" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Intro title="Projects" description="A handful of things I've built." />
+        <Intro title="Projects" description="A handful of things I've built" />
 
         <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
           {data.allProjectsYaml.edges.map(
