@@ -6560,14 +6560,6 @@ gatsby-transformer-remark@^2.7.1:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.4.1"
 
-gatsby-transformer-screenshot@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-screenshot/-/gatsby-transformer-screenshot-2.2.1.tgz#7e81ea12a63eadd4c041eda0219a74767c895ce6"
-  integrity sha512-ud2OGKT/ZHVe1frV1NSud7HIMXy251ECFScp72oa7FW6rOawznD3q9BBv5haxSUd6N5f0W2EhKelxUMcSvFlGA==
-  dependencies:
-    axios "^0.19.2"
-    better-queue "^3.8.10"
-
 gatsby-transformer-sharp@^2.4.4:
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.4.4.tgz#f43410bca43d8cdfee8e3f159501592569ff2a3d"

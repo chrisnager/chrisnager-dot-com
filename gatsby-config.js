@@ -20,12 +20,6 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: { path: `./src/data/` },
     },
-    // {
-    //   resolve: `gatsby-transformer-screenshot`,
-    //   options: {
-    //     nodeTypes: [`ProjectsYaml`],
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-html-attributes`,
       options: { lang: `en` },
