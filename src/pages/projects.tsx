@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
 import { graphql } from 'gatsby'
-// import Img from 'gatsby-image'
 import { FC } from 'react'
 import { Box, jsx, Text } from 'theme-ui'
 
@@ -29,13 +28,6 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
               node: {
                 name: string
                 url: string
-                // childScreenshot: {
-                //   screenshotFile: {
-                //     childImageSharp: {
-                //       fluid: any
-                //     }
-                //   }
-                // }
                 summary: string
                 tags: string[]
               }
@@ -66,14 +58,6 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
                         src={`/images/projects/${`${formattedName}.png`}`}
                         sx={{ aspectRatio: `16 / 9`, objectFit: `cover`, objectPosition: `center top` }}
                       />
-
-                      {/* {childScreenshot && (
-                          <Img
-                            sizes={{ ...childScreenshot.screenshotFile.childImageSharp.fluid, aspectRatio: 16 / 9 }}
-                            imgStyle={{ objectPosition: `center top` }}
-                            alt={name}
-                          />
-                        )} */}
                     </Box>
 
                     <Box sx={{ pt: 3 }}>
@@ -100,8 +84,6 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
                   </a>
                 </Box>
               )
-              //       }
-              //     })
             },
           )}
         </Box>
@@ -121,19 +103,6 @@ export const pageQuery = graphql`
           name
           summary
           tags
-        }
-      }
-    }
-
-    allFile {
-      edges {
-        node {
-          childImageSharp {
-            fluid {
-              originalName
-              ...GatsbyImageSharpFluid
-            }
-          }
         }
       }
     }
