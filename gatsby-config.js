@@ -5,7 +5,7 @@ require(`dotenv`).config({
 module.exports = {
   siteMetadata: {
     title: `Chris Nager`,
-    description: `Developer and designer in Brooklyn, NY passionate about performance, accessibility, and systematic design.`,
+    description: `Developer and designer in Brooklyn, NY passionate about performance, accessibility, and design systems`,
   },
   pathPrefix: `/`,
   plugins: [
