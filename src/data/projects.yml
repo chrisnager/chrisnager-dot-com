@@ -10,6 +10,10 @@
   name: Tiles
   summary: Generative typeface
   tags: [typeface design, typography, design, SVG, TypeScript, CSS]
+- url: https://codepen.io/chrisnager/pen/rNpmWMj
+  name: Accessible gradients
+  summary: Find the most accessible gradient determined by the greatest contrast per colorspace. Built in CSS.
+  tags: [CSS, accessibility, color-contrast(), color-mix()]
 - url: https://chrisnager.com/snordle
   name: Snordle
   summary: Swipe or use the arrow keys to play SNAKE on a Wordle-style board.
