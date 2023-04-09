@@ -66,11 +66,11 @@ const Footer: FC = () => {
           Gatsby-built, Netlify-hosted,{' '}
           <span sx={{ display: [`block`, `inline`] }}>
             <a
-              href="https://lighthouse-dot-webdotdevsite.appspot.com//lh/html?url=https%3A%2F%2Fchrisnager.com"
+              href="https://pagespeed.web.dev/analysis/https-chrisnager-com/084dh6hwct?form_factor=desktop"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Lighthouse-approved
+              PageSpeed Insights-approved
             </a>
             {` ( `}
             <span
