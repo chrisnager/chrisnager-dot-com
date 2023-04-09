@@ -16,7 +16,7 @@ export interface FilteredProjectsProps {
 const FilteredProjects: FC<FilteredProjectsProps> = ({ data }) => {
   return (
     <Layout>
-      <Halo title="Projects" url="https://chrisnager.com/ai" />
+      <Halo title="AI / Projects" url="https://chrisnager.com/projects/ai" />
 
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="AI" description="AI projects" />
