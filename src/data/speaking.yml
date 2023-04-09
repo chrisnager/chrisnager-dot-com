@@ -1,7 +1,13 @@
+# - name: Recipes
+#   summary: Carta-wide Show and Tell presentation
+#   date: ?
 - name: 'CodePen Radio 362: Chris Nager'
   summary: Chat about web accessibility and new CSS features
   url: https://blog.codepen.io/2022/04/06/362-chris-nager
   date: April 6, 2022
+# - name: CartaX logo
+#   summary: Carta-wide Show and Tell presentation
+#   date: July 22, 2022
 - name: Zephyr
   summary: A deep dive into our design system at Air
   url: https://chrisnager.github.io/zephyr
@@ -32,6 +38,9 @@
   url: https://techcrunch.com/video/cheer-me-up/518803581
   date: '2015'
 - name: A new era for CSS
+  summary: Salesforce internal UX and Engineering presentation
+  date: '2014'
+- name: '1-on-1 Mentoring: Knowledge from within'
   summary: Salesforce internal UX and Engineering presentation
   date: '2014'
 - name: Jaunt - Let your friends be your city guides
