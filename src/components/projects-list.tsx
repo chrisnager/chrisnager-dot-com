@@ -67,12 +67,12 @@ const ProjectsList: FC<ProjectsListProps> = ({ projects }) => {
                   >
                     {summary}
                   </Text>
-
-                  <Box sx={{ mt: `2px`, mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
-                    {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
-                  </Box>
                 </Box>
               </a>
+
+              <Box sx={{ mt: `2px`, mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
+                {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+              </Box>
             </Box>
           )
         },
