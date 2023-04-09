@@ -8,7 +8,7 @@ interface TagProps {
 }
 
 const Tag: FC<TagProps> = ({ children }) => {
-  const isProjectFilter = [`AI`, `typography`].includes(children)
+  const isProjectFilter = [`accessibility`, `AI`, `CSS`, `typography`].includes(children)
   const slug = children.toLowerCase().replaceAll(` `, `-`)
 
   return (
