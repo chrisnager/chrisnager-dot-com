@@ -72,7 +72,7 @@ const Footer: FC = () => {
             >
               PageSpeed Insights-approved
             </a>
-            {` ( `}
+            {` (`}
             <span
               sx={{
                 filter:
