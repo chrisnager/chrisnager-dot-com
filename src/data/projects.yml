@@ -9,7 +9,7 @@
 - url: https://chrisnager-tiles.netlify.app
   name: Tiles
   summary: Generative typeface
-  tags: [typeface design, typography, design, SVG, TypeScript, CSS]
+  tags: [typeface design, typography, generative art, design, SVG, TypeScript, CSS]
 - url: https://codepen.io/chrisnager/pen/rNpmWMj
   name: Accessible gradients
   summary: Find the most accessible gradient determined by the greatest contrast per colorspace. Built in CSS.
