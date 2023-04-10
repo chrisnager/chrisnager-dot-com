@@ -22,7 +22,7 @@ const Layout: FC = ({ children }) => {
           }
 
           body {
-            font: 1em/${theme.lineHeights.body} ${theme.fonts.body};
+            font: 1.15em/${theme.lineHeights.body} ${theme.fonts.body};
           }
 
           @media (min-width: 640px) {
