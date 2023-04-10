@@ -7,7 +7,7 @@ import { jsx, useColorMode } from 'theme-ui'
 const base = {
   title: `Chris Nager`,
   url: `https://chrisnager.com`,
-  description: `Developer and designer in Brooklyn, NY passionate about performance, accessibility, and design systems`,
+  description: `Developer and designer in Brooklyn, NY, passionate about performance, accessibility, and design systems`,
   image: `https://chrisnager.com/chris-nager-card.png`,
   author: `@chrisnager`,
   hasCodePenEmbed: false,
