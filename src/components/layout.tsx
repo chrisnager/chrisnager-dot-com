@@ -15,30 +15,36 @@ const Layout: FC = ({ children }) => {
           ::selection {
             background-color: ${theme.colors.selection};
           }
-          
+
           :focus {
             outline: 6px double ${theme.colors.action};
             outline-offset: 0.125em;
           }
-          
+
           body {
-            font: 1.25em/${theme.lineHeights.body} ${theme.fonts.body};
+            font: 1em/${theme.lineHeights.body} ${theme.fonts.body};
+          }
+
+          @media (min-width: 640px) {
+            body {
+              font-size: 1.25em;
+            }
           }
 
           img {
             width: 100%;
             display: block;
           }
-          
+
           a {
             color: ${theme.colors.action};
             text-decoration: none;
           }
-          
+
           a:hover {
             text-decoration: underline;
           }
-          
+
           h1,
           h2 {
             font-weight: ${theme.fontWeights.heading};

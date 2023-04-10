@@ -28,11 +28,11 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, date, title, 
       rel={isInternalPost ? undefined : 'noopener noreferrer'}
       sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
     >
-      <Text as="p" sx={{ fontSize: 2, color: `text`, 'a:hover > &': { color: `text` } }}>
+      <Text as="p" sx={{ fontSize: `0.8em`, color: `text`, 'a:hover > &': { color: `text` } }}>
         {date}
       </Text>
 
-      <Text as="h2" sx={{ mt: 1, fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
+      <Text as="h2" sx={{ mt: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>
         {title}
       </Text>
 

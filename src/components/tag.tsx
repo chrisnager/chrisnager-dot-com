@@ -14,6 +14,7 @@ const Tag: FC<TagProps> = ({ children }) => {
   return (
     <Box
       as={isProjectFilter ? `a` : `div`}
+      // @ts-ignore
       href={isProjectFilter ? `/projects/${slug}` : undefined}
       key={children}
       sx={{
@@ -22,7 +23,7 @@ const Tag: FC<TagProps> = ({ children }) => {
         px: 2,
         display: `inline-block`,
         fontStyle: `italic`,
-        fontSize: 2,
+        fontSize: `0.8em`,
         lineHeight: 1,
         color: `text`,
         backgroundColor: `tag`,

@@ -33,7 +33,7 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
                   <Text
                     as="p"
                     sx={{
-                      fontSize: 2,
+                      fontSize: `0.8em`,
                       color: `text`,
                       'a:hover > &': { color: `text` },
                     }}
@@ -41,7 +41,7 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
                     {node.date}
                   </Text>
 
-                  <Text as="h2" sx={{ mt: 1, fontSize: 4, 'a:hover > &': { textDecoration: `underline` } }}>
+                  <Text as="h2" sx={{ mt: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>
                     {node.name}
                   </Text>
 
