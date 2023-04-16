@@ -22,8 +22,6 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data }) => {
 
   const tag = slugTagPairs[slug]
 
-  console.log({ slug })
-
   return (
     <Layout>
       <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />

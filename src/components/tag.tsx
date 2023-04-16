@@ -1,5 +1,6 @@
 /** @jsx jsx */
 
+import { Link } from 'gatsby'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
 
@@ -12,8 +13,7 @@ const Tag: FC<TagProps> = ({ children }) => {
 
   return (
     <Box
-      as="a"
-      href={`/projects/${slug}`}
+      as={Link}
       key={children}
       sx={{
         mr: 2,
@@ -26,6 +26,7 @@ const Tag: FC<TagProps> = ({ children }) => {
         color: `text`,
         backgroundColor: `tag`,
       }}
+      to={`/projects/${slug}`}
       {...{ children }}
     />
   )
