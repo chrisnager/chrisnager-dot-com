@@ -14,10 +14,10 @@ export interface FilteredProjectsProps {
   data: any
 }
 
-const pathname = typeof window === `undefined` ? `` : window.location.pathname
+const path = window?.location?.pathname || ``
 
 const FilteredProjects: FC<FilteredProjectsProps> = ({ data }) => {
-  const slug = pathname.split('/').slice(-2)[0]
+  const slug = path.split('/').slice(-2)[0]
 
   if (!slug) navigate(`/projects`)
 
