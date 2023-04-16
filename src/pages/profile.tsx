@@ -23,7 +23,7 @@ const Profile: FC<ProfileProps> = () => {
 
         <img
           alt="Chris Nager, smiling and wearing a hat"
-          src="/images/profile/hat.png"
+          src="/images/profile/hat.jpg"
           sx={{ display: `block`, maxWidth: `100%` }}
         />
 
