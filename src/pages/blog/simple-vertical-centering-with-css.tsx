@@ -1,7 +1,5 @@
 /** @jsx jsx */
 
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
 
@@ -9,21 +7,9 @@ import Halo from '../../components/halo'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
-export interface BlogPostSimpleVerticalCenteringWithCssProps {
-  data: {
-    file: {
-      childImageSharp: { fluid: any }
-    }
-  }
-}
+export interface BlogPostSimpleVerticalCenteringWithCssProps {}
 
-const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCenteringWithCssProps> = ({
-  data: {
-    file: {
-      childImageSharp: { fluid },
-    },
-  },
-}) => {
+const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCenteringWithCssProps> = () => {
   return (
     <Layout>
       <Halo
@@ -77,10 +63,10 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
         </p>
 
         <div>
-          <Img
-            {...{ fluid }}
+          <img
             alt="Logo for ChrisNager.com"
-            style={{ width: 80, marginBottom: 0, display: `inline-block`, verticalAlign: `middle` }}
+            src="/images/blog/logo.png"
+            sx={{ maxWidth: `100%`, width: 80, marginBottom: 0, display: `inline-block`, verticalAlign: `middle` }}
           />
           {` `}
           This is my logo
@@ -137,15 +123,3 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
 }
 
 export default BlogPostSimpleVerticalCenteringWithCss
-
-export const pageQuery = graphql`
-  query BlogPostSimpleVerticalCenteringWithCssQuery {
-    file(relativePath: { eq: "images/logo.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`

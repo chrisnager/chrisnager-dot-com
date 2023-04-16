@@ -12,17 +12,10 @@ module.exports = {
     `gatsby-plugin-theme-ui`,
     `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-typescript`,
     `gatsby-transformer-yaml`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: { path: `./src/data/` },
-    },
-    {
-      resolve: `gatsby-plugin-html-attributes`,
-      options: { lang: `en` },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,

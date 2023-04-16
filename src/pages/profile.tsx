@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
-import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
 
@@ -9,21 +8,9 @@ import Halo from '../components/halo'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 
-export interface ProfileProps {
-  data: {
-    file: {
-      childImageSharp: { fluid: any }
-    }
-  }
-}
+export interface ProfileProps {}
 
-const Profile: FC<ProfileProps> = ({
-  data: {
-    file: {
-      childImageSharp: { fluid },
-    },
-  },
-}) => {
+const Profile: FC<ProfileProps> = () => {
   return (
     <Layout>
       <Halo title="Profile" url="https://chrisnager.com/profile" />
@@ -34,7 +21,11 @@ const Profile: FC<ProfileProps> = ({
           performance and accessibility."
         />
 
-        <Img {...{ fluid }} alt="Chris Nager, smiling and wearing a hat" />
+        <img
+          alt="Chris Nager, smiling and wearing a hat"
+          src="/images/profile/hat.png"
+          sx={{ display: `block`, maxWidth: `100%` }}
+        />
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
           I’ve worked across industries, from Advertising to Finance. I’ve been through a{` `}
@@ -107,15 +98,3 @@ const Profile: FC<ProfileProps> = ({
 }
 
 export default Profile
-
-export const pageQuery = graphql`
-  query ProfileQuery {
-    file(relativePath: { eq: "images/hat.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`

@@ -34,6 +34,7 @@ const Halo: FC<HaloProps> = ({
 
   return (
     <Helmet>
+      <html lang="en" />
       <title>{`${title}${title === base.title ? `` : ` / Chris Nager`}`}</title>
       <link rel="canonical" href={url} />
       <meta name="description" content={description} />

@@ -1,7 +1,5 @@
 /** @jsx jsx */
 
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
 
@@ -9,21 +7,9 @@ import Halo from '../../components/halo'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
-export interface BlogPostTimeForAChangeProps {
-  data: {
-    file: {
-      childImageSharp: { fluid: any }
-    }
-  }
-}
+export interface BlogPostTimeForAChangeProps {}
 
-const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = ({
-  data: {
-    file: {
-      childImageSharp: { fluid },
-    },
-  },
-}) => {
+const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = () => {
   return (
     <Layout>
       <Halo
@@ -56,7 +42,11 @@ const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Img {...{ fluid }} alt="Kanban board, titled 'ChrisNager.com', full of tasks" />
+          <img
+            alt="Kanban board, titled 'ChrisNager.com', full of tasks"
+            src="/images/blog/progress.png"
+            sx={{ display: `block`, maxWidth: `100%` }}
+          />
         </a>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>My goals for this version of the site are making sure it:</p>
@@ -76,15 +66,3 @@ const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = ({
 }
 
 export default BlogPostTimeForAChange
-
-export const pageQuery = graphql`
-  query BlogPostTimeForAChangeQuery {
-    file(relativePath: { eq: "images/progress.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`

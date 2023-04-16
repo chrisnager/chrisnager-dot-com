@@ -37,7 +37,7 @@ export default Blog
 
 export const pageQuery = graphql`
   query BlogQuery {
-    allPostsYaml(sort: { fields: [date], order: DESC }) {
+    allPostsYaml(sort: { date: DESC }) {
       edges {
         node {
           slug

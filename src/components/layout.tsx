@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
 
