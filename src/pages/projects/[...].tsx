@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { graphql } from 'gatsby'
+import { graphql, navigate } from 'gatsby'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
 
@@ -8,19 +8,28 @@ import Halo from '../../components/halo'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 import ProjectsList from '../../components/projects-list'
+import { slugTagPairs } from '../../constants'
 
 export interface FilteredProjectsProps {
   data: any
 }
 
 const FilteredProjects: FC<FilteredProjectsProps> = ({ data }) => {
+  const slug = location.pathname.split('/').slice(-2)[0]
+
+  if (!slug) navigate(`/projects`)
+
+  const tag = slugTagPairs[slug]
+
+  console.log({ slug })
+
   return (
     <Layout>
-      <Halo title="Accessibility / Projects" url="https://chrisnager.com/projects/accessibility" />
+      <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
 
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
-        <Intro title="Accessibility" description="Accessibility projects" />
-        <ProjectsList projects={data.allProjectsYaml.edges} />
+        <Intro description={`${tag} projects`} title={tag} />
+        <ProjectsList projects={data.allProjectsYaml.edges.filter(project => project.node.tags.includes(tag))} />
       </Box>
     </Layout>
   )
@@ -29,8 +38,8 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data }) => {
 export default FilteredProjects
 
 export const pageQuery = graphql`
-  query AccessibilityProjectsQuery {
-    allProjectsYaml(filter: { tags: { in: "accessibility" } }) {
+  query TagProjectsQuery {
+    allProjectsYaml {
       edges {
         node {
           url

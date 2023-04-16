@@ -8,23 +8,12 @@ interface TagProps {
 }
 
 const Tag: FC<TagProps> = ({ children }) => {
-  const isProjectFilter = [
-    `accessibility`,
-    `AI`,
-    `CSS`,
-    `generative art`,
-    `HTML`,
-    `JavaScript`,
-    `TypeScript`,
-    `typography`,
-  ].includes(children)
   const slug = children.toLowerCase().replace(/ /g, '-')
 
   return (
     <Box
-      as={isProjectFilter ? `a` : `div`}
-      // @ts-ignore
-      href={isProjectFilter ? `/projects/${slug}` : undefined}
+      as="a"
+      href={`/projects/${slug}`}
       key={children}
       sx={{
         mr: 2,

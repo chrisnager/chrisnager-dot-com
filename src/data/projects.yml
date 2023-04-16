@@ -61,7 +61,7 @@
 - url: https://zephyr.air.inc/
   name: Zephyr
   summary: Design system and component library for Air
-  tags: [design, Gatsby, docz, React, MDX, and styled-system, project management]
+  tags: [design, Gatsby, docz, React, MDX, styled-system, project management]
 - url: https://chrisnager.github.io/hexcodes
   name: hexcodes
   summary: All possible three digit hexcodes
@@ -93,7 +93,7 @@
 - url: https://zephyr.air.inc/icon-theming
   name: Icon theming
   summary: Icon theming tool for the Zephyr design system
-  tags: [design hand-off, svg, developer experience (DX)]
+  tags: [design hand-off, SVG, developer experience (DX)]
 - url: https://chrisnager.github.io/tiny-google-fonts
   name: tiny google fonts
   summary: Strip down your google fonts significantly to only include the characters you're actually using
@@ -113,7 +113,7 @@
 - url: http://give-n-go.co
   name: Give 'n' Go
   summary: A curated gallery of Dribbble shots reworked as interactive CodePen pens
-  tags: [community, HTML, CSS, JavaScript, cms]
+  tags: [community, HTML, CSS, JavaScript, CMS]
 - url: https://iextrading.com/apps
   name: IEX iOS and Android apps
   summary: Created iOS and Android apps for IEX
@@ -165,7 +165,7 @@
 - url: https://chrisnager.github.io/svg-please
   name: SVG Please
   summary: Simple script to replace your bitmap icons with inline SVGs with bitmap fallback built in
-  tags: [tooling, svg]
+  tags: [tooling, SVG]
 - url: http://fav5.co
   name: Fav5
   summary: What are your five most important items?
@@ -193,7 +193,7 @@
 - url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
   name: Ben Thomson Photo
   summary: Awwwards Site of the Day
-  tags: [branding, design, UX, HTML, CSS, JavaScript, cms, award-winning]
+  tags: [branding, design, UX, HTML, CSS, JavaScript, CMS, award-winning]
 - url: http://coding.smashingmagazine.com/2010/07/12/css3-design-contest-results/
   name: Totally Fresh
   summary: Experimental CSS3 design featured on Smashing Magazine
