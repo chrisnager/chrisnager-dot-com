@@ -12,12 +12,11 @@ import { slugTagPairs } from '../../constants'
 
 export interface FilteredProjectsProps {
   data: any
+  location: any
 }
 
-const path = window?.location?.pathname || ``
-
-const FilteredProjects: FC<FilteredProjectsProps> = ({ data }) => {
-  const slug = path.split('/').slice(-2)[0]
+const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
+  const slug = location.pathname.split('/').slice(-2)[0]
 
   if (!slug) navigate(`/projects`)
 
