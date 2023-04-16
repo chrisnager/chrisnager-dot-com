@@ -1,5 +1,7 @@
 .cache
 .DS_Store
+.env
+.netlify
 backup
 node_modules
 public

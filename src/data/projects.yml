@@ -2,6 +2,10 @@
 #   name: CartaX
 #   summary: One small step for Carta, one giant leap for private markets
 #   tags: [branding, logo design, team management, product management, Gatsby, Netlify, TypeScript, CSS]
+# - url: /ascii
+#   name: ASCII
+#   summary: Make ASCII art with AI.
+#   tags: [AI, GPT-4, OpenAI API]
 - url: https://haiku-chrisnager.netlify.app
   name: hAIku
   summary: Write a haiku with AI.
