@@ -12,12 +12,17 @@ export interface BlogPostAiImagePromptsProps {}
 const items = [
   {
     app: `Midjourney`,
-    imageSource: `https://cdn.discordapp.com/attachments/1008571099497377792/1099335178477912114/chrisnager_Dense_repetitive_pattern_of_overlapping_cartoon_food_e8a43624-6536-4d93-9097-0eb81e0d6dd3.png`,
+    imageSource: `/images/blog/ai-image-prompts/chrisnager_NYC_midtown_cab_in_the_rain_at_night_in_yellow_and_r_1f782302-344c-4ff7-a4e1-c0451ac44676.webp`,
+    prompt: `NYC midtown cab in the rain, at night, in yellow and red watercolor sketch drawing, detailed, view from the street up --ar 9:16 --v 5`,
+  },
+  {
+    app: `Midjourney`,
+    imageSource: `/images/blog/ai-image-prompts/chrisnager_Dense_repetitive_pattern_of_overlapping_cartoon_food_e8a43624-6536-4d93-9097-0eb81e0d6dd3.png`,
     prompt: `Dense repetitive pattern of overlapping cartoon food with happy faces, includes sushi, pizza, cheeseburger, hotdog, ice cream cone, and broccoli, line art, simple pastel color palette, implied depth`,
   },
   {
     app: `Adobe Firefly`,
-    imageSource: `/images/blog/prompts/Firefly_A+curious robot without a mouth, in search of something, alone, dramatic backlighting, 4k, photorealistic._photo_56040.jpg`,
+    imageSource: `/images/blog/ai-image-prompts/Firefly_A+curious robot without a mouth, in search of something, alone, dramatic backlighting, 4k, photorealistic._photo_56040.jpg`,
     prompt: `A curious robot without a mouth, in search of something, alone, dramatic backlighting, 4k, photorealistic. [Style: Photo]`,
   },
 ]
