@@ -43,7 +43,7 @@ const BlogPostAiImagePrompts: FC<BlogPostAiImagePromptsProps> = () => {
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          As some who focuses on accessibility, I like that image prompts serve as accessible <code>alt</code>{' '}
+          As someone who focuses on accessibility, I like that image prompts serve as accessible <code>alt</code>{' '}
           attributes.
         </p>
 
