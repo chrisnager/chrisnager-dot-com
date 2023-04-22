@@ -38,8 +38,8 @@ const BlogPostAiImagePrompts: FC<BlogPostAiImagePromptsProps> = () => {
           description="This is a list of helpful prompts I've used with AI-generated image tools like Midjourney, DALL-E, and Adobe Firefly."
         />
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I have an interest in becoming good at AI prompt engineering and AI-generated visuals. I am learning. Check
-          back here to see my progress in real time.
+          I have an interest in AI prompt engineering and AI-generated visuals. I am learning. Check back here to see my
+          progress in real time.
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
