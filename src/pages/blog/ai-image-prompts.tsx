@@ -12,6 +12,11 @@ export interface BlogPostAiImagePromptsProps {}
 const items = [
   {
     app: `Midjourney`,
+    imageSource: `/images/blog/ai-image-prompts/chrisnager_hyper-realistic_minecraft_cows_grazing_in_a_field_8k_334cd18e-6b88-4538-a8a6-d88679575eb5.png`,
+    prompt: `hyper-realistic minecraft cows grazing in a field, 8k`,
+  },
+  {
+    app: `Midjourney`,
     imageSource: `/images/blog/ai-image-prompts/chrisnager_NYC_midtown_cab_in_the_rain_at_night_in_yellow_and_r_1f782302-344c-4ff7-a4e1-c0451ac44676.webp`,
     prompt: `NYC midtown cab in the rain, at night, in yellow and red watercolor sketch drawing, detailed, view from the street up --ar 9:16 --v 5`,
   },
