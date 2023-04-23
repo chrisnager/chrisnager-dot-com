@@ -1,3 +1,6 @@
+- category: Blog
+  title: 'AI image prompts'
+  link: '/blog/ai-image-prompts'
 - category: Projects
   title: 'hAIku: Write haikus with AI'
   link: https://haiku-chrisnager.netlify.app
