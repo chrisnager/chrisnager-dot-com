@@ -1,7 +1,3 @@
-# - url: /ascii
-#   name: ASCII
-#   summary: Make ASCII art with AI.
-#   tags: [AI, GPT-4, OpenAI API]
 - url: https://haiku-chrisnager.netlify.app
   name: hAIku
   summary: Write a haiku with AI.
@@ -22,6 +18,10 @@
   name: Snordle
   summary: Swipe or use the arrow keys to play SNAKE on a Wordle-style board.
   tags: [HTML, CSS, JavaScript]
+- url: /ascii
+  name: ASCII
+  summary: Make ASCII art with AI.
+  tags: [AI, GPT-4, OpenAI API]
 - url: https://supportnycdtc.com
   name: Support NYC DTC
   summary: Interactive map to support the DTC brands of NYC affected by COVID-19, recently featured in the Wall Street Journal and in Mapbox's newsletter
