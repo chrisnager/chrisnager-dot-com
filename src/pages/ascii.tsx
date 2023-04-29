@@ -15,8 +15,8 @@ export default function AsciiIndex() {
   const [rows, setRows] = useState(1)
 
   const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-    organization: process.env.OPENAI_ORGANIZATION,
+    apiKey: process.env.GATSBY_OPENAI_API_KEY,
+    organization: process.env.GATSBY_OPENAI_ORGANIZATION,
   })
 
   const openai = new OpenAIApi(configuration)
@@ -155,7 +155,7 @@ export default function AsciiIndex() {
               max={10}
               value={rows}
             />
-            <span>{rows}</span>
+            <span sx={{ ml: 2 }}>{rows}</span>
           </div>
 
           <button
