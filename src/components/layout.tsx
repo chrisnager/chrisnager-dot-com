@@ -1,17 +1,22 @@
 /** @jsx jsx */
 
 import { Global } from '@emotion/react'
-import { FC } from 'react'
+import { FC, ReactElement } from 'react'
 import { Box, jsx } from 'theme-ui'
 
 import Footer from './footer'
 import Navigation from './navigation'
 
-const Layout: FC = ({ children }) => {
+const Layout: FC<{ children: ReactElement | ReactElement[] }> = ({ children }) => {
   return (
     <Box sx={{ maxWidth: `75ch`, mx: `auto` }}>
       <Global
-        styles={theme => `
+        styles={(theme: {
+          colors: { action: string; selection: string }
+          fonts: { body: string }
+          fontWeights: { heading: string }
+          lineHeights: { body: string; heading: string }
+        }) => `
           ::selection {
             background-color: ${theme.colors.selection};
           }
