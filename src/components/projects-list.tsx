@@ -35,12 +35,14 @@ const ProjectsList: FC<ProjectsListProps> = ({ projects }) => {
             .replace(/>/g, ``)
             .replace(/#/g, ``)
 
+          const urlIsExternal = url.includes(`http`)
+
           return (
             <Box key={name} id={formattedName} as="li" sx={{ mt: 4, display: `block` }}>
               <a
                 href={url}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={urlIsExternal ? `_blank` : undefined}
+                rel={urlIsExternal ? `noopener noreferrer` : undefined}
                 sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
               >
                 <Box sx={{ bg: `action` }}>
@@ -71,7 +73,7 @@ const ProjectsList: FC<ProjectsListProps> = ({ projects }) => {
               </a>
 
               <Box sx={{ mt: `2px`, mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
-                {!!tags && !!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                {!!tags && !!tags.length && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
               </Box>
             </Box>
           )
