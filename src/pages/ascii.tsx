@@ -15,8 +15,8 @@ export default function AsciiIndex() {
   const [rows, setRows] = useState(1)
 
   const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-    organization: process.env.OPENAI_ORGANIZATION,
+    apiKey: process.env.GATSBY_OPENAI_API_KEY,
+    organization: process.env.GATSBY_OPENAI_ORGANIZATION,
   })
 
   const openai = new OpenAIApi(configuration)
@@ -98,7 +98,7 @@ export default function AsciiIndex() {
             <span>
               <i>Try</i>:
             </span>
-            {suggestions.map(suggestion => (
+            {suggestions.map((suggestion) => (
               <button
                 data-suggestion
                 disabled={isProcessing}
@@ -217,6 +217,10 @@ export default function AsciiIndex() {
                 GPT-4
               </code>
             </a>
+          </p>
+
+          <p style={{ marginBlockEnd: 0 }}>
+            <i>Takeaway</i>: GPT-4 is <em>not</em> good at creating ASCII art. This was still fun to build. :D
           </p>
         </div>
       </Box>
