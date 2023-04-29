@@ -15,8 +15,8 @@ export default function AsciiIndex() {
   const [rows, setRows] = useState(1)
 
   const configuration = new Configuration({
-    apiKey: process.env.GATSBY_OPENAI_API_KEY,
-    organization: process.env.GATSBY_OPENAI_ORGANIZATION,
+    apiKey: process.env.OPENAI_API_KEY,
+    organization: process.env.OPENAI_ORGANIZATION,
   })
 
   const openai = new OpenAIApi(configuration)
