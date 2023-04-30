@@ -1,9 +1,13 @@
+import type { GatsbyConfig } from 'gatsby'
+
+// TODO: Refactor in TypeScript
 require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-module.exports = {
+const config: GatsbyConfig = {
   pathPrefix: `/`,
+
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-theme-ui`,
@@ -18,8 +22,11 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
     },
   ],
+
   siteMetadata: {
     description: `Developer and designer in Brooklyn, NY, passionate about performance, accessibility, and design systems`,
     title: `Chris Nager`,
   },
 }
+
+export default config
