@@ -9,6 +9,8 @@ import Halo from '../components/halo'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 
+export const Head = () => <Halo title="Blog" url="https://chrisnager.com/blog" />
+
 export interface BlogProps {
   data: any
 }
@@ -16,7 +18,6 @@ export interface BlogProps {
 const Blog: FC<BlogProps> = ({ data }) => {
   return (
     <Layout>
-      <Halo title="Blog" url="https://chrisnager.com/blog" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Blog" description="My written thoughts" />
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>

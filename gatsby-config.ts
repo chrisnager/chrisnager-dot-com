@@ -9,7 +9,6 @@ const config: GatsbyConfig = {
   pathPrefix: `/`,
 
   plugins: [
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-theme-ui`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-yaml`,

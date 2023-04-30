@@ -9,6 +9,8 @@ import Halo from '../components/halo'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 
+export const Head = () => <Halo />
+
 export interface HomeProps {
   data: any
 }
@@ -16,7 +18,6 @@ export interface HomeProps {
 const Home: FC<HomeProps> = ({ data }) => {
   return (
     <Layout>
-      <Halo />
       <Box sx={{ maxWidth: `55ch` }}>
         <Hero data={data.allDataYaml.edges[0].node} />
         <Features data={data.allFeaturesYaml.edges} />
