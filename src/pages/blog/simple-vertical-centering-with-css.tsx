@@ -79,14 +79,15 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
         </p>
 
         <pre>
-          <code>&lt;div class="vertically-centered">…&lt;/div></code>
+          <code>&lt;div class="vertically-centered"&gt;…&lt;/div&gt;</code>
           <br />
           <br />
           <code>
             .vertically-centered &#123;
             <br />
             {`  height: 256px;`}
-            <br />}
+            <br />
+            &rbrace;
           </code>
           <br />
           <code>
@@ -99,7 +100,8 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
             {`  display: inline-block;`}
             <br />
             {`  vertical-align: middle;`}
-            <br />}
+            <br />
+            &rbrace;
           </code>
         </pre>
 
