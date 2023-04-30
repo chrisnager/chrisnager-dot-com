@@ -60,22 +60,19 @@
     "ssg"
   ],
   "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chrisnager/chrisnager-dot-com.git"
   },
   "scripts": {
-    "dev": "npm run develop",
-    "develop": "gatsby develop",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js*' 'src/**/*.md*' 'src/**/*.ts*'",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "clean": "yarn gatsby clean",
+    "dev": "yarn gatsby develop",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js*' 'src/**/*.md*' 'src/**/*.ts*'",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --ignore-pattern public .",
     "start": "npm run develop",
-    "heroku-postbuild": "gatsby build",
-    "clean": "yarn gatsby clean"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "yarn tsc --noEmit"
   }
 }
