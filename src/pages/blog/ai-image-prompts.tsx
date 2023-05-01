@@ -12,6 +12,11 @@ export interface BlogPostAiImagePromptsProps {}
 const items = [
   {
     app: `Midjourney`,
+    imageSource: `chrisnager_spacious_hotel_lobby_line_drawing_three-point_perspe_26a333c6-aa47-4f80-8db1-c3fb7abef025.webp`,
+    prompt: `spacious hotel lobby, line drawing, three-point perspective, watercolor, black and white with yellow highlights --ar 22:17 --v 5`,
+  },
+  {
+    app: `Midjourney`,
     imageSource: `chrisnager_Totoro_running_a_marathon_smiling_wearing_a_headband_132e4e44-fcbb-4de1-bfd2-6d0f40410707.png`,
     prompt: `Totoro running a marathon, smiling, wearing a headband, Studio Ghibli art style --ar 4:3 --niji`,
   },
