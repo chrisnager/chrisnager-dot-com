@@ -8,13 +8,12 @@ import Halo from '../components/halo'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 
-export const Head = () => <Halo title="Profile" url="https://chrisnager.com/profile" />
-
 export interface ProfileProps {}
 
 const Profile: FC<ProfileProps> = () => {
   return (
     <Layout>
+      <Halo title="Profile" url="https://chrisnager.com/profile" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro
           title="Profile"

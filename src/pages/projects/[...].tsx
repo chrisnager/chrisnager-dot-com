@@ -10,16 +10,6 @@ import Layout from '../../components/layout'
 import ProjectsList from '../../components/projects-list'
 import { slugTagPairs } from '../../constants'
 
-export const Head = ({ location }) => {
-  const slug = location.pathname.split('/').slice(-2)[0]
-
-  const tag = slugTagPairs[slug]
-
-  console.log({ location, slug, tag })
-
-  return <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
-}
-
 export interface FilteredProjectsProps {
   data: any
   location: any
@@ -34,9 +24,11 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
 
   return (
     <Layout>
+      <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
+
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro description={`${tag} projects`} title={tag} />
-        <ProjectsList projects={data.allProjectsYaml.edges.filter((project) => project.node.tags.includes(tag))} />
+        <ProjectsList projects={data.allProjectsYaml.edges.filter(project => project.node.tags.includes(tag))} />
       </Box>
     </Layout>
   )

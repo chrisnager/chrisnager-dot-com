@@ -8,8 +8,6 @@ import Halo from '../components/halo'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
 
-export const Head = () => <Halo title="ASCII / Projects" url="https://chrisnager.com/projects/ascii" />
-
 export default function AsciiIndex() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [response, setResponse] = useState(``)
@@ -70,6 +68,8 @@ export default function AsciiIndex() {
 
   return (
     <Layout>
+      <Halo title="ASCII / Projects" url="https://chrisnager.com/projects/ascii" />
+
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro
           title={

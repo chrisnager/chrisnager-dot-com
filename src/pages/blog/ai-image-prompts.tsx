@@ -7,14 +7,6 @@ import Halo from '../../components/halo'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
-export const Head = () => (
-  <Halo
-    title="AI image prompts / Blog"
-    url="https://chrisnager.com/blog/ai-image-prompts"
-    description="This is my collection of helpful prompts for AI-generated image tools like Midjourney, DALL-E, and Adobe Firefly."
-  />
-)
-
 export interface BlogPostAiImagePromptsProps {}
 
 const items = [
@@ -58,6 +50,12 @@ const items = [
 const BlogPostAiImagePrompts: FC<BlogPostAiImagePromptsProps> = () => {
   return (
     <Layout>
+      <Halo
+        title="AI image prompts / Blog"
+        url="https://chrisnager.com/blog/ai-image-prompts"
+        description="This is my collection of helpful prompts for AI-generated image tools like Midjourney, DALL-E, and Adobe Firefly."
+      />
+
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
           date="April 22nd, 2023"

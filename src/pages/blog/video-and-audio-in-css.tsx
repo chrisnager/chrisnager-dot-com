@@ -7,18 +7,16 @@ import Halo from '../../components/halo'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
-export const Head = () => (
-  <Halo
-    title="Video and audio in CSS / Blog"
-    url="https://chrisnager.com/blog/simple-vertical-centering-with-css"
-    description="Video, audio, and images are all types of multimedia."
-    hasCodePenEmbed
-  />
-)
-
 const BlogPostVideoAndAudioInCss: FC = () => {
   return (
     <Layout>
+      <Halo
+        title="Video and audio in CSS / Blog"
+        url="https://chrisnager.com/blog/simple-vertical-centering-with-css"
+        description="Video, audio, and images are all types of multimedia."
+        hasCodePenEmbed
+      />
+
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
           date="December 4th, 2012"

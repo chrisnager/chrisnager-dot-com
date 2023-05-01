@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
-import { FC, Fragment } from 'react'
+import { FC } from 'react'
+import Helmet from 'react-helmet'
 import { jsx, useColorMode } from 'theme-ui'
 
 const base = {
@@ -32,7 +33,7 @@ const Halo: FC<HaloProps> = ({
   const [colorMode] = useColorMode()
 
   return (
-    <Fragment>
+    <Helmet>
       <html lang="en" />
       <title>{`${title}${title === base.title ? `` : ` / Chris Nager`}`}</title>
       <link rel="canonical" href={url} />
@@ -65,7 +66,7 @@ const Halo: FC<HaloProps> = ({
       <meta name="twitter:creator" content={author} />
 
       {hasCodePenEmbed && <script async src="https://static.codepen.io/assets/embed/ei.js"></script>}
-    </Fragment>
+    </Helmet>
   )
 }
 
