@@ -56,6 +56,16 @@ const Layout: FC<{ children: ReactElement | ReactElement[] }> = ({ children }) =
             line-height: ${theme.lineHeights.heading};
             letter-spacing: -0.00625em;
           }
+
+          @keyframes draw {
+            from { stroke-dasharray: 425; stroke-dashoffset: 425; }
+            to { stroke-dasharray: 450; stroke-dashoffset: 0; }
+          }
+
+          @keyframes draw-2 {
+            from, 12.5% { stroke-dasharray: 425; stroke-dashoffset: 425; }
+            to { stroke-dasharray: 450; stroke-dashoffset: 0; }
+          }
       `}
       />
 
