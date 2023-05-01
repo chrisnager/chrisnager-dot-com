@@ -12,6 +12,11 @@ export interface BlogPostAiImagePromptsProps {}
 const items = [
   {
     app: `Midjourney`,
+    imageSource: `chrisnager_a_yellow_room_with_no_windows_everything_in_the_room_7e1f9054-91fd-4860-983d-f678dbdce216.png`,
+    prompt: `a yellow room with no windows, everything in the room is yellow, minimalist --ar 32:9 --v 5`,
+  },
+  {
+    app: `Midjourney`,
     imageSource: `chrisnager_hyper-realistic_minecraft_cows_grazing_in_a_field_8k_334cd18e-6b88-4538-a8a6-d88679575eb5.png`,
     prompt: `hyper-realistic minecraft cows grazing in a field, 8k`,
   },
