@@ -12,6 +12,11 @@ export interface BlogPostAiImagePromptsProps {}
 const items = [
   {
     app: `Midjourney`,
+    imageSource: `chrisnager_sloth_kaleidoscope_vivid_colorful_7ee3154e-c50d-4c85-bc65-016a9c61a723.png`,
+    prompt: `sloth kaleidoscope, vivid, colorful --v 5`,
+  },
+  {
+    app: `Midjourney`,
     imageSource: `chrisnager_spacious_hotel_lobby_line_drawing_three-point_perspe_26a333c6-aa47-4f80-8db1-c3fb7abef025.webp`,
     prompt: `spacious hotel lobby, line drawing, three-point perspective, watercolor, black and white with yellow highlights --ar 22:17 --v 5`,
   },
