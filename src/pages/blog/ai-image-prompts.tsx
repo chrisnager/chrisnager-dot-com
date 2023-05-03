@@ -12,6 +12,11 @@ export interface BlogPostAiImagePromptsProps {}
 const items = [
   {
     app: `Midjourney`,
+    imageSource: `chrisnager_grandiose_peacock_stained_glass_backlit_colorful_16k_dc90660d-c2a3-4ce1-87ed-56aded9b69d2.png`,
+    prompt: `grandiose peacock, stained glass, backlit, colorful, 16k, vibrant --v 5 --ar 9:16`,
+  },
+  {
+    app: `Midjourney`,
     imageSource: `chrisnager_sloth_kaleidoscope_vivid_colorful_7ee3154e-c50d-4c85-bc65-016a9c61a723.png`,
     prompt: `sloth kaleidoscope, vivid, colorful --v 5`,
   },
