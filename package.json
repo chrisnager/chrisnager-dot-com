@@ -38,7 +38,7 @@
     "dotenv": "^16.0.3",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
-    "gatsby": "^5.7.0",
+    "gatsby": "^5.9.1",
     "gatsby-plugin-google-analytics": "^5.8.0",
     "gatsby-plugin-mdx": "^5.8.0",
     "gatsby-plugin-react-helmet": "^6.8.0",
