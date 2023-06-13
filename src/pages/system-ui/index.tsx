@@ -27,14 +27,33 @@ const SystemUI: FC = () => {
   const characters = [...uppercase, ...lowercase, ...numbers, ...special]
   const pangram = `During jubilee, Zoe quickly mixed vibrant spices for biscuits and crawfish.`
 
-  const [variableWeight, setVariableWeight] = useState(400)
+  const [weight, setWeight] = useState(400)
 
   return (
     <Fragment>
-      <Halo title="system-ui" url="https://chrisnager.com/system-ui" />
+      <Halo title="System UI" url="https://chrisnager.com/system-ui" />
+
       <Box sx={{ fontFamily: `system-ui` }}>
-        <h1 sx={{ my: 0, fontSize: `6rem`, fontWeight: 600, textBoxTrim: `both` }}>System UI</h1>
-        <p>System font</p>
+        <h1 sx={{ my: 0, fontSize: `6rem`, fontWeight: 600, textBoxTrim: `both` }}>
+          <a
+            href="/system-ui"
+            sx={{
+              color: `inherit`,
+              textDecoration: `none`,
+
+              [`:focus, :hover`]: {
+                bg: `royalblue`,
+                color: `white`,
+                fontStyle: `italic`,
+              },
+            }}
+          >
+            System UI
+          </a>
+        </h1>
+        <p>
+          Using the `system-ui` font-family results in San Francisco on macOS, Segoe on Windows, and Roboto on Android.
+        </p>
 
         <h2 sx={{ borderTop: `4px solid` }}>Weights</h2>
 
@@ -46,20 +65,19 @@ const SystemUI: FC = () => {
           ))}
         </ul>
 
-        <h2 sx={{ borderTop: `4px solid` }}>Variable font</h2>
-
-        <input
-          type="range"
-          name="variable-weight"
-          id="variable-weight"
-          min={100}
-          max={900}
-          onChange={(event) => setVariableWeight(event.target.value)}
-        />
-        <Text>{variableWeight}</Text>
-
-        <div>
-          <Text sx={{ fontWeight: `${variableWeight}` }}>{pangram}</Text>
+        <div sx={{ mt: `2rem` }}>
+          <input
+            type="range"
+            name="weight"
+            id="weight"
+            min={100}
+            max={900}
+            step={100}
+            defaultValue={weight}
+            onChange={(event) => setWeight(event.target.value)}
+          />
+          <Text>{weight}</Text>
+          <div sx={{ fontWeight: `${weight}` }}>{pangram}</div>
         </div>
 
         <h2 sx={{ borderTop: `4px solid` }}>Glyphs</h2>
@@ -76,17 +94,26 @@ const SystemUI: FC = () => {
         >
           {characters.map((character) => {
             return (
-              <li
-                key={character}
-                sx={{
-                  aspectRatio: `1`,
-                  bg: `rgb(0 0 0 / 0.025)`,
-                  display: `grid`,
-                  fontSize: `2rem`,
-                  placeItems: `center`,
-                }}
-              >
-                <a href={`/system-ui/characters/${character}`} sx={{ color: `inherit`, textDecoration: `none` }}>
+              <li key={character} sx={{ display: `contents` }}>
+                <a
+                  href={`/system-ui/characters/${character}`}
+                  sx={{
+                    color: `inherit`,
+                    textDecoration: `none`,
+                    aspectRatio: `1`,
+                    bg: `rgb(0 0 0 / 0.025)`,
+                    display: `grid`,
+                    fontSize: `2rem`,
+                    fontWeight: `500`,
+                    placeItems: `center`,
+
+                    [`:focus, :hover`]: {
+                      bg: `royalblue`,
+                      color: `white`,
+                      fontStyle: `italic`,
+                    },
+                  }}
+                >
                   {character}
                 </a>
               </li>
@@ -96,7 +123,24 @@ const SystemUI: FC = () => {
 
         <footer>
           <p>
-            <small>&copy; {new Date().getFullYear()} Chris Nager</small>
+            <small>
+              &copy; {new Date().getFullYear()}{' '}
+              <a
+                href="/"
+                sx={{
+                  color: `inherit`,
+                  textDecoration: `none`,
+
+                  [`:focus, :hover`]: {
+                    bg: `royalblue`,
+                    color: `white`,
+                    fontStyle: `italic`,
+                  },
+                }}
+              >
+                Chris Nager
+              </a>
+            </small>
           </p>
         </footer>
       </Box>
