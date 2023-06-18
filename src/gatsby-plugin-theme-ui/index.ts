@@ -7,6 +7,7 @@ export default {
     tag: `rgb(0 0 0 / 3.75%)`,
     divider: `rgb(0 0 0 / 12.5%)`,
     selection: `#c1e0ff`,
+    tile: `rgb(0 0 0 / 2.5%)`,
     modes: {
       dark: {
         text: `#dfeff3`,
@@ -15,6 +16,7 @@ export default {
         tag: `rgb(255 255 255 / 3.75%)`,
         divider: `rgb(255 255 255 / 12.5%)`,
         selection: `#7d8585`,
+        tile: `rgb(255 255 255 / 2.5%)`,
       },
     },
   },

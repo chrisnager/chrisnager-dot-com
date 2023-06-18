@@ -3,6 +3,7 @@ import { FC, Fragment, useState } from 'react'
 import { Box, jsx, Text } from 'theme-ui'
 
 import Halo from '../../components/halo'
+import Layout from '../../components/layout'
 
 const SystemUI: FC = () => {
   let uppercase = []
@@ -28,6 +29,7 @@ const SystemUI: FC = () => {
   const pangram = `During jubilee, Zoe quickly mixed vibrant spices for biscuits and crawfish.`
 
   const [weight, setWeight] = useState(400)
+  const [italic, setItalic] = useState(false)
 
   const weightNames = {
     [`100`]: `Thin`,
@@ -39,31 +41,15 @@ const SystemUI: FC = () => {
     [`700`]: `Bold`,
     [`800`]: `Extra Bold`,
     [`900`]: `Black`,
-    // [`950`]: `Extra Black (Ultra Black)`,
   }
 
   return (
-    <Fragment>
+    <Layout>
       <Halo title="System UI" url="https://chrisnager.com/system-ui" />
 
-      <Box sx={{ maxWidth: `1000px`, mx: `auto`, px: `1rem`, fontFamily: `system-ui` }}>
-        <h1 sx={{ my: 0, fontSize: `6rem`, fontWeight: 600, textBoxTrim: `both` }}>
-          <a
-            href="/system-ui"
-            sx={{
-              color: `inherit`,
-              textDecoration: `none`,
+      <Box sx={{ maxWidth: `1000px`, mx: `auto`, px: `1rem`, fontFamily: `system-ui`, mb: 5, px: 3 }}>
+        <h1 sx={{ my: 0, fontSize: `6rem`, fontWeight: 600, textBoxTrim: `both` }}>System UI</h1>
 
-              [`:focus, :hover`]: {
-                bg: `royalblue`,
-                color: `white`,
-                fontStyle: `italic`,
-              },
-            }}
-          >
-            System UI
-          </a>
-        </h1>
         <p>
           Using the <code sx={{ fontSize: `1.125rem`, fontWeight: `700` }}>system-ui</code> font-family results in{' '}
           <a
@@ -74,7 +60,7 @@ const SystemUI: FC = () => {
               color: `inherit`,
 
               [`:focus, :hover`]: {
-                bg: `royalblue`,
+                bg: `action`,
                 color: `white`,
               },
             }}
@@ -90,7 +76,7 @@ const SystemUI: FC = () => {
               color: `inherit`,
 
               [`:focus, :hover`]: {
-                bg: `royalblue`,
+                bg: `action`,
                 color: `white`,
               },
             }}
@@ -106,7 +92,7 @@ const SystemUI: FC = () => {
               color: `inherit`,
 
               [`:focus, :hover`]: {
-                bg: `royalblue`,
+                bg: `action`,
                 color: `white`,
               },
             }}
@@ -116,49 +102,62 @@ const SystemUI: FC = () => {
           on Android.
         </p>
 
-        <h2 sx={{ borderTop: `4px solid` }}>Weights</h2>
+        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Weights</h2>
 
         <ul
-          sx={{
-            listStyleType: `none`,
-            pl: 0,
-            my: 0,
-            display: `grid`,
-            gridTemplateColumns: `repeat(5, 1fr)`,
-            gap: `0.125rem`,
-            bg: `text`,
-            border: `0.125rem solid`,
+          sx={(theme) => {
+            return {
+              listStyleType: `none`,
+              pl: 0,
+              mt: `1rem`,
+              mb: 0,
+              display: `grid`,
+              gridTemplateColumns: `repeat(5, 1fr)`,
+              gap: `0.125rem`,
+              bg: `text`,
+              border: `0.125rem solid`,
+              position: `relative`,
 
-            position: `relative`,
-
-            [`::after`]: {
-              content: `""`,
-              position: `absolute`,
-              bg: `blue`,
-              width: `calc(100% / 5 + 0.125rem / 5)`,
-              height: `calc(100% / 2 + 0.125rem / 2)`,
-
-              backgroundImage: `repeating-linear-gradient(
+              [`::after`]: {
+                content: `""`,
+                position: `absolute`,
+                bg: `blue`,
+                width: `calc(100% / 5 + 0.125rem / 5)`,
+                height: `calc(100% / 2 + 0.125rem / 2)`,
+                backgroundImage: `repeating-linear-gradient(
                   315deg,
-                  #dfeff3 0%,
-                  #dfeff3 50%,
-                  #1d2021 50%,
-                  #1d2021 calc(50% + 0.125rem),
-                  #dfeff3 calc(50% + 0.125rem),
-                  #dfeff3 100%
+                  ${theme.colors.background} 0%,
+                  ${theme.colors.background} 50%,
+                  ${theme.colors.text} 50%,
+                  ${theme.colors.text} calc(50% + 0.125rem),
+                  ${theme.colors.background} calc(50% + 0.125rem),
+                  ${theme.colors.background} 100%
                 )`,
 
-              boxSizing: `border-box`,
-              bottom: `-0.125rem`,
-              right: `-0.125rem`,
-            },
+                boxSizing: `border-box`,
+                bottom: `-0.125rem`,
+                right: `-0.125rem`,
+              },
+            }
           }}
         >
           {Object.values(weightNames).map((weightName, index) => (
             <li key={index} sx={{ bg: `background`, aspectRatio: `1`, display: `grid`, gridTemplateRows: `auto 1fr` }}>
-              <div sx={{ fontWeight: `500`, p: `0.25rem` }}>{weightName}</div>
-              <div sx={{ fontSize: `8vmax`, fontWeight: `${(index + 1) * 100}`, placeSelf: `center` }}>Aa</div>
-              <div sx={{ fontWeight: `300`, p: `0.25rem`, display: `flex`, justifyContent: `flex-end` }}>
+              <div sx={{ fontSize: `1rem`, lineHeight: `1`, fontWeight: `500`, pt: `0.25rem`, px: `0.25rem` }}>
+                {weightName}
+              </div>
+              <div sx={{ fontSize: `5.5vmax`, fontWeight: `${(index + 1) * 100}`, placeSelf: `center` }}>Aa</div>
+              <div
+                sx={{
+                  fontSize: `1rem`,
+                  lineHeight: `1`,
+                  fontWeight: `300`,
+                  px: `0.25rem`,
+                  pb: `0.25rem`,
+                  display: `flex`,
+                  justifyContent: `flex-end`,
+                }}
+              >
                 {(index + 1) * 100}
               </div>
             </li>
@@ -167,20 +166,8 @@ const SystemUI: FC = () => {
           <li />
         </ul>
 
-        <ul sx={{ listStyleType: `none`, pl: 0, my: 0 }}>
-          {Object.values(weightNames).map((weightName, index) => (
-            <li key={index} sx={{ mt: `1rem` }}>
-              <div sx={{ fontWeight: `500` }}>
-                {weightName} <i>{(index + 1) * 100}</i>
-              </div>
-              <div sx={{ fontSize: `1.5rem`, fontWeight: `${(index + 1) * 100}` }}>{pangram}</div>
-            </li>
-          ))}
-        </ul>
-
         <div sx={{ mt: `2rem` }}>
-          <h3>Drag to scrub through weights.</h3>
-
+          <h3 sx={{ mt: `2rem`, mb: 0 }}>Drag to scrub through weights.</h3>
           <input
             type="range"
             name="weight"
@@ -192,17 +179,38 @@ const SystemUI: FC = () => {
             onChange={(event) => setWeight(event.target.value)}
           />
           <Text>{weight}</Text>
-          <div sx={{ fontWeight: `${weight}` }}>{pangram}</div>
+          <input type="checkbox" onChange={() => setItalic(!italic)} /> Italic
+          <div sx={{ fontSize: `2rem`, fontStyle: italic ? `italic` : `normal`, fontWeight: `${weight}` }}>
+            AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+          </div>
         </div>
 
-        <h2 sx={{ borderTop: `4px solid` }}>Usage</h2>
+        <ul sx={{ listStyleType: `none`, pl: 0, my: 0 }}>
+          {Object.values(weightNames).map((weightName, index) => (
+            <Fragment>
+              <li key={index} sx={{ mt: `3rem` }}>
+                <div sx={{ fontWeight: `500` }}>{weightName}</div>
+                <div sx={{ fontSize: `1.4725rem`, fontWeight: `${(index + 1) * 100}` }}>{pangram}</div>
+              </li>
+
+              <li key={index} sx={{ mt: `1rem` }}>
+                <div sx={{ fontWeight: `500` }}>{weightName} Italic</div>
+                <div sx={{ fontSize: `1.4725rem`, fontStyle: `italic`, fontWeight: `${(index + 1) * 100}` }}>
+                  {pangram}
+                </div>
+              </li>
+            </Fragment>
+          ))}
+        </ul>
+
+        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Usage</h2>
 
         <h3 sx={{ mt: `2rem`, mb: 0 }}>
           Set `system-ui` as your base font family, with `sans-serif` as a simple fallback.
         </h3>
         <pre
           sx={{
-            bg: `rgb(0 0 0 / 0.025)`,
+            bg: `tile`,
             p: `2rem`,
             overflowX: `auto`,
             lineHeight: `1.5`,
@@ -215,6 +223,7 @@ const SystemUI: FC = () => {
   `}
             <mark
               sx={{
+                color: `text`,
                 bg: `transparent`,
                 textDecoration: `underline`,
                 textDecorationStyle: `wavy`,
@@ -233,11 +242,13 @@ const SystemUI: FC = () => {
           To ensure system UI fonts are applied for all platforms, include a{' '}
           <a
             href="https://css-tricks.com/snippets/css/system-font-stack/"
+            rel="noopener noreferrer"
+            target="_blank"
             sx={{
               color: `inherit`,
 
               [`:focus, :hover`]: {
-                bg: `royalblue`,
+                bg: `action`,
                 color: `white`,
               },
             }}
@@ -248,7 +259,7 @@ const SystemUI: FC = () => {
         </h3>
         <pre
           sx={{
-            bg: `rgb(0 0 0 / 0.025)`,
+            bg: `tile`,
             p: `2rem`,
             overflowX: `auto`,
             lineHeight: `1.5`,
@@ -263,6 +274,7 @@ const SystemUI: FC = () => {
   font-family: system-ui, `}
             <mark
               sx={{
+                color: `text`,
                 bg: `transparent`,
                 textDecoration: `underline`,
                 textDecorationStyle: `wavy`,
@@ -275,7 +287,7 @@ const SystemUI: FC = () => {
           </code>
         </pre>
 
-        <h2 sx={{ borderTop: `4px solid` }}>Glyphs</h2>
+        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Glyphs</h2>
 
         <ul
           sx={{
@@ -283,8 +295,10 @@ const SystemUI: FC = () => {
             gridTemplateColumns: `repeat(12, 1fr)`,
             listStyleType: `none`,
             pl: 0,
-            my: 0,
-            gap: `4px`,
+            mt: `2rem`,
+            mb: 0,
+            mx: `-1.625rem`,
+            gap: `0.125rem`,
           }}
         >
           {characters.map((character) => {
@@ -294,18 +308,18 @@ const SystemUI: FC = () => {
                   href={`/system-ui/characters/${character}`}
                   sx={{
                     color: `inherit`,
-                    textDecoration: `none`,
                     aspectRatio: `1`,
-                    bg: `rgb(0 0 0 / 0.025)`,
                     display: `grid`,
                     fontSize: `2rem`,
                     fontWeight: `500`,
                     placeItems: `center`,
 
                     [`:focus, :hover`]: {
-                      bg: `royalblue`,
+                      bg: `action`,
                       color: `white`,
                       fontStyle: `italic`,
+                      textDecoration: `none`,
+                      transform: `scale(1.5)`,
                     },
                   }}
                 >
@@ -316,37 +330,13 @@ const SystemUI: FC = () => {
           })}
         </ul>
 
-        <h2 sx={{ borderTop: `4px solid` }}>Samples</h2>
+        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Samples</h2>
 
-        <div sx={{ width: `25%`, aspectRatio: `9 / 16`, bg: `royalblue`, color: `white` }}>
+        <div sx={{ width: `25%`, aspectRatio: `9 / 16`, bg: `action`, color: `white` }}>
           <h1>Interface 01</h1>
         </div>
-
-        <div sx={{ width: `25%`, aspectRatio: `9 / 16`, bg: `royalblue`, color: `white` }}></div>
-
-        <footer>
-          <p>
-            <small>
-              &copy; {new Date().getFullYear()}{' '}
-              <a
-                href="/"
-                sx={{
-                  color: `inherit`,
-
-                  [`:focus, :hover`]: {
-                    bg: `royalblue`,
-                    color: `white`,
-                    fontStyle: `italic`,
-                  },
-                }}
-              >
-                Chris Nager
-              </a>
-            </small>
-          </p>
-        </footer>
       </Box>
-    </Fragment>
+    </Layout>
   )
 }
 

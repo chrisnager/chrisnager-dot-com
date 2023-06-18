@@ -1,3 +1,7 @@
+- url: https://chrisnager.com/system-ui
+  name: System UI
+  summary: System UI font family
+  tags: [Typography, Design, CSS]
 - url: https://haiku-chrisnager.netlify.app
   name: hAIku
   summary: Write a haiku with AI.
