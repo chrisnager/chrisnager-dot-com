@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { Global } from '@emotion/react'
 import { FC, Fragment, useState } from 'react'
 import { Box, jsx, Text } from 'theme-ui'
 
@@ -31,7 +32,7 @@ const SystemUI: FC = () => {
   const [weight, setWeight] = useState(400)
   const [italic, setItalic] = useState(false)
 
-  const weightNames = {
+  const weights = {
     [`100`]: `Thin`,
     [`200`]: `Extra Light`,
     [`300`]: `Light`,
@@ -43,12 +44,58 @@ const SystemUI: FC = () => {
     [`900`]: `Black`,
   }
 
+  const fontFamilies = {
+    [`system-ui`]: `System UI`,
+    [`sans-serif`]: `Sans Serif`,
+    [`serif`]: `Serif`,
+    [`monospace`]: `Monospace`,
+    [`cursive`]: `Cursive`,
+    [`fantasy`]: `Fantasy`,
+    [`Helvetica`]: `Helvetica`,
+    [`Arial`]: `Arial`,
+    [`Times New Roman`]: `Times New Roman`,
+    [`Courier New`]: `Courier New`,
+    [`Verdana`]: `Verdana`,
+    [`Georgia`]: `Georgia`,
+    [`Garamond`]: `Garamond`,
+    [`Tahoma`]: `Tahoma`,
+    [`Lucida Sans`]: `Lucida Sans`,
+    [`Trebuchet MS`]: `Trebuchet MS`,
+  }
+
+  const [fontFamily, setFontFamily] = useState(`system-ui`)
+
   return (
     <Layout>
       <Halo title="System UI" url="https://chrisnager.com/system-ui" />
 
-      <Box sx={{ maxWidth: `1000px`, mx: `auto`, px: `1rem`, fontFamily: `system-ui`, mb: 5, px: 3 }}>
-        <h1 sx={{ my: 0, fontSize: `6rem`, fontWeight: 600, textBoxTrim: `both` }}>System UI</h1>
+      <Global styles={{ body: { fontFamily } }} />
+
+      <Box sx={{ maxWidth: `1000px`, mx: `auto`, px: `1rem`, mb: 5, px: 3 }}>
+        {/* Responsive heading technique: https://codepen.io/chrisnager/details/abJVJQ */}
+        <svg sx={{ bg: `red`, maxHeight: `  rem` }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28">
+          <text sx={{ width: `100%`, fill: `white`, fontWeight: 600 }} x="0" y="70%">
+            {fontFamilies[fontFamily]}
+          </text>
+        </svg>
+
+        <select
+          name="font-family"
+          id="font-family"
+          onChange={(event) => {
+            setFontFamily(event.target.value)
+          }}
+        >
+          {Object.keys(fontFamilies).map((item) => {
+            return (
+              <option key={item} value={item}>
+                {fontFamilies[item]}
+              </option>
+            )
+          })}
+        </select>
+
+        <h1 sx={{ my: 0, fontSize: `6rem`, fontWeight: 600, textBoxTrim: `both` }}>{fontFamilies[fontFamily]}</h1>
 
         <p>
           Using the <code sx={{ fontSize: `1.125rem`, fontWeight: `700` }}>system-ui</code> font-family results in{' '}
@@ -141,8 +188,11 @@ const SystemUI: FC = () => {
             }
           }}
         >
-          {Object.values(weightNames).map((weightName, index) => (
-            <li key={index} sx={{ bg: `background`, aspectRatio: `1`, display: `grid`, gridTemplateRows: `auto 1fr` }}>
+          {Object.values(weights).map((weightName, index) => (
+            <li
+              key={weightName}
+              sx={{ bg: `background`, aspectRatio: `1`, display: `grid`, gridTemplateRows: `auto 1fr` }}
+            >
               <div sx={{ fontSize: `1rem`, lineHeight: `1`, fontWeight: `500`, pt: `0.25rem`, px: `0.25rem` }}>
                 {weightName}
               </div>
@@ -186,9 +236,9 @@ const SystemUI: FC = () => {
         </div>
 
         <ul sx={{ listStyleType: `none`, pl: 0, my: 0 }}>
-          {Object.values(weightNames).map((weightName, index) => (
+          {Object.values(weights).map((weightName, index) => (
             <Fragment>
-              <li key={index} sx={{ mt: `3rem` }}>
+              <li key={weightName} sx={{ mt: `3rem` }}>
                 <div sx={{ fontWeight: `500` }}>{weightName}</div>
                 <div sx={{ fontSize: `1.4725rem`, fontWeight: `${(index + 1) * 100}` }}>{pangram}</div>
               </li>
@@ -202,6 +252,113 @@ const SystemUI: FC = () => {
             </Fragment>
           ))}
         </ul>
+
+        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Glyphs</h2>
+
+        <ul
+          sx={{
+            display: `grid`,
+            gridTemplateColumns: `repeat(12, 1fr)`,
+            listStyleType: `none`,
+            pl: 0,
+            mt: `2rem`,
+            mb: 0,
+            mx: `-1.625rem`,
+            gap: `0.125rem`,
+          }}
+        >
+          {characters.map((character) => {
+            return (
+              <li key={character} sx={{ display: `contents` }}>
+                <a
+                  href={`/system-ui/characters/${character}`}
+                  sx={{
+                    color: `inherit`,
+                    aspectRatio: `1`,
+                    display: `grid`,
+                    fontSize: `2rem`,
+                    fontWeight: `500`,
+                    placeItems: `center`,
+
+                    [`:focus, :hover`]: {
+                      bg: `action`,
+                      color: `white`,
+                      fontStyle: `italic`,
+                      textDecoration: `none`,
+                      transform: `scale(1.5)`,
+                    },
+                  }}
+                >
+                  {character}
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+
+        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Samples</h2>
+
+        <div
+          sx={{
+            bg: `action`,
+            overflowX: `hidden`,
+          }}
+        >
+          <p
+            sx={{
+              my: 0,
+              fontStyle: `italic`,
+              fontSize: `12rem`,
+              fontWeight: `900`,
+              whiteSpace: `nowrap`,
+              animation: `marquee 4s linear infinite`,
+
+              [`:hover`]: {
+                animationPlayState: `paused`,
+              },
+
+              '@keyframes marquee': {
+                from: { transform: `translateX(100%)` },
+                to: { transform: `translateX(-200%)` },
+              },
+            }}
+          >
+            Bella Biscuit
+          </p>
+        </div>
+
+        <div
+          sx={{
+            bg: `red`,
+            overflowX: `hidden`,
+          }}
+        >
+          <p
+            sx={{
+              my: 0,
+              fontStyle: `italic`,
+              fontSize: `12rem`,
+              fontWeight: `900`,
+              whiteSpace: `nowrap`,
+              animation: `marquee-2 4s linear infinite`,
+
+              [`:hover`]: {
+                animationPlayState: `paused`,
+              },
+
+              '@keyframes marquee-2': {
+                from: { transform: `translateX(-200%)` },
+                to: { transform: `translateX(100%)` },
+              },
+            }}
+          >
+            Bella Biscuit
+          </p>
+        </div>
+
+        <div sx={{ width: `25%`, aspectRatio: `9 / 16`, bg: `action`, color: `white` }}>
+          <h1>Interface 01</h1>
+        </div>
 
         <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Usage</h2>
 
@@ -220,7 +377,7 @@ const SystemUI: FC = () => {
         >
           <code sx={{ fontSize: `1.125rem`, fontWeight: `700` }}>
             {`body {
-  `}
+`}
             <mark
               sx={{
                 color: `text`,
@@ -271,7 +428,7 @@ const SystemUI: FC = () => {
         >
           <code>
             {`body {
-  font-family: system-ui, `}
+font-family: system-ui, `}
             <mark
               sx={{
                 color: `text`,
@@ -286,55 +443,6 @@ const SystemUI: FC = () => {
 }`}
           </code>
         </pre>
-
-        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Glyphs</h2>
-
-        <ul
-          sx={{
-            display: `grid`,
-            gridTemplateColumns: `repeat(12, 1fr)`,
-            listStyleType: `none`,
-            pl: 0,
-            mt: `2rem`,
-            mb: 0,
-            mx: `-1.625rem`,
-            gap: `0.125rem`,
-          }}
-        >
-          {characters.map((character) => {
-            return (
-              <li key={character} sx={{ display: `contents` }}>
-                <a
-                  href={`/system-ui/characters/${character}`}
-                  sx={{
-                    color: `inherit`,
-                    aspectRatio: `1`,
-                    display: `grid`,
-                    fontSize: `2rem`,
-                    fontWeight: `500`,
-                    placeItems: `center`,
-
-                    [`:focus, :hover`]: {
-                      bg: `action`,
-                      color: `white`,
-                      fontStyle: `italic`,
-                      textDecoration: `none`,
-                      transform: `scale(1.5)`,
-                    },
-                  }}
-                >
-                  {character}
-                </a>
-              </li>
-            )
-          })}
-        </ul>
-
-        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Samples</h2>
-
-        <div sx={{ width: `25%`, aspectRatio: `9 / 16`, bg: `action`, color: `white` }}>
-          <h1>Interface 01</h1>
-        </div>
       </Box>
     </Layout>
   )
