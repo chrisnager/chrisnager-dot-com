@@ -1,12 +1,12 @@
 export default {
   useColorSchemeMediaQuery: true,
   colors: {
-    text: `#1d2021`,
-    background: `#dfeff3`,
-    action: `#9e0d0d`,
+    text: `#211d21`, // `#1d2021`,
+    background: `#f3dfee`, // `#dfeff3`,
+    action: `#0d6b9e`, // `#9e0d0d`,
     tag: `rgb(0 0 0 / 3.75%)`,
     divider: `rgb(0 0 0 / 12.5%)`,
-    selection: `#c1e0ff`,
+    selection: `#ffc1d6`, // `#c1e0ff`,
     modes: {
       dark: {
         text: `#dfeff3`,
