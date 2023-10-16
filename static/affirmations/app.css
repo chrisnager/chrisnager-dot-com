@@ -18,11 +18,11 @@ body {
     user-select: none;
   }
   
-  :is(div, img):has(~ button:active) {
+  main:has(+ footer > button:active) > :is(div, img) {
     mix-blend-mode: color-burn;
   }
   
-  div:has(~ button:active) {
+  main:has(+ button:active) > div {
     filter: blur(0.125rem);
   }
   
@@ -43,6 +43,10 @@ body {
     font-weight: 600;
     padding: 0.5rem;
     user-select: none;
+  }
+
+  button:active {
+    color: navy;
   }
   
   footer {
