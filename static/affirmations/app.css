@@ -25,7 +25,7 @@ body {
     mix-blend-mode: color-burn;
   }
   
-  main:has(+ button:active) > div {
+  main:has(+ footer > button:active) > div {
     filter: blur(0.125rem);
   }
   
