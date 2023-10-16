@@ -15,9 +15,6 @@ body {
     display: block;
     margin-inline: auto;
     max-width: 14rem;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
   }
   
@@ -45,21 +42,15 @@ body {
     font-size: inherit;
     font-weight: 600;
     padding: 0.5rem;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
   }
   
   footer {
-    -webkit-margin-before: 3rem;
     margin-block-start: 3rem;
   }
   
   p {
-    -webkit-margin-before: 3rem;
     margin-block-start: 3rem;
-    -webkit-margin-after: 0;
     margin-block-end: 0;
   }
   
