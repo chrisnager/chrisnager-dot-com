@@ -26,7 +26,7 @@ main:has(+ footer > button:active) > :is(div, img) {
 }
 
 div {
-    font-family: Georgia, sans-serif;
+    font-family: Georgia, serif;
     font-size: 1.75rem;
     text-wrap: balance;
 }
