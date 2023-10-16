@@ -9,9 +9,9 @@ body {
     margin: 0;
     padding: 2rem 1rem;
     text-align: center;
-  }
-  
-  img {
+}
+
+img {
     display: block;
     margin-inline: auto;
     max-width: 14rem;
@@ -19,24 +19,19 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-  
-  main:has(+ footer > button:active) > :is(div, img) {
+}
+
+main:has(+ footer > button:active) > :is(div, img) {
     mix-blend-mode: color-burn;
-  }
-  
-  main:has(+ footer > button:active) > div {
-    filter: blur(0.125rem);
-  }
-  
-  div {
+}
+
+div {
     font-family: Georgia, sans-serif;
     font-size: 1.75rem;
-    text-wrap: pretty;
-    transition: 250ms filter, 250ms mix-blend-mode;
-  }
-  
-  button {
+    text-wrap: balance;
+}
+
+button {
     background-color: white;
     border: 0.125rem solid;
     border-radius: 0.5rem;
@@ -49,31 +44,30 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
+}
 
-  button:active {
+button:active {
     color: navy;
-  }
-  
+}
+
 footer {
     -webkit-margin-before: 3rem;
     margin-block-start: 3rem;
-  }
-  
-  p {
+}
+
+p {
     -webkit-margin-before: 3rem;
     margin-block-start: 3rem;
     -webkit-margin-after: 0;
     margin-block-end: 0;
-  }
-  
-  span {
+}
+
+span {
     color: red;
     color: color(display-p3 1 0 0);
-  }
-  
-  a {
-    color: inherit;
+}
+
+a {
+color: inherit;
     text-underline-offset: 0.125rem;
-  }
-  
+}
