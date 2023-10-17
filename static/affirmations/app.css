@@ -11,6 +11,11 @@ body {
     text-align: center;
 }
 
+main {
+    max-width: 42rem;
+    margin-inline: auto;
+}
+
 img {
     aspect-ratio: 1;
     display: block;
@@ -31,6 +36,7 @@ div {
 
 main:has(+ footer > button:active) > :is(div, img) {
     mix-blend-mode: color-burn;
+    filter: brightness(90%);
 }
 
 button {
