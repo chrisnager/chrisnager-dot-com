@@ -7,11 +7,12 @@ body {
     grid-template-rows: 1fr auto;
     height: 100dvh;
     margin: 0;
-    padding: 2rem 1rem;
+    padding: 12vh 1rem 2rem;
     text-align: center;
 }
 
 img {
+    aspect-ratio: 1;
     display: block;
     margin-inline: auto;
     max-width: 14rem;
@@ -21,14 +22,14 @@ img {
     user-select: none;
 }
 
-main:has(+ footer > button:active) > :is(div, img) {
-    mix-blend-mode: color-burn;
-}
-
 div {
     font-family: Georgia, serif;
     font-size: 1.75rem;
     text-wrap: balance;
+}
+
+main:has(+ footer > button:active) > :is(div, img) {
+    mix-blend-mode: color-burn;
 }
 
 button {
