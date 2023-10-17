@@ -1,6 +1,9 @@
+# - category: Projects
+#   title: 'System UI font family'
+#   link: '/system-ui'
 - category: Projects
-  title: 'System UI font family'
-  link: '/system-ui'
+  title: 'Affirmations: You are enough'
+  link: '/affirmations'
 - category: Blog
   title: 'AI image prompts'
   link: '/blog/ai-image-prompts'

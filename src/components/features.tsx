@@ -21,7 +21,8 @@ const Features: FC<FeaturesProps> = ({ data }) => {
     <Box sx={{ my: 5, px: 2 }}>
       <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: 'none' }}>
         {data.map(({ node }) => {
-          const isInternalPost = node.link.substring(0, 6) === `/blog/` || node.link === `/system-ui`
+          const isInternalPost =
+            node.link.substring(0, 6) === `/blog/` || node.link === `/affirmations` || node.link === `/system-ui`
 
           return (
             <Box key={node.title} as="li" sx={{ my: 2 }}>

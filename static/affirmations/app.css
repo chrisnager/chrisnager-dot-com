@@ -1,0 +1,81 @@
+body {
+    background-color: pink;
+    background-color: color(display-p3 1 0.875 0.925);
+    box-sizing: border-box;
+    display: grid;
+    font-family: ui-system, sans-serif;
+    grid-template-rows: 1fr auto;
+    height: 100dvh;
+    margin: 0;
+    padding: 12vh 1rem 2rem;
+    text-align: center;
+}
+
+main {
+    max-width: 42rem;
+    margin-inline: auto;
+}
+
+img {
+    aspect-ratio: 1;
+    display: block;
+    margin-inline: auto;
+    max-width: 14rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+div {
+    font-family: Georgia, serif;
+    font-size: 1.75rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    text-wrap: balance;
+}
+
+main:has(+ footer > button:active) > :is(div, img) {
+    mix-blend-mode: color-burn;
+    filter: brightness(90%);
+}
+
+button {
+    background-color: white;
+    border: 0.125rem solid;
+    border-radius: 0.5rem;
+    color: blue;
+    color: color(display-p3 0.25 0.25 1);
+    font-size: inherit;
+    font-weight: 600;
+    padding: 0.5rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+button:active {
+    color: navy;
+}
+
+footer {
+    -webkit-margin-before: 3rem;
+    margin-block-start: 3rem;
+}
+
+p {
+    -webkit-margin-before: 3rem;
+    margin-block-start: 3rem;
+    -webkit-margin-after: 0;
+    margin-block-end: 0;
+}
+
+span {
+    color: red;
+    color: color(display-p3 1 0 0);
+}
+
+a {
+color: inherit;
+    text-underline-offset: 0.125rem;
+}

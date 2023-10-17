@@ -1,7 +1,11 @@
-- url: https://chrisnager.com/system-ui
-  name: System UI
-  summary: System UI font family
-  tags: [Typography, Design, CSS]
+# - url: https://chrisnager.com/system-ui
+#   name: System UI
+#   summary: System UI font family
+#   tags: [Typography, Design, CSS]
+- url: https://chrisnager.com/affirmations
+  name: Affirmations
+  summary: You are enough.
+  tags: [Positivity, Design, CSS, JavaScript]
 - url: https://haiku-chrisnager.netlify.app
   name: hAIku
   summary: Write a haiku with AI.
