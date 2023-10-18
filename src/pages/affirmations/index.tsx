@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Global } from '@emotion/react'
 import { Link } from 'gatsby'
-import { FC, useState } from 'react'
+import { FC, Fragment, useState } from 'react'
 import { Box, jsx } from 'theme-ui'
 
 import Halo from '../../components/halo'
@@ -83,7 +83,7 @@ const Affirmations: FC = () => {
   }
 
   return (
-    <Box sx={{ maxWidth: `75ch`, mx: `auto` }}>
+    <Fragment>
       <Halo description="You are enough." title="Affirmations" url="https://chrisnager.com/affirmations">
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -211,7 +211,7 @@ const Affirmations: FC = () => {
       />
 
       <header>
-        <nav role="navigation" sx={{ height: `7rem`, display: `grid`, alignItems: `center` }}>
+        <nav role="navigation" sx={{ pt: `2.25rem`, pb: `0.75rem`, display: `grid`, alignItems: `center` }}>
           <Link
             sx={{
               width: `3rem`,
@@ -291,7 +291,7 @@ const Affirmations: FC = () => {
           </small>
         </p>
       </footer>
-    </Box>
+    </Fragment>
   )
 }
 
