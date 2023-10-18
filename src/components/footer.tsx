@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 import { Box, Flex, jsx, Text, useColorMode } from 'theme-ui'
 
 const links = [
@@ -13,19 +13,19 @@ const links = [
 
 const Footer: FC = () => {
   const [colorMode] = useColorMode()
-  const [updatedDate, setUpdatedDate] = useState()
+  // const [updatedDate, setUpdatedDate] = useState()
 
-  useEffect(() => {
-    fetch('https://api.github.com/repos/chrisnager/chrisnager-dot-com/commits', {
-      headers: {
-        Authorization: `Bearer ${process.env.GATSBY_GITHUB_API_KEY}`,
-        Accept: 'application/vnd.github+json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setUpdatedDate(data[0].commit.author.date))
-      .catch((error) => console.error({ error }))
-  }, [])
+  // useEffect(() => {
+  //   fetch('https://api.github.com/repos/chrisnager/chrisnager-dot-com/commits', {
+  //     headers: {
+  //       Authorization: `Bearer ${process.env.GATSBY_GITHUB_API_KEY}`,
+  //       Accept: 'application/vnd.github+json',
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => setUpdatedDate(data[0].commit.author.date))
+  //     .catch((error) => console.error({ error }))
+  // }, [])
 
   return (
     <Box as="footer" sx={{ pb: 5 }}>
@@ -79,12 +79,12 @@ const Footer: FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Updated{' '}
-            {new Date(updatedDate).toLocaleString('en-US', {
+            Updated Oct 18
+            {/* {new Date(updatedDate).toLocaleString('en-US', {
               timeZone: 'America/New_York',
               month: 'short',
               day: 'numeric',
-            })}
+            })} */}
           </a>
         </Text>
       </Box>
