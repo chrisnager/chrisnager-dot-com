@@ -84,9 +84,10 @@ const Affirmations: FC = () => {
 
   return (
     <Box sx={{ maxWidth: `75ch`, mx: `auto` }}>
-      <Halo title="Affirmations" url="https://chrisnager.com/affirmations">
+      <Halo description="You are enough." title="Affirmations" url="https://chrisnager.com/affirmations">
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="theme-color" content="#ffdeec" />
       </Halo>
 
       <Global
@@ -120,8 +121,7 @@ const Affirmations: FC = () => {
       <Global
         styles={{
           [`body`]: {
-            [`background-color`]: `pink`,
-            [`background-color`]: `color(display-p3 1 0.875 0.925)`,
+            [`background-color`]: `#ffdeec`,
             [`box-sizing`]: `border-box`,
             [`color`]: `black`,
             [`display`]: `grid`,
