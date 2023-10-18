@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import { Link } from 'gatsby'
+import { FC } from 'react'
 import { Box, Flex, jsx, useColorMode } from 'theme-ui'
 
 import Logo from './logo'

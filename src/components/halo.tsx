@@ -20,6 +20,7 @@ export interface HaloProps {
   image?: string
   author?: string
   hasCodePenEmbed?: boolean
+  children?: React.ReactNode
 }
 
 const Halo: FC<HaloProps> = ({
@@ -29,6 +30,7 @@ const Halo: FC<HaloProps> = ({
   image = base.image,
   author = base.author,
   hasCodePenEmbed = base.hasCodePenEmbed,
+  children,
 }) => {
   const [colorMode] = useColorMode()
 
@@ -66,6 +68,8 @@ const Halo: FC<HaloProps> = ({
       <meta name="twitter:creator" content={author} />
 
       {hasCodePenEmbed && <script async src="https://static.codepen.io/assets/embed/ei.js"></script>}
+
+      {children}
     </Helmet>
   )
 }
