@@ -38,7 +38,7 @@ const Profile: FC<ProfileProps> = () => {
           </a>
           , built{` `}
           <a href="https://salesforce.com" target="_blank" rel="noopener noreferrer">
-            products millions have used
+            products millions of people use
           </a>
           , helped{` `}
           <a
@@ -52,12 +52,15 @@ const Profile: FC<ProfileProps> = () => {
           <a href="https://air.inc" target="_blank" rel="noopener noreferrer">
             SaaS startup
           </a>
-          , and am now managing the Design Technology team for{` `}
+          , built a team and helped launch {` `}
           <a href="https://cartax.com" target="_blank" rel="noopener noreferrer">
-            CartaX
+            Carta Liquidity
+          </a>{' '}
+          and now manage the Design Technology team for{` `}
+          <a href="https://ink.carta.com" target="_blank" rel="noopener noreferrer">
+            ink
           </a>
-          {` `}
-          at Carta.
+          , Carta's Design Systems team.
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
@@ -70,7 +73,7 @@ const Profile: FC<ProfileProps> = () => {
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
           I specialize in user experience (UX) and developer experience (DX). My current passion stack is React, React
-          Native, TypeScript, Jest, Testing Library, Theme-UI, and Gatsby. What truly sets my work apart is my deep
+          Native, TypeScript, Jest, Testing Library, Theme-UI, and Gatsby. One thing that sets my work apart is my deep
           understanding of CSS. I know when and how to use flexbox versus grid layouts, and truly understand the
           cascade. I’m particularly proud of{` `}
           <a href="https://zephyr.air.inc" target="_blank" rel="noopener noreferrer">
