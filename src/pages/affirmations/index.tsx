@@ -121,7 +121,7 @@ const Affirmations: FC = () => {
       <Global
         styles={{
           [`body`]: {
-            [`background-color`]: `#ffdeec`,
+            [`background-color`]: `#f3dfee`,
             [`box-sizing`]: `border-box`,
             [`color`]: `black`,
             [`display`]: `grid`,
