@@ -55,12 +55,12 @@ const Profile: FC<ProfileProps> = () => {
           , built a team and helped launch {` `}
           <a href="https://cartax.com" target="_blank" rel="noopener noreferrer">
             Carta Liquidity
-          </a>{' '}
-          and now manage the Design Technology team for{` `}
+          </a>
+          , and now manage the Design Technology team for{` `}
           <a href="https://ink.carta.com" target="_blank" rel="noopener noreferrer">
             ink
           </a>
-          , Carta's Design Systems team.
+          , Carta's universal Design System.
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
