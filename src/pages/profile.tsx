@@ -56,11 +56,11 @@ const Profile: FC<ProfileProps> = () => {
           <a href="https://cartax.com" target="_blank" rel="noopener noreferrer">
             Carta Liquidity
           </a>
-          , and now manage the Design Technology team for{` `}
+          , and currently manage a globally distributed Design Technology team responsible for{` `}
           <a href="https://ink.carta.com" target="_blank" rel="noopener noreferrer">
-            ink
+            Carta's design system
           </a>
-          , Carta's universal Design System.
+          .
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
@@ -94,7 +94,9 @@ const Profile: FC<ProfileProps> = () => {
           teammates to give their best efforts.
         </p>
 
-        <p sx={{ fontFamily: `Georgia, serif` }}>I care about purpose-driven work.</p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>
+          I lead with curousity and empathy, and care about purpose-driven work.
+        </p>
       </Box>
     </Layout>
   )
