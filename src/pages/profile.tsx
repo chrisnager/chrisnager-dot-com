@@ -72,10 +72,10 @@ const Profile: FC<ProfileProps> = () => {
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I specialize in user experience (UX) and developer experience (DX). My current passion stack is React, React
-          Native, TypeScript, Jest, Testing Library, Theme-UI, and Gatsby. One thing that sets my work apart is my deep
-          understanding of CSS. I know when and how to use flexbox versus grid layouts, and truly understand the
-          cascade. I’m particularly proud of{` `}
+          I specialize in user experience (UX) and developer experience (DX). I've created and worked on design systems
+          just about everywhere I've worked. My current passion stack is React, React Native, TypeScript, Jest, Testing
+          Library, Theme-UI, and Gatsby. One thing that sets my work apart is my deep understanding of CSS. I know when
+          and how to use flexbox versus grid layouts, and truly understand the cascade. I’m particularly proud of{` `}
           <a href="https://zephyr.air.inc" target="_blank" rel="noopener noreferrer">
             Zephyr
           </a>
