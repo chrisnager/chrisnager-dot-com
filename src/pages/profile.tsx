@@ -58,7 +58,7 @@ const Profile: FC<ProfileProps> = () => {
           </a>
           , and currently manage a globally distributed Design Technology team responsible for{` `}
           <a href="https://ink.carta.com" target="_blank" rel="noopener noreferrer">
-            Carta's design system
+            Carta’s universal design system
           </a>
           .
         </p>
@@ -72,8 +72,8 @@ const Profile: FC<ProfileProps> = () => {
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I specialize in user experience (UX) and developer experience (DX). I've created and worked on design systems
-          just about everywhere I've worked. My current passion stack is React, React Native, TypeScript, Jest, Testing
+          I specialize in user experience (UX) and developer experience (DX). I’ve created and worked on design systems
+          just about everywhere I’ve worked. My current passion stack is React, React Native, TypeScript, Jest, Testing
           Library, Theme-UI, and Gatsby. One thing that sets my work apart is my deep understanding of CSS. I know when
           and how to use flexbox versus grid layouts, and truly understand the cascade. I’m particularly proud of{` `}
           <a href="https://zephyr.air.inc" target="_blank" rel="noopener noreferrer">
@@ -89,14 +89,12 @@ const Profile: FC<ProfileProps> = () => {
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I learn everyday and have a passion for mentoring. I have experience with project management — writing tech
-          specs, managing roadmaps, and delegating tasks. As a team leader, I keep a positive attitude to inspire my
-          teammates to give their best efforts.
+          I lead with curousity and empathy. I learn everyday and have a passion for mentoring. I have experience with
+          project management—writing tech specs, managing roadmaps, and delegating tasks. As a team leader, I keep a
+          positive attitude to inspire my teammates to give their best efforts.
         </p>
 
-        <p sx={{ fontFamily: `Georgia, serif` }}>
-          I lead with curousity and empathy, and care about purpose-driven work.
-        </p>
+        <p sx={{ fontFamily: `Georgia, serif` }}>I care about purpose-driven work.</p>
       </Box>
     </Layout>
   )
