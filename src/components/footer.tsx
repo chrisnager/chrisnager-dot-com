@@ -82,7 +82,6 @@ const Footer: FC = () => {
             Updated{' '}
             {new Date(updatedDate).toLocaleString('en-US', {
               timeZone: 'America/New_York',
-              year: 'numeric',
               month: 'short',
               day: 'numeric',
             })}
