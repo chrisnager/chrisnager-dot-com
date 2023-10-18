@@ -89,7 +89,7 @@ const Profile: FC<ProfileProps> = () => {
         </p>
 
         <p sx={{ fontFamily: `Georgia, serif` }}>
-          I lead with curousity and empathy. I learn everyday and have a passion for mentoring. I have experience with
+          I lead with curiosity and empathy. I learn everyday and have a passion for mentoring. I have experience with
           project management—writing tech specs, managing roadmaps, and delegating tasks. As a team leader, I keep a
           positive attitude to inspire my teammates to give their best efforts.
         </p>
