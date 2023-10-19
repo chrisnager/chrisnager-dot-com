@@ -46,6 +46,7 @@ export const slugTagPairs = {
   [`nextjs`]: `NextJS`,
   [`openai-api`]: `OpenAI API`,
   [`performance`]: `Performance`,
+  [`positivity`]: `Positivity`,
   [`product-management`]: `Product management`,
   [`project-management`]: `Project management`,
   [`prototype`]: `Prototype`,
