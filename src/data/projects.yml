@@ -54,7 +54,7 @@
   name: Color contrast
   summary: WCAG 2.0 color contrast checker for the Zephyr design system
   tags: [Accessibility, Color]
-- url: http://bit.do/emoonji
+- url: https://chrisnager.github.io/emoonji
   name: Emoonji
   summary: A friendly chatbot that sends the current moon phases with emojis
   tags: [Facebook Messenger bot, Design]
