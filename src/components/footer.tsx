@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { FC } from 'react'
+import { FC, Fragment, useEffect, useState } from 'react'
 import { Box, Flex, jsx, Text, useColorMode } from 'theme-ui'
 
 const links = [
@@ -13,19 +13,19 @@ const links = [
 
 const Footer: FC = () => {
   const [colorMode] = useColorMode()
-  // const [updatedDate, setUpdatedDate] = useState()
+  const [updatedDate, setUpdatedDate] = useState(``)
 
-  // useEffect(() => {
-  //   fetch('https://api.github.com/repos/chrisnager/chrisnager-dot-com/commits', {
-  //     headers: {
-  //       Authorization: `Bearer ${process.env.GATSBY_GITHUB_API_KEY}`,
-  //       Accept: 'application/vnd.github+json',
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => setUpdatedDate(data[0].commit.author.date))
-  //     .catch((error) => console.error({ error }))
-  // }, [])
+  useEffect(() => {
+    fetch('https://api.github.com/repos/chrisnager/chrisnager-dot-com/commits', {
+      headers: {
+        Authorization: `Bearer ${process.env.GATSBY_GITHUB_API_KEY}`,
+        Accept: 'application/vnd.github+json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setUpdatedDate(data[0].commit.author.date))
+      .catch((error) => console.error({ error }))
+  }, [])
 
   return (
     <Box as="footer" sx={{ pb: 5 }}>
@@ -72,21 +72,27 @@ const Footer: FC = () => {
             Follow my progress
           </a>
         </Text>
-        <span> &middot; </span>
-        <Text as="small">
-          <a
-            href="https://github.com/chrisnager/chrisnager-dot-com/commits/master"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Updated Oct 18
-            {/* {new Date(updatedDate).toLocaleString('en-US', {
-              timeZone: 'America/New_York',
-              month: 'short',
-              day: 'numeric',
-            })} */}
-          </a>
-        </Text>
+
+        {updatedDate && (
+          <Fragment>
+            <span> &middot; </span>
+            <Text as="small">
+              <a
+                href="https://github.com/chrisnager/chrisnager-dot-com/commits/master"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Updated
+                {` `}
+                {new Date(updatedDate).toLocaleString('en-US', {
+                  timeZone: 'America/New_York',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </a>
+            </Text>
+          </Fragment>
+        )}
       </Box>
 
       <Box as="p" sx={{ mt: 4, mx: 3 }}>
