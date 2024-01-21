@@ -8,14 +8,14 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
-    "@theme-ui/mdx": "^0.15.7",
+    "@theme-ui/mdx": "^0.16.1",
     "core-js": "^2.6.5",
     "netlify-cli": "^13.2.2",
     "openai": "^3.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "theme-ui": "^0.15.7"
+    "theme-ui": "^0.16.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.18.6",
@@ -29,7 +29,6 @@
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
     "@types/react-helmet": "^6.1.6",
-    "@types/theme-ui": "0.6.0",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "babel-eslint": "^10.1.0",
@@ -42,11 +41,10 @@
     "gatsby-plugin-google-analytics": "^5.8.0",
     "gatsby-plugin-mdx": "^5.8.0",
     "gatsby-plugin-react-helmet": "^6.8.0",
-    "gatsby-plugin-theme-ui": "^0.15.7",
+    "gatsby-plugin-theme-ui": "^0.16.1",
     "gatsby-source-filesystem": "^5.8.0",
     "gatsby-transformer-remark": "^6.8.0",
     "gatsby-transformer-yaml": "^5.8.0",
-    "gh-pages": "^5.0.0",
     "inquirer": "^9.1.5",
     "prettier": "^2.8.7",
     "rimraf": "^5.0.0",
