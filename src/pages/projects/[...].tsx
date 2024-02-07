@@ -15,12 +15,16 @@ export interface FilteredProjectsProps {
   location: any
 }
 
+let Head
+
 const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
   const slug = location.pathname.split('/').slice(-2)[0]
 
   if (!slug) navigate(`/projects`)
 
   const tag = slugTagPairs[slug]
+
+  Head = () => <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
 
   return (
     <Layout>
@@ -34,7 +38,7 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
 
 export default FilteredProjects
 
-export const Head = () => <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
+export { Head }
 
 export const pageQuery = graphql`
   query TagProjectsQuery {

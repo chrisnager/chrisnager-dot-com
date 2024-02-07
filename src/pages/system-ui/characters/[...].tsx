@@ -10,8 +10,12 @@ export interface SystemUiCharacterProps {
   location: any
 }
 
+let Head
+
 const SystemUiCharacter: FC<SystemUiCharacterProps> = ({ location }) => {
   const character = location.pathname.split('/').slice(-2)[0]
+
+  Head = () => <Halo title={`${character} / System UI`} url={`https://chrisnager.com/system-ui/characters/${character}`} />
 
   if (!character) navigate(`/system-ui`)
 
@@ -20,5 +24,5 @@ const SystemUiCharacter: FC<SystemUiCharacterProps> = ({ location }) => {
 
 export default SystemUiCharacter
 
-export const Head = () => <Halo title={`${character} / System UI`} url={`https://chrisnager.com/system-ui/characters/${character}`} />
+export { Head }
 
