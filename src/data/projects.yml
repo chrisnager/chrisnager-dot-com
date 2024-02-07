@@ -199,6 +199,7 @@
   summary: Download official social logos
   tags: [Tooling]
 - url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
+  # url: https://web.archive.org/web/20110318052005/http://www.benthomsonphoto.com/
   name: Ben Thomson Photo
   summary: Awwwards Site of the Day
   tags: [Branding, Design, UX, HTML, CSS, JavaScript, CMS, Award-winning]
