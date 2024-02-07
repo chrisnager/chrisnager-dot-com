@@ -1,24 +1,31 @@
 # - category: Projects
 #   title: 'System UI font family'
 #   link: '/system-ui'
+
 - category: Projects
   title: 'Affirmations: You are enough'
   link: '/affirmations'
+
 - category: Blog
   title: 'AI image prompts'
   link: '/blog/ai-image-prompts'
+
 - category: Projects
   title: 'hAIku: Write haikus with AI'
   link: https://haiku-chrisnager.netlify.app
+
 - category: Projects
   title: 'Tiles: Generative typeface'
   link: https://chrisnager-tiles.netlify.app
+
 - category: Speaking
   title: 'CodePen Radio 362: Chris Nager'
   link: https://blog.codepen.io/2022/04/06/362-chris-nager
+
 - category: Projects
   title: Accessible gradients
   link: https://codepen.io/chrisnager/pen/rNpmWMj
+
 - category: Speaking
   title: Lifecycle of an icon
   link: https://youtu.be/QCizRxi0fek
