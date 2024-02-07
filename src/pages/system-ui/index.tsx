@@ -67,8 +67,6 @@ const SystemUI: FC = () => {
 
   return (
     <Layout>
-      <Halo title="System UI" url="https://chrisnager.com/system-ui" />
-
       <Global styles={{ body: { fontFamily } }} />
 
       <Box sx={{ maxWidth: `1000px`, mx: `auto`, px: `1rem`, mb: 5, px: 3 }}>
@@ -449,3 +447,6 @@ font-family: system-ui, `}
 }
 
 export default SystemUI
+
+export const Head = () => <Halo title="System UI" url="https://chrisnager.com/system-ui" />
+

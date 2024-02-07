@@ -12,13 +12,6 @@ export interface BlogPostSimpleVerticalCenteringWithCssProps {}
 const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCenteringWithCssProps> = () => {
   return (
     <Layout>
-      <Halo
-        title="Simple vertical centering with CSS / Blog"
-        url="https://chrisnager.com/blog/simple-vertical-centering-with-css"
-        description="I had an epiphany yesterday."
-        hasCodePenEmbed
-      />
-
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
           date="January 10th, 2014"
@@ -125,3 +118,13 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
 }
 
 export default BlogPostSimpleVerticalCenteringWithCss
+
+export const Head = () => (
+  <Halo
+    title="Simple vertical centering with CSS / Blog"
+    url="https://chrisnager.com/blog/simple-vertical-centering-with-css"
+    description="I had an epiphany yesterday."
+    hasCodePenEmbed
+  />
+)
+

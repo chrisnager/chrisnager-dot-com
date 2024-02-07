@@ -16,7 +16,6 @@ export interface BlogProps {
 const Blog: FC<BlogProps> = ({ data }) => {
   return (
     <Layout>
-      <Halo title="Blog" url="https://chrisnager.com/blog" />
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro title="Blog" description="My written thoughts" />
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
@@ -32,6 +31,8 @@ const Blog: FC<BlogProps> = ({ data }) => {
     </Layout>
   )
 }
+
+export const Head = () => <Halo title="Blog" url="https://chrisnager.com/blog" />
 
 export default Blog
 

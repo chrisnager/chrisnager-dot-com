@@ -10,12 +10,6 @@ import Layout from '../../components/layout'
 const BlogPostCss3SelectionBackgroundColorTrick: FC = () => {
   return (
     <Layout>
-      <Halo
-        title="CSS3 ::selection background color trick / Blog"
-        url="https://chrisnager.com/blog/time-for-a-change"
-        description="Ever wanted your CSS ::selection background color to match your page background color?"
-      />
-
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
           date="September 9, 2011"
@@ -150,3 +144,12 @@ const BlogPostCss3SelectionBackgroundColorTrick: FC = () => {
 }
 
 export default BlogPostCss3SelectionBackgroundColorTrick
+
+export const Head = () => (
+  <Halo
+    title="CSS3 ::selection background color trick / Blog"
+    url="https://chrisnager.com/blog/time-for-a-change"
+    description="Ever wanted your CSS ::selection background color to match your page background color?"
+  />
+)
+

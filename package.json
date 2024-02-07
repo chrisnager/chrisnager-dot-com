@@ -14,7 +14,6 @@
     "openai": "^3.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
     "theme-ui": "^0.16.1"
   },
   "devDependencies": {
@@ -28,7 +27,6 @@
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
-    "@types/react-helmet": "^6.1.11",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "babel-eslint": "^10.1.0",
@@ -40,7 +38,6 @@
     "gatsby": "^5.7.0",
     "gatsby-plugin-google-analytics": "^5.8.0",
     "gatsby-plugin-mdx": "^5.8.0",
-    "gatsby-plugin-react-helmet": "^6.13.0",
     "gatsby-plugin-theme-ui": "^0.16.1",
     "gatsby-source-filesystem": "^5.8.0",
     "gatsby-transformer-remark": "^6.8.0",

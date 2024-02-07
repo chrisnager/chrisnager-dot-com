@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { graphql } from 'gatsby'
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 import { Box, jsx } from 'theme-ui'
 
 import Features from '../components/features'
@@ -16,7 +16,6 @@ export interface HomeProps {
 const Home: FC<HomeProps> = ({ data }) => {
   return (
     <Layout>
-      <Halo />
       <Box sx={{ maxWidth: `55ch` }}>
         <Hero data={data.allDataYaml.edges[0].node} />
         <Features data={data.allFeaturesYaml.edges} />
@@ -26,6 +25,8 @@ const Home: FC<HomeProps> = ({ data }) => {
 }
 
 export default Home
+
+export const Head = () => <Halo/>
 
 export const pageQuery = graphql`
   query HomeQuery {

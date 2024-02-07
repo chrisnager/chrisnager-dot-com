@@ -84,12 +84,6 @@ const Affirmations: FC = () => {
 
   return (
     <Fragment>
-      <Halo description="You are enough." title="Affirmations" url="https://chrisnager.com/affirmations">
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <meta name="theme-color" content="#f3dfee" />
-      </Halo>
-
       <Global
         styles={() => `
           ::selection {
@@ -298,3 +292,10 @@ const Affirmations: FC = () => {
 }
 
 export default Affirmations
+
+export const Head = () => <Halo description="You are enough." title="Affirmations" url="https://chrisnager.com/affirmations">
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="theme-color" content="#f3dfee" />
+      </Halo>
+

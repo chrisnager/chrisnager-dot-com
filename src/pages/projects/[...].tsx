@@ -24,8 +24,6 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
 
   return (
     <Layout>
-      <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
-
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro description={`${tag} projects`} title={tag} />
         <ProjectsList projects={data.allProjectsYaml.edges.filter(project => project.node.tags.includes(tag))} />
@@ -35,6 +33,8 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
 }
 
 export default FilteredProjects
+
+export const Head = () => <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
 
 export const pageQuery = graphql`
   query TagProjectsQuery {

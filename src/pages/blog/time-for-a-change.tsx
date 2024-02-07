@@ -12,12 +12,6 @@ export interface BlogPostTimeForAChangeProps {}
 const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = () => {
   return (
     <Layout>
-      <Halo
-        title="Time for a change / Blog"
-        url="https://chrisnager.com/blog/time-for-a-change"
-        description="I am proud to announce the new ChrisNager.com. This version is built with Gatsby and hosted on Netlify."
-      />
-
       <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
         <Intro
           date="April 23rd, 2020"
@@ -66,3 +60,12 @@ const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = () => {
 }
 
 export default BlogPostTimeForAChange
+
+export const Head = () => (
+  <Halo
+    title="Time for a change / Blog"
+    url="https://chrisnager.com/blog/time-for-a-change"
+    description="I am proud to announce the new ChrisNager.com. This version is built with Gatsby and hosted on Netlify."
+  />
+)
+

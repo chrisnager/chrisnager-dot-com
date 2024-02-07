@@ -68,8 +68,6 @@ export default function AsciiIndex() {
 
   return (
     <Layout>
-      <Halo title="ASCII / Projects" url="https://chrisnager.com/projects/ascii" />
-
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro
           title={
@@ -227,3 +225,6 @@ export default function AsciiIndex() {
     </Layout>
   )
 }
+
+export const Head = () => <Halo title="ASCII / Projects" url="https://chrisnager.com/projects/ascii" />
+

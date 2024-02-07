@@ -15,13 +15,10 @@ const SystemUiCharacter: FC<SystemUiCharacterProps> = ({ location }) => {
 
   if (!character) navigate(`/system-ui`)
 
-  return (
-    <Fragment>
-      <Halo title={`${character} / System UI`} url={`https://chrisnager.com/system-ui/characters/${character}`} />
-
-      {character}
-    </Fragment>
-  )
+  return character
 }
 
 export default SystemUiCharacter
+
+export const Head = () => <Halo title={`${character} / System UI`} url={`https://chrisnager.com/system-ui/characters/${character}`} />
+
