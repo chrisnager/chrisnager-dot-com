@@ -36,6 +36,11 @@ const items = [
     prompt: `a yellow room with no windows, everything in the room is yellow, minimalist --ar 32:9 --v 5`,
   },
   {
+    app: `Hugging Face (ControlNet v1.1)`,
+    imageSource: `huggingface-controlnet-v1-1_c-logo_lineart_aerial-beach-sand-ocean-shorefront.png`,
+    prompt: `[chrisnager c-logo] lineart, aerial beach, sand, ocean shorefront`,
+  },
+  {
     app: `Midjourney`,
     imageSource: `chrisnager_hyper-realistic_minecraft_cows_grazing_in_a_field_8k_334cd18e-6b88-4538-a8a6-d88679575eb5.png`,
     prompt: `hyper-realistic minecraft cows grazing in a field, 8k`,
