@@ -1,5 +1,6 @@
 /** @jsx jsx */
 
+import { useLocation } from '@reach/router'
 import { graphql, navigate } from 'gatsby'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
@@ -15,16 +16,12 @@ export interface FilteredProjectsProps {
   location: any
 }
 
-let Head
-
 const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
   const slug = location.pathname.split('/').slice(-2)[0]
 
   if (!slug) navigate(`/projects`)
 
   const tag = slugTagPairs[slug]
-
-  Head = () => <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
 
   return (
     <Layout>
@@ -38,7 +35,18 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
 
 export default FilteredProjects
 
-export { Head }
+export const Head = () => { 
+  const location = useLocation()
+
+  const slug = location.pathname.split('/').slice(-2)[0]
+
+  if (!slug) navigate(`/projects`)
+
+  const tag = slugTagPairs[slug]
+
+  return <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
+}
+
 
 export const pageQuery = graphql`
   query TagProjectsQuery {
