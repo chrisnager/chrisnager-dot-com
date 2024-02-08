@@ -1,5 +1,4 @@
 export default {
-  useColorSchemeMediaQuery: true,
   colors: {
     text: `#211d21`, // `#1d2021`,
     background: `#f3dfee`, // `#dfeff3`,
@@ -8,6 +7,7 @@ export default {
     divider: `rgb(0 0 0 / 12.5%)`,
     selection: `#ffc1d6`, // `#c1e0ff`,
     tile: `rgb(0 0 0 / 2.5%)`,
+
     modes: {
       dark: {
         text: `#dfeff3`,
@@ -20,16 +20,19 @@ export default {
       },
     },
   },
+
   fonts: {
     body: 'system-ui, sans-serif',
     heading: `inherit`,
     monospace: `Menlo, monospace`,
   },
+
   fontWeights: {
     body: 400,
     heading: 500,
     bold: 600,
   },
+
   lineHeights: {
     body: 1.7,
     heading: 1.1275,
