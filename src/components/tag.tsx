@@ -1,5 +1,6 @@
 /** @jsx jsx */
 
+import { useLocation } from '@reach/router'
 import { Link } from 'gatsby'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
@@ -9,6 +10,8 @@ interface TagProps {
 }
 
 const Tag: FC<TagProps> = ({ children }) => {
+  const location = useLocation()
+
   const slug = children.toLowerCase().replace(/ /g, '-')
 
   return (
@@ -26,7 +29,7 @@ const Tag: FC<TagProps> = ({ children }) => {
         color: `text`,
         backgroundColor: `tag`,
       }}
-      to={`/projects/${slug}`}
+      to={`${location.pathname}${slug}`}
       {...{ children }}
     />
   )
