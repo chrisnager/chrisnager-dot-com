@@ -19,22 +19,24 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, date, title, 
   const isInternalPost = url.substring(0, 6) === `/blog/`
 
   return (
-    <Box
-      as={isInternalPost ? Link : `a`}
-      // @ts-ignore
-      href={isInternalPost ? undefined : url}
-      to={isInternalPost ? url : undefined}
-      target={isInternalPost ? undefined : '_blank'}
-      rel={isInternalPost ? undefined : 'noopener noreferrer'}
-      sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
+    <Box>
+      <Box
+        as={isInternalPost ? Link : `a`}
+        // @ts-ignore
+        href={isInternalPost ? undefined : url}
+        to={isInternalPost ? url : undefined}
+        target={isInternalPost ? undefined : '_blank'}
+        rel={isInternalPost ? undefined : 'noopener noreferrer'}
+        sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
     >
-      <Text as="p" sx={{ fontSize: `0.8em`, color: `text`, 'a:hover > &': { color: `text` } }}>
-        {date}
-      </Text>
+        <Text as="p" sx={{ fontSize: `0.8em`, color: `text`, 'a:hover > &': { color: `text` } }}>
+          {date}
+        </Text>
 
-      <Text as="h2" sx={{ mt: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>
-        {title}
-      </Text>
+        <Text as="h2" sx={{ mt: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>
+          {title}
+        </Text>
+      </Box>
 
       <Box sx={{ mt: `2px`, mx: -2 }}>{!!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Box>
     </Box>

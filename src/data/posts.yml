@@ -14,25 +14,25 @@
   slug: time-for-a-change
   url: /blog/time-for-a-change
   date: 2020-04-23
-  tags: [news]
+  tags: [News]
 
 - title: Takeaways from F8 2018
   slug: takeaways-from-f8-2018
   url: https://medium.com/@chrisnager/takeaways-from-f8-2018-3dde54919490
   date: 2018-05-11
-  tags: [conference]
+  tags: [Conference]
 
 - title: Case for a monorepo
   slug: case-for-a-monorepo
   url: https://medium.com/@chrisnager/case-for-a-monorepo-28cebf26e1aa
   date: 2018-03-20
-  tags: [developer experience (DX), monorepo]
+  tags: [Developer experience (DX), Monorepo]
 
 - title: Stack your classes within template literals
   slug: stack-your-classes-within-template-literals
   url: https://medium.com/@chrisnager/stack-your-classes-within-template-literals-d537bf463d4a
   date: 2016-03-09
-  tags: [developer experience (DX), CSS-in-JS]
+  tags: [Developer experience (DX), CSS-in-JS]
 
 - title: Center and crop images with a single line of CSS
   slug: center-and-crop-images-with-a-single-line-of-css
@@ -44,7 +44,7 @@
   slug: bespoke-svg-reference
   url: https://medium.com/@chrisnager/bespoke-svg-reference-e22eb733272
   date: 2014-05-23
-  tags: [SVG, documentation]
+  tags: [SVG, Documentation]
 
 - title: Analog-style LED clock concept
   slug: analog-style-led-clock-concept
@@ -68,7 +68,7 @@
   slug: time-based-media-queries
   url: /time-based-media-queries
   date: 2013-03-25
-  tags: [CSS, ideas]
+  tags: [CSS, Ideas]
 
 - title: Hue bump with Sass @for control directive
   slug: hue-bump-with-sass-for-control-directive
@@ -92,7 +92,7 @@
   slug: video-and-audio-in-css
   url: /blog/video-and-audio-in-css
   date: 2012-12-04
-  tags: [CSS, ideas, audio, video]
+  tags: [CSS, Ideas, Audio, Video]
 
 - title: Natural curves
   slug: natural-curves
@@ -110,13 +110,13 @@
   slug: touchable-textures-with-css-can-you-feel-me
   url: /touchable-textures-with-css-can-you-feel-me
   date: 2012-10-18
-  tags: [CSS, ideas]
+  tags: [CSS, Ideas]
 
 - title: Further simplified hexcodes
   slug: further-simplified-hexcodes
   url: /further-simplified-hexcodes
   date: 2012-12-18
-  tags: [CSS, ideas]
+  tags: [CSS, Ideas]
 
 - title: Box sizing for pseudo elements
   slug: box-sizing-for-pseudo-elements
@@ -128,7 +128,7 @@
   slug: an-event-apart-and-a-designer-e2-80-99s-view-of-the-web
   url: /an-event-apart-and-a-designer-e2-80-99s-view-of-the-web
   date: 2011-12-23
-  tags: [news]
+  tags: [News]
 
 - title: CSS3 ::selection background color trick
   slug: css3-selection-background-color-trick
@@ -140,10 +140,10 @@
   slug: chris-nager-2012
   url: /chris-nager-2012
   date: 2011-08-18
-  tags: [responsive design, news]
+  tags: [Responsive design, News]
 
 - title: ChrisNager.com v2 is live
   slug: chrisnager-com-v2-is-live
   url: chrisnager-com-v2-is-live
   date: 2011-06-12
-  tags: [news]
+  tags: [News]
