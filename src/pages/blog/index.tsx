@@ -4,10 +4,10 @@ import { graphql } from 'gatsby'
 import { FC } from 'react'
 import { Box, jsx } from 'theme-ui'
 
-import ArticlePreview from '../components/article-preview'
-import Halo from '../components/halo'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
+import ArticlePreview from '../../components/article-preview'
+import Halo from '../../components/halo'
+import Intro from '../../components/intro'
+import Layout from '../../components/layout'
 
 export interface BlogProps {
   data: any
