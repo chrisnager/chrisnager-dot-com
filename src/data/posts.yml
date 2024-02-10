@@ -1,3 +1,9 @@
+- title: My GPTs
+  slug: my-gpts
+  url: /blog/my-gpts
+  date: 2023-11-06
+  tags: [AI, Creation]
+
 - title: AI image prompts
   slug: ai-image-prompts
   url: /blog/ai-image-prompts
@@ -68,7 +74,7 @@
   slug: time-based-media-queries
   url: /time-based-media-queries
   date: 2013-03-25
-  tags: [CSS, Ideas]
+  tags: [CSS, Idea]
 
 - title: Hue bump with Sass @for control directive
   slug: hue-bump-with-sass-for-control-directive
@@ -92,7 +98,7 @@
   slug: video-and-audio-in-css
   url: /blog/video-and-audio-in-css
   date: 2012-12-04
-  tags: [CSS, Ideas, Audio, Video]
+  tags: [CSS, Idea, Audio, Video]
 
 - title: Natural curves
   slug: natural-curves
@@ -110,13 +116,13 @@
   slug: touchable-textures-with-css-can-you-feel-me
   url: /touchable-textures-with-css-can-you-feel-me
   date: 2012-10-18
-  tags: [CSS, Ideas]
+  tags: [CSS, Idea]
 
 - title: Further simplified hexcodes
   slug: further-simplified-hexcodes
   url: /further-simplified-hexcodes
   date: 2012-12-18
-  tags: [CSS, Ideas]
+  tags: [CSS, Idea]
 
 - title: Box sizing for pseudo elements
   slug: box-sizing-for-pseudo-elements
