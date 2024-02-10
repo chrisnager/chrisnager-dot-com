@@ -29,7 +29,7 @@ const Tag: FC<TagProps> = ({ children }) => {
         color: `text`,
         backgroundColor: `tag`,
       }}
-      to={`${location.pathname}${slug}`}
+      to={`/${location.pathname.split(`/`)[1]}/${slug}`}
       {...{ children }}
     />
   )
