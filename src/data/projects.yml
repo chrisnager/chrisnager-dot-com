@@ -1,3 +1,7 @@
+- url: https://chat.openai.com/g/g-4P6Atbe0O-elevator-pitch
+  name: Elevator Pitch
+  summary: GPT that summarizes companies in a single sentence
+  tags: [AI, OpenAI]
 # - url: https://chrisnager.com/system-ui
 #   name: System UI
 #   summary: System UI font family
