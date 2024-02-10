@@ -60,7 +60,7 @@ export default {
         text: `#000`,
         background: `#fff`,
         action: `#00f`,
-        selection: `#7d8585`,
+        selection: `rgb(255 205 0 / 40%)`,
         tag: tagDark,
         divider: dividerDark,
         tile: tileDark,
