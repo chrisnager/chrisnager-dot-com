@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { FC, Fragment } from 'react'
-import { jsx, useColorMode } from 'theme-ui'
+import { jsx, useThemeUI } from 'theme-ui'
 
 const base = {
   title: `Chris Nager`,
@@ -31,7 +31,7 @@ const Halo: FC<HaloProps> = ({
   hasCodePenEmbed = base.hasCodePenEmbed,
   children,
 }) => {
-  const [colorMode] = useColorMode()
+  const { colorMode, theme } = useThemeUI()
 
   return (
     <Fragment>
@@ -42,7 +42,7 @@ const Halo: FC<HaloProps> = ({
       <meta name="image" content={image} />
       <meta name="application-name" content="Chris Nager" />
       <meta name="apple-mobile-web-app-title" content="Chris Nager" />
-      <meta name="theme-color" content={colorMode === `dark` ? `#0e1010` : `#f3dfee` /* `#dfeff3` */} />
+      <meta name="theme-color" content={theme.rawColors.modes[colorMode]?.background ?? `#dfeff3`} />
       <link rel="icon" href="favicon.svg" />
       <link rel="mask-icon" href="favicon.svg" color="#000000" />
       <link rel="apple-touch-icon" href="apple-touch-icon.png" />

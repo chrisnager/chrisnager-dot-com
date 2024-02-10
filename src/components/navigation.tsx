@@ -2,7 +2,7 @@
 
 import { Link } from 'gatsby'
 import { FC } from 'react'
-import { Box, Flex, jsx, useColorMode } from 'theme-ui'
+import { Box, Flex, jsx, useThemeUI } from 'theme-ui'
 
 import Logo from './logo'
 
@@ -15,7 +15,18 @@ const links = [
 ]
 
 const Navigation: FC = () => {
-  const [colorMode, setColorMode] = useColorMode()
+  const { colorMode, setColorMode, theme } = useThemeUI()
+
+  const colorModes = Object.keys(theme.rawColors.modes)
+
+  function cycleColorModes() {
+    const mode = colorModes[(colorModes.indexOf(colorMode) + 1) % colorModes.length]
+
+    setColorMode(mode)
+
+    // Bug workaround: github.com/gatsbyjs/gatsby/issues/38249
+    document.documentElement.classList.value = `theme-ui-${mode}`
+  }
 
   return (
     <header>
@@ -68,7 +79,7 @@ const Navigation: FC = () => {
           <Flex as="li" sx={{ alignItems: `center` }}>
             <Box
               as="button"
-              onClick={() => setColorMode(colorMode === `default` ? `dark` : `default`)}
+              onClick={cycleColorModes}
               aria-label="Toggle color mode"
               sx={{
                 width: 48,
