@@ -12,6 +12,11 @@ const config: GatsbyConfig = {
     `gatsby-plugin-theme-ui`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-yaml`,
+    `gatsby-plugin-mdx`,
+    {
+      options: { name: `posts`, path: `${__dirname}/src/pages/blog` },
+      resolve: `gatsby-source-filesystem`,
+    },
     {
       options: { path: `./src/data/` },
       resolve: `gatsby-source-filesystem`,
