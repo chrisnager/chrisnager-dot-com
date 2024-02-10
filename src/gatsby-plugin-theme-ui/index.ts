@@ -16,7 +16,7 @@ export default {
     tile: tileDark,
 
     modes: {
-      light: {
+      soft: {
         text: `#211d21`,
         background: `#f3dfee`,
         action: `#0d6b9e`,
