@@ -84,4 +84,14 @@ export default {
     body: 1.7,
     heading: 1.1275,
   },
+
+  styles: {
+    p: {
+      fontFamily: `Georgia, serif`,
+    },
+
+    ul: {
+      fontFamily: `Georgia, serif`,
+    },
+  },
 }
