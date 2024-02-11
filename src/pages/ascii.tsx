@@ -1,8 +1,8 @@
 /** @jsx jsx */
 
-import { Configuration, OpenAIApi } from 'openai'
-import { useState } from 'react'
 import { Box, jsx } from 'theme-ui'
+import { useState } from 'react'
+import OpenAI from "openai";
 
 import Halo from '../components/halo'
 import Intro from '../components/intro'
@@ -14,12 +14,12 @@ export default function AsciiIndex() {
   const [topic, setTopic] = useState(``)
   const [rows, setRows] = useState(1)
 
-  const configuration = new Configuration({
+  const openai = new OpenAI({
     apiKey: process.env.GATSBY_OPENAI_API_KEY,
+    dangerouslyAllowBrowser: true,
     organization: process.env.GATSBY_OPENAI_ORGANIZATION,
   })
 
-  const openai = new OpenAIApi(configuration)
   const suggestions = [`cat`, `hotdog`, `Totoro`]
 
   function handleAppSuggestionClick(event) {
@@ -45,10 +45,11 @@ export default function AsciiIndex() {
     const prompt = `Draw ${topic} as detailed ASCII art using a maximum height of ${rows} row${
       rows === 1 ? `` : `s`
     } and a maximum width of 40 columns. It's also ok to use emojis.`
+
     let completion
 
     if (topic) {
-      completion = await openai.createChatCompletion({
+      completion = await openai.chat.completions.create({
         max_tokens: 200,
         messages: [{ role: 'user', content: prompt }],
         model: `gpt-4`,
@@ -58,8 +59,8 @@ export default function AsciiIndex() {
 
     let internalResponse = errorHaiku
 
-    if (completion?.data?.choices?.[0]?.message?.content) {
-      internalResponse = completion.data.choices[0].message.content
+    if (completion?.choices?.[0]?.message?.content) {
+      internalResponse = completion.choices[0].message.content
     }
 
     setResponse(internalResponse)
@@ -159,10 +160,11 @@ export default function AsciiIndex() {
           <button
             disabled={isProcessing}
             sx={{
+              bg: `action`,
               border: `none`,
               borderRadius: `5rem`,
+              color: `background`,
               cursor: `pointer`,
-              bg: `action`,
               fontFamily: `inherit`,
               fontSize: `inherit`,
               fontWeight: 500,
