@@ -14,7 +14,7 @@ const config: GatsbyConfig = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-yaml`,
     {
-      options: { name: `posts`, path: `${__dirname}/src/pages/blog` },
+      options: { name: `pages`, path: `${__dirname}/src/pages` },
       resolve: `gatsby-source-filesystem`,
     },
     {
