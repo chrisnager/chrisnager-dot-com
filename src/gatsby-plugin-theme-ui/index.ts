@@ -93,5 +93,10 @@ export default {
     ul: {
       fontFamily: `Georgia, serif`,
     },
+
+    img: {
+      display: `block`,
+      maxWidth: `100%`,
+    },
   },
 }
