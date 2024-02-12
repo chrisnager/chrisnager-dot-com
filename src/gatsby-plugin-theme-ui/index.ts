@@ -16,16 +16,6 @@ export default {
     tile: tileDark,
 
     modes: {
-      soft: {
-        text: `#211d21`,
-        background: `#f3dfee`,
-        action: `#0d6b9e`,
-        selection: `#ffc1d6`,
-        tag: tagDark,
-        divider: dividerDark,
-        tile: tileDark,
-      },
-
       dark: {
         text: `#dfeff3`,
         background: `#0e1010`,
@@ -36,31 +26,41 @@ export default {
         tile: tileLight,
       },
 
-      minted: {
-        text: `#000`,
-        background: `#0eb`,
-        action: `rebeccapurple`,
-        selection: `#7d8585`,
-        tag: tagDark,
-        divider: dividerDark,
-        tile: tileDark,
-      },
-
-      sunny: {
-        text: `navy`,
-        background: `gold`,
-        action: `orangered`,
-        selection: `#7d8585`,
-        tag: tagDark,
-        divider: dividerDark,
-        tile: tileDark,
-      },
-
       contrast: {
         text: `#000`,
         background: `#fff`,
         action: `#00f`,
         selection: `rgb(255 205 0 / 40%)`,
+        tag: tagDark,
+        divider: dividerDark,
+        tile: tileDark,
+      },
+
+      soft: {
+        text: `#211d21`,
+        background: `#f3dfee`,
+        action: `#0d6b9e`,
+        selection: `#ffc1d6`,
+        tag: tagDark,
+        divider: dividerDark,
+        tile: tileDark,
+      },
+
+//    minted: {
+//      text: `#000`,
+//      background: `#0eb`,
+//      action: `rebeccapurple`,
+//      selection: `#7d8585`,
+//      tag: tagDark,
+//      divider: dividerDark,
+//      tile: tileDark,
+//    },
+
+      sunny: {
+        text: `navy`,
+        background: `gold`,
+        action: `red`,
+        selection: `rgb(255 0 0 / 12%)`,
         tag: tagDark,
         divider: dividerDark,
         tile: tileDark,
