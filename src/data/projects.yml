@@ -1,7 +1,7 @@
 - url: https://chat.openai.com/g/g-4P6Atbe0O-elevator-pitch
   name: Elevator Pitch
   summary: GPT that summarizes companies in a single sentence
-  tags: [AI, OpenAI]
+  tags: [AI, OpenAI, Chatbot]
 # - url: https://chrisnager.com/system-ui
 #   name: System UI
 #   summary: System UI font family
@@ -13,7 +13,7 @@
 - url: https://haiku-chrisnager.netlify.app
   name: hAIku
   summary: Write a haiku with AI.
-  tags: [AI, GPT-4, OpenAI API]
+  tags: [AI, OpenAI, GPT-4, OpenAI API]
 - url: https://chrisnager-tiles.netlify.app
   name: Tiles
   summary: Generative typeface
@@ -33,7 +33,7 @@
 - url: /ascii
   name: ASCII
   summary: Make ASCII art with AI.
-  tags: [AI, GPT-4, OpenAI API]
+  tags: [AI, OpenAI, GPT-4, OpenAI API]
 - url: https://supportnycdtc.com
   name: Support NYC DTC
   summary: Interactive map to support the DTC brands of NYC affected by COVID-19, recently featured in the Wall Street Journal and in Mapbox's newsletter
@@ -61,7 +61,7 @@
 - url: https://chrisnager.github.io/emoonji
   name: Emoonji
   summary: A friendly chatbot that sends the current moon phases with emojis
-  tags: [Facebook Messenger bot, Design]
+  tags: [Facebook Messenger bot, Design, Chatbot]
 - url: https://chrisnager.github.io/generative-art/bendies
   name: Bendies
   summary: Fun with generated patterns
