@@ -27,6 +27,7 @@ const Layout: FC<{ children: ReactElement | ReactElement[] }> = ({ children }) =
           }
 
           body {
+	    background-color: inherit;
             font: 1.075em/${theme.lineHeights.body} ${theme.fonts.body};
           }
 
