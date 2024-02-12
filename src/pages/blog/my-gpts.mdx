@@ -1,3 +1,5 @@
+import { Box, jsx } from 'theme-ui'
+
 import Layout from '../../components/layout'
 import Tag from '../../components/tag'
 import Halo from '../../components/halo'
@@ -6,6 +8,7 @@ export default Layout
 
 export const Head = () => <Halo title="My GPTs" url="https://chrisnager.com/blog/my-gpts" />
 
+<Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
 # My GPTs
 
 Nov 6, 2023
@@ -20,4 +23,5 @@ Try them out:
 - [Ask a Design System](https://chat.openai.com/g/g-mqvBbSMcr-ask-a-design-system)
 - [Tab Composer](https://chat.openai.com/g/g-JPkHkwGpk-tab-composer)
 - [Pun Writer](https://chat.openai.com/g/g-H54UNuKvY-pun-writer)
+</Box>
 
