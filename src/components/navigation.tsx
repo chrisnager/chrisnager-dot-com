@@ -26,6 +26,8 @@ const Navigation: FC = () => {
 
     // Bug workaround: github.com/gatsbyjs/gatsby/issues/38249
     document.documentElement.classList.value = `theme-ui-${mode}`
+
+    document.querySelector("meta[name='theme-color']").setAttribute("content", colorMode);
   }
 
   return (
