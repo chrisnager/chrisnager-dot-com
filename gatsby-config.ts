@@ -1,7 +1,7 @@
 import type { GatsbyConfig } from 'gatsby'
+import * as dotenv from "dotenv";
 
-// TODO: Refactor in TypeScript
-require(`dotenv`).config({
+dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
