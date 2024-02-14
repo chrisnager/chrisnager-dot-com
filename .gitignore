@@ -1,7 +1,14 @@
-.cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 .DS_Store
+.cache
 .env
 .netlify
+.pnp.*
+.yarn/*
 backup
 node_modules
 public
