@@ -228,5 +228,5 @@ export default function AsciiIndex() {
   )
 }
 
-export const Head = () => <Halo title="ASCII / Projects" url="https://chrisnager.com/projects/ascii" />
+export const Head = () => <Halo title="ASCII / Projects" url="https://chrisnager.com/ascii" />
 
