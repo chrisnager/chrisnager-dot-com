@@ -42,7 +42,7 @@ const Halo: FC<HaloProps> = ({
       <meta name="image" content={image} />
       <meta name="application-name" content="Chris Nager" />
       <meta name="apple-mobile-web-app-title" content="Chris Nager" />
-      <meta name="theme-color" content={theme.rawColors.modes[colorMode]?.background ?? `#dfeff3`} />
+      <meta name="theme-color" content={theme.rawColors.background} />
       <link rel="icon" href="favicon.svg" />
       <link rel="mask-icon" href="favicon.svg" color="#000000" />
       <link rel="apple-touch-icon" href="apple-touch-icon.png" />
