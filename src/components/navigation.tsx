@@ -27,7 +27,16 @@ const Navigation: FC = () => {
     // Bug workaround: github.com/gatsbyjs/gatsby/issues/38249
     document.documentElement.classList.value = `theme-ui-${mode}`
 
-    document.querySelector("meta[name='theme-color']").setAttribute("content", theme.rawColors.background);
+    // Update theme-color metadata
+    let metaThemeColor = document.querySelector('meta[name=theme-color]');
+
+    if (!metaThemeColor) {
+      metaThemeColor = document.createElement('meta');
+      metaThemeColor.setAttribute('name', 'theme-color');
+      document.getElementsByTagName('head')[0].appendChild(metaThemeColor);
+    }
+
+    metaThemeColor.setAttribute("content", theme.rawColors.modes[mode].background);
   }
 
   return (
