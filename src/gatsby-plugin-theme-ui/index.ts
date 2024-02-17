@@ -56,6 +56,16 @@ export default {
 //      tile: tileDark,
 //    },
 
+      key: {
+        text: `#fff`,
+        background: `#000`,
+        action: `gold`,
+        selection: `#7d8585`,
+        tag: tagLight,
+        divider: dividerLight,
+        tile: tileLight,
+      },
+ 
       sunny: {
         text: `navy`,
         background: `gold`,
