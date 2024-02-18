@@ -3,7 +3,7 @@ import { Link as GatsbyLink } from 'gatsby';
 
 export default function Link({ children, href }) {
   if (href.startsWith('/')) {
-    return <GatsbyLink to={href}>[INTERNAL] {children}</GatsbyLink>;
+    return <GatsbyLink to={href}>{children}</GatsbyLink>;
   }
 
   const onPage = href.startsWith('#');
@@ -14,7 +14,7 @@ export default function Link({ children, href }) {
       rel={onPage ? null : 'noopener noreferrer'}
       target={onPage ? null : '_blank'}
     >
-      [EXTERNAL] {children}
+      {children}
     </a>
   );
 }
