@@ -19,7 +19,7 @@ export interface FilteredArticlesProps {
 const FilteredArticles: FC<FilteredArticlesProps> = ({ data, location }) => {
   const slug = location.pathname.split('/').slice(-2)[0]
 
-  if (!slug) navigate(`/articles`)
+  if (!slug) navigate(`/blog`)
 
   const tag = slugTagPairs[slug]
 
