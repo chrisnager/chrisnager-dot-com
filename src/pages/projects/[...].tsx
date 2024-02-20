@@ -19,8 +19,9 @@ export interface FilteredProjectsProps {
 const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
   const slug = location.pathname.split('/').slice(-2)[0]
 
-  if (!slug || !Object.keys(slugTagPairs).includes(slug)) {
-    return navigate(`/projects`)
+  if (typeof window !== "undefined" && window && (!slug || !Object.keys(slugTagPairs).includes(slug))) {
+    navigate(`/projects`)
+    return null
   }
 
   const tag = slugTagPairs[slug]

@@ -19,8 +19,9 @@ export interface FilteredArticlesProps {
 const FilteredArticles: FC<FilteredArticlesProps> = ({ data, location }) => {
   const slug = location.pathname.split('/').slice(-2)[0]
 
-  if (!slug || !Object.keys(slugTagPairs).includes(slug)) {
-    return navigate(`/blog`)
+  if (typeof window !== "undefined" && window && (!slug || !Object.keys(slugTagPairs).includes(slug))) {
+    navigate(`/blog`)
+    return null
   }
 
   const tag = slugTagPairs[slug]
