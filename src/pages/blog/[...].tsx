@@ -20,7 +20,7 @@ const FilteredArticles: FC<FilteredArticlesProps> = ({ data, location }) => {
   const slug = location.pathname.split('/').slice(-2)[0]
 
   if (!slug || !Object.keys(slugTagPairs).includes(slug)) {
-    navigate(`/blog`)
+    return navigate(`/blog`)
   }
 
   const tag = slugTagPairs[slug]
