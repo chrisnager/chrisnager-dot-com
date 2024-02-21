@@ -67,9 +67,9 @@ export default {
       },
  
       sunny: {
-        text: `navy`,
-        background: `gold`,
-        action: `red`,
+        text: `#000077`,
+        background: `#ffe764`,
+        action: `#b30000`,
         selection: `rgb(255 0 0 / 12%)`,
         tag: tagDark,
         divider: dividerDark,
