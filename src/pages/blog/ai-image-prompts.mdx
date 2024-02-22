@@ -1,0 +1,47 @@
+import { Box, jsx, Text } from 'theme-ui'
+
+import Layout from '../../components/layout'
+import Tag from '../../components/tag'
+import Halo from '../../components/halo'
+import { aiImagePrompts } from '../../constants'
+
+export default Layout
+
+export const Head = () => (<Halo title="AI image prompts / Blog" url="https://chrisnager.com/blog/ai-image-prompts" description="This is my collection of helpful prompts for AI-generated image tools like Midjourney, DALL-E, and Adobe Firefly." />)
+
+<Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
+# AI image prompts
+
+Apr 22, 2023
+
+<Tag>AI</Tag>
+
+This is my collection of helpful prompts for AI-generated image tools like Midjourney, DALL-E, and Adobe Firefly.
+
+I have an interest in AI prompt engineering and AI-generated visuals, and want to share my journey. Posting these prompts is my way of learning in the open, and I invite you to join me. Check back to see my progress in real time.
+        
+As an accessibility advocate, I like how image prompts serve as accessible `alt` attributes.
+
+<Box as="ul" sx={{ fontFamily: `Georgia, serif`, listStyleType: `none`, my: 0, pl: 0 }}>
+  {aiImagePrompts.map(({ app, imageSource, prompt }) => {
+    return (
+      <Box as="li" key={prompt} sx={{ mt: 4 }}>
+        <Box as="figure" sx={{ m: 0 }}>
+          <Box as="img"
+            alt={prompt}
+            src={`/images/blog/ai-image-prompts/${imageSource}`}
+            sx={{ display: `block`, maxWidth: `100%` }}
+          />
+
+          <Box as="figcaption" sx={{ mt: 2 }}>
+            {app} prompt:
+            <br />
+            <Text as="code">{prompt}</Text>
+          </Box>
+        </Box>
+      </Box>
+    )
+  })}
+</Box>
+</Box>
+
