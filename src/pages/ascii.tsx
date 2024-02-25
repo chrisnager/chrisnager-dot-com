@@ -13,19 +13,6 @@ export default function AsciiIndex() {
   const [topic, setTopic] = useState(``)
   const [rows, setRows] = useState(1)
 
-  async function callApi() {
-    const url = `/.netlify/functions/ascii?topic=${topic}&rows=${rows}`;
-
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   const suggestions = [`cat`, `hotdog`, `Totoro`]
 
   function handleAppSuggestionClick(event) {
@@ -43,24 +30,43 @@ export default function AsciiIndex() {
   async function handleFormSubmit(event) {
     event.preventDefault()
 
-    const errorHaiku = `There was an error processing your ASCII art.\nPlease try again.`
+    const errorMessage = `There was an error processing your ASCII art.\nPlease try again.`
 
     setIsProcessing(true)
     setResponse(`Processing…`)
 
-    let completion
-
-    if (topic) {
-      completion = await callApi()
+    if (!topic) {
+      await setTopic(`nothing`)
     }
 
-    let internalResponse = errorHaiku
+    const notificationsSource = new EventSource(`/.netlify/functions/ascii?topic=${topic}&rows=${rows}`)
+    
+    notificationsSource.onmessage = function(event) {
+      let notification
 
-    if (completion?.choices?.[0]?.message?.content) {
-      internalResponse = completion.choices[0].message.content
+      if (event.data === `[DONE]`) {
+        notificationsSource.close()
+        return null
+      } else {
+        notification = JSON.parse(event.data)
+      }
+
+      if (notification) {
+        setResponse((response) => {
+          if (response !== `Processing…` && notification.choices[0].delta.content) {
+              return `${response ?? ``}${notification.choices[0].delta.content}`
+          }
+        })
+      } else {
+        setResponse(errorMessage)
+      }
+    }
+    
+    notificationsSource.onerror = function(error) {
+        console.error(`Error with notifications EventSource:`, error)
+        notificationsSource.close()
     }
 
-    setResponse(internalResponse)
     setIsProcessing(false)
   }
 
@@ -201,7 +207,7 @@ export default function AsciiIndex() {
           />
 
           <p style={{ marginBlock: 0 }}>
-            Powered by{' '}
+            Powered by{` `}
             <a href="https://platform.openai.com/docs/models/gpt-4" rel="noopener noreferrer" target="_blank">
               <code
                 style={{
