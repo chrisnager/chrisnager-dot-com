@@ -2,7 +2,6 @@
 
 import { Box, jsx } from 'theme-ui'
 import { useState } from 'react'
-import OpenAI from "openai";
 
 import Halo from '../components/halo'
 import Intro from '../components/intro'
@@ -14,11 +13,18 @@ export default function AsciiIndex() {
   const [topic, setTopic] = useState(``)
   const [rows, setRows] = useState(1)
 
-  const openai = new OpenAI({
-    apiKey: process.env.GATSBY_OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true,
-    organization: process.env.GATSBY_OPENAI_ORGANIZATION,
-  })
+  async function callApi() {
+    const url = `/.netlify/functions/ascii?topic=${topic}&rows=${rows}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const suggestions = [`cat`, `hotdog`, `Totoro`]
 
@@ -42,19 +48,10 @@ export default function AsciiIndex() {
     setIsProcessing(true)
     setResponse(`Processing…`)
 
-    const prompt = `Draw ${topic} as detailed ASCII art using a maximum height of ${rows} row${
-      rows === 1 ? `` : `s`
-    } and a maximum width of 40 columns. It's also ok to use emojis.`
-
     let completion
 
     if (topic) {
-      completion = await openai.chat.completions.create({
-        max_tokens: 200,
-        messages: [{ role: 'user', content: prompt }],
-        model: `gpt-4`,
-        temperature: 0.4,
-      })
+      completion = await callApi()
     }
 
     let internalResponse = errorHaiku
