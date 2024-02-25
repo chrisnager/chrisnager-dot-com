@@ -3091,6 +3091,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@netlify/functions@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "@netlify/functions@npm:2.6.0"
+  dependencies:
+    "@netlify/serverless-functions-api": "npm:1.14.0"
+  checksum: 10c0/f4fb83326bb29321f551b70f40e3048cda7582f33aed12d934105e6c4eee93902a40b8301740ba09338c833dfb7195ed5589252db667b3d89928eaf19a328754
+  languageName: node
+  linkType: hard
+
 "@netlify/git-utils@npm:^5.1.1":
   version: 5.1.1
   resolution: "@netlify/git-utils@npm:5.1.1"
@@ -3296,7 +3305,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/serverless-functions-api@npm:^1.14.0":
+"@netlify/serverless-functions-api@npm:1.14.0, @netlify/serverless-functions-api@npm:^1.14.0":
   version: 1.14.0
   resolution: "@netlify/serverless-functions-api@npm:1.14.0"
   dependencies:
@@ -7454,6 +7463,7 @@ __metadata:
   dependencies:
     "@emotion/react": "npm:^11.11.3"
     "@mdx-js/react": "npm:^3.0.1"
+    "@netlify/functions": "npm:^2.6.0"
     "@theme-ui/mdx": "npm:^0.16.1"
     "@types/node": "npm:^20.11.17"
     "@types/react": "npm:^18.2.55"

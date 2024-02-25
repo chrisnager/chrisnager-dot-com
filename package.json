@@ -9,6 +9,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@mdx-js/react": "^3.0.1",
+    "@netlify/functions": "^2.6.0",
     "@theme-ui/mdx": "^0.16.1",
     "@types/node": "^20.11.17",
     "@types/react": "^18.2.55",
