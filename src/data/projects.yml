@@ -2,212 +2,266 @@
   name: Elevator Pitch
   summary: GPT that summarizes companies in a single sentence
   tags: [AI, OpenAI, Chatbot]
+
 # - url: https://chrisnager.com/system-ui
 #   name: System UI
 #   summary: System UI font family
 #   tags: [Typography, Design, CSS]
+#
 - url: https://chrisnager.com/affirmations
   name: Affirmations
   summary: You are enough.
   tags: [Positivity, Design, CSS, JavaScript]
+
 - url: https://haiku-chrisnager.netlify.app
   name: hAIku
   summary: Write a haiku with AI.
   tags: [AI, OpenAI, GPT-4, OpenAI API]
+
 - url: https://chrisnager-tiles.netlify.app
   name: Tiles
   summary: Generative typeface
   tags: [Typeface design, Typography, Generative art, Design, SVG, TypeScript, CSS]
+
 - url: https://twitter.com/chrisnager/status/1334261919126052864
   name: CartaX
   summary: One small step for Carta, one giant leap for private markets
   tags: [Branding, Logo design, Team management, Product management, Gatsby, Netlify, TypeScript, CSS]
+
 - url: https://codepen.io/chrisnager/pen/rNpmWMj
   name: Accessible gradients
   summary: Find the most accessible gradient determined by the greatest contrast per colorspace. Built in CSS.
   tags: [CSS, Accessibility, color-contrast(), color-mix()]
+
 - url: https://chrisnager.com/snordle
   name: Snordle
   summary: Swipe or use the arrow keys to play SNAKE on a Wordle-style board.
   tags: [HTML, CSS, JavaScript]
+
 - url: /ascii
   name: ASCII
   summary: Make ASCII art with AI.
   tags: [AI, OpenAI, GPT-4, OpenAI API]
+
 - url: https://supportnycdtc.com
   name: Support NYC DTC
   summary: Interactive map to support the DTC brands of NYC affected by COVID-19, recently featured in the Wall Street Journal and in Mapbox's newsletter
   tags: [Mapbox, React, MDX, TypeScript, Project management]
+
 - url: https://vercel.com/integrations/giphy
   name: GIPHY Vercel integration
   summary: Discover GIFs from GIPHY in your Vercel Dashboard, built for the Vercel Hackathon
   tags: [Vercel integration, JavaScript, GIPHY API]
+
 - url: http://cuber.club/dj
   name: Cube DJ
   summary: DJ with your Rubik's cube as a MIDI controller
   tags: [Web Bluetooth API, Web Audio API, NextJS, Design, React, Accessibility, Music]
+
 - url: https://www.gatsbyjs.com/showcase/chrisnager.com
   name: chrisnager.com v4
   summary: chrisnager.com featured in Gatsby's showcase
   tags: [Design, Content, Semantic HTML, CSS, TypeScript, React, GraphQL, Gatsby, Netlify]
+
 - url: https://iextrading.com/apps/stocks/
+  # https://www.awwwards.com/sites/the-investors-exchange-iex
   name: Stocks
   summary: IEX Stocks app - Search stocks, compare peers, see industry news, create watchlists
   tags: [Design, API, React, JavaScript, HTML, CSS, Performance, Dark mode, Charting, Local storage]
+
 - url: https://zephyr.air.inc/foundations/color
   name: Color contrast
   summary: WCAG 2.0 color contrast checker for the Zephyr design system
   tags: [Accessibility, Color]
+
 - url: https://chrisnager.github.io/emoonji
   name: Emoonji
   summary: A friendly chatbot that sends the current moon phases with emojis
   tags: [Facebook Messenger bot, Design, Chatbot]
+
 - url: https://chrisnager.github.io/generative-art/bendies
   name: Bendies
   summary: Fun with generated patterns
   tags: [Generative art]
+
 - url: https://chrisnager.github.io/ungrid
   name: ungrid
   summary: the simplest responsive css grid
   tags: [Tooling, CSS]
+
 - url: https://zephyr.air.inc/
   name: Zephyr
   summary: Design system and component library for Air
   tags: [Design, Gatsby, docz, React, MDX, styled-system, Project management]
+
 - url: https://chrisnager.github.io/hexcodes
   name: hexcodes
   summary: All possible three digit hexcodes
   tags: [Color, CSS]
+
 - url: https://www.youtube.com/embed/295brS23_4I
   name: Salesforce Marketing Cloud
   summary: Collaborated on this product
   tags: [JavaScript, CSS, Accessibility]
+
 - url: https://chrisnager.github.io/generative-art/diagonals
   name: Diagonals
   summary: Fun with generated patterns
   tags: [Generative art]
+
 - url: https://iextrading.com
   name: iextrading.com
   summary: Site for IEX, creative blend of SSR + React, with Lighthouse scores of 100
   tags: [SSR, React, Basscss, Design]
+
 - url: https://air.inc
   name: air.inc
   summary: Site for Air
   tags: [React, styled-system, Typography, Color, Project management]
+
 - url: https://chrisnager.github.io/simple-debug.css
   name: simple-debug.css
   summary: Debug your layouts with one line of CSS
   tags: [CSS, Tooling, Browser extension]
+
 - url: https://chrisnager.github.io/simple-paper-spinner
   name: Simple <paper-spinner>
   summary: How to rebuild Google's Material Design <paper-spinner> with a single div and CSS animations
   tags: [Tooling, Case study, HTML, CSS]
+
 - url: https://zephyr.air.inc/icon-theming
   name: Icon theming
   summary: Icon theming tool for the Zephyr design system
   tags: [Design hand-off, SVG, Developer experience (DX)]
+
 - url: https://chrisnager.github.io/tiny-google-fonts
   name: tiny google fonts
   summary: Strip down your google fonts significantly to only include the characters you're actually using
   tags: [Performance, Typography]
+
 - url: https://iextrading.com/apps/market/
   name: Market
   summary: Web app for IEX that displays near real-time market volume
   tags: [UX, HTML, CSS, JavaScript]
+
 - url: http://bit.ly/smajor
   name: Signum majoritatis
   summary: A side-scrolling game built in a single string
   tags: [Gaming, JavaScript]
+
 - url: https://chrisnager.github.io/generative-art/corners
   name: Corners
   summary: Fun with generated patterns
   tags: [Generative art]
+
 - url: http://give-n-go.co
   name: Give 'n' Go
   summary: A curated gallery of Dribbble shots reworked as interactive CodePen pens
   tags: [Community, HTML, CSS, JavaScript, CMS]
+
 - url: https://iextrading.com/apps
   name: IEX iOS and Android apps
   summary: Created iOS and Android apps for IEX
   tags: [React Native, iOS, Android, UX, UI]
+
 - url: https://devpost.com/software/cheer-me-up
   name: Cheer me up
   summary: Fun, custom pages in seconds
   tags: [Design, HTML, CSS, JavaScript]
+
 - url: https://chrisnager.github.io/until
   name: Until
   summary: Are we there yet?
   tags: [React, Design, Basscss]
+
 - url: http://vimeo.com/71911497
   name: UN Disaster Response
   summary: Worked with the Harvard Humanitarian Initiative on a disaster and humanitarian response survey building app to be used by the United Nations
   tags: [UX, HTML, CSS, JavaScript, Design]
+
 - url: http://disruptnyhackathon.challengepost.com/submissions/23514-jaunt
   name: Jaunt
   summary: Let your friends be your city guides. (TechCrunch Disrupt Hackathon app entry)
   tags: [Design, Prototype, HTML, CSS, JavaScript]
+
 - url: https://chrisnager.github.io/cursors
   name: Cursors
   summary: All available cursors
   tags: [Design, HTML, CSS]
+
 - url: https://iextrading.com/developers/docs
   name: The IEX API
   summary: The IEX API (now part of the IEX Cloud)
   tags: [Documentation, REST, Developer experience (DX)]
+
 - url: https://chrisnager.github.io/simple-palette
   name: simple-palette
   summary: A simple color palette
   tags: [Color, CSS]
+
 - url: https://github.com/chrisnager/pride
   name: pride
   summary: 'Simple hack to display the colors of the rainbow flag in the GitHub language bar. #lovewins'
   tags: [Hack]
+
 - url: https://chrisnager.github.io/short-color-names
   name: ✂ short color names
   summary: The 44 CSS color names that are as short as or shorter than their corresponding hexcodes
   tags: [Color, CSS]
+
 - url: https://iextrading.com/brand/
   name: IEX branding and guidelines
   summary: Logo, color palette, language, and branding guidelines for IEX
   tags: [Branding, Design, Developer experience (DX)]
+
 - url: https://chrisnager.github.io/birthday-hex
   name: Birthday hex
   summary: Find your birthday hexcode
   tags: [Color]
+
 - url: https://chrisnager.github.io/svg-please
   name: SVG Please
   summary: Simple script to replace your bitmap icons with inline SVGs with bitmap fallback built in
   tags: [Tooling, SVG]
+
 - url: http://fav5.co
   name: Fav5
   summary: What are your five most important items?
   tags: [Design]
+
 - url: https://chrisnager.github.io
   name: chrisnager.com v3
   summary: Care to reminisce?
   tags: [Design, BEM, Semantic HTML, Jekyll, GitHub Pages]
+
 - url: https://chrisnager.github.io/twadlib
   name: Twadlib!
   summary: Ad-lib your tweets, submitted as a 10K Apart Challenge app entry
   tags: [Design, HTML, CSS, JavaScript, Twitter API]
+
 - url: https://chrisnager.github.io/bliss
   name: Bliss
   summary: Beautifully lean, ideal style sheets
   tags: [CSS, Framework, Developer experience (DX)]
+
 - url: https://chrisnager.github.io/crafted-css
   name: Crafted CSS
   summary: A personal compilation of CSS practices I follow
   tags: [CSS, Developer experience (DX), Tooling]
+
 - url: https://chrisnager.github.io/social-logos
   name: Social Logos
   summary: Download official social logos
   tags: [Tooling]
+
 - url: http://www.awwwards.com/web-design-awards/ben-thomson-photography
   # url: https://web.archive.org/web/20110318052005/http://www.benthomsonphoto.com/
   name: Ben Thomson Photo
   summary: Awwwards Site of the Day
   tags: [Branding, Design, UX, HTML, CSS, JavaScript, CMS, Award-winning]
+
 - url: http://coding.smashingmagazine.com/2010/07/12/css3-design-contest-results/
   name: Totally Fresh
   summary: Experimental CSS3 design featured on Smashing Magazine
   tags: [Design, HTML, CSS]
+
