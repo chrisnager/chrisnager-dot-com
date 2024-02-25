@@ -9,14 +9,14 @@ export default async ({ url }) => {
 
   const response = await fetch(openaiUrl, {
     [`body`]: JSON.stringify({
-      [`max_tokens`]: `200`,
+      [`max_tokens`]: 200,
       [`messages`]: [
         {[`role`]: `system`, [`content`]: prompt},
         {[`role`]: `user`, [`content`]: topic.slice(0, 50)},
       ],
       [`model`]: `gpt-4`,
       [`stream`]: true,
-      [`temperature`]: `0.4`,
+      [`temperature`]: 0.4,
     }),
     [`headers`]: {
       [`Authorization`]: `Bearer ${env.get(`OPENAI_API_KEY`)}`,
