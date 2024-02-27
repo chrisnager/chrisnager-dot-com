@@ -46,15 +46,18 @@ export default function AsciiIndex() {
 
       if (event.data === `[DONE]`) {
         notificationsSource.close()
+
         return null
       } else {
         notification = JSON.parse(event.data)
       }
 
-      if (notification) {
+      if (notification?.choices?.length) {
+	const { content } = notification.choices[0].delta
+
         setResponse((response) => {
-          if (response !== `Processing…` && notification.choices[0].delta.content) {
-              return `${response ?? ``}${notification.choices[0].delta.content}`
+          if (response !== `Processing…` && content) {
+            return `${response ?? ``}${content}`
           }
         })
       } else {
