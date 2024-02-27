@@ -45,9 +45,7 @@ export default function AsciiIndex() {
       let notification
 
       if (event.data === `[DONE]`) {
-        notificationsSource.close()
-
-        return null
+        return
       } else {
         notification = JSON.parse(event.data)
       }
@@ -55,9 +53,9 @@ export default function AsciiIndex() {
       if (notification?.choices?.length) {
 	const { content } = notification.choices[0].delta
 
-        setResponse((response) => {
-          if (response !== `Processing…` && content) {
-            return `${response ?? ``}${content}`
+        setResponse((previousResponse) => {
+          if ((previousResponse !== `Processing…`) && (typeof content !== `undefined`)) {
+            return `${previousResponse ?? ``}${content}`
           }
         })
       } else {
@@ -66,11 +64,15 @@ export default function AsciiIndex() {
     }
     
     notificationsSource.onerror = function(error) {
-        console.error(`Error with notifications EventSource:`, error)
-        notificationsSource.close()
+      console.error(`Error with notifications EventSource:`, error)
+      notificationsSource.close()
     }
 
     setIsProcessing(false)
+
+    return () => {
+      notificationsSource.close()
+    }
   }
 
   return (
