@@ -19,41 +19,46 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
 
         <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
           {data.allSpeakingYaml.edges.map(
-            ({ node }: { node: { summary: string; url: string; date: string; name: string } }) => (
-              <Box key={node.name} as="li" sx={{ pt: 4 }}>
-                <Box
-                  as={node.url ? `a` : `div`}
-                  // @ts-ignore
-                  href={!!node.url ? node.url : undefined}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
-                >
-                  <Text
-                    as="p"
-                    sx={{
-                      fontSize: `0.8em`,
-                      color: `text`,
-                      'a:hover > &': { color: `text` },
-                    }}
-                  >
-                    {node.date}
-                  </Text>
+            ({ node }: { node: { summary: string; url: string; date: string; name: string } }) => {
+              const currentYear = `${new Date().getFullYear()}`
+              const formattedDate = node.date.includes(currentYear) ? node.date.slice(0, -6) : node.date
 
-                  <Text as="h2" sx={{ mt: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>
-                    {node.name}
-                  </Text>
-
-                  <Text
-                    as="p"
-                    sx={{ mt: 1, fontFamily: `Georgia, serif`, color: `text`, 'a:hover > &': { color: `text` } }}
+              return (
+                <Box key={node.name} as="li" sx={{ pt: 4 }}>
+                  <Box
+                    as={node.url ? `a` : `div`}
+                    // @ts-ignore
+                    href={!!node.url ? node.url : undefined}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
                   >
-                    {node.summary}
-                  </Text>
+                    <Text
+                      as="p"
+                      sx={{
+                        fontSize: `0.8em`,
+                        color: `text`,
+                        'a:hover > &': { color: `text` },
+                      }}
+                    >
+                      {formattedDate}
+                    </Text>
+
+                    <Text as="h2" sx={{ mt: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>
+                      {node.name}
+                    </Text>
+
+                    <Text
+                      as="p"
+                      sx={{ mt: 1, fontFamily: `Georgia, serif`, color: `text`, 'a:hover > &': { color: `text` } }}
+                    >
+                      {node.summary}
+                    </Text>
+                  </Box>
                 </Box>
-              </Box>
-            ),
-          )}
+              )
+            }
+	  )}
         </Box>
       </Box>
     </Layout>

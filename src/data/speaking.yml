@@ -4,25 +4,25 @@
 - name: 'CodePen Radio 362: Chris Nager'
   summary: A chat with Chris Coyier about web accessibility and new CSS features
   url: https://blog.codepen.io/2022/04/06/362-chris-nager
-  date: April 6, 2022
+  date: Apr 6, 2022
 # - name: CartaX logo
 #   summary: Carta-wide Show and Tell presentation
-#   date: July 22, 2022
+#   date: Jul 22, 2022
 - name: Zephyr
   summary: A deep dive into our design system at Air
   url: https://chrisnager.github.io/zephyr
-  date: January 31, 2020
+  date: Jan 31, 2020
 - name: Designing today's digital products
   summary: Organized, hosted, and spoke at the second Brooklyn Tech Startups event
   url: https://www.meetup.com/Brooklyn-Technology-Startups/events/263459622/
-  date: September 11, 2019
+  date: Sep 11, 2019
 - name: Lifecycle of an icon
   summary: Air's icon creation process, from ideation to implementation (Organized, hosted, and spoke at the first Brooklyn Tech Startups event)
   url: https://youtu.be/QCizRxi0fek
-  date: March 6, 2019
+  date: Mar 6, 2019
 - name: Design system
   summary: Typography, icons, and documentation (Air internal company presentation)
-  date: July 9, 2018
+  date: Jul 9, 2018
 - name: When - Chatbot for location recommendations
   summary: TechCrunch Disrupt Hackathon 2017 presentation
   url: https://techcrunch.com/video/whentho/591879ff1de5a12724606c06
@@ -57,4 +57,4 @@
   date: '2011'
 - name: CSS3 playground
   summary: Presented at BarCamp
-  date: August 28, 2010
+  date: Aug 28, 2010
