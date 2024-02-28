@@ -16,6 +16,8 @@ export interface ArticlePreviewProps {
 }
 
 const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, date, title, tags } }) => {
+  const currentYear = `${new Date().getFullYear()}`
+  const formattedDate = date.includes(currentYear) ? date.slice(0, -6) : date
   const isInternalPost = url.substring(0, 6) === `/blog/`
 
   return (
@@ -30,7 +32,7 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, date, title, 
         sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
     >
         <Text as="p" sx={{ fontSize: `0.8em`, color: `text`, 'a:hover > &': { color: `text` } }}>
-          {date}
+          {formattedDate}
         </Text>
 
         <Text as="h2" sx={{ mt: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>

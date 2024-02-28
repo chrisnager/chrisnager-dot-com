@@ -43,7 +43,7 @@ export const pageQuery = graphql`
         node {
           slug
           url
-          date(formatString: "MMMM Do, YYYY")
+          date(formatString: "MMM D, YYYY")
           title
           tags
         }
