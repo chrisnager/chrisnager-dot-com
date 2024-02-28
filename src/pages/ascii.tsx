@@ -42,36 +42,31 @@ export default function AsciiIndex() {
     const notificationsSource = new EventSource(`/.netlify/functions/ascii?topic=${topic}&rows=${rows}`)
     
     notificationsSource.onmessage = function(event) {
-      let notification
-
       if (event.data === `[DONE]`) {
-        return
+        notificationsSource.close()
+        setIsProcessing(false)
       } else {
-        notification = JSON.parse(event.data)
-      }
+        const notification = JSON.parse(event.data)
 
-      if (notification?.choices?.length) {
-	const { content } = notification.choices[0].delta
+        if (notification?.choices?.length) {
+          const { content } = notification.choices[0].delta
 
-        setResponse((previousResponse) => {
-          if ((previousResponse !== `Processing…`) && (typeof content !== `undefined`)) {
-            return `${previousResponse ?? ``}${content}`
-          }
-        })
-      } else {
-        setResponse(errorMessage)
+          setResponse((previousResponse) => {
+            if ((previousResponse !== `Processing…`)) {
+              return `${previousResponse ?? ``}${content ?? ``}`
+            }
+          })
+        } else {
+          setResponse(errorMessage)
+          setIsProcessing(false)
+        }
       }
     }
     
     notificationsSource.onerror = function(error) {
       console.error(`Error with notifications EventSource:`, error)
       notificationsSource.close()
-    }
-
-    setIsProcessing(false)
-
-    return () => {
-      notificationsSource.close()
+      setIsProcessing(false)
     }
   }
 
@@ -181,6 +176,7 @@ export default function AsciiIndex() {
               marginInlineStart: `-1px`,
               paddingBlock: 0,
               paddingInline: `1rem`,
+	      textDecoration: isProcessing ? `line-through`: undefined,
             }}
             type="submit"
           >
