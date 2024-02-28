@@ -12,7 +12,7 @@ interface TagProps {
 const Tag: FC<TagProps> = ({ children }) => {
   const location = useLocation()
 
-  const slug = children.toLowerCase().replace(/ /g, '-')
+  const slug = children.toLowerCase().replace(/ /g, `-`).replace(/\(/g, ``).replace(/\)/g, ``)
 
   return (
     <Box
