@@ -43,13 +43,13 @@ const ProjectsList: FC<ProjectsListProps> = ({ projects }) => {
                 href={url}
                 target={urlIsExternal ? `_blank` : undefined}
                 rel={urlIsExternal ? `noopener noreferrer` : undefined}
-                sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
+                sx={{ display: `block`, borderTopLeftRadius: `0.625rem`, borderTopRightRadius: `0.625rem`, ':hover': { textDecoration: `none` } }}
               >
-                <Box sx={{ bg: `action`, p: `1px` }}>
+                <Box sx={{ bg: `action`, borderRadius: `0.5626rem`, p: `1px` }}>
                   <img
                     alt=""
                     src={`/images/projects/${`${formattedName}.png`}`}
-                    sx={{ aspectRatio: `16 / 10`, objectFit: `cover`, objectPosition: `center top` }}
+                    sx={{ aspectRatio: `16 / 10`, borderRadius: `0.5rem`, objectFit: `cover`, objectPosition: `center top` }}
                   />
                 </Box>
 
