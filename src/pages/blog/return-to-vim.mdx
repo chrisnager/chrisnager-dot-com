@@ -1,0 +1,47 @@
+import { Box, jsx } from 'theme-ui'
+
+import Layout from '../../components/layout'
+import Tag from '../../components/tag'
+import Halo from '../../components/halo'
+
+export default Layout
+
+export const Head = () => <Halo title="Return to Vim" url="https://chrisnager.com/blog/return-to-vim" />
+
+<Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
+# Return to Vim
+
+Feb 28, 2023
+
+<Tag>Developer experience (DX)</Tag>
+
+I'm a bit of a purist at heart. Early on in my career, I self-imposed the constraint to use [Vim] for coding. I stuck to the command line and Vim at every opportunity.
+
+![Vim usage](/images/blog/return-to-vim/vim.png)
+
+I love the simplicity in Vim's inherent constraints. Forcing myself to use Vim proved to be the best way for me to learn its unique system of navigation.
+
+```
+j
+k
+dd
+c$
+ya'
+vU
+gg
+%
+cit
+.
+// etc., etc. <3
+```
+
+Throughout the years, Sublime Text replaced Vim for a bit, then VS Code replaced Sublime Text, Vim, and Terminal. I love the all-in-one ease of VS Code. VS Code has proven to be great for efficiency, with its integrated terminal, robust plugins, and [Github Copilot] integration.
+
+However, I still use a 2013 MacBook Pro for my personal laptop. (I love this machine!) My computer's performance is fine and the battery lasts, but this year (2024), VS Code stopped supporting my version of macOS. It forced me to give Vim another shot, and I got the feeling of being reunited with an old friend.
+
+Even if my switch back to Vim isn't permanent, coding in Vim brings me joy.
+</Box>
+
+[Vim]: https://www.vim.org/
+[GitHub Copilot]: https://github.com/features/copilot
+
