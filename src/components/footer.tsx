@@ -4,11 +4,11 @@ import { FC, Fragment, useEffect, useState } from 'react'
 import { Box, Flex, jsx, Text, useColorMode } from 'theme-ui'
 
 const links = [
-  { href: `https://twitter.com/chrisnager`, children: `Twitter` },
-  { href: `https://github.com/chrisnager`, children: `GitHub` },
-  { href: `https://codepen.io/chrisnager`, children: `CodePen` },
-  { href: `https://medium.com/@chrisnager`, children: `Medium` },
   { href: `https://linkedin.com/in/chrisnager`, children: `LinkedIn` },
+  { href: `https://codepen.io/chrisnager`, children: `CodePen` },
+  { href: `https://github.com/chrisnager`, children: `GitHub` },
+  { href: `https://twitter.com/chrisnager`, children: `Twitter` },
+  { href: `https://medium.com/@chrisnager`, children: `Medium` },
 ]
 
 const Footer: FC = () => {
