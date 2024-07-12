@@ -80,7 +80,7 @@ const Navigation: FC = () => {
                   sx: {
                     px: [2, 3],
                     height: 48,
-                    display: [`Home`, `Speaking`].includes(children) ? [`none`, `flex`] : `flex`,
+                    display: [`Home`].includes(children) ? [`none`, `flex`] : `flex`,
                     alignItems: `center`,
                   },
                   to,
