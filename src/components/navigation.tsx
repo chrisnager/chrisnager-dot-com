@@ -78,7 +78,7 @@ const Navigation: FC = () => {
               <Link
                 {...{
                   sx: {
-                    px: [2, 3],
+                    px: [1, 2, 3],
                     height: 48,
                     display: [`Home`].includes(children) ? [`none`, `flex`] : `flex`,
                     alignItems: `center`,
@@ -95,8 +95,8 @@ const Navigation: FC = () => {
               onClick={cycleColorModes}
               aria-label="Toggle color mode"
               sx={{
-                width: 48,
-                height: 48,
+                width: [36, 40, 48],
+                height: [36, 40, 48],
                 m: 0,
                 border: 0,
                 p: 0,
