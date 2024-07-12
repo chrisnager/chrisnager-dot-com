@@ -99,7 +99,7 @@ const Footer: FC = () => {
           Gatsby-built, Netlify-hosted,{' '}
           <span sx={{ display: [`block`, `inline`] }}>
             <a
-              href="https://pagespeed.web.dev/analysis/https-chrisnager-com/t5sryhcck0?form_factor=desktop"
+              href="https://pagespeed.web.dev/analysis/https-chrisnager-com/l1i9lgcg4q?form_factor=desktop"
               target="_blank"
               rel="noopener noreferrer"
             >
