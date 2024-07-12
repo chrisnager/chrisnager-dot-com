@@ -18,7 +18,6 @@ const Footer: FC = () => {
   useEffect(() => {
     fetch('https://api.github.com/repos/chrisnager/chrisnager-dot-com/commits', {
       headers: {
-        Authorization: `Bearer ${process.env.GATSBY_GITHUB_API_KEY}`,
         Accept: 'application/vnd.github+json',
       },
     })
