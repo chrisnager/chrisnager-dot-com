@@ -34,6 +34,8 @@ const ArticlesList: FC<ArticlesListProps> = ({ articles }) => {
             .replace(/</g, ``)
             .replace(/>/g, ``)
             .replace(/#/g, ``)
+            .replace(/\(/g, ``)
+            .replace(/\)/g, ``)
 
           const urlIsExternal = url.includes(`http`)
 
