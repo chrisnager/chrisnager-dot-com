@@ -14,17 +14,17 @@ export interface SpeakingProps {
 const Speaking: FC<SpeakingProps> = ({ data }) => {
   return (
     <Layout>
-      <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
+      <Box sx={{ maxWidth: `50ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro title="Speaking" description="Fun stuff I've presented" />
 
-        <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
+        <Box as="ul" sx={{ marginBlock: 0, paddingInlineStart: 0, listStyleType: `none` }}>
           {data.allSpeakingYaml.edges.map(
             ({ node }: { node: { summary: string; url: string; date: string; name: string } }) => {
               const currentYear = `${new Date().getFullYear()}`
               const formattedDate = node.date.includes(currentYear) ? node.date.slice(0, -6) : node.date
 
               return (
-                <Box key={node.name} as="li" sx={{ pt: 4 }}>
+                <Box key={node.name} as="li" sx={{ paddingBlockStart: 4 }}>
                   <Box
                     as={node.url ? `a` : `div`}
                     // @ts-ignore
@@ -44,13 +44,13 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
                       {formattedDate}
                     </Text>
 
-                    <Text as="h2" sx={{ mt: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>
+                    <Text as="h2" sx={{ marginBlockStart: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>
                       {node.name}
                     </Text>
 
                     <Text
                       as="p"
-                      sx={{ mt: 1, fontFamily: `Georgia, serif`, color: `text`, 'a:hover > &': { color: `text` } }}
+                      sx={{ marginBlockStart: 1, fontFamily: `Georgia, serif`, color: `text`, 'a:hover > &': { color: `text` } }}
                     >
                       {node.summary}
                     </Text>
