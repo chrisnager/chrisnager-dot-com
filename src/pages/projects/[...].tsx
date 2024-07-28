@@ -28,7 +28,7 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
 
   return (
     <Layout>
-      <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
+      <Box sx={{ maxWidth: `50ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro description={`${tag} projects`} title={tag} />
         <ProjectsList projects={data.allProjectsYaml.edges.filter(project => project.node.tags.includes(tag))} />
       </Box>

@@ -16,7 +16,7 @@ export interface ProjectsProps {
 const Projects: FC<ProjectsProps> = ({ data }) => {
   return (
     <Layout>
-      <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
+      <Box sx={{ maxWidth: `50ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro title="Projects" description="A handful of things I've built" />
         <ProjectsList projects={data.allProjectsYaml.edges} />
       </Box>
