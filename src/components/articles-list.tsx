@@ -11,7 +11,7 @@ interface ArticlesListProps {
 
 const ArticlesList: FC<ArticlesListProps> = ({ articles }) => {
   return (
-    <Box as="ul" sx={{ my: 0, pl: 0, display: `grid` }}>
+    <Box as="ul" sx={{ marginBlock: 0, paddingInlineStart: 0, display: `grid` }}>
       {articles.map(
         ({
           node: { name, url, summary, tags },
@@ -40,7 +40,7 @@ const ArticlesList: FC<ArticlesListProps> = ({ articles }) => {
           const urlIsExternal = url.includes(`http`)
 
           return (
-            <Box key={name} id={formattedName} as="li" sx={{ mt: 4, display: `block` }}>
+            <Box key={name} id={formattedName} as="li" sx={{ marginBlockStart: 4, display: `block` }}>
               <a
                 href={url}
                 target={urlIsExternal ? `_blank` : undefined}
@@ -55,7 +55,7 @@ const ArticlesList: FC<ArticlesListProps> = ({ articles }) => {
                   <Text
                     as="p"
                     sx={{
-                      mt: 1,
+                      marginBlockStart: 1,
                       fontFamily: `Georgia, serif`,
                       color: `text`,
                       'a:hover > &': { color: `text` },
@@ -66,7 +66,7 @@ const ArticlesList: FC<ArticlesListProps> = ({ articles }) => {
                 </Box>
               </a>
 
-              <Box sx={{ mt: `2px`, mx: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
+              <Box sx={{ marginBlockStart: `2px`, marginInline: -2, color: `text`, 'a:hover > &': { color: `text` } }}>
                 {!!tags && !!tags.length && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
               </Box>
             </Box>
