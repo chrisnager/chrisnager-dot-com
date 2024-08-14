@@ -96,6 +96,7 @@ export const slugTagPairs = {
   [`developer-experience-dx`]: `Developer experience (DX)`,
   [`documentation`]: `Documentation`,
   [`docz`]: `Docz`,
+  [`engineering`]: `Engineering`,
   [`facebook-messenger-bot`]: `Facebook Messenger bot`,
   [`framework`]: `Framework`,
   [`gaming`]: `Gaming`,
