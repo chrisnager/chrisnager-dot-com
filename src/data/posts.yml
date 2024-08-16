@@ -1,7 +1,7 @@
 - title: Design engineering
   slug: design-engineering
   url: /blog/design-engineering
-  date: 2024-08-07
+  date: 2024-08-11
   tags: [Design, Engineering]
 
 - title: Return to Vim
@@ -44,31 +44,31 @@
   slug: case-for-a-monorepo
   url: https://medium.com/@chrisnager/case-for-a-monorepo-28cebf26e1aa
   date: 2018-03-20
-  tags: [Developer experience (DX), Monorepo]
+  tags: [Developer experience (DX), Monorepo, Engineering]
 
 - title: Stack your classes within template literals
   slug: stack-your-classes-within-template-literals
   url: https://medium.com/@chrisnager/stack-your-classes-within-template-literals-d537bf463d4a
   date: 2016-03-09
-  tags: [Developer experience (DX), CSS-in-JS]
+  tags: [Developer experience (DX), CSS-in-JS, Engineering]
 
 - title: Center and crop images with a single line of CSS
   slug: center-and-crop-images-with-a-single-line-of-css
   url: https://medium.com/@chrisnager/center-and-crop-images-with-a-single-line-of-css-ad140d5b4a87
   date: 2015-01-19
-  tags: [CSS]
+  tags: [CSS, Design, Engineering]
 
 - title: Bespoke SVG reference
   slug: bespoke-svg-reference
   url: https://medium.com/@chrisnager/bespoke-svg-reference-e22eb733272
   date: 2014-05-23
-  tags: [SVG, Documentation]
+  tags: [SVG, Documentation, Engineering]
 
 - title: Analog-style LED clock concept
   slug: analog-style-led-clock-concept
   url: /analog-style-led-clock-concept
   date: 2014-03-25
-  tags: [CSS]
+  tags: [CSS, Design]
 
 - title: Simple vertical centering with CSS
   slug: simple-vertical-centering-with-css
@@ -98,7 +98,7 @@
   slug: display-icons-with-custom-data-attributes
   url: /display-icons-with-custom-data-attributes
   date: 2012-12-21
-  tags: [CSS]
+  tags: [CSS, Design]
 
 - title: Circles
   slug: circles
@@ -122,7 +122,7 @@
   slug: my-initials
   url: /my-initials
   date: 2012-10-23
-  tags: [CSS]
+  tags: [CSS, Design]
 
 - title: Touchable textures with CSS - can you feel me?
   slug: touchable-textures-with-css-can-you-feel-me
@@ -146,7 +146,7 @@
   slug: an-event-apart-and-a-designer-e2-80-99s-view-of-the-web
   url: /an-event-apart-and-a-designer-e2-80-99s-view-of-the-web
   date: 2011-12-23
-  tags: [News]
+  tags: [Conference, News]
 
 - title: CSS3 ::selection background color trick
   slug: css3-selection-background-color-trick
@@ -158,7 +158,7 @@
   slug: chris-nager-2012
   url: /chris-nager-2012
   date: 2011-08-18
-  tags: [Responsive design, News]
+  tags: [Responsive design, Design, News]
 
 - title: ChrisNager.com v2 is live
   slug: chrisnager-com-v2-is-live

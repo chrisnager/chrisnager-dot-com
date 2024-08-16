@@ -1,6 +1,14 @@
+# - category: 'Case studies'
+#   title: 'ink Design System'
+#   link: '/projects/ink'
+
 # - category: Projects
 #   title: 'System UI font family'
 #   link: '/system-ui'
+
+- category: Blog
+  title: 'Design engineering'
+  link: '/blog/design-engineering'
 
 - category: Projects
   title: 'Affirmations: You are enough'
