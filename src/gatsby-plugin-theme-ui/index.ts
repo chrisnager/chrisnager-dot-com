@@ -75,6 +75,16 @@ export default {
         divider: dividerDark,
         tile: tileDark,
       },
+ 
+      swiss: {
+        text: `#dee0d5`,
+        background: `#ed2c28`,
+        action: `#000009`,
+        selection: `rgb(0 0 0 / 10%)`,
+        tag: `rgb(0 0 0 / 10%)`,
+        divider: dividerDark,
+        tile: tileDark,
+      },
     },
   },
 
