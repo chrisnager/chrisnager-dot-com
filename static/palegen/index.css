@@ -1,0 +1,403 @@
+:root {
+  --base: #9c6e00;
+  --base-color: lch(from var(--base) 50 c h);
+
+  --page-background: var(--brand-color-5-scale-100);
+  --page-color: var(--brand-color-5-scale-900);
+
+  --brand-color-1: var(--base-color);
+  --brand-color-2: lch(from var(--base-color) l c calc(h + 90));
+  --brand-color-3: lch(from var(--base-color) l c calc(h + 180));
+  --brand-color-4: lch(from var(--base-color) l c calc(h + 270));
+  --brand-color-5: lch(from var(--base-color) l calc(c * 0.05) h);
+
+  --brand-color-1-scale-100: lch(from var(--brand-color-1) calc(l + 50) c h);
+  --brand-color-1-scale-200: lch(from var(--brand-color-1) calc(l + 37.5) c h);
+  --brand-color-1-scale-300: lch(from var(--brand-color-1) calc(l + 25) c h);
+  --brand-color-1-scale-400: lch(from var(--brand-color-1) calc(l + 12.5) c h);
+  --brand-color-1-scale-500: var(--brand-color-1);
+  --brand-color-1-scale-600: lch(from var(--brand-color-1) calc(l - 12.5) c h);
+  --brand-color-1-scale-700: lch(from var(--brand-color-1) calc(l - 25) c h);
+  --brand-color-1-scale-800: lch(from var(--brand-color-1) calc(l - 37.5) c h);
+  --brand-color-1-scale-900: lch(from var(--brand-color-1) calc(l - 50) c h);
+
+  --brand-color-2-scale-100: lch(from var(--brand-color-2) calc(l + 50) c h);
+  --brand-color-2-scale-200: lch(from var(--brand-color-2) calc(l + 37.5) c h);
+  --brand-color-2-scale-300: lch(from var(--brand-color-2) calc(l + 25) c h);
+  --brand-color-2-scale-400: lch(from var(--brand-color-2) calc(l + 12.5) c h);
+  --brand-color-2-scale-500: var(--brand-color-2);
+  --brand-color-2-scale-600: lch(from var(--brand-color-2) calc(l - 12.5) c h);
+  --brand-color-2-scale-700: lch(from var(--brand-color-2) calc(l - 25) c h);
+  --brand-color-2-scale-800: lch(from var(--brand-color-2) calc(l - 37.5) c h);
+  --brand-color-2-scale-900: lch(from var(--brand-color-2) calc(l - 50) c h);
+
+  --brand-color-3-scale-100: lch(from var(--brand-color-3) calc(l + 50) c h);
+  --brand-color-3-scale-200: lch(from var(--brand-color-3) calc(l + 37.5) c h);
+  --brand-color-3-scale-300: lch(from var(--brand-color-3) calc(l + 25) c h);
+  --brand-color-3-scale-400: lch(from var(--brand-color-3) calc(l + 12.5) c h);
+  --brand-color-3-scale-500: var(--brand-color-3);
+  --brand-color-3-scale-600: lch(from var(--brand-color-3) calc(l - 12.5) c h);
+  --brand-color-3-scale-700: lch(from var(--brand-color-3) calc(l - 25) c h);
+  --brand-color-3-scale-800: lch(from var(--brand-color-3) calc(l - 37.5) c h);
+  --brand-color-3-scale-900: lch(from var(--brand-color-3) calc(l - 50) c h);
+
+  --brand-color-4-scale-100: lch(from var(--brand-color-4) calc(l + 50) c h);
+  --brand-color-4-scale-200: lch(from var(--brand-color-4) calc(l + 37.5) c h);
+  --brand-color-4-scale-300: lch(from var(--brand-color-4) calc(l + 25) c h);
+  --brand-color-4-scale-400: lch(from var(--brand-color-4) calc(l + 12.5) c h);
+  --brand-color-4-scale-500: var(--brand-color-4);
+  --brand-color-4-scale-600: lch(from var(--brand-color-4) calc(l - 12.5) c h);
+  --brand-color-4-scale-700: lch(from var(--brand-color-4) calc(l - 25) c h);
+  --brand-color-4-scale-800: lch(from var(--brand-color-4) calc(l - 37.5) c h);
+  --brand-color-4-scale-900: lch(from var(--brand-color-4) calc(l - 50) c h);
+
+  --brand-color-5-scale-100: lch(from var(--brand-color-5) calc(l + 50) c h);
+  --brand-color-5-scale-200: lch(from var(--brand-color-5) calc(l + 37.5) c h);
+  --brand-color-5-scale-300: lch(from var(--brand-color-5) calc(l + 25) c h);
+  --brand-color-5-scale-400: lch(from var(--brand-color-5) calc(l + 12.5) c h);
+  --brand-color-5-scale-500: var(--brand-color-5);
+  --brand-color-5-scale-600: lch(from var(--brand-color-5) calc(l - 12.5) c h);
+  --brand-color-5-scale-700: lch(from var(--brand-color-5) calc(l - 25) c h);
+  --brand-color-5-scale-800: lch(from var(--brand-color-5) calc(l - 37.5) c h);
+  --brand-color-5-scale-900: lch(from var(--brand-color-5) calc(l - 50) c h);
+
+  --brand-color-1-text-color-dark: var(--brand-color-1-scale-900);
+  --brand-color-1-text-color-light: var(--brand-color-1-scale-100);
+
+  --brand-color-2-text-color-dark: var(--brand-color-2-scale-900);
+  --brand-color-2-text-color-light: var(--brand-color-2-scale-100);
+
+  --brand-color-3-text-color-dark: var(--brand-color-3-scale-900);
+  --brand-color-3-text-color-light: var(--brand-color-3-scale-100);
+
+  --brand-color-4-text-color-dark: var(--brand-color-4-scale-900);
+  --brand-color-4-text-color-light: var(--brand-color-4-scale-100);
+
+  --brand-color-5-text-color-dark: var(--brand-color-5-scale-900);
+  --brand-color-5-text-color-light: var(--brand-color-5-scale-100);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-weight: 800;
+  accent-color: var(--base-color);
+  color: var(--page-color);
+  background-color: var(--page-background);
+}
+
+[data-lights-out] {
+  --page-background: var(--brand-color-5-scale-900);
+  --page-color: var(--brand-color-5-scale-100);
+}
+
+body > h1 {
+  font-size: 4rem;
+  margin-block-end: 0;
+  padding-inline: 1rem;
+}
+
+body > p {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-block-start: 0.5rem;
+  margin-block-end: 3rem;
+  padding-inline: 1rem;
+  text-wrap: pretty;
+}
+
+form {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  position: fixed;
+  color: var(--page-color);
+  background-color: var(--page-background);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  border-block-start: 2px solid;
+}
+
+#scale h1 {
+  margin-block: 0;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  padding: 1rem;
+  min-block-size: 12rem;
+  box-sizing: border-box;
+  place-content: end;
+  text-wrap: pretty;
+}
+
+#scale #brand-color-1-banner {
+  background-color: var(--brand-color-1);
+  color: var(--brand-color-1-text-color-dark);
+}
+
+#scale #brand-color-2-banner {
+  background-color: var(--brand-color-2);
+  color: var(--brand-color-2-text-color-dark);
+}
+
+#scale #brand-color-3-banner {
+  background-color: var(--brand-color-3);
+  color: var(--brand-color-3-text-color-dark);
+}
+
+#scale #brand-color-4-banner {
+  background-color: var(--brand-color-4);
+  color: var(--brand-color-4-text-color-dark);
+}
+
+#scale #brand-color-5-banner {
+  background-color: var(--brand-color-5-scale-200);
+  color: var(--brand-color-5-text-color-dark);
+}
+
+#scale {
+  padding-inline: 1rem;
+  padding-block-end: 10rem;
+  display: grid;
+  gap: 2rem;
+}
+
+#scale section:has(> section) {
+  border-radius: 2rem;
+  overflow: clip;
+}
+
+#scale section > section {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+#scale section > section div {
+  aspect-ratio: 1;
+  place-content: center;
+  text-align: center;
+}
+
+#scale #brand-color-1 div:nth-of-type(-n + 5) {
+  color: var(--brand-color-1-text-color-dark);
+}
+
+#scale #brand-color-1 div:nth-of-type(n + 6) {
+  color: var(--brand-color-1-text-color-light);
+}
+
+#scale #brand-color-1 div:nth-of-type(1) {
+  background-color: var(--brand-color-1-scale-100);
+}
+
+#scale #brand-color-1 div:nth-of-type(2) {
+  background-color: var(--brand-color-1-scale-200);
+}
+
+#scale #brand-color-1 div:nth-of-type(3) {
+  background-color: var(--brand-color-1-scale-300);
+}
+
+#scale #brand-color-1 div:nth-of-type(4) {
+  background-color: var(--brand-color-1-scale-400);
+}
+
+#scale #brand-color-1 div:nth-of-type(5) {
+  background-color: var(--brand-color-1-scale-500);
+}
+
+#scale #brand-color-1 div:nth-of-type(6) {
+  background-color: var(--brand-color-1-scale-600);
+}
+
+#scale #brand-color-1 div:nth-of-type(7) {
+  background-color: var(--brand-color-1-scale-700);
+}
+
+#scale #brand-color-1 div:nth-of-type(8) {
+  background-color: var(--brand-color-1-scale-800);
+}
+
+#scale #brand-color-1 div:nth-of-type(9) {
+  background-color: var(--brand-color-1-scale-900);
+}
+
+#scale #brand-color-2 div:nth-of-type(-n + 5) {
+  color: var(--brand-color-2-text-color-dark);
+}
+
+#scale #brand-color-2 div:nth-of-type(n + 6) {
+  color: var(--brand-color-2-text-color-light);
+}
+
+#scale #brand-color-2 div:nth-of-type(1) {
+  background-color: var(--brand-color-2-scale-100);
+}
+
+#scale #brand-color-2 div:nth-of-type(2) {
+  background-color: var(--brand-color-2-scale-200);
+}
+
+#scale #brand-color-2 div:nth-of-type(3) {
+  background-color: var(--brand-color-2-scale-300);
+}
+
+#scale #brand-color-2 div:nth-of-type(4) {
+  background-color: var(--brand-color-2-scale-400);
+}
+
+#scale #brand-color-2 div:nth-of-type(5) {
+  background-color: var(--brand-color-2-scale-500);
+}
+
+#scale #brand-color-2 div:nth-of-type(6) {
+  background-color: var(--brand-color-2-scale-600);
+}
+
+#scale #brand-color-2 div:nth-of-type(7) {
+  background-color: var(--brand-color-2-scale-700);
+}
+
+#scale #brand-color-2 div:nth-of-type(8) {
+  background-color: var(--brand-color-2-scale-800);
+}
+
+#scale #brand-color-2 div:nth-of-type(9) {
+  background-color: var(--brand-color-2-scale-900);
+}
+
+#scale #brand-color-3 div:nth-of-type(-n + 5) {
+  color: var(--brand-color-3-text-color-dark);
+}
+
+#scale #brand-color-3 div:nth-of-type(n + 6) {
+  color: var(--brand-color-3-text-color-light);
+}
+
+#scale #brand-color-3 div:nth-of-type(1) {
+  background-color: var(--brand-color-3-scale-100);
+}
+
+#scale #brand-color-3 div:nth-of-type(2) {
+  background-color: var(--brand-color-3-scale-200);
+}
+
+#scale #brand-color-3 div:nth-of-type(3) {
+  background-color: var(--brand-color-3-scale-300);
+}
+
+#scale #brand-color-3 div:nth-of-type(4) {
+  background-color: var(--brand-color-3-scale-400);
+}
+
+#scale #brand-color-3 div:nth-of-type(5) {
+  background-color: var(--brand-color-3-scale-500);
+}
+
+#scale #brand-color-3 div:nth-of-type(6) {
+  background-color: var(--brand-color-3-scale-600);
+}
+
+#scale #brand-color-3 div:nth-of-type(7) {
+  background-color: var(--brand-color-3-scale-700);
+}
+
+#scale #brand-color-3 div:nth-of-type(8) {
+  background-color: var(--brand-color-3-scale-800);
+}
+
+#scale #brand-color-3 div:nth-of-type(9) {
+  background-color: var(--brand-color-3-scale-900);
+}
+
+#scale #brand-color-4 div:nth-of-type(-n + 5) {
+  color: var(--brand-color-4-text-color-dark);
+}
+
+#scale #brand-color-4 div:nth-of-type(n + 6) {
+  color: var(--brand-color-4-text-color-light);
+}
+
+#scale #brand-color-4 div:nth-of-type(1) {
+  background-color: var(--brand-color-4-scale-100);
+}
+
+#scale #brand-color-4 div:nth-of-type(2) {
+  background-color: var(--brand-color-4-scale-200);
+}
+
+#scale #brand-color-4 div:nth-of-type(3) {
+  background-color: var(--brand-color-4-scale-300);
+}
+
+#scale #brand-color-4 div:nth-of-type(4) {
+  background-color: var(--brand-color-4-scale-400);
+}
+
+#scale #brand-color-4 div:nth-of-type(5) {
+  background-color: var(--brand-color-4-scale-500);
+}
+
+#scale #brand-color-4 div:nth-of-type(6) {
+  background-color: var(--brand-color-4-scale-600);
+}
+
+#scale #brand-color-4 div:nth-of-type(7) {
+  background-color: var(--brand-color-4-scale-700);
+}
+
+#scale #brand-color-4 div:nth-of-type(8) {
+  background-color: var(--brand-color-4-scale-800);
+}
+
+#scale #brand-color-4 div:nth-of-type(9) {
+  background-color: var(--brand-color-4-scale-900);
+}
+
+#scale #brand-color-5 div:nth-of-type(-n + 5) {
+  color: var(--brand-color-5-text-color-dark);
+}
+
+#scale #brand-color-5 div:nth-of-type(n + 6) {
+  color: var(--brand-color-5-text-color-light);
+}
+
+#scale #brand-color-5 div:nth-of-type(1) {
+  background-color: var(--brand-color-5-scale-100);
+}
+
+#scale #brand-color-5 div:nth-of-type(2) {
+  background-color: var(--brand-color-5-scale-200);
+}
+
+#scale #brand-color-5 div:nth-of-type(3) {
+  background-color: var(--brand-color-5-scale-300);
+}
+
+#scale #brand-color-5 div:nth-of-type(4) {
+  background-color: var(--brand-color-5-scale-400);
+}
+
+#scale #brand-color-5 div:nth-of-type(5) {
+  background-color: var(--brand-color-5-scale-500);
+}
+
+#scale #brand-color-5 div:nth-of-type(6) {
+  background-color: var(--brand-color-5-scale-600);
+}
+
+#scale #brand-color-5 div:nth-of-type(7) {
+  background-color: var(--brand-color-5-scale-700);
+}
+
+#scale #brand-color-5 div:nth-of-type(8) {
+  background-color: var(--brand-color-5-scale-800);
+}
+
+#scale #brand-color-5 div:nth-of-type(9) {
+  background-color: var(--brand-color-5-scale-900);
+}
