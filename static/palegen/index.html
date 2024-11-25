@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>Palegen / Chris Nager</title>
+  <title>Palegen / Projects / Chris Nager</title>
 
   <link rel="stylesheet" href="index.css">
 
@@ -16,96 +16,102 @@
 </head>
 
 <body>
-<h1>Palegen</h1>
-<p>Generate a brand palette <br>from a single color.</p>
+  <header>
+    <h1>Palegen</h1>
+    <p>Generate a brand palette <br>from a single color.</p>
+  </header>
 
-<form>
-  <div>
-    <label for="base-color">Choose base color:</label>
-    <input id="base-color" name="base-color" type="color" value="#9c6e00" oninput="document.documentElement.style.setProperty('--base', event.target.value)" />
-  </div>
+  <form>
+    <div>
+      <label for="base-color">Choose base color:</label>
+      <input id="base-color" name="base-color" type="color" value="#9c6e00" oninput="document.documentElement.style.setProperty('--base', event.target.value)" />
+    </div>
 
-  <div>
-    <input id="lights-on" name="lights-on" type="checkbox" checked oninput="document.body.toggleAttribute('data-lights-out')">
-    <label for="lights-on">Lights on</label>
-  </div>
-</form>
+    <div>
+      <input id="lights-on" name="lights-on" type="checkbox" checked oninput="document.body.toggleAttribute('data-lights-out')">
+      <label for="lights-on">Lights on</label>
+    </div>
+  </form>
 
-<section id="scale">
-  <section>
-    <h1 id="brand-color-1-banner">Base brand color</h1>
-    <section id="brand-color-1">
-      <div>100</div>
-      <div>200</div>
-      <div>300</div>
-      <div>400</div>
-      <div>500</div>
-      <div>600</div>
-      <div>700</div>
-      <div>800</div>
-      <div>900</div>
+  <main>
+    <section>
+      <h2 id="brand-color-1-banner">Base brand color</h2>
+      <div id="brand-color-1">
+        <div>100</div>
+        <div>200</div>
+        <div>300</div>
+        <div>400</div>
+        <div>500</div>
+        <div>600</div>
+        <div>700</div>
+        <div>800</div>
+        <div>900</div>
+      </div>
     </section>
-  </section>
 
-  <section>
-    <h1 id="brand-color-2-banner">Secondary brand color</h1>
-    <section id="brand-color-2">
-      <div>100</div>
-      <div>200</div>
-      <div>300</div>
-      <div>400</div>
-      <div>500</div>
-      <div>600</div>
-      <div>700</div>
-      <div>800</div>
-      <div>900</div>
+    <section>
+      <h2 id="brand-color-2-banner">Secondary brand color</h2>
+      <div id="brand-color-2">
+        <div>100</div>
+        <div>200</div>
+        <div>300</div>
+        <div>400</div>
+        <div>500</div>
+        <div>600</div>
+        <div>700</div>
+        <div>800</div>
+        <div>900</div>
+      </div>
     </section>
-  </section>
 
-  <section>
-    <h1 id="brand-color-3-banner">Gettin' the brand back together</h1>
-    <section id="brand-color-3">
-      <div>100</div>
-      <div>200</div>
-      <div>300</div>
-      <div>400</div>
-      <div>500</div>
-      <div>600</div>
-      <div>700</div>
-      <div>800</div>
-      <div>900</div>
+    <section>
+      <h2 id="brand-color-3-banner">Gettin' the brand back together</h2>
+      <div id="brand-color-3">
+        <div>100</div>
+        <div>200</div>
+        <div>300</div>
+        <div>400</div>
+        <div>500</div>
+        <div>600</div>
+        <div>700</div>
+        <div>800</div>
+        <div>900</div>
+      </div>
     </section>
-  </section>
 
-  <section>
-    <h1 id="brand-color-4-banner">One more for the brand</h1>
-    <section id="brand-color-4">
-      <div>100</div>
-      <div>200</div>
-      <div>300</div>
-      <div>400</div>
-      <div>500</div>
-      <div>600</div>
-      <div>700</div>
-      <div>800</div>
-      <div>900</div>
+    <section>
+      <h2 id="brand-color-4-banner">One more for the brand</h2>
+      <div id="brand-color-4">
+        <div>100</div>
+        <div>200</div>
+        <div>300</div>
+        <div>400</div>
+        <div>500</div>
+        <div>600</div>
+        <div>700</div>
+        <div>800</div>
+        <div>900</div>
+      </div>
     </section>
-  </section>
 
-  <section>
-    <h1 id="brand-color-5-banner">Neutrals</h1>
-    <section id="brand-color-5">
-      <div>100</div>
-      <div>200</div>
-      <div>300</div>
-      <div>400</div>
-      <div>500</div>
-      <div>600</div>
-      <div>700</div>
-      <div>800</div>
-      <div>900</div>
+    <section>
+      <h2 id="brand-color-5-banner">Neutrals</h2>
+      <div id="brand-color-5">
+        <div>100</div>
+        <div>200</div>
+        <div>300</div>
+        <div>400</div>
+        <div>500</div>
+        <div>600</div>
+        <div>700</div>
+        <div>800</div>
+        <div>900</div>
+      </div>
     </section>
-  </section>
-</section>
+  </main>
+
+  <footer>
+    <p>Palettes created with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Relative_colors">CSS relative colors</a>. See <a href="https://github.com/chrisnager/chrisnager-dot-com/tree/master/static/palegen">source</a>. Crafted by <a href="https://chrisnager.com">Chris Nager</a>.</p>
+  </footer>
 </body>
 </html>
