@@ -11,6 +11,10 @@
   link: '/blog/design-engineering'
 
 - category: Projects
+  title: 'Palegen: Palette generator'
+  link: '/palegen/'
+
+- category: Projects
   title: 'Affirmations: You are enough'
   link: '/affirmations'
 
