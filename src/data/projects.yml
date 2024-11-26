@@ -1,3 +1,8 @@
+- url: /palegen/
+  name: Palegen
+  summary: Generate a brand palette from a single color.
+  tags: [Color, CSS]
+
 - url: https://chat.openai.com/g/g-4P6Atbe0O-elevator-pitch
   name: Elevator Pitch
   summary: GPT that summarizes companies in a single sentence
@@ -94,10 +99,10 @@
   summary: the simplest responsive css grid
   tags: [Tooling, CSS]
 
-- url: https://zephyr.air.inc/
+- url: /projects/zephyr
   name: Zephyr
   summary: Design system and component library for Air
-  tags: [Design, Gatsby, docz, React, MDX, styled-system, Project management]
+  tags: [Case study, Design, Gatsby, docz, React, MDX, styled-system, Project management]
 
 - url: https://chrisnager.github.io/hexcodes
   name: hexcodes
@@ -132,7 +137,7 @@
 - url: https://chrisnager.github.io/simple-paper-spinner
   name: Simple <paper-spinner>
   summary: How to rebuild Google's Material Design <paper-spinner> with a single div and CSS animations
-  tags: [Tooling, Case study, HTML, CSS]
+  tags: [Case study, Tooling, HTML, CSS]
 
 - url: https://zephyr.air.inc/icon-theming
   name: Icon theming
