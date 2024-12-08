@@ -12,3 +12,4 @@
 backup
 node_modules
 public
+temporary*
