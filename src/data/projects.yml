@@ -99,7 +99,7 @@
   summary: the simplest responsive css grid
   tags: [Tooling, CSS]
 
-- url: /projects/zephyr
+- url: /zephyr
   name: Zephyr
   summary: Design system and component library for Air
   tags: [Case study, Design, Gatsby, docz, React, MDX, styled-system, Project management]
