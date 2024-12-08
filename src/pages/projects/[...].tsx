@@ -19,7 +19,7 @@ export interface FilteredProjectsProps {
 const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
   const slug = location.pathname.split('/').slice(-2)[0]
 
-  if (typeof window !== "undefined" && window && (!slug || !Object.keys(slugTagPairs).includes(slug))) {
+  if (typeof window !== 'undefined' && window && (!slug || !Object.keys(slugTagPairs).includes(slug))) {
     navigate(`/projects`)
     return null
   }
@@ -29,8 +29,11 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
   return (
     <Layout>
       <Box sx={{ maxWidth: `50ch`, marginBlockEnd: 5, paddingInline: 3 }}>
-        <Intro description={`${tag} projects`} title={tag} />
-        <ProjectsList projects={data.allProjectsYaml.edges.filter(project => project.node.tags.includes(tag))} />
+        <Intro
+          description={tag === `Case study` ? `Extensive project case studies` : `${tag} projects`}
+          title={tag === `Case study` ? `Case studies` : tag}
+        />
+        <ProjectsList projects={data.allProjectsYaml.edges.filter((project) => project.node.tags.includes(tag))} />
       </Box>
     </Layout>
   )
@@ -38,7 +41,7 @@ const FilteredProjects: FC<FilteredProjectsProps> = ({ data, location }) => {
 
 export default FilteredProjects
 
-export const Head = () => { 
+export const Head = () => {
   const location = useLocation()
 
   const slug = location.pathname.split('/').slice(-2)[0]
@@ -47,9 +50,13 @@ export const Head = () => {
 
   const tag = slugTagPairs[slug]
 
-  return <Halo title={`${tag} / Projects`} url={`https://chrisnager.com/projects/${slug}`} />
+  return (
+    <Halo
+      title={tag === `Case study` ? `Case studies / Projects` : `${tag} / Projects`}
+      url={`https://chrisnager.com/projects/${slug}`}
+    />
+  )
 }
-
 
 export const pageQuery = graphql`
   query TagProjectsQuery {
