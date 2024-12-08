@@ -354,10 +354,6 @@ const SystemUI: FC = () => {
           </p>
         </div>
 
-        <div sx={{ width: `25%`, aspectRatio: `9 / 16`, bg: `action`, color: `white` }}>
-          <h1>Interface 01</h1>
-        </div>
-
         <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Usage</h2>
 
         <h3 sx={{ mt: `2rem`, mb: 0 }}>
@@ -449,4 +445,3 @@ font-family: system-ui, `}
 export default SystemUI
 
 export const Head = () => <Halo title="System UI" url="https://chrisnager.com/system-ui" />
-
