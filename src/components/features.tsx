@@ -76,7 +76,7 @@ const Features: FC<FeaturesProps> = ({ data }) => {
                 }}
               >
                 <span sx={{
-                  display: `inline-block`
+                  display: `inline-block`,
                   width: `8px`,
                 }}>
                   &nbsp;
