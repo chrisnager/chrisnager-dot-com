@@ -41,17 +41,24 @@ const Features: FC<FeaturesProps> = ({ data }) => {
                 // @ts-ignore
                 to={categories[node.category]}
                 sx={{
-                  borderWidth: 1,
-                  borderStyle: `solid`,
+                  bg: `tag`,
                   borderColor: `transparent`,
-                  px: 2,
+                  borderStyle: `solid`,
+                  borderWidth: 1,
+                  color: `text`,
                   display: `inline-block`,
                   fontStyle: `italic`,
-                  color: `text`,
-                  bg: `tag`,
+                  paddingInlineStart: 2,
                 }}
               >
                 {node.category}
+                <span sx={{
+                  color: `transparent`,
+                  display: `inline-block`
+                  width: `8px`,
+                }}>
+                  :
+                </span>
               </Text>
               <Text
                 as={isInternalPost ? Link : `a`}
@@ -61,13 +68,19 @@ const Features: FC<FeaturesProps> = ({ data }) => {
                 target={isInternalPost ? undefined : '_blank'}
                 rel={isInternalPost ? undefined : 'noopener noreferrer'}
                 sx={{
-                  px: 2,
-                  display: `inline-block`,
-                  borderWidth: 1,
-                  borderStyle: `solid`,
                   borderColor: `transparent`,
+                  borderStyle: `solid`,
+                  borderWidth: 1,
+                  display: `inline-block`,
+                  paddingInlineEnd: 2,
                 }}
               >
+                <span sx={{
+                  display: `inline-block`
+                  width: `8px`,
+                }}>
+                  &nbsp;
+                </span>
                 {node.title}
               </Text>
             </Box>
