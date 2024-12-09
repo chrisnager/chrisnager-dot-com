@@ -58,5 +58,11 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --ignore-pattern public .",
     "typecheck": "tsc --noEmit"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.5.3",
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
 }

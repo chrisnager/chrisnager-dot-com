@@ -52,11 +52,13 @@ const Features: FC<FeaturesProps> = ({ data }) => {
                 }}
               >
                 {node.category}
-                <span sx={{
-                  color: `transparent`,
-                  display: `inline-block`,
-                  width: `8px`,
-                }}>
+                <span
+                  sx={{
+                    color: `transparent`,
+                    display: `inline-block`,
+                    width: `8px`,
+                  }}
+                >
                   :
                 </span>
               </Text>
@@ -75,10 +77,12 @@ const Features: FC<FeaturesProps> = ({ data }) => {
                   paddingInlineEnd: 2,
                 }}
               >
-                <span sx={{
-                  display: `inline-block`,
-                  width: `8px`,
-                }}>
+                <span
+                  sx={{
+                    display: `inline-block`,
+                    width: `8px`,
+                  }}
+                >
                   &nbsp;
                 </span>
                 {node.title}
