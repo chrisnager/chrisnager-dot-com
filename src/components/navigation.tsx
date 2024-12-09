@@ -18,13 +18,13 @@ const Navigation: FC = () => {
   const { colorMode, setColorMode, theme } = useThemeUI()
 
   useEffect(() => {
-    let metaThemeColor = document.querySelector('meta[name=theme-color]');
+    let metaThemeColor = document.querySelector('meta[name=theme-color]')
 
     if (!metaThemeColor) {
-      metaThemeColor = document.createElement('meta');
-      metaThemeColor.setAttribute('name', 'theme-color');
-      metaThemeColor.setAttribute("content", theme.rawColors.background);
-      document.getElementsByTagName('head')[0].appendChild(metaThemeColor);
+      metaThemeColor = document.createElement('meta')
+      metaThemeColor.setAttribute('name', 'theme-color')
+      metaThemeColor.setAttribute('content', theme.rawColors.background)
+      document.getElementsByTagName('head')[0].appendChild(metaThemeColor)
     }
   }, [])
 
@@ -38,7 +38,7 @@ const Navigation: FC = () => {
     // Bug workaround: github.com/gatsbyjs/gatsby/issues/38249
     document.documentElement.classList.value = `theme-ui-${mode}`
 
-    document.querySelector('meta[name=theme-color]').setAttribute("content", theme.rawColors.modes[mode].background);
+    document.querySelector('meta[name=theme-color]').setAttribute('content', theme.rawColors.modes[mode].background)
   }
 
   return (

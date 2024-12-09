@@ -78,4 +78,3 @@ const ArticlesList: FC<ArticlesListProps> = ({ articles }) => {
 }
 
 export default ArticlesList
-

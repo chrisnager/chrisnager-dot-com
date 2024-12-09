@@ -152,4 +152,3 @@ export const Head = () => (
     description="Ever wanted your CSS ::selection background color to match your page background color?"
   />
 )
-

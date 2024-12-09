@@ -46,15 +46,15 @@ export default {
         tile: tileDark,
       },
 
-//    minted: {
-//      text: `#000`,
-//      background: `#0eb`,
-//      action: `rebeccapurple`,
-//      selection: `#7d8585`,
-//      tag: tagDark,
-//      divider: dividerDark,
-//      tile: tileDark,
-//    },
+      //    minted: {
+      //      text: `#000`,
+      //      background: `#0eb`,
+      //      action: `rebeccapurple`,
+      //      selection: `#7d8585`,
+      //      tag: tagDark,
+      //      divider: dividerDark,
+      //      tile: tileDark,
+      //    },
 
       key: {
         text: `#fff`,
@@ -65,7 +65,7 @@ export default {
         divider: dividerLight,
         tile: tileLight,
       },
- 
+
       sunny: {
         text: `#000077`,
         background: `#ffe764`,
@@ -75,7 +75,7 @@ export default {
         divider: dividerDark,
         tile: tileDark,
       },
- 
+
       swiss: {
         text: `#dee0d5`,
         background: `#ed2c28`,

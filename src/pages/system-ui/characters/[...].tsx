@@ -30,4 +30,3 @@ export const Head = () => {
 
   return <Halo title={`${character} / System UI`} url={`https://chrisnager.com/system-ui/characters/${character}`} />
 }
-

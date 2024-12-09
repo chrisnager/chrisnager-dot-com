@@ -26,7 +26,7 @@ const Home: FC<HomeProps> = ({ data }) => {
 
 export default Home
 
-export const Head = () => <Halo/>
+export const Head = () => <Halo />
 
 export const pageQuery = graphql`
   query HomeQuery {

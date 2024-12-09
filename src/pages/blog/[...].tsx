@@ -19,7 +19,7 @@ export interface FilteredArticlesProps {
 const FilteredArticles: FC<FilteredArticlesProps> = ({ data, location }) => {
   const slug = location.pathname.split('/').slice(-2)[0]
 
-  if (typeof window !== "undefined" && window && (!slug || !Object.keys(slugTagPairs).includes(slug))) {
+  if (typeof window !== 'undefined' && window && (!slug || !Object.keys(slugTagPairs).includes(slug))) {
     navigate(`/blog`)
     return null
   }
@@ -30,7 +30,7 @@ const FilteredArticles: FC<FilteredArticlesProps> = ({ data, location }) => {
     <Layout>
       <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
         <Intro description={`${tag} articles`} title={tag} />
-        <ArticlesList articles={data.allPostsYaml.edges.filter(article => article.node.tags.includes(tag))} />
+        <ArticlesList articles={data.allPostsYaml.edges.filter((article) => article.node.tags.includes(tag))} />
       </Box>
     </Layout>
   )
@@ -38,7 +38,7 @@ const FilteredArticles: FC<FilteredArticlesProps> = ({ data, location }) => {
 
 export default FilteredArticles
 
-export const Head = () => { 
+export const Head = () => {
   const location = useLocation()
 
   const slug = location.pathname.split('/').slice(-2)[0]
@@ -65,4 +65,3 @@ export const pageQuery = graphql`
     }
   }
 `
-

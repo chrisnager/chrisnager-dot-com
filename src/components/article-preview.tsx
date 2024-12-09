@@ -30,7 +30,7 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, date, title, 
         target={isInternalPost ? undefined : '_blank'}
         rel={isInternalPost ? undefined : 'noopener noreferrer'}
         sx={{ display: `block`, ':hover': { textDecoration: `none` } }}
-    >
+      >
         <Text as="p" sx={{ fontSize: `0.8em`, color: `text`, 'a:hover > &': { color: `text` } }}>
           {formattedDate}
         </Text>
@@ -40,7 +40,9 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, date, title, 
         </Text>
       </Box>
 
-      <Box sx={{ marginBlockStart: `2-px`, marginInline: -2 }}>{!!tags.length && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Box>
+      <Box sx={{ marginBlockStart: `2-px`, marginInline: -2 }}>
+        {!!tags.length && tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+      </Box>
     </Box>
   )
 }

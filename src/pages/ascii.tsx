@@ -40,8 +40,8 @@ export default function AsciiIndex() {
     }
 
     const notificationsSource = new EventSource(`/.netlify/functions/ascii?topic=${topic}&rows=${rows}`)
-    
-    notificationsSource.onmessage = function(event) {
+
+    notificationsSource.onmessage = function (event) {
       if (event.data === `[DONE]`) {
         notificationsSource.close()
         setIsProcessing(false)
@@ -52,7 +52,7 @@ export default function AsciiIndex() {
           const { content } = notification.choices[0].delta
 
           setResponse((previousResponse) => {
-            if ((previousResponse !== `Processing…`)) {
+            if (previousResponse !== `Processing…`) {
               return `${previousResponse ?? ``}${content ?? ``}`
             }
           })
@@ -62,8 +62,8 @@ export default function AsciiIndex() {
         }
       }
     }
-    
-    notificationsSource.onerror = function(error) {
+
+    notificationsSource.onerror = function (error) {
       console.error(`Error with notifications EventSource:`, error)
       notificationsSource.close()
       setIsProcessing(false)
@@ -176,7 +176,7 @@ export default function AsciiIndex() {
               marginInlineStart: `-1px`,
               paddingBlock: 0,
               paddingInline: `1rem`,
-	      textDecoration: isProcessing ? `line-through`: undefined,
+              textDecoration: isProcessing ? `line-through` : undefined,
             }}
             type="submit"
           >
@@ -233,4 +233,3 @@ export default function AsciiIndex() {
 }
 
 export const Head = () => <Halo title="ASCII / Projects" url="https://chrisnager.com/ascii" />
-

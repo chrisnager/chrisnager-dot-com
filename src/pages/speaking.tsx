@@ -44,21 +44,29 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
                       {formattedDate}
                     </Text>
 
-                    <Text as="h2" sx={{ marginBlockStart: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}>
+                    <Text
+                      as="h2"
+                      sx={{ marginBlockStart: 1, fontSize: `1.2em`, 'a:hover > &': { textDecoration: `underline` } }}
+                    >
                       {node.name}
                     </Text>
 
                     <Text
                       as="p"
-                      sx={{ marginBlockStart: 1, fontFamily: `Georgia, serif`, color: `text`, 'a:hover > &': { color: `text` } }}
+                      sx={{
+                        marginBlockStart: 1,
+                        fontFamily: `Georgia, serif`,
+                        color: `text`,
+                        'a:hover > &': { color: `text` },
+                      }}
                     >
                       {node.summary}
                     </Text>
                   </Box>
                 </Box>
               )
-            }
-	  )}
+            },
+          )}
         </Box>
       </Box>
     </Layout>

@@ -7,7 +7,13 @@ import { aiImagePrompts } from '../../constants'
 
 export default Layout
 
-export const Head = () => (<Halo title="AI image prompts / Blog" url="https://chrisnager.com/blog/ai-image-prompts" description="This is my collection of helpful prompts for AI-generated image tools like Midjourney, DALL-E, and Adobe Firefly." />)
+export const Head = () => (
+  <Halo
+    description="This is my collection of helpful prompts for AI-generated image tools like Midjourney, DALL-E, and Adobe Firefly."
+    title="AI image prompts / Blog"
+    url="https://chrisnager.com/blog/ai-image-prompts"
+  />
+)
 
 <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
 # AI image prompts
@@ -44,4 +50,3 @@ As an accessibility advocate, I like how image prompts serve as accessible `alt`
   })}
 </Box>
 </Box>
-

@@ -68,4 +68,3 @@ export const Head = () => (
     description="I am proud to announce the new ChrisNager.com. This version is built with Gatsby and hosted on Netlify."
   />
 )
-
