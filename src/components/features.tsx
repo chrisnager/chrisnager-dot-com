@@ -54,7 +54,7 @@ const Features: FC<FeaturesProps> = ({ data }) => {
                 {node.category}
                 <span sx={{
                   color: `transparent`,
-                  display: `inline-block`
+                  display: `inline-block`,
                   width: `8px`,
                 }}>
                   :
