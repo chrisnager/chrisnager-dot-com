@@ -1,5 +1,7 @@
-import React from 'react'
+/** @jsx jsx */
+
 import { Link as GatsbyLink } from 'gatsby'
+import { jsx } from 'theme-ui'
 
 export default function Link({ children, href }) {
   if (href.startsWith('/')) {
