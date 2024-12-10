@@ -1,7 +1,4 @@
 {
-  "name": "chrisnager",
-  "description": "Chris Nager - Developer and designer in Brooklyn, NY, passionate about performance, accessibility, and design systems",
-  "version": "1.0.0",
   "author": "Chris Nager <cnager@gmail.com>",
   "bugs": {
     "url": "https://github.com/chrisnager/chrisnager-dot-com/issues"
@@ -36,6 +33,7 @@
     "theme-ui": "^0.16.2",
     "typescript": "^5.7.2"
   },
+  "description": "Chris Nager - Developer and designer in Brooklyn, NY, passionate about performance, accessibility, and design systems",
   "homepage": "https://chrisnager.com",
   "keywords": [
     "blog",
@@ -45,6 +43,14 @@
     "static"
   ],
   "license": "MIT",
+  "name": "chrisnager",
+  "packageManager": "yarn@4.5.3",
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chrisnager/chrisnager-dot-com.git"
@@ -58,11 +64,5 @@
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --ignore-pattern public .",
     "typecheck": "tsc --noEmit"
   },
-  "packageManager": "yarn@4.5.3",
-  "prettier": {
-    "printWidth": 120,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all"
-  }
+  "version": "1.0.0"
 }
