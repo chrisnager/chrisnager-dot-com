@@ -1,27 +1,27 @@
 {
   "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.importStringConfiguration.hasSemicolon": false,
   "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 120,
   "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
   "importSorter.importStringConfiguration.tabSize": 2,
   "importSorter.importStringConfiguration.trailingComma": "multiLine",
-  "importSorter.importStringConfiguration.hasSemicolon": false,
   "importSorter.sortConfiguration.customOrderingRules.rules": [
     {
-      "name": "No side effects",
-      "type": "importMember",
       "disableSort": true,
+      "name": "No side effects",
+      "orderLevel": 1,
       "regex": "^$",
-      "orderLevel": 1
+      "type": "importMember"
     },
     {
       "name": "Third party",
-      "regex": "^[A-Za-z@].*",
-      "orderLevel": 2
+      "orderLevel": 2,
+      "regex": "^[A-Za-z@].*"
     },
     {
       "name": "Relative",
-      "regex": "^\\.",
-      "orderLevel": 5
+      "orderLevel": 5,
+      "regex": "^\\."
     }
   ]
 }
