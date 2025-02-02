@@ -69,7 +69,7 @@ const SystemUI: FC = () => {
     <Layout>
       <Global styles={{ body: { fontFamily } }} />
 
-      <Box sx={{ maxWidth: `1000px`, mx: `auto`, px: `1rem`, mb: 5, px: 3 }}>
+      <Box sx={{ maxInlineSize: `1000px`, marginInline: `auto`, marginBlockEnd: 5, paddingInline: 3 }}>
         {/* Responsive heading technique: https://codepen.io/chrisnager/details/abJVJQ */}
         <svg sx={{ bg: `red`, maxHeight: `  rem` }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28">
           <text sx={{ width: `100%`, fill: `white`, fontWeight: 600 }} x="0" y="70%">
@@ -93,7 +93,7 @@ const SystemUI: FC = () => {
           })}
         </select>
 
-        <h1 sx={{ my: 0, fontSize: `6rem`, fontWeight: 600, textBoxTrim: `both` }}>{fontFamilies[fontFamily]}</h1>
+        <h1 sx={{ marginBlock: 0, fontSize: `6rem`, fontWeight: 600, textBoxTrim: `both` }}>{fontFamilies[fontFamily]}</h1>
 
         <p>
           Using the <code sx={{ fontSize: `1.125rem`, fontWeight: `700` }}>system-ui</code> font-family results in{' '}
@@ -147,15 +147,15 @@ const SystemUI: FC = () => {
           on Android.
         </p>
 
-        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Weights</h2>
+        <h2 sx={{ marginBlockStart: `1rem`, marginBlockEnd: 0, paddingBlockStart: `1rem`, borderBlockStart: `4px solid` }}>Weights</h2>
 
         <ul
           sx={(theme) => {
             return {
               listStyleType: `none`,
-              pl: 0,
-              mt: `1rem`,
-              mb: 0,
+              paddingInlineStart: 0,
+              marginBlockStart: `1rem`,
+              marginBlockEnd: 0,
               display: `grid`,
               gridTemplateColumns: `repeat(5, 1fr)`,
               gap: `0.125rem`,
@@ -167,8 +167,8 @@ const SystemUI: FC = () => {
                 content: `""`,
                 position: `absolute`,
                 bg: `blue`,
-                width: `calc(100% / 5 + 0.125rem / 5)`,
-                height: `calc(100% / 2 + 0.125rem / 2)`,
+                inlineSize: `calc(100% / 5 + 0.125rem / 5)`,
+                blockSize: `calc(100% / 2 + 0.125rem / 2)`,
                 backgroundImage: `repeating-linear-gradient(
                   315deg,
                   ${theme.colors.background} 0%,
@@ -214,8 +214,8 @@ const SystemUI: FC = () => {
           <li />
         </ul>
 
-        <div sx={{ mt: `2rem` }}>
-          <h3 sx={{ mt: `2rem`, mb: 0 }}>Drag to scrub through weights.</h3>
+        <div sx={{ marginBlockStart: `2rem` }}>
+          <h3 sx={{ marginBlockStart: `2rem`, marginBlockEnd: 0 }}>Drag to scrub through weights.</h3>
           <input
             type="range"
             name="weight"
@@ -233,15 +233,15 @@ const SystemUI: FC = () => {
           </div>
         </div>
 
-        <ul sx={{ listStyleType: `none`, pl: 0, my: 0 }}>
+        <ul sx={{ listStyleType: `none`, paddingInlineStart: 0, marginBlock: 0 }}>
           {Object.values(weights).map((weightName, index) => (
             <Fragment>
-              <li key={weightName} sx={{ mt: `3rem` }}>
+              <li key={weightName} sx={{ marginBlockStart: `3rem` }}>
                 <div sx={{ fontWeight: `500` }}>{weightName}</div>
                 <div sx={{ fontSize: `1.4725rem`, fontWeight: `${(index + 1) * 100}` }}>{pangram}</div>
               </li>
 
-              <li key={index} sx={{ mt: `1rem` }}>
+              <li key={index} sx={{ marginBlockStart: `1rem` }}>
                 <div sx={{ fontWeight: `500` }}>{weightName} Italic</div>
                 <div sx={{ fontSize: `1.4725rem`, fontStyle: `italic`, fontWeight: `${(index + 1) * 100}` }}>
                   {pangram}
@@ -251,17 +251,17 @@ const SystemUI: FC = () => {
           ))}
         </ul>
 
-        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Glyphs</h2>
+        <h2 sx={{ marginBlockStart: `1rem`, marginBlockEnd: 0, paddingBlockStart: `1rem`, borderBlockStart: `4px solid` }}>Glyphs</h2>
 
         <ul
           sx={{
             display: `grid`,
             gridTemplateColumns: `repeat(12, 1fr)`,
             listStyleType: `none`,
-            pl: 0,
-            mt: `2rem`,
-            mb: 0,
-            mx: `-1.625rem`,
+            paddingInlineStart: 0,
+            marginBlockStart: `2rem`,
+            marginBlockEnd: 0,
+            marginInline: `-1.625rem`,
             gap: `0.125rem`,
           }}
         >
@@ -294,7 +294,7 @@ const SystemUI: FC = () => {
           })}
         </ul>
 
-        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Samples</h2>
+        <h2 sx={{ marginBlockStart: `1rem`, marginBlockEnd: 0, paddingBlockStart: `1rem`, borderBlockStart: `4px solid` }}>Samples</h2>
 
         <div
           sx={{
@@ -304,7 +304,7 @@ const SystemUI: FC = () => {
         >
           <p
             sx={{
-              my: 0,
+              marginBlock: 0,
               fontStyle: `italic`,
               fontSize: `12rem`,
               fontWeight: `900`,
@@ -333,7 +333,7 @@ const SystemUI: FC = () => {
         >
           <p
             sx={{
-              my: 0,
+              marginBlock: 0,
               fontStyle: `italic`,
               fontSize: `12rem`,
               fontWeight: `900`,
@@ -354,9 +354,9 @@ const SystemUI: FC = () => {
           </p>
         </div>
 
-        <h2 sx={{ mt: `1rem`, mb: 0, pt: `1rem`, borderTop: `4px solid` }}>Usage</h2>
+        <h2 sx={{ marginBlockStart: `1rem`, marginBlockEnd: 0, paddingBlockStart: `1rem`, borderBlockStart: `4px solid` }}>Usage</h2>
 
-        <h3 sx={{ mt: `2rem`, mb: 0 }}>
+        <h3 sx={{ marginBlockStart: `2rem`, marginBlockEnd: 0 }}>
           Set `system-ui` as your base font family, with `sans-serif` as a simple fallback.
         </h3>
         <pre
@@ -365,8 +365,8 @@ const SystemUI: FC = () => {
             p: `2rem`,
             overflowX: `auto`,
             lineHeight: `1.5`,
-            mt: `1rem`,
-            mb: 0,
+            marginBlockStart: `1rem`,
+            marginBlockEnd: 0,
           }}
         >
           <code sx={{ fontSize: `1.125rem`, fontWeight: `700` }}>
@@ -389,7 +389,7 @@ const SystemUI: FC = () => {
           </code>
         </pre>
 
-        <h3 sx={{ mt: `2rem`, mb: 0 }}>
+        <h3 sx={{ marginBlockStart: `2rem`, marginBlockEnd: 0 }}>
           To ensure system UI fonts are applied for all platforms, include a{' '}
           <a
             href="https://css-tricks.com/snippets/css/system-font-stack/"
@@ -414,8 +414,8 @@ const SystemUI: FC = () => {
             p: `2rem`,
             overflowX: `auto`,
             lineHeight: `1.5`,
-            mt: `1rem`,
-            mb: 0,
+            marginBlockStart: `1rem`,
+            marginBlockEnd: 0,
             fontSize: `1.125rem`,
             fontWeight: `700`,
           }}

@@ -116,7 +116,7 @@ const Affirmations: FC = () => {
             [`display`]: `grid`,
             [`font-family`]: `ui-system, sans-serif`,
             [`grid-template-rows`]: `auto 1fr auto`,
-            [`height`]: `100dvh`,
+            [`block-size`]: `100dvh`,
             [`margin`]: `0`,
             [`padding-inline`]: `1rem`,
             [`padding-block-end`]: `2rem`,
@@ -128,7 +128,7 @@ const Affirmations: FC = () => {
           },
 
           [`main`]: {
-            [`max-width`]: `42rem`,
+            [`max-inline-size`]: `42rem`,
             [`margin-inline`]: `auto`,
           },
 
@@ -136,7 +136,7 @@ const Affirmations: FC = () => {
             [`aspect-ratio`]: `1`,
             [`display`]: `block`,
             [`margin-inline`]: `auto`,
-            [`width`]: `14rem`,
+            [`inline-size`]: `14rem`,
             [`user-select`]: `none`,
           },
 

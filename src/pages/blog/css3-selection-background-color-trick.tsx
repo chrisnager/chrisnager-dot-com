@@ -10,7 +10,7 @@ import Layout from '../../components/layout'
 const BlogPostCss3SelectionBackgroundColorTrick: FC = () => {
   return (
     <Layout>
-      <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
+      <Box as="article" sx={{ maxInlineSize: `55ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro
           date="September 9, 2011"
           title="CSS3 ::selection background color trick"
@@ -27,7 +27,7 @@ const BlogPostCss3SelectionBackgroundColorTrick: FC = () => {
           <code>::selection</code> alpha channel set to 1.
         </p>
 
-        <h2 id="see-my-code-here" sx={{ fontSize: `1.2em`, mt: [4, 5] }}>
+        <h2 id="see-my-code-here" sx={{ fontSize: `1.2em`, marginBlockStart: [4, 5] }}>
           See my code here:
         </h2>
 
@@ -53,7 +53,7 @@ const BlogPostCss3SelectionBackgroundColorTrick: FC = () => {
           </code>
         </pre>
 
-        <h2 id="try-it-out-highlight-the-following-text" sx={{ fontSize: `1.2em`, mt: [4, 5] }}>
+        <h2 id="try-it-out-highlight-the-following-text" sx={{ fontSize: `1.2em`, marginBlockStart: [4, 5] }}>
           Try it out. Highlight the following text:
         </h2>
 

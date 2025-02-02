@@ -94,7 +94,7 @@ const Footer: FC = () => {
         )}
       </Box>
 
-      <Box as="p" sx={{ mt: 4, mx: 3 }}>
+      <Box as="p" sx={{ marginBlockStart: 4, marginInline: 3 }}>
         <Text as="small">
           Gatsby-built, Netlify-hosted,{' '}
           <span sx={{ display: [`block`, `inline`] }}>

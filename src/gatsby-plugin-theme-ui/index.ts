@@ -117,7 +117,7 @@ export default {
     img: {
       borderRadius: `0.5rem`,
       display: `block`,
-      maxWidth: `100%`,
+      maxInlineSize: `100%`,
     },
   },
 }

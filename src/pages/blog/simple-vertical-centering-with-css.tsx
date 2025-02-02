@@ -7,12 +7,12 @@ import Halo from '../../components/halo'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
-export interface BlogPostSimpleVerticalCenteringWithCssProps {}
+export interface BlogPostSimpleVerticalCenteringWithCssProps { }
 
 const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCenteringWithCssProps> = () => {
   return (
     <Layout>
-      <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
+      <Box as="article" sx={{ maxInlineSize: `55ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro
           date="January 10th, 2014"
           title="Simple vertical centering with CSS"
@@ -27,13 +27,14 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
           data-user="chrisnager"
           data-slug-hash="xFaJl"
           style={{
-            height: 338,
+            blockSize: 338,
             boxSizing: `border-box`,
             display: `flex`,
             alignItems: `center`,
             justifyContent: `center`,
             border: `2px solid`,
-            margin: `1em 0`,
+            marginBlock: `1em`,
+            marginInline: 0,
             padding: `1em`,
           }}
           data-pen-title="Simple vertical centering with CSS"
@@ -59,7 +60,7 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
           <img
             alt="Logo for ChrisNager.com"
             src="/images/blog/logo.png"
-            sx={{ maxWidth: `100%`, width: 80, marginBottom: 0, display: `inline-block`, verticalAlign: `middle` }}
+            sx={{ maxInlineSize: `100%`, inlineSize: 80, marginBlockEnd: 0, display: `inline-block`, verticalAlign: `middle` }}
           />
           {` `}
           This is my logo
@@ -100,7 +101,7 @@ const BlogPostSimpleVerticalCenteringWithCss: FC<BlogPostSimpleVerticalCentering
 
         <p>Simple, semantic, and IE8+ compatible.</p>
 
-        <hr sx={{ my: 5, border: 0, height: 1, bg: `divider` }} />
+        <hr sx={{ marginBlock: 5, border: 0, blockSize: 1, bg: `divider` }} />
 
         <p>
           After figuring all this out, I later found that I was not the first to think of this, but in fact similar

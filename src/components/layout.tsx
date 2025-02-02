@@ -12,7 +12,7 @@ import Navigation from './navigation'
 const Layout: FC<{ children: ReactElement | ReactElement[] }> = ({ children }) => {
   return (
     <MDXProvider components={{ a: Link }}>
-      <Box sx={{ maxWidth: `75ch`, mx: `auto` }}>
+      <Box sx={{ maxInlineSize: `75ch`, marginInline: `auto` }} >
         <Global
           styles={(theme: {
             colors: { action: string; selection: string }
@@ -41,7 +41,7 @@ const Layout: FC<{ children: ReactElement | ReactElement[] }> = ({ children }) =
             }
 
             img {
-              width: 100%;
+              inline-size: 100%;
               display: block;
             }
 

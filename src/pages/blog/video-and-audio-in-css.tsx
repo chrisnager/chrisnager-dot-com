@@ -10,7 +10,7 @@ import Layout from '../../components/layout'
 const BlogPostVideoAndAudioInCss: FC = () => {
   return (
     <Layout>
-      <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
+      <Box as="article" sx={{ maxInlineSize: `55ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro
           date="December 4th, 2012"
           title="Video and audio in CSS"
