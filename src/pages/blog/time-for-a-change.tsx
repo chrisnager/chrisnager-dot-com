@@ -7,12 +7,12 @@ import Halo from '../../components/halo'
 import Intro from '../../components/intro'
 import Layout from '../../components/layout'
 
-export interface BlogPostTimeForAChangeProps {}
+export interface BlogPostTimeForAChangeProps { }
 
 const BlogPostTimeForAChange: FC<BlogPostTimeForAChangeProps> = () => {
   return (
     <Layout>
-      <Box as="article" sx={{ maxWidth: `55ch`, mb: 5, px: 3 }}>
+      <Box as="article" sx={{ maxInlineSize: `55ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro
           date="April 23rd, 2020"
           title="Time for a change"
