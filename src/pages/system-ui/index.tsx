@@ -72,7 +72,7 @@ const SystemUI: FC = () => {
       <Box sx={{ maxInlineSize: `1000px`, marginInline: `auto`, marginBlockEnd: 5, paddingInline: 3 }}>
         {/* Responsive heading technique: https://codepen.io/chrisnager/details/abJVJQ */}
         <svg sx={{ bg: `red`, maxHeight: `  rem` }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 28">
-          <text sx={{ width: `100%`, fill: `white`, fontWeight: 600 }} x="0" y="70%">
+          <text sx={{ inlineSize: `100%`, fill: `white`, fontWeight: 600 }} x="0" y="70%">
             {fontFamilies[fontFamily]}
           </text>
         </svg>

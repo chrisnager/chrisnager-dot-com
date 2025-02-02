@@ -206,8 +206,8 @@ const Affirmations: FC = () => {
         >
           <Link
             sx={{
-              width: `3rem`,
-              height: `3rem`,
+              inlineSize: `3rem`,
+              blockSize: `3rem`,
               display: `flex`,
               alignItems: `center`,
               justifyContent: `center`,
@@ -220,8 +220,8 @@ const Affirmations: FC = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 200 200"
               sx={{
-                width: '2.5rem',
-                height: '2.5rem',
+                inlineSize: '2.5rem',
+                blockSize: '2.5rem',
                 display: `block`,
               }}
             >

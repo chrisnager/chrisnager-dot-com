@@ -43,7 +43,7 @@ const Navigation: FC = () => {
 
   return (
     <header>
-      <Flex as="nav" role="navigation" sx={{ height: `7rem`, mb: [4, 5], px: 2 }}>
+      <Flex as="nav" role="navigation" sx={{ blockSize: `7rem`, mb: [4, 5], px: 2 }}>
         <Flex
           sx={{
             justifyContent: `center`,
@@ -52,8 +52,8 @@ const Navigation: FC = () => {
         >
           <Link
             sx={{
-              width: `3rem`,
-              height: `3rem`,
+              inlineSize: `3rem`,
+              blockSize: `3rem`,
               display: `flex`,
               alignItems: `center`,
               justifyContent: `center`,
@@ -79,7 +79,7 @@ const Navigation: FC = () => {
                 {...{
                   sx: {
                     px: [1, 2, 3],
-                    height: 48,
+                    blockSize: 48,
                     display: [`Home`].includes(children) ? [`none`, `flex`] : `flex`,
                     alignItems: `center`,
                   },
@@ -95,8 +95,8 @@ const Navigation: FC = () => {
               onClick={cycleColorModes}
               aria-label="Toggle color mode"
               sx={{
-                width: [36, 40, 48],
-                height: [36, 40, 48],
+                inlineSize: [36, 40, 48],
+                blockSize: [36, 40, 48],
                 m: 0,
                 border: 0,
                 p: 0,

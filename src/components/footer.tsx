@@ -45,7 +45,7 @@ const Footer: FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               {...{ href, children }}
-              sx={{ height: 48, display: `flex`, alignItems: `center`, px: [2, 3] }}
+              sx={{ blockSize: 48, display: `flex`, alignItems: `center`, px: [2, 3] }}
             />
           </Flex>
         ))}

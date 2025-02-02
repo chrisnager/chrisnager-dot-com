@@ -56,7 +56,7 @@ const Features: FC<FeaturesProps> = ({ data }) => {
                   sx={{
                     color: `transparent`,
                     display: `inline-block`,
-                    width: `8px`,
+                    inlineSize: `8px`,
                   }}
                 >
                   :
@@ -80,7 +80,7 @@ const Features: FC<FeaturesProps> = ({ data }) => {
                 <span
                   sx={{
                     display: `inline-block`,
-                    width: `8px`,
+                    inlineSize: `8px`,
                   }}
                 >
                   &nbsp;

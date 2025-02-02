@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
-import { Box, jsx } from 'theme-ui'
 import { useState } from 'react'
+import { Box, jsx } from 'theme-ui'
 
 import Halo from '../components/halo'
 import Intro from '../components/intro'
@@ -114,7 +114,7 @@ export default function AsciiIndex() {
                   borderRadius: `5rem`,
                   fontFamily: `inherit`,
                   fontSize: `inherit`,
-                  height: `1.5rem`,
+                  blockSize: `1.5rem`,
                   paddingBlock: 0,
                   paddingInline: `0.5rem`,
                   bg: `transparent`,
@@ -139,7 +139,7 @@ export default function AsciiIndex() {
               marginBlockStart: `0.5rem`,
               paddingBlock: `0.25rem`,
               paddingInline: `0.5rem`,
-              width: `100%`,
+              inlineSize: `100%`,
             }}
             type="text"
           />
@@ -151,7 +151,7 @@ export default function AsciiIndex() {
           <div>
             <input
               onChange={handleRowsChange}
-              sx={{ boxSizing: `border-box`, fontSize: `inherit`, width: `60%` }}
+              sx={{ boxSizing: `border-box`, fontSize: `inherit`, inlineSize: `60%` }}
               type="range"
               min={1}
               max={10}
@@ -171,7 +171,7 @@ export default function AsciiIndex() {
               fontFamily: `inherit`,
               fontSize: `inherit`,
               fontWeight: 500,
-              height: `2rem`,
+              blockSize: `2rem`,
               marginBlockStart: `0.5rem`,
               marginInlineStart: `-1px`,
               paddingBlock: 0,
@@ -202,7 +202,7 @@ export default function AsciiIndex() {
               paddingBlock: `0.25rem`,
               paddingInline: `0.5rem`,
               resize: `none`,
-              width: `100%`,
+              inlineSize: `100%`,
             }}
             {...{ rows }}
           />
