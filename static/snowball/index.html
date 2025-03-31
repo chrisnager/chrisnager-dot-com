@@ -149,6 +149,12 @@
         const MELT_RATE = 0.2;
         const COLLECT_GROWTH_FACTOR = 0.15 // 0.05;
 
+        // --- Static Snowball Constants ---
+        const STATIC_SNOWBALL_COUNT = 15;
+        const MIN_STATIC_RADIUS = 0.8;
+        const MAX_STATIC_RADIUS = 5.0; // Allow them to be potentially larger than player's initial max
+        // --- End Static Snowball Constants ---
+
         // === Player State ===
         let snowball;
         let snowballRadius = INITIAL_SNOWBALL_RADIUS;
@@ -180,6 +186,7 @@
         let currentSnowCollected = 0;
         let warmPatches = [];
         let obstacles = [];
+        let staticSnowballs = []; // Array to hold static snowball meshes
 
         // === Textures ===
         const textureLoader = new THREE.TextureLoader();
@@ -235,6 +242,7 @@
             createWarmPatches();
             createObstacles();
             createCollectableSnow(); // Creates patches with larger size from previous step
+            createStaticSnowballs();
             updateHUD();
             createSnowball(); // Creates snowball with nose indicator from previous step
             setupControls(); // Sets up keyboard AND joystick
@@ -254,6 +262,42 @@
             groundMesh.rotation.x = -Math.PI / 2;
             groundMesh.receiveShadow = true;
             scene.add(groundMesh);
+        }
+
+        function createStaticSnowballs() {
+            const snowballGeometry = new THREE.SphereGeometry(1, 24, 12); // Base radius 1, slightly lower poly
+            const snowballMaterial = new THREE.MeshStandardMaterial({
+                color: 0xffffff, // Slightly bluish white to distinguish? Or use 0xffffff
+                roughness: 0.7,
+                metalness: 0.0
+            });
+
+            for (let i = 0; i < STATIC_SNOWBALL_COUNT; i++) {
+                const radius = THREE.MathUtils.randFloat(MIN_STATIC_RADIUS, MAX_STATIC_RADIUS);
+                const snowballMesh = new THREE.Mesh(snowballGeometry, snowballMaterial);
+
+                snowballMesh.castShadow = true;
+                snowballMesh.receiveShadow = true;
+
+                // Find a valid position (not too close to center or edges)
+                const range = GROUND_SIZE * 0.40; // Keep them away from edges slightly more
+                let x, z;
+                do {
+                    x = (Math.random() - 0.5) * range * 2;
+                    z = (Math.random() - 0.5) * range * 2;
+                    // Avoid placing too close to the player's start position (0,0)
+                } while (Math.sqrt(x * x + z * z) < 10.0);
+
+                snowballMesh.position.set(x, radius, z); // Y position is the radius
+                snowballMesh.scale.set(radius, radius, radius); // Scale to actual size
+
+                // --- Store radius in userData ---
+                snowballMesh.userData.radius = radius;
+                // --- End Store radius ---
+
+                scene.add(snowballMesh);
+                staticSnowballs.push(snowballMesh);
+            }
         }
 
         function createWarmPatches() {
@@ -309,45 +353,148 @@
         }
 
         function createObstacles() {
-            const rockGeometry = new THREE.IcosahedronGeometry(0.8, 0);
+            // Pre-create geometries and materials outside the loop for efficiency
+            // Existing Rock
+            const rockBaseGeometry = new THREE.IcosahedronGeometry(1, 0); // Base radius 1
             const rockMaterial = new THREE.MeshStandardMaterial({ map: dirtTexture, roughness: 0.8 });
-            const treeTrunkGeometry = new THREE.CylinderGeometry(0.3, 0.4, 2.5, 8);
-            const treeTrunkMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 });
-            const treeLeavesGeometry = new THREE.ConeGeometry(1.2, 3, 8);
-            const treeLeavesMaterial = new THREE.MeshStandardMaterial({ color: 0x228B22 });
+
+            // Existing Tree
+            const treeTrunkBaseGeometry = new THREE.CylinderGeometry(0.3, 0.4, 2.5, 8); // Base size
+            const treeTrunkMaterial = new THREE.MeshStandardMaterial({ color: 0x8B4513 }); // Brown
+            const treeLeavesBaseGeometry = new THREE.ConeGeometry(1.2, 3, 8); // Base size
+            const treeLeavesMaterial = new THREE.MeshStandardMaterial({ color: 0x228B22 }); // Forest Green
+
+            // --- NEW: Fallen Log ---
+            const logBaseGeometry = new THREE.CylinderGeometry(0.5, 0.5, 4.0, 12); // Base radius 0.5, length 4
+            const logMaterial = new THREE.MeshStandardMaterial({ map: dirtTexture, roughness: 0.9 }); // Can reuse dirt/wood texture
+
+            // --- NEW: Bush ---
+            const bushBaseGeometry = new THREE.SphereGeometry(0.8, 16, 8); // Base sphere radius 0.8
+            const bushMaterial = new THREE.MeshStandardMaterial({ color: 0x556B2F, roughness: 0.9 }); // Dark Olive Green
 
             for (let i = 0; i < OBSTACLE_COUNT; i++) {
-                const isTree = Math.random() > 0.4;
+                // Decide obstacle type randomly
+                const obstacleTypeRoll = Math.random();
+                let obstacleMesh;
+
+                // Placement Coordinates (same for all types)
                 const range = GROUND_SIZE * 0.45;
                 const x = (Math.random() - 0.5) * range * 2;
                 const z = (Math.random() - 0.5) * range * 2;
-                let obstacleMesh;
-                if (isTree) {
+
+
+                // --- Choose Obstacle Type ---
+                if (obstacleTypeRoll < 0.40) { // 40% Tree
+                    // ... (Existing Tree creation logic with scaling - NO CHANGE HERE) ...
                     const tree = new THREE.Group();
-                    const trunk = new THREE.Mesh(treeTrunkGeometry, treeTrunkMaterial);
-                    trunk.position.y = 1.25; trunk.castShadow = true; trunk.receiveShadow = true;
-                    const leaves = new THREE.Mesh(treeLeavesGeometry, treeLeavesMaterial);
-                    leaves.position.y = 2.5 + 1.5 - 0.5; leaves.castShadow = true; leaves.receiveShadow = true;
+                    const treeScaleFactor = THREE.MathUtils.randFloat(0.7, 1.6);
+                    const trunkHeightScale = treeScaleFactor * THREE.MathUtils.randFloat(0.9, 1.1);
+                    const trunkRadiusScale = treeScaleFactor * THREE.MathUtils.randFloat(0.8, 1.2);
+                    const leavesScale = treeScaleFactor * THREE.MathUtils.randFloat(0.9, 1.1);
+                    const trunk = new THREE.Mesh(treeTrunkBaseGeometry, treeTrunkMaterial);
+                    const leaves = new THREE.Mesh(treeLeavesBaseGeometry, treeLeavesMaterial);
+                    trunk.scale.set(trunkRadiusScale, trunkHeightScale, trunkRadiusScale);
+                    leaves.scale.set(leavesScale, leavesScale, leavesScale);
+                    const scaledTrunkHeight = 2.5 * trunkHeightScale;
+                    const scaledTrunkRadius = 0.4 * trunkRadiusScale;
+                    const scaledLeavesHeight = 3.0 * leavesScale;
+                    trunk.position.y = scaledTrunkHeight / 2;
+                    leaves.position.y = scaledTrunkHeight + (scaledLeavesHeight / 2) * 0.8;
+                    trunk.castShadow = true; trunk.receiveShadow = true;
+                    leaves.castShadow = true; leaves.receiveShadow = true;
                     tree.add(trunk); tree.add(leaves);
-                    tree.position.set(x, 0, z); scene.add(tree);
+                    tree.position.set(x, 0, z);
+                    scene.add(tree);
                     obstacleMesh = tree;
-                    obstacleMesh.userData.radius = 0.5;
-                    obstacleMesh.userData.center = new THREE.Vector3(x, 0.5, z);
-                } else {
-                    const rockScale = 0.5 + Math.random() * 1.5;
-                    const rock = new THREE.Mesh(rockGeometry, rockMaterial);
-                    rock.scale.set(rockScale, rockScale * (0.8 + Math.random() * 0.4), rockScale);
+                    obstacleMesh.userData.radius = scaledTrunkRadius;
+                    obstacleMesh.userData.center = new THREE.Vector3(x, scaledTrunkRadius * 0.5, z);
+
+
+                } else if (obstacleTypeRoll < 0.70) { // 30% Rock (40% + 30% = 70%)
+                    // ... (Existing Rock creation logic with scaling - NO CHANGE HERE) ...
+                    const rockBaseScale = THREE.MathUtils.randFloat(0.6, 2.2);
+                    const rockYScaleFactor = THREE.MathUtils.randFloat(0.7, 1.3);
+                    const rock = new THREE.Mesh(rockBaseGeometry, rockMaterial);
+                    rock.scale.set(rockBaseScale, rockBaseScale * rockYScaleFactor, rockBaseScale);
                     rock.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
-                    const rockRadius = rockScale * 0.8;
-                    rock.position.set(x, rockRadius * 0.8, z);
+                    const approxRockRadius = rockBaseScale * 1.0;
+                    rock.position.set(x, approxRockRadius * 0.8, z);
                     rock.castShadow = true; rock.receiveShadow = true; scene.add(rock);
                     obstacleMesh = rock;
-                    obstacleMesh.userData.radius = rockRadius;
+                    obstacleMesh.userData.radius = approxRockRadius;
                     obstacleMesh.userData.center = rock.position.clone();
+
+
+                } else if (obstacleTypeRoll < 0.90) { // 20% Fallen Log (70% + 20% = 90%)
+                    // --- Fallen Log Creation ---
+                    const logScaleFactor = THREE.MathUtils.randFloat(0.8, 1.5); // Scale overall size
+                    const logRadius = 0.5 * logScaleFactor; // Base radius * scale
+                    const logLength = 4.0 * logScaleFactor; // Base length * scale
+
+                    const log = new THREE.Mesh(logBaseGeometry, logMaterial);
+                    log.scale.set(logScaleFactor, logScaleFactor, logScaleFactor); // Apply uniform scale
+
+                    // Rotate to lie flat (randomly along X or Z axis)
+                    const angleY = Math.random() * Math.PI * 2; // Random orientation around Y
+                    log.rotation.y = angleY;
+                    log.rotation.z = Math.PI / 2; // Rotate 90 degrees on Z to make it horizontal
+
+                    // Position on the ground (Y = scaled radius)
+                    log.position.set(x, logRadius, z);
+
+                    log.castShadow = true;
+                    log.receiveShadow = true;
+                    scene.add(log);
+                    obstacleMesh = log;
+
+                    // Collision Approximation: Use half the length as the radius for a simple sphere check
+                    // This is a rough approximation! AABB or OBB would be more accurate but complex.
+                    obstacleMesh.userData.radius = logLength / 2;
+                    obstacleMesh.userData.center = log.position.clone(); // Center is the log's position
+                    // --- End Fallen Log Creation ---
+
+
+                } else { // 10% Bush (90% + 10% = 100%)
+                    // --- Bush Creation ---
+                    // Create a small group of spheres to form a bush
+                    const bushGroup = new THREE.Group();
+                    const numBushSpheres = THREE.MathUtils.randInt(3, 6); // 3 to 6 spheres per bush
+                    const bushBaseScale = THREE.MathUtils.randFloat(0.8, 1.4); // Overall size of the bush
+
+                    for (let k = 0; k < numBushSpheres; k++) {
+                        const sphereMesh = new THREE.Mesh(bushBaseGeometry, bushMaterial);
+                        const sphereScale = bushBaseScale * THREE.MathUtils.randFloat(0.5, 1.0); // Individual sphere size variation
+                        sphereMesh.scale.set(sphereScale, sphereScale, sphereScale);
+
+                        // Position spheres clustered around the bush origin
+                        const offsetX = (Math.random() - 0.5) * bushBaseScale * 0.8;
+                        const offsetY = Math.random() * bushBaseScale * 0.5; // Slightly raise some spheres
+                        const offsetZ = (Math.random() - 0.5) * bushBaseScale * 0.8;
+                        sphereMesh.position.set(offsetX, offsetY, offsetZ);
+
+                        sphereMesh.castShadow = true;
+                        sphereMesh.receiveShadow = true;
+                        bushGroup.add(sphereMesh);
+                    }
+
+                    // Position the entire bush group
+                    bushGroup.position.set(x, 0, z); // Group origin at ground level
+                    scene.add(bushGroup);
+                    obstacleMesh = bushGroup;
+
+                    // Collision Approximation: Use the overall base scale as radius
+                    const approxBushRadius = bushBaseScale * 1.0; // A bit larger than base sphere radius
+                    obstacleMesh.userData.radius = approxBushRadius;
+                    obstacleMesh.userData.center = new THREE.Vector3(x, approxBushRadius * 0.5, z); // Center slightly above ground
+                    // --- End Bush Creation ---
                 }
-                obstacles.push(obstacleMesh);
-            }
-        }
+
+                // Add the created obstacle (mesh or group) to the main obstacles array
+                if (obstacleMesh) {
+                    obstacles.push(obstacleMesh);
+                }
+            } // End obstacle creation loop
+        } // End createObstacles function
 
         // Uses larger patch size from previous step
         function createCollectableSnow() {
@@ -690,6 +837,62 @@
                     }
                 }
             }
+
+            // === NEW: Static Snowball Collision & Absorption ===
+            for (let i = staticSnowballs.length - 1; i >= 0; i--) {
+                const staticSnowballMesh = staticSnowballs[i];
+                if (!staticSnowballMesh.userData.radius) continue; // Skip if no radius data
+
+                const staticRadius = staticSnowballMesh.userData.radius;
+                const distance = snowballPos.distanceTo(staticSnowballMesh.position);
+                const collisionThreshold = snowballRadius + staticRadius;
+
+                if (distance < collisionThreshold) {
+                    // Collision detected!
+                    console.log(`Collision! Player: ${snowballRadius.toFixed(2)}, Static: ${staticRadius.toFixed(2)}`);
+
+                    if (snowballRadius > staticRadius) {
+                        // Player absorbs static snowball's growth
+                        const staticGrowth = Math.max(0, staticRadius - INITIAL_SNOWBALL_RADIUS);
+                        console.log(`Player absorbs ${staticGrowth.toFixed(2)}`);
+
+                        snowballRadius += staticGrowth;
+                        snowballRadius = Math.min(snowballRadius, MAX_SNOWBALL_RADIUS); // Clamp player size
+
+                        // Reset static snowball
+                        const newStaticRadius = INITIAL_SNOWBALL_RADIUS;
+                        staticSnowballMesh.userData.radius = newStaticRadius;
+                        staticSnowballMesh.scale.set(newStaticRadius, newStaticRadius, newStaticRadius);
+                        staticSnowballMesh.position.y = newStaticRadius; // Keep it on the ground
+
+                        updateSnowballSize(); // Update player visuals
+                        updateHUD();
+
+                    } else {
+                        // Static snowball absorbs player's growth
+                        const playerGrowth = Math.max(0, snowballRadius - INITIAL_SNOWBALL_RADIUS);
+                        console.log(`Static absorbs ${playerGrowth.toFixed(2)}`);
+
+                        let newStaticRadius = staticRadius + playerGrowth;
+                        // Optional: Clamp static snowball max size if desired
+                        // newStaticRadius = Math.min(newStaticRadius, SOME_MAX_STATIC_SIZE);
+
+                        staticSnowballMesh.userData.radius = newStaticRadius;
+                        staticSnowballMesh.scale.set(newStaticRadius, newStaticRadius, newStaticRadius);
+                        staticSnowballMesh.position.y = newStaticRadius; // Keep it on the ground
+
+                        // Reset player snowball
+                        snowballRadius = INITIAL_SNOWBALL_RADIUS;
+
+                        updateSnowballSize(); // Update player visuals
+                        updateHUD();
+                    }
+
+                    // Handle only one collision per frame for simplicity
+                    break;
+                }
+            }
+            // === END: Static Snowball Collision & Absorption ===
 
             // === Phase 6: Hazard Mechanic (Melting) ===
             let isMelting = false;
