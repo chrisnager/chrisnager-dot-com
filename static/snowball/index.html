@@ -155,6 +155,12 @@
         const MAX_STATIC_RADIUS = 5.0; // Allow them to be potentially larger than player's initial max
         // --- End Static Snowball Constants ---
 
+        // --- Obstacle Interaction Constants ---
+        const CRUSH_SIZE_MULTIPLIER = 2.5; // Player radius must be this many times > obstacle radius to crush
+        const LOG_CRUSH_MULTIPLIER = 4.0; // Logs might need a higher multiplier or be indestructible
+        const OBSTACLE_CRUSH_EFFECT = true; // (Optional) Placeholder for future effects
+        // --- End Obstacle Interaction ---
+
         // === Player State ===
         let snowball;
         let snowballRadius = INITIAL_SNOWBALL_RADIUS;
@@ -191,7 +197,7 @@
         // === Textures ===
         const textureLoader = new THREE.TextureLoader();
         // Replace comments with actual Base64 Data URIs or file paths
-        const snowTexture = textureLoader.load('snow.png'); // Placeholder
+        const snowTexture = textureLoader.load('dimple.png'); // Placeholder
         const warmGroundTexture = textureLoader.load('lava.png'); // Placeholder
         const dirtTexture = textureLoader.load('ground.png'); // Placeholder
 
@@ -267,8 +273,9 @@
         function createStaticSnowballs() {
             const snowballGeometry = new THREE.SphereGeometry(1, 24, 12); // Base radius 1, slightly lower poly
             const snowballMaterial = new THREE.MeshStandardMaterial({
-                color: 0xffffff, // Slightly bluish white to distinguish? Or use 0xffffff
-                roughness: 0.7,
+                // color: 0xffffff, // Remove or keep as 0xffffff
+                map: snowTexture,   // Apply the loaded snow texture
+                roughness: 0.7,     // Keep roughness consistent or vary slightly if desired
                 metalness: 0.0
             });
 
@@ -383,6 +390,7 @@
                 const z = (Math.random() - 0.5) * range * 2;
 
 
+
                 // --- Choose Obstacle Type ---
                 if (obstacleTypeRoll < 0.40) { // 40% Tree
                     // ... (Existing Tree creation logic with scaling - NO CHANGE HERE) ...
@@ -408,6 +416,7 @@
                     obstacleMesh = tree;
                     obstacleMesh.userData.radius = scaledTrunkRadius;
                     obstacleMesh.userData.center = new THREE.Vector3(x, scaledTrunkRadius * 0.5, z);
+                    obstacleMesh.userData.type = 'tree'; // <-- Add type
 
 
                 } else if (obstacleTypeRoll < 0.70) { // 30% Rock (40% + 30% = 70%)
@@ -423,35 +432,26 @@
                     obstacleMesh = rock;
                     obstacleMesh.userData.radius = approxRockRadius;
                     obstacleMesh.userData.center = rock.position.clone();
+                    obstacleMesh.userData.type = 'rock'; // <-- Add type
 
 
                 } else if (obstacleTypeRoll < 0.90) { // 20% Fallen Log (70% + 20% = 90%)
-                    // --- Fallen Log Creation ---
-                    const logScaleFactor = THREE.MathUtils.randFloat(0.8, 1.5); // Scale overall size
-                    const logRadius = 0.5 * logScaleFactor; // Base radius * scale
-                    const logLength = 4.0 * logScaleFactor; // Base length * scale
-
+                    const logScaleFactor = THREE.MathUtils.randFloat(0.8, 1.5);
+                    const logCylinderRadius = 0.5 * logScaleFactor; // Actual radius of the cylinder
+                    const logLength = 4.0 * logScaleFactor;
                     const log = new THREE.Mesh(logBaseGeometry, logMaterial);
-                    log.scale.set(logScaleFactor, logScaleFactor, logScaleFactor); // Apply uniform scale
-
-                    // Rotate to lie flat (randomly along X or Z axis)
-                    const angleY = Math.random() * Math.PI * 2; // Random orientation around Y
+                    log.scale.set(logScaleFactor, logScaleFactor, logScaleFactor);
+                    const angleY = Math.random() * Math.PI * 2;
                     log.rotation.y = angleY;
-                    log.rotation.z = Math.PI / 2; // Rotate 90 degrees on Z to make it horizontal
-
-                    // Position on the ground (Y = scaled radius)
-                    log.position.set(x, logRadius, z);
-
-                    log.castShadow = true;
-                    log.receiveShadow = true;
+                    log.rotation.z = Math.PI / 2;
+                    log.position.set(x, logCylinderRadius, z); // Position based on actual radius
+                    log.castShadow = true; log.receiveShadow = true;
                     scene.add(log);
                     obstacleMesh = log;
-
-                    // Collision Approximation: Use half the length as the radius for a simple sphere check
-                    // This is a rough approximation! AABB or OBB would be more accurate but complex.
-                    obstacleMesh.userData.radius = logLength / 2;
-                    obstacleMesh.userData.center = log.position.clone(); // Center is the log's position
-                    // --- End Fallen Log Creation ---
+                    obstacleMesh.userData.collisionRadius = logLength / 2; // Radius for general collision check
+                    obstacleMesh.userData.crushRadius = logCylinderRadius; // Radius for crush check
+                    obstacleMesh.userData.center = log.position.clone();
+                    obstacleMesh.userData.type = 'log'; // <-- Add type
 
 
                 } else { // 10% Bush (90% + 10% = 100%)
@@ -487,6 +487,8 @@
                     obstacleMesh.userData.radius = approxBushRadius;
                     obstacleMesh.userData.center = new THREE.Vector3(x, approxBushRadius * 0.5, z); // Center slightly above ground
                     // --- End Bush Creation ---
+
+                    obstacleMesh.userData.type = 'bush'; // <-- Add type
                 }
 
                 // Add the created obstacle (mesh or group) to the main obstacles array
@@ -560,8 +562,9 @@
         function createSnowball() {
             const snowballGeometry = new THREE.SphereGeometry(1, 32, 16); // Base radius 1 for easy scaling
             const snowballMaterial = new THREE.MeshStandardMaterial({
-                color: 0xffffff,
-                roughness: 0.6,
+                // color: 0xffffff, // Remove or keep as 0xffffff (white multiplier)
+                map: snowTexture,   // Apply the loaded snow texture
+                roughness: 0.7,     // Adjust roughness as desired for snow appearance
                 metalness: 0.0
             });
             snowball = new THREE.Mesh(snowballGeometry, snowballMaterial);
@@ -765,32 +768,117 @@
             snowball.position.z = Math.max(-halfGround, Math.min(halfGround, snowball.position.z));
         }
 
-        function handleObstacleCollisions(oldPosition) {
-            const snowballWorldPos = snowball.position;
-            for (const obstacle of obstacles) {
-                if (!obstacle.userData.center || !obstacle.userData.radius) continue;
-                const obstacleCenter = obstacle.userData.center;
-                const obstacleRadius = obstacle.userData.radius;
-                const dx = snowballWorldPos.x - obstacleCenter.x;
-                const dz = snowballWorldPos.z - obstacleCenter.z;
-                const distanceSq = dx * dx + dz * dz;
-                const radiiSumSq = (snowballRadius + obstacleRadius) * (snowballRadius + obstacleRadius);
+        function removeObstacle(obstacle, index) {
+            if (!obstacle) return;
 
-                if (distanceSq < radiiSumSq) {
-                    const collisionNormal = new THREE.Vector3(dx, 0, dz).normalize();
-                    const dot = snowballVelocity.dot(collisionNormal);
-                    if (dot < 0) {
-                        const counterVector = collisionNormal.multiplyScalar(-dot);
-                        snowballVelocity.add(counterVector);
+            // Dispose of geometries and materials to free memory
+            if (obstacle instanceof THREE.Group) {
+                // Handle groups (like trees, bushes)
+                obstacle.traverse((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        if (child.geometry) child.geometry.dispose();
+                        // Only dispose material if it's not shared, or handle sharing explicitly
+                        // For simplicity now, assume materials might be shared and don't dispose them here
+                        // if (child.material) child.material.dispose();
                     }
-                    const overlap = (snowballRadius + obstacleRadius) - Math.sqrt(distanceSq);
-                    const pushVector = collisionNormal.clone().multiplyScalar(overlap * 0.51); // Slightly more push
-                    snowball.position.add(pushVector);
-                    snowball.position.y = snowballRadius;
-                    break;
-                }
+                });
+            } else if (obstacle instanceof THREE.Mesh) {
+                // Handle single meshes (like rocks, logs)
+                if (obstacle.geometry) obstacle.geometry.dispose();
+                // if (obstacle.material) obstacle.material.dispose();
+            }
+
+            // Remove from scene
+            scene.remove(obstacle);
+
+            // Remove from obstacles array using the provided index
+            if (index >= 0 && index < obstacles.length) {
+                obstacles.splice(index, 1);
+            } else {
+                console.warn("Could not remove obstacle from array: Invalid index");
             }
         }
+
+        function handleObstacleCollisions(oldPosition) {
+            const snowballWorldPos = snowball.position;
+
+            // Iterate backwards for safe removal
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                const obstacle = obstacles[i];
+
+                // Basic check for necessary data
+                if (!obstacle.userData || !obstacle.userData.center) continue;
+
+                // Use specific collision radius for logs if available, otherwise default radius
+                const obstacleCollisionRadius = obstacle.userData.collisionRadius || obstacle.userData.radius;
+                if (obstacleCollisionRadius === undefined) continue; // Skip if no radius defined
+
+
+                const obstacleCenter = obstacle.userData.center;
+                const dx = snowballWorldPos.x - obstacleCenter.x;
+                const dz = snowballWorldPos.z - obstacleCenter.z;
+                const distanceSq = dx * dx + dz * dz; // Check only in XZ plane
+                const radiiSum = snowballRadius + obstacleCollisionRadius;
+                const radiiSumSq = radiiSum * radiiSum;
+
+                // --- Check for Overlap ---
+                if (distanceSq < radiiSumSq) {
+                    // --- Check if Player Can Crush Obstacle ---
+                    // Use specific crush radius for logs, otherwise default radius
+                    const obstacleCrushRadius = obstacle.userData.crushRadius || obstacle.userData.radius;
+                    const obstacleType = obstacle.userData.type || 'unknown';
+                    let canCrush = false;
+
+                    if (obstacleCrushRadius !== undefined) {
+                        let requiredMultiplier = CRUSH_SIZE_MULTIPLIER;
+                        // Make logs harder to crush (or indestructible if multiplier is huge)
+                        if (obstacleType === 'log') {
+                            requiredMultiplier = LOG_CRUSH_MULTIPLIER;
+                        }
+
+                        canCrush = snowballRadius > obstacleCrushRadius * requiredMultiplier;
+
+                        // Add exceptions - e.g., maybe very large rocks are indestructible regardless of player size
+                        // if (obstacleType === 'rock' && obstacleCrushRadius > SOME_LARGE_ROCK_THRESHOLD) {
+                        //     canCrush = false;
+                        // }
+                    }
+
+
+                    if (canCrush) {
+                        // CRUSH IT!
+                        console.log(`Crushing obstacle type: ${obstacleType}`);
+                        removeObstacle(obstacle, i); // Remove from scene and array
+
+                        // Optional: Add particle effect / sound here
+
+                        // Continue checking other obstacles, don't apply collision response for this one
+                        continue;
+
+                    } else {
+                        // --- Standard Collision Response (Cannot Crush) ---
+                        const collisionNormal = new THREE.Vector3(dx, 0, dz).normalize();
+                        const dot = snowballVelocity.dot(collisionNormal);
+
+                        if (dot < 0) { // Moving towards obstacle
+                            const counterVector = collisionNormal.multiplyScalar(-dot * 1.05); // Slightly stronger pushback
+                            snowballVelocity.add(counterVector);
+                        }
+
+                        // Push snowball slightly out of collision zone to prevent sticking
+                        const overlap = radiiSum - Math.sqrt(distanceSq);
+                        const pushVector = collisionNormal.clone().multiplyScalar(overlap * 0.6); // Stronger push
+                        snowball.position.add(pushVector);
+                        snowball.position.y = snowballRadius; // Re-affirm height
+
+                        // Don't break here - allow checking/colliding with other potential overlaps in one frame
+                        // break; // Removed break statement
+                    }
+                    // --- End Standard Collision Response ---
+                }
+                // --- End Check for Overlap ---
+            } // End loop through obstacles
+        } // End handleObstacleCollisions
 
         // Uses updated collision check from previous step
         function checkCollectionsAndHazards(deltaTime) {
