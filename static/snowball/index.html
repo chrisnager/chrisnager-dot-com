@@ -86,7 +86,7 @@
 
 <body>
     <div id="game-container"></div>
-    <div id="hud">Snow Collected: 0 / 0</div>
+    <div id="hud">Snow collected: 0 / 0</div>
 
     <!-- Joystick HTML Elements -->
     <div id="joystick-container">
@@ -1242,11 +1242,11 @@
 
         function updateHUD() {
             if (isGameWon) {
-                hudElement.innerText = `You Win! Collected ${currentSnowCollected} / ${totalSnowPatches}`;
+                hudElement.innerText = `You win! Collected ${currentSnowCollected} / ${totalSnowPatches}`;
             } else if (isGameOver) {
-                hudElement.innerText = `Game Over!`;
+                hudElement.innerText = `Game over!`;
             } else {
-                hudElement.innerText = `Snow Collected: ${currentSnowCollected} / ${totalSnowPatches} | Radius: ${snowballRadius.toFixed(1)}`;
+                hudElement.innerText = `Snow collected: ${currentSnowCollected} / ${totalSnowPatches} | Radius: ${snowballRadius.toFixed(1)}`;
             }
         }
 
