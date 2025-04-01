@@ -9,7 +9,7 @@
         body {
             margin: 0;
             overflow: hidden;
-            background-color: #add8e6;
+            background-color: #0e7cd0;
         }
 
         canvas {
@@ -120,13 +120,13 @@
         // let initialInteractionDone = false; // REMOVED
 
         // === Constants ===
-        const GROUND_SIZE = 150;
+        const GROUND_SIZE = 150; // Increased from 150 (significantly larger)
         const INITIAL_SNOWBALL_RADIUS = 1;
         const MAX_SNOWBALL_RADIUS = 10;
         const MIN_SNOWBALL_RADIUS = 0.5;
-        const SNOW_PATCH_COUNT = 30;
-        const WARM_PATCH_COUNT = 15;
-        const OBSTACLE_COUNT = 40;
+        const SNOW_PATCH_COUNT = 30;     // Increased from 100 (approx scaling with area ^2)
+        const WARM_PATCH_COUNT = 50;      // Increased from 15
+        const OBSTACLE_COUNT = 100;       // Increased from 20
 
         // --- Increase Turn Speeds ---
         const KEYBOARD_TURN_SPEED = Math.PI * 1.0; // Increased from Math.PI / 2
@@ -164,7 +164,7 @@
         // --- End Obstacle Interaction ---
 
         // --- AI Snowball Constants ---
-        const AI_SNOWBALL_COUNT = 15; // Renamed from STATIC_SNOWBALL_COUNT
+        const AI_SNOWBALL_COUNT = 100;       // Increased from 15 // Renamed from STATIC_SNOWBALL_COUNT
         const MIN_AI_RADIUS = 0.8;    // Renamed from MIN_STATIC_RADIUS
         const MAX_AI_RADIUS = 5.0;    // Renamed from MAX_STATIC_RADIUS
         const AI_TURN_SPEED = Math.PI * 0.8; // How fast AI turns towards target
@@ -230,8 +230,8 @@
         function init() {
             clock = new THREE.Clock();
             scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xadd8e6);
-            scene.fog = new THREE.Fog(0xadd8e6, 50, GROUND_SIZE * 0.8);
+            scene.background = new THREE.Color(0x0e7cd0);
+            scene.fog = new THREE.Fog(0x0e7cd0, 50, GROUND_SIZE * 0.8);
 
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             camera.position.set(0, 15, 15);
