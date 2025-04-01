@@ -127,11 +127,13 @@
         const SNOW_PATCH_COUNT = 30;
         const WARM_PATCH_COUNT = 15;
         const OBSTACLE_COUNT = 40;
-        const KEYBOARD_TURN_SPEED = Math.PI / 2;
+
+        // --- Increase Turn Speeds ---
+        const KEYBOARD_TURN_SPEED = Math.PI * 1.0; // Increased from Math.PI / 2
+        const JOYSTICK_TURN_SPEED = Math.PI * 1.8; // Increased from Math.PI * 1.2
+        // --- End Increase Turn Speeds ---
+
         const KEYBOARD_MOVE_ACCELERATION = 50;
-        // --- Add Joystick Specific Speed ---
-        const JOYSTICK_TURN_SPEED = Math.PI * 1.2; // INCREASED turn speed for joystick (adjust as needed)
-        // --- End Joystick Specific Speed ---
         // const GYRO_TURN_SENSITIVITY = Math.PI / 4; // REMOVED
         // const GYRO_MOVE_SENSITIVITY = 2; // REMOVED
         // const VIRTUAL_JOYSTICK_SENSITIVITY = 1.0; // Adjust sensitivity (1 = full range)
@@ -807,6 +809,10 @@
             snowball.add(laserMesh);
             // --- End Laser Pointer ---
 
+            // --- Set Initial Rotation ---
+            // Rotate 180 degrees (PI radians) around the Y axis
+            snowball.rotation.y = Math.PI;
+            // --- End Set Initial Rotation ---
 
             // Set initial position and scale based on starting radius
             snowball.position.set(0, INITIAL_SNOWBALL_RADIUS, 0);
