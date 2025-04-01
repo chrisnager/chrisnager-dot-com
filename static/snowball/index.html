@@ -95,6 +95,13 @@
     </div>
     <!-- End Joystick -->
 
+    <!-- Background Music -->
+    <audio id="background-audio" loop>
+        <source src="snowball.mp3" type="audio/mpeg"> <!-- Replace with your music file path -->
+        Your browser does not support the audio element.
+    </audio>
+    <!-- End Background Music -->
+
     <a target="_blank" href="https://jam.pieter.com"
         style="font-family: 'system-ui', sans-serif; position: fixed; bottom: -1px; right: -1px; padding: 7px; font-size: 14px; font-weight: bold; background: #fff; color: #000; text-decoration: none; z-index: 10; border-top-left-radius: 12px; z-index: 10000; border: 1px solid #fff;">🕹️
         Vibe Jam 2025</a>
@@ -125,6 +132,8 @@
         // Game State
         let isGameOver = false;
         let isGameWon = false;
+        let backgroundMusicStarted = false; // Flag to track if music has started
+        const backgroundAudio = document.getElementById('background-audio'); // Get audio element
         // let useGyroControls = false; // REMOVED
         // let initialInteractionDone = false; // REMOVED
 
@@ -834,24 +843,24 @@
             // Keyboard
             window.addEventListener('keydown', (event) => {
                 if (keys.hasOwnProperty(event.key)) keys[event.key] = true;
+                startBackgroundMusic(); // Attempt to start music on keydown
             });
             window.addEventListener('keyup', (event) => {
                 if (keys.hasOwnProperty(event.key)) keys[event.key] = false;
             });
 
-            // --- Virtual Joystick Listeners ---
+            // Virtual Joystick Listeners
             joystickBase.addEventListener('touchstart', handleTouchStart, { passive: false });
             joystickBase.addEventListener('touchmove', handleTouchMove, { passive: false });
             joystickBase.addEventListener('touchend', handleTouchEnd);
-            joystickBase.addEventListener('touchcancel', handleTouchEnd); // Treat cancel like end
-            // --- End Joystick Listeners ---
-
-            // REMOVED Gyro activation button listener
+            joystickBase.addEventListener('touchcancel', handleTouchEnd);
         }
 
         // --- Joystick Touch Handlers ---
         function handleTouchStart(event) {
             event.preventDefault(); // Prevent page scroll/zoom
+            startBackgroundMusic(); // Attempt to start music on touch start
+
             if (event.touches.length > 0) {
                 joystickActive = true;
                 const touch = event.touches[0];
@@ -862,6 +871,22 @@
 
                 // Initial move calculation (optional, can start from center)
                 calculateJoystickMovement(touch.clientX, touch.clientY);
+            }
+        }
+
+        // New function to start music if not already playing
+        function startBackgroundMusic() {
+            if (!backgroundMusicStarted && backgroundAudio) {
+                console.log("Attempting to start background music...");
+                // Use a try/catch as play() can fail if interaction isn't sufficient
+                backgroundAudio.volume = 0.3; // Set desired volume (0.0 to 1.0)
+                backgroundAudio.play().then(() => {
+                    console.log("Music started successfully.");
+                    backgroundMusicStarted = true;
+                }).catch(error => {
+                    console.warn("Background music playback failed (likely needs more user interaction):", error);
+                    // We'll try again on the next interaction
+                });
             }
         }
 
