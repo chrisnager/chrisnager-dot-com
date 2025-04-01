@@ -1,3 +1,8 @@
+- url: /snowball/
+  name: Snowball
+  summary: You're a snowball. Collect snow to grow. Avoid lava. (Vibe Jam 2025 entry)
+  tags: [Vibe coding, ThreeJS, Game design, Game development]
+
 - url: /palegen/
   name: Palegen
   summary: Generate a brand palette from a single color.

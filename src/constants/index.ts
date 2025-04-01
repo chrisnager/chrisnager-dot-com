@@ -149,4 +149,8 @@ export const slugTagPairs = {
   [`video`]: `Video`,
   [`web-audio-api`]: `Web Audio API`,
   [`web-bluetooth-api`]: `Web Bluetooth API`,
+  [`vibe-coding`]: `Vibe coding`,
+  [`threejs`]: `ThreeJS`,
+  [`game-design`]: `Game design`,
+  [`game-development`]: `Game development`,
 } as const
