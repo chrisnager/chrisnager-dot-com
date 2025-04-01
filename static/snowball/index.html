@@ -161,6 +161,19 @@
         const OBSTACLE_CRUSH_EFFECT = true; // (Optional) Placeholder for future effects
         // --- End Obstacle Interaction ---
 
+        // --- AI Snowball Constants ---
+        const AI_SNOWBALL_COUNT = 15; // Renamed from STATIC_SNOWBALL_COUNT
+        const MIN_AI_RADIUS = 0.8;    // Renamed from MIN_STATIC_RADIUS
+        const MAX_AI_RADIUS = 5.0;    // Renamed from MAX_STATIC_RADIUS
+        const AI_TURN_SPEED = Math.PI * 0.8; // How fast AI turns towards target
+        const AI_ACCELERATION = 30;    // How fast AI gains speed
+        const AI_FRICTION = 0.95;      // Friction for AI movement
+        const AI_MAX_SPEED = 8;        // Max speed AI will move
+        const AI_WANDER_MIN_TIME = 3.0; // Min seconds before picking new target
+        const AI_WANDER_MAX_TIME = 8.0; // Max seconds before picking new target
+        const AI_OBSTACLE_AVOID_STRENGTH = 1.5; // How strongly AI steers away
+        // --- End AI Snowball Constants ---
+
         // === Player State ===
         let snowball;
         let snowballRadius = INITIAL_SNOWBALL_RADIUS;
@@ -192,7 +205,7 @@
         let currentSnowCollected = 0;
         let warmPatches = [];
         let obstacles = [];
-        let staticSnowballs = []; // Array to hold static snowball meshes
+        let aiSnowballs = []; // Renamed from staticSnowballs
 
         // === Textures ===
         const textureLoader = new THREE.TextureLoader();
@@ -248,7 +261,7 @@
             createWarmPatches();
             createObstacles();
             createCollectableSnow(); // Creates patches with larger size from previous step
-            createStaticSnowballs();
+            createAISnowballs();
             updateHUD();
             createSnowball(); // Creates snowball with nose indicator from previous step
             setupControls(); // Sets up keyboard AND joystick
@@ -270,40 +283,220 @@
             scene.add(groundMesh);
         }
 
-        function createStaticSnowballs() {
-            const snowballGeometry = new THREE.SphereGeometry(1, 24, 12); // Base radius 1, slightly lower poly
+        function updateAISnowballs(deltaTime) {
+            const targetDirection = new THREE.Vector3();
+            const currentDirection = new THREE.Vector3();
+            const desiredVelocity = new THREE.Vector3();
+
+            for (let i = 0; i < aiSnowballs.length; i++) {
+                const aiBall = aiSnowballs[i];
+                const data = aiBall.userData;
+                if (!data || data.radius === undefined) continue; // Skip if missing data
+
+                // Decrement wander timer
+                data.aiWanderTimer -= deltaTime;
+
+                // --- AI Decision Making (Wandering) ---
+                const distToTargetSq = aiBall.position.distanceToSquared(data.aiTargetPos);
+                // Pick new target if timer runs out OR close to current target OR target is invalid (0,0,0)
+                if (data.aiWanderTimer <= 0 || distToTargetSq < 25 || data.aiTargetPos.lengthSq() < 0.1) {
+                    const wanderRange = GROUND_SIZE * 0.48;
+                    data.aiTargetPos.set(
+                        (Math.random() - 0.5) * wanderRange * 2,
+                        data.radius, // Target Y should be its own radius
+                        (Math.random() - 0.5) * wanderRange * 2
+                    );
+                    data.aiWanderTimer = THREE.MathUtils.randFloat(AI_WANDER_MIN_TIME, AI_WANDER_MAX_TIME);
+                    // console.log(`AI ${i} new target: ${data.aiTargetPos.x.toFixed(1)}, ${data.aiTargetPos.z.toFixed(1)}`);
+                }
+
+                // --- Obstacle Avoidance Steering (Calculate Avoid Vector) ---
+                calculateAIAvoidance(aiBall, data);
+
+                // --- Movement Calculation ---
+                // 1. Calculate direction to target
+                targetDirection.subVectors(data.aiTargetPos, aiBall.position).normalize();
+
+                // 2. Combine target direction with avoidance direction
+                // Give avoidance more weight if it's active
+                const avoidWeight = data.aiAvoidVector.lengthSq() > 0.01 ? AI_OBSTACLE_AVOID_STRENGTH : 0;
+                desiredVelocity.copy(targetDirection).multiplyScalar(1.0 - avoidWeight * 0.5); // Slightly reduce target pull when avoiding
+                desiredVelocity.addScaledVector(data.aiAvoidVector, avoidWeight); // Add avoidance steer
+                desiredVelocity.normalize();
+
+                // 3. Calculate Steering Rotation towards desired direction
+                aiBall.getWorldDirection(currentDirection);
+                const angleToTarget = Math.atan2(
+                    currentDirection.x * desiredVelocity.z - currentDirection.z * desiredVelocity.x, // Cross product Y component
+                    currentDirection.x * desiredVelocity.x + currentDirection.z * desiredVelocity.z  // Dot product
+                );
+
+                // Clamp turn speed
+                const turn = Math.max(-1, Math.min(1, angleToTarget / (Math.PI * 0.1))) // Faster turn if angle is large
+                    * AI_TURN_SPEED * deltaTime;
+                aiBall.rotation.y += turn;
+
+                // 4. Apply Acceleration along NEW forward direction
+                aiBall.getWorldDirection(currentDirection); // Get updated direction after turning
+                data.velocity.addScaledVector(currentDirection, AI_ACCELERATION * deltaTime);
+
+                // 5. Apply Friction & Clamp Speed
+                data.velocity.multiplyScalar(AI_FRICTION);
+                if (data.velocity.lengthSq() > AI_MAX_SPEED * AI_MAX_SPEED) {
+                    data.velocity.normalize().multiplyScalar(AI_MAX_SPEED);
+                }
+
+                // 6. Update Position
+                aiBall.position.addScaledVector(data.velocity, deltaTime);
+
+                // 7. Keep on ground & Clamp to bounds
+                aiBall.position.y = data.radius;
+                const halfGround = GROUND_SIZE / 2 - data.radius;
+                aiBall.position.x = Math.max(-halfGround, Math.min(halfGround, aiBall.position.x));
+                aiBall.position.z = Math.max(-halfGround, Math.min(halfGround, aiBall.position.z));
+
+                // --- Update Scale (if radius changed due to melting/absorption) ---
+                // Important: Check if scale already matches radius to avoid unnecessary updates
+                if (Math.abs(aiBall.scale.x - data.radius) > 0.01) {
+                    aiBall.scale.set(data.radius, data.radius, data.radius);
+                }
+
+                // --- Check Melting for AI ---
+                checkAIHazards(aiBall, data, deltaTime);
+
+            } // End AI loop
+
+            // --- AI vs AI Collision/Absorption (after movement) ---
+            for (let i = 0; i < aiSnowballs.length; i++) {
+                const ai1 = aiSnowballs[i];
+                if (!ai1.userData) continue;
+                const r1 = ai1.userData.radius;
+
+                for (let j = i + 1; j < aiSnowballs.length; j++) { // Check against others
+                    const ai2 = aiSnowballs[j];
+                    if (!ai2.userData) continue;
+                    const r2 = ai2.userData.radius;
+
+                    const distanceSq = ai1.position.distanceToSquared(ai2.position);
+                    const radiiSum = r1 + r2;
+
+                    if (distanceSq < radiiSum * radiiSum) {
+                        // AI-AI Collision
+                        if (r1 > r2) { // ai1 absorbs ai2
+                            const growth = Math.max(0, r2 - INITIAL_SNOWBALL_RADIUS);
+                            ai1.userData.radius = Math.min(r1 + growth, MAX_AI_RADIUS * 1.2); // Allow AI to get slightly bigger?
+                            ai2.userData.radius = INITIAL_SNOWBALL_RADIUS; // Reset smaller one
+                        } else { // ai2 absorbs ai1
+                            const growth = Math.max(0, r1 - INITIAL_SNOWBALL_RADIUS);
+                            ai2.userData.radius = Math.min(r2 + growth, MAX_AI_RADIUS * 1.2);
+                            ai1.userData.radius = INITIAL_SNOWBALL_RADIUS; // Reset smaller one
+                        }
+                        // Scale/position update will happen in the next frame's main loop for these AIs
+                        // console.log(`AI ${i} (${r1.toFixed(1)}) vs AI ${j} (${r2.toFixed(1)}) -> ${ai1.userData.radius.toFixed(1)} / ${ai2.userData.radius.toFixed(1)}`)
+                    }
+                }
+            }
+            // --- End AI vs AI ---
+
+        } // End updateAISnowballs
+
+        function calculateAIAvoidance(aiBall, data) {
+            data.aiAvoidVector.set(0, 0, 0); // Reset avoidance vector
+            const checkRadius = data.radius * 3.0; // How far ahead to check roughly
+            const checkRadiusSq = checkRadius * checkRadius;
+
+            for (const obstacle of obstacles) {
+                if (!obstacle.userData || !obstacle.userData.center) continue;
+                const obstacleCollisionRadius = obstacle.userData.collisionRadius || obstacle.userData.radius;
+                if (obstacleCollisionRadius === undefined) continue;
+
+                const vecToObstacle = new THREE.Vector3().subVectors(obstacle.userData.center, aiBall.position);
+                const distToObstacleSq = vecToObstacle.x * vecToObstacle.x + vecToObstacle.z * vecToObstacle.z;
+
+                // Only consider obstacles within check radius and roughly in front
+                if (distToObstacleSq < checkRadiusSq + obstacleCollisionRadius * obstacleCollisionRadius) {
+                    // Simple avoidance: steer away from obstacle center
+                    // More weight if closer
+                    const avoidanceStrength = 1.0 - (Math.sqrt(distToObstacleSq) / checkRadius);
+                    data.aiAvoidVector.addScaledVector(vecToObstacle, -avoidanceStrength / (distToObstacleSq + 1.0)); // Add vector pointing away
+                }
+            }
+            // Also avoid other AI snowballs (simplified)
+            for (const otherAI of aiSnowballs) {
+                if (otherAI === aiBall || !otherAI.userData) continue; // Skip self and invalid
+                const vecToOther = new THREE.Vector3().subVectors(otherAI.position, aiBall.position);
+                const distToOtherSq = vecToOther.lengthSq();
+                if (distToOtherSq < checkRadiusSq * 0.5) { // Check closer range for other AI
+                    const avoidanceStrength = 1.0 - (Math.sqrt(distToOtherSq) / (checkRadius * 0.7));
+                    data.aiAvoidVector.addScaledVector(vecToOther, -avoidanceStrength / (distToOtherSq + 1.0));
+                }
+            }
+
+
+            data.aiAvoidVector.normalize(); // Use normalized direction for steering
+        }
+
+        function checkAIHazards(aiBall, data, deltaTime) {
+            // Melting check
+            let isMelting = false;
+            const warmPatchCollisionRadius = 4.5; // Radius of warm patches
+            for (const patch of warmPatches) {
+                const dx = aiBall.position.x - patch.position.x;
+                const dz = aiBall.position.z - patch.position.z;
+                const distanceSq = dx * dx + dz * dz;
+                const radiiSum = data.radius + warmPatchCollisionRadius;
+                if (distanceSq < radiiSum * radiiSum) {
+                    isMelting = true;
+                    break;
+                }
+            }
+
+            if (isMelting) {
+                // Decrease radius stored in userData
+                data.radius = Math.max(data.radius - MELT_RATE * deltaTime * 0.5, MIN_SNOWBALL_RADIUS); // AI melts slightly slower?
+                // Position and scale will be updated in main AI loop or next frame
+            }
+        }
+
+        function createAISnowballs() {
+            const snowballGeometry = new THREE.SphereGeometry(1, 24, 12);
             const snowballMaterial = new THREE.MeshStandardMaterial({
-                // color: 0xffffff, // Remove or keep as 0xffffff
-                map: snowTexture,   // Apply the loaded snow texture
-                roughness: 0.7,     // Keep roughness consistent or vary slightly if desired
+                map: snowTexture, // Apply texture
+                roughness: 0.7,
                 metalness: 0.0
             });
 
-            for (let i = 0; i < STATIC_SNOWBALL_COUNT; i++) {
-                const radius = THREE.MathUtils.randFloat(MIN_STATIC_RADIUS, MAX_STATIC_RADIUS);
+            for (let i = 0; i < AI_SNOWBALL_COUNT; i++) { // Use new constant
+                const radius = THREE.MathUtils.randFloat(MIN_AI_RADIUS, MAX_AI_RADIUS); // Use new constants
                 const snowballMesh = new THREE.Mesh(snowballGeometry, snowballMaterial);
 
                 snowballMesh.castShadow = true;
                 snowballMesh.receiveShadow = true;
 
-                // Find a valid position (not too close to center or edges)
-                const range = GROUND_SIZE * 0.40; // Keep them away from edges slightly more
+                const range = GROUND_SIZE * 0.40;
                 let x, z;
                 do {
                     x = (Math.random() - 0.5) * range * 2;
                     z = (Math.random() - 0.5) * range * 2;
-                    // Avoid placing too close to the player's start position (0,0)
                 } while (Math.sqrt(x * x + z * z) < 10.0);
 
-                snowballMesh.position.set(x, radius, z); // Y position is the radius
-                snowballMesh.scale.set(radius, radius, radius); // Scale to actual size
+                snowballMesh.position.set(x, radius, z);
+                snowballMesh.scale.set(radius, radius, radius);
 
-                // --- Store radius in userData ---
-                snowballMesh.userData.radius = radius;
-                // --- End Store radius ---
+                // --- Store AI Data in userData ---
+                snowballMesh.userData = {
+                    radius: radius,
+                    velocity: new THREE.Vector3(), // Each AI needs its own velocity
+                    aiState: 'wandering',         // Initial state
+                    aiTargetPos: new THREE.Vector3(), // Target wander position
+                    // Set initial random wander timer
+                    aiWanderTimer: THREE.MathUtils.randFloat(0.5, AI_WANDER_MAX_TIME / 2),
+                    aiAvoidVector: new THREE.Vector3() // Vector for obstacle avoidance steering
+                };
+                // --- End Store AI Data ---
 
                 scene.add(snowballMesh);
-                staticSnowballs.push(snowballMesh);
+                aiSnowballs.push(snowballMesh); // Use new array name
             }
         }
 
@@ -926,48 +1119,42 @@
                 }
             }
 
-            // === NEW: Static Snowball Collision & Absorption ===
-            for (let i = staticSnowballs.length - 1; i >= 0; i--) {
-                const staticSnowballMesh = staticSnowballs[i];
-                if (!staticSnowballMesh.userData.radius) continue; // Skip if no radius data
+            // === Player vs AI Snowball Collision & Absorption === // Renamed comment
+            // Use renamed array: aiSnowballs
+            for (let i = aiSnowballs.length - 1; i >= 0; i--) {
+                const aiSnowballMesh = aiSnowballs[i]; // Use renamed array
+                // Ensure userData and radius exist
+                if (!aiSnowballMesh.userData || aiSnowballMesh.userData.radius === undefined) continue;
 
-                const staticRadius = staticSnowballMesh.userData.radius;
-                const distance = snowballPos.distanceTo(staticSnowballMesh.position);
-                const collisionThreshold = snowballRadius + staticRadius;
+                const aiRadius = aiSnowballMesh.userData.radius; // Get radius from userData
+                const distance = snowballPos.distanceTo(aiSnowballMesh.position);
+                const collisionThreshold = snowballRadius + aiRadius;
 
                 if (distance < collisionThreshold) {
-                    // Collision detected!
-                    console.log(`Collision! Player: ${snowballRadius.toFixed(2)}, Static: ${staticRadius.toFixed(2)}`);
+                    console.log(`Collision! Player: ${snowballRadius.toFixed(2)}, AI: ${aiRadius.toFixed(2)}`);
+                    if (snowballRadius > aiRadius) {
+                        // Player absorbs AI snowball's growth
+                        const aiGrowth = Math.max(0, aiRadius - INITIAL_SNOWBALL_RADIUS);
+                        console.log(`Player absorbs ${aiGrowth.toFixed(2)} from AI ${i}`);
+                        snowballRadius = Math.min(snowballRadius + aiGrowth, MAX_SNOWBALL_RADIUS);
 
-                    if (snowballRadius > staticRadius) {
-                        // Player absorbs static snowball's growth
-                        const staticGrowth = Math.max(0, staticRadius - INITIAL_SNOWBALL_RADIUS);
-                        console.log(`Player absorbs ${staticGrowth.toFixed(2)}`);
-
-                        snowballRadius += staticGrowth;
-                        snowballRadius = Math.min(snowballRadius, MAX_SNOWBALL_RADIUS); // Clamp player size
-
-                        // Reset static snowball
-                        const newStaticRadius = INITIAL_SNOWBALL_RADIUS;
-                        staticSnowballMesh.userData.radius = newStaticRadius;
-                        staticSnowballMesh.scale.set(newStaticRadius, newStaticRadius, newStaticRadius);
-                        staticSnowballMesh.position.y = newStaticRadius; // Keep it on the ground
+                        // Reset AI snowball via userData
+                        aiSnowballMesh.userData.radius = INITIAL_SNOWBALL_RADIUS;
+                        // Scale/position update for AI happens in updateAISnowballs
 
                         updateSnowballSize(); // Update player visuals
                         updateHUD();
 
                     } else {
-                        // Static snowball absorbs player's growth
+                        // AI snowball absorbs player's growth
                         const playerGrowth = Math.max(0, snowballRadius - INITIAL_SNOWBALL_RADIUS);
-                        console.log(`Static absorbs ${playerGrowth.toFixed(2)}`);
+                        console.log(`AI ${i} absorbs ${playerGrowth.toFixed(2)} from Player`);
 
-                        let newStaticRadius = staticRadius + playerGrowth;
-                        // Optional: Clamp static snowball max size if desired
-                        // newStaticRadius = Math.min(newStaticRadius, SOME_MAX_STATIC_SIZE);
-
-                        staticSnowballMesh.userData.radius = newStaticRadius;
-                        staticSnowballMesh.scale.set(newStaticRadius, newStaticRadius, newStaticRadius);
-                        staticSnowballMesh.position.y = newStaticRadius; // Keep it on the ground
+                        // Update AI radius via userData
+                        let newAIRadius = aiRadius + playerGrowth;
+                        newAIRadius = Math.min(newAIRadius, MAX_AI_RADIUS * 1.2); // Clamp AI size
+                        aiSnowballMesh.userData.radius = newAIRadius;
+                        // Scale/position update for AI happens in updateAISnowballs
 
                         // Reset player snowball
                         snowballRadius = INITIAL_SNOWBALL_RADIUS;
@@ -975,12 +1162,10 @@
                         updateSnowballSize(); // Update player visuals
                         updateHUD();
                     }
-
-                    // Handle only one collision per frame for simplicity
-                    break;
+                    break; // Only one collision per frame
                 }
             }
-            // === END: Static Snowball Collision & Absorption ===
+            // === END: Player vs AI Interaction ===
 
             // === Phase 6: Hazard Mechanic (Melting) ===
             let isMelting = false;
@@ -1041,10 +1226,17 @@
         function animate() {
             requestAnimationFrame(animate);
             const deltaTime = clock.getDelta();
+
+            // Update Player
             if (snowball) {
-                updateSnowballMovement(deltaTime); // Handles both keyboard and joystick now
-                checkCollectionsAndHazards(deltaTime);
+                updateSnowballMovement(deltaTime);
+                // Note: checkCollectionsAndHazards now handles Player vs AI collision
+                checkCollectionsAndHazards(deltaTime); // Checks Player vs Snow, Player vs AI, Player vs Warm
             }
+
+            // Update AI
+            updateAISnowballs(deltaTime); // Handles AI movement, AI vs AI collision, AI vs Warm
+
             updateCamera();
             render();
         }
