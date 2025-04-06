@@ -106,18 +106,26 @@ export default {
   },
 
   styles: {
-    p: {
-      fontFamily: `Georgia, serif`,
-    },
-
-    ul: {
-      fontFamily: `Georgia, serif`,
+    blockquote: {
+      borderColor: `divider`,
+      borderInlineStart: `0.25rem solid`,
+      fontSize: `1.125em`,
+      marginInline: `0`,
+      paddingInlineStart: `1rem`,
     },
 
     img: {
       borderRadius: `0.5rem`,
       display: `block`,
       maxInlineSize: `100%`,
+    },
+
+    p: {
+      fontFamily: `Georgia, serif`,
+    },
+
+    ul: {
+      fontFamily: `Georgia, serif`,
     },
   },
 }

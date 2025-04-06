@@ -8,7 +8,7 @@ export default Layout
 
 export const Head = () => (
   <Halo
-    description="Snowball: Vibe coded game"
+    description="Snowball: My vibe coded game"
     title="Vibe coding / Blog"
     url="https://chrisnager.com/blog/vibe-coding"
     image="https://chrisnager.com/images/projects/snowball.png"
@@ -26,28 +26,34 @@ I recently [vibe coded](https://en.wikipedia.org/wiki/Vibe_coding) a 3D game I n
 
 ![Snowball game on desktop](/images/projects/snowball.png)
 
-For this particular project, I went all-in on vibe coding—meaning I let AI do 98+% of the development, and I did my best to not touch the code.
-
-![Development of Snowball game, using Claude Sonnet 3.7 via Cline in VS Code](/images/blog/vibe-coding/snowball-vscode-cline-claude-sonnet.png)
+For this particular project, I did my best to not touch the code, and instead go all-in on vibe coding. I steered the prompts, and let AI do 98+% of the coding.
 
 I began the project using Anthropic's [Claude 3.7 Sonnet](https://www.anthropic.com/claude/sonnet) through [Cline](https://cline.bot) in [VS Code](https://code.visualstudio.com), which makes for a pretty great workflow.
 
+![Development of Snowball game, using Claude Sonnet 3.7 via Cline in VS Code](/images/blog/vibe-coding/snowball-vscode-cline-claude-sonnet.png)
+
 However, I ultimately used:
-- Google DeepMind's [Gemini 2.5 Pro](https://deepmind.google/technologies/gemini/pro/) for the project planning and code
-- OpenAI's [GPT-4o](https://openai.com/index/introducing-4o-image-generation/) model for generating images for the in-game textures (like snow and lava); and
+- Google DeepMind's [Gemini 2.5 Pro](https://deepmind.google/technologies/gemini/pro/) for project planning and code
+- OpenAI's [GPT-4o](https://openai.com/index/introducing-4o-image-generation/) model for generating in-game texture images (like snow and lava); and
 - [Suno v4](https://suno.com) for generating the background music.
 
-Snowball is the first project I've created using [Three.js](https://threejs.org), a web-based 3D game engine. It's playable on desktop or mobile, using the arrow keys and an on-screen joystick, respectively.
+![Development of Snowball game, using ChatGPT GPT-4o and Gemini in AI Studio](/images/blog/vibe-coding/snowball-development-chatgpt-ai-studio.png)
+
+I restarted the project a handful of times, but once in a rhythm, found myself having a ton of fun creating this game. It sparked a similar joy to my early days of learning web development in the first place. Bringing my ideas and designs to life has always felt special. I learned a ton about working with Three.js, and got a small taste of the many aspects involved in creating even simple games.
+
+> I let go of my code purist mindset, and "vibed."
+
+Snowball is the first project I created using [Three.js](https://threejs.org), a powerful web-based 3D library. It's playable on desktop and mobile, using the arrow keys and an on-screen joystick, respectively.
 
 ![Snowball on mobile](/images/blog/vibe-coding/snowball-mobile.png)
 
-I submitted Snowball to the [2025 Vibe Jam](https://jam.pieter.com), created by [levelsio](https://x.com/levelsio), judged by [karpathy](https://x.com/karpathy) ([who coined the term "vibe coding"](https://x.com/karpathy/status/1886192184808149383)), [mrdoob](https://x.com/mrdoob), [s13k](https://x.com/s13k_), [timsoret](https://x.com my early days of/timsoret), and levelsio himself.
+I submitted Snowball to the [2025 Vibe Coding Game Jam](https://jam.pieter.com), created by [Pieter Levels [levelsio]](https://x.com/levelsio), and judged by [Ricardo Cabello [mrdoob]](https://x.com/mrdoob) (creator of Three.js), [s13k](https://x.com/s13k_), [Tim Soret](https://x.com/timsoret), levelsio himself, and [Andrej Karpathy](https://x.com/karpathy) ([who coined the term "vibe coding"](https://x.com/karpathy/status/1886192184808149383)).
 
-I restarted the project a handful of times, but once I got in a rhythm, I found myself having a ton of fun creating this game. It sparked a similar joy to my early days of learning web development in the first place. Bringing my ideas and designs to life has always felt special. I learned a ton about working with Three.js, and got a small taste of the many aspects to creating even a simple game. I let go of my code purist mindset, and vibed.
+![Andrej Karpathy's post where he coined "vibe coding"](/images/blog/vibe-coding/karpathy-vibe-coding.png)
 
 At the very least, creating Snowball helped me with prompting AI systems for what I wanted. It will only get easier to work with these systems, but clear communication will always be important. To give an anology, it's simple to ask for a burger, but to get extra onions, with cheese, and no pickles, it's imporant to specify your order.
 
-Have some fun, learn new things, and vibe code responsibly.
+> Have fun, learn things, and vibe code responsibly.
 
 Check out [Snowball](https://chrisnager.com/snowball/) (with sound on! 🔊).
 </Box>
