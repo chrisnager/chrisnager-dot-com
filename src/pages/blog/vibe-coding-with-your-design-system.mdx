@@ -28,7 +28,7 @@ I discovered a surprisingly effective way to "vibe code" interfaces using a cust
 
 Here's how I used AI + [Ink](https://ink.carta.com/components/Button/examples), Carta's robust design system, to rapidly prototype production-ready UIs without writing a line of code.
 
-I started by scraping Ink's public documentation. Using [Puppeteer](https://pptr.dev), I wrote a script that stitched all the docs into a single 730-page PDF. Then, I fed the PDF into [NotebookLM](https://notebooklm.google), Google’s AI-powered research assistant.
+I started by scraping Ink's public documentation using [Puppeteer](https://pptr.dev) and [Cheerio](https://cheerio.js.org). I wrote a script using [PDFMerger](https://www.npmjs.com/package/pdf-merger-js) that stitched all the docs into a single 730-page PDF. Then, I fed the PDF into [NotebookLM](https://notebooklm.google), Google’s AI-powered research assistant.
 
 That’s when the magic happened. ✨
 
@@ -38,9 +38,9 @@ No context switching, just high-fidelity, brand-aligned UI, fast.
 
 # Why rapid prototyping with a custom design system is important
 
-NotebookLM is not a prototyping tool _at all_. However, I've used (and built) AI code generation and prototyping tools over the years, and haven't seen output so true to a custom design system like I have when using NotebookLM. Existing AI prototyping tools are excellent when going from 0 to 1 (starting from scratch), but one area they've all fallen short is when trying to apply a custom design system.
+NotebookLM is not a prototyping tool at all. However, I've used (and built) AI code generation and prototyping tools over the years, and haven't seen output so true to a custom design system like I have when using NotebookLM. Existing AI prototyping tools are excellent when going from 0 to 1 (starting from scratch), but one area they've all fallen short is when trying to apply a custom design system.
 
-This technique isn’t just about speeding up prototyping, it’s about unlocking a bring-your-own-design-system future where _anyone_ within a company can now test design ideas and output production-ready code that’s accessible, performant, and _on-brand_.
+This technique isn’t just about speeding up prototyping, it’s about unlocking a bring-your-own-design-system future where _anyone_ within a company can test design ideas and output production-ready code that’s accessible, performant, and _on-brand_.
 
 My approach is far from a final solution, but is a proof of possibility. If your company values branding, consistency, and speed, making your design system AI-legible could be a game-changing investment. The next frontier isn’t just establishing design systems—it's how we talk to them.
 </Box>
