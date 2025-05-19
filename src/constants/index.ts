@@ -92,6 +92,7 @@ export const slugTagPairs = {
   [`css`]: `CSS`,
   [`dark-mode`]: `Dark mode`,
   [`design-hand-off`]: `Design hand-off`,
+  [`design-systems`]: `Design systems`,
   [`design`]: `Design`,
   [`developer-experience-dx`]: `Developer experience (DX)`,
   [`documentation`]: `Documentation`,

@@ -1,0 +1,46 @@
+import { Box, jsx } from 'theme-ui'
+
+import Layout from '../../components/layout'
+import Tag from '../../components/tag'
+import Halo from '../../components/halo'
+
+export default Layout
+
+export const Head = () => (
+  <Halo
+    description="A surprisingly effective way to vibe code interfaces using a custom design system"
+    title="Vibe coding with your design system / Blog"
+    url="https://chrisnager.com/blog/vibe-coding"
+    image="https://chrisnager.com/images/projects/snowball.png"
+  />
+)
+
+<Box as="article" sx={{ maxInlineSize: `55ch`, marginBlockEnd: 5, paddingInline: 3 }}>
+# Vibe coding with your design system
+
+May 18, 2025
+
+<Tag>AI</Tag> <Tag>Creation</Tag> <Tag>Design systems</Tag>
+
+I discovered a surprisingly effective way to "vibe code" interfaces using a custom design system.
+
+<video alt="vibe-coding-with-your-design-system" autoPlay controls src="/images/blog/vibe-coding-with-your-design-system/vibe-coding-with-ink.mov" style={{ maxInlineSize: `100%` }} />
+
+Here's how I used AI + Ink to prototype production-ready UIs without writing a line of code.
+
+I started by scraping the public documentation of [Ink](https://ink.carta.com/components/Button/examples), Carta's robust, production-ready design system. Using [Puppeteer](https://pptr.dev), I wrote a script that stitched all the docs into a single 730-page PDF. Then, I fed that PDF into [NotebookLM](https://notebooklm.google), Google’s AI-powered research assistant.
+
+That’s when the magic happened.
+
+I opened a chat in NotebookLM and began describing UI ideas. The model responded with code that used Ink components directly. I pasted the code into [Playroom](https://ink.carta.com/playroom/#?code=N4Igxg9gJgpiBcIA8AhCAPABAQwDa4F4AdEAcwFcAXSmAJxID4iA7TTJACQGVLswBrJqzbsUVShGYMAIjABm2crkpIA9GOqShI0eMmZKATwAOMYiGO0AlgFtstQ4wAK1uw7UaJUljtR7WRqbmUNjMpHSM0qHhtB7%2B2uyq3LwCQh4YQiAANCAA7lZQlAAWAM4IANrgeGAAFACMAAwNAG65mAC0mHUATA3G6ACUIAC6AL5AA), Ink’s live code sandbox, and watched the interface render. From there, I could iterate—refining the prompt, tweaking layout or interaction details—until I had exactly what I envisioned.
+
+No boilerplate. No switching context. Just high-fidelity, brand-aligned UI, fast.
+
+I've used and built AI code-gen and prototyping tools over the past few years, and haven't seen output so true to a custom design system like I have when using NotebookLM.
+
+# Why this is important
+
+This isn’t just about speeding up prototyping—it’s about unlocking a bring-your-own-design-system future. Anyone at a company, even non-coders, can now test design ideas and output production-ready code that’s accessible, performant, and on-brand.
+
+This approach isn’t a final solution yet—but it’s proof of possibility. If your company values branding, consistency, and speed, making your design system AI-legible could be a game-changing investment. The next frontier isn’t just design systems—it’s how we talk to them.
+</Box>

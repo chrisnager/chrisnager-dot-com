@@ -7,6 +7,10 @@
 #   link: '/system-ui'
 
 - category: Blog
+  title: 'Vibe coding with your design system'
+  link: '/blog/vibe-coding-with-your-design-system'
+
+- category: Blog
   title: 'Vibe coding'
   link: '/blog/vibe-coding'
 
