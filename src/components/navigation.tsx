@@ -43,7 +43,7 @@ const Navigation: FC = () => {
 
   return (
     <header>
-      <Flex as="nav" role="navigation" sx={{ blockSize: `7rem`, mb: [4, 5], px: 2 }}>
+      <Flex as="nav" role="navigation" sx={{ blockSize: `7rem`, marginBlockEnd: [4, 5], paddingInline: 2 }}>
         <Flex
           sx={{
             justifyContent: `center`,
@@ -66,8 +66,8 @@ const Navigation: FC = () => {
         <Flex
           as="ul"
           sx={{
-            my: 0,
-            pl: 0,
+            marginBlock: 0,
+            paddingInlineStart: 0,
             flex: 1,
             justifyContent: `flex-end`,
             listStyleType: `none`,
@@ -78,7 +78,7 @@ const Navigation: FC = () => {
               <Link
                 {...{
                   sx: {
-                    px: [1, 2, 3],
+                    paddingInline: [1, 2, 3],
                     blockSize: 48,
                     display: [`Home`].includes(children) ? [`none`, `flex`] : `flex`,
                     alignItems: `center`,

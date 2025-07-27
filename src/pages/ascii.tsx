@@ -72,7 +72,7 @@ export default function AsciiIndex() {
 
   return (
     <Layout>
-      <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
+      <Box sx={{ maxWidth: `50ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro
           title={
             <span>
@@ -82,7 +82,7 @@ export default function AsciiIndex() {
           description="Make ASCII art with AI."
         />
 
-        <form onSubmit={handleFormSubmit} sx={{ mt: `2.5rem` }}>
+        <form onSubmit={handleFormSubmit} sx={{ marginBlockStart: `2.5rem` }}>
           <label htmlFor="prompt" style={{ display: `block`, fontWeight: 500 }}>
             Type a subject for your ASCII art.
           </label>
@@ -144,7 +144,7 @@ export default function AsciiIndex() {
             type="text"
           />
 
-          <label htmlFor="prompt" sx={{ display: `block`, fontWeight: 500, mt: 3 }}>
+          <label htmlFor="prompt" sx={{ display: `block`, fontWeight: 500, marginBlockStart: 3 }}>
             Choose the maximum number of lines of text to use.
           </label>
 
@@ -157,7 +157,7 @@ export default function AsciiIndex() {
               max={10}
               value={rows}
             />
-            <span sx={{ ml: 2 }}>{rows}</span>
+            <span sx={{ marginInlineStart: 2 }}>{rows}</span>
           </div>
 
           <button

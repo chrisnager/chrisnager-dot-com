@@ -28,10 +28,10 @@ I have an interest in AI prompt engineering and AI-generated visuals. Posting th
 
 As an accessibility advocate, I like how image prompts serve as accessible `alt` attributes.
 
-<Box as="ul" sx={{ fontFamily: `Georgia, serif`, listStyleType: `none`, my: 0, pl: 0 }}>
+<Box as="ul" sx={{ fontFamily: `Georgia, serif`, listStyleType: `none`, marginBlock: 0, paddingInlineStart: 0 }}>
   {aiImagePrompts.map(({ app, imageSource, prompt }) => {
     return (
-      <Box as="li" key={prompt} sx={{ mt: 4 }}>
+      <Box as="li" key={prompt} sx={{ marginBlockStart: 4 }}>
         <Box as="figure" sx={{ m: 0 }}>
           <Box as="img"
             alt={prompt}
@@ -39,7 +39,7 @@ As an accessibility advocate, I like how image prompts serve as accessible `alt`
             sx={{ display: `block`, maxWidth: `100%` }}
           />
 
-          <Box as="figcaption" sx={{ mt: 2 }}>
+          <Box as="figcaption" sx={{ marginBlockStart: 2 }}>
             {app} prompt:
             <br />
             <Text as="code">{prompt}</Text>

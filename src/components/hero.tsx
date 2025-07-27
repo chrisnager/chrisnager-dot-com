@@ -12,9 +12,9 @@ export interface HeroProps {
 }
 
 const Hero: FC<HeroProps> = ({ data: { title, description } }) => (
-  <Box sx={{ px: 3 }}>
+  <Box sx={{ paddingInline: 3 }}>
     <Text as="h1">{title}</Text>
-    <Text as="p" sx={{ my: 3, fontSize: `1.2em` }}>
+    <Text as="p" sx={{ marginBlock: 3, fontSize: `1.2em` }}>
       <span sx={{ fontFamily: `Georgia, serif` }}>{description}</span>
       <br />
       <Link to="/profile" sx={{ fontSize: `0.83333em` }}>

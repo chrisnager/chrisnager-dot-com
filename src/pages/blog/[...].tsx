@@ -28,7 +28,7 @@ const FilteredArticles: FC<FilteredArticlesProps> = ({ data, location }) => {
 
   return (
     <Layout>
-      <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
+      <Box sx={{ maxWidth: `50ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro description={`${tag} articles`} title={tag} />
         <ArticlesList articles={data.allPostsYaml.edges.filter((article) => article.node.tags.includes(tag))} />
       </Box>

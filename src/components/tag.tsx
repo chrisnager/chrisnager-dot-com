@@ -19,9 +19,9 @@ const Tag: FC<TagProps> = ({ children }) => {
       as={Link}
       key={children}
       sx={{
-        mr: 2,
-        py: 1,
-        px: 2,
+        marginInlineEnd: 2,
+        paddingBlock: 1,
+        paddingInline: 2,
         display: `inline-block`,
         fontStyle: `italic`,
         fontSize: `0.8em`,

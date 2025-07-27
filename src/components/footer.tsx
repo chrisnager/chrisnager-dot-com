@@ -27,15 +27,15 @@ const Footer: FC = () => {
   }, [])
 
   return (
-    <Box as="footer" sx={{ pb: 5 }}>
+    <Box as="footer" sx={{ paddingBlockEnd: 5 }}>
       <Flex
         sx={{
-          mt: 4,
+          marginBlockStart: 4,
           borderTopWidth: 1,
           borderTopStyle: `solid`,
           borderTopColor: `divider`,
-          pt: `3.5rem`,
-          px: [2, 0],
+          paddingBlockStart: `3.5rem`,
+          paddingInline: [2, 0],
           flexWrap: `wrap`,
         }}
       >
@@ -45,13 +45,13 @@ const Footer: FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               {...{ href, children }}
-              sx={{ blockSize: 48, display: `flex`, alignItems: `center`, px: [2, 3] }}
+              sx={{ blockSize: 48, display: `flex`, alignItems: `center`, paddingInline: [2, 3] }}
             />
           </Flex>
         ))}
       </Flex>
 
-      <Box sx={{ mt: 4, px: 3 }}>
+      <Box sx={{ marginBlockStart: 4, paddingInline: 3 }}>
         <Text as="small" sx={{ display: [`block`] }}>
           &copy; {new Date().getFullYear()} Chris Nager
         </Text>

@@ -180,8 +180,8 @@ const SystemUI: FC = () => {
                 )`,
 
                 boxSizing: `border-box`,
-                bottom: `-0.125rem`,
-                right: `-0.125rem`,
+                insetBlockEnd: `-0.125rem`,
+                insetInlineEnd: `-0.125rem`,
               },
             }
           }}
@@ -191,7 +191,7 @@ const SystemUI: FC = () => {
               key={weightName}
               sx={{ bg: `background`, aspectRatio: `1`, display: `grid`, gridTemplateRows: `auto 1fr` }}
             >
-              <div sx={{ fontSize: `1rem`, lineHeight: `1`, fontWeight: `500`, pt: `0.25rem`, px: `0.25rem` }}>
+              <div sx={{ fontSize: `1rem`, lineHeight: `1`, fontWeight: `500`, paddingBlockStart: `0.25rem`, paddingInline: `0.25rem` }}>
                 {weightName}
               </div>
               <div sx={{ fontSize: `5.5vmax`, fontWeight: `${(index + 1) * 100}`, placeSelf: `center` }}>Aa</div>
@@ -200,8 +200,8 @@ const SystemUI: FC = () => {
                   fontSize: `1rem`,
                   lineHeight: `1`,
                   fontWeight: `300`,
-                  px: `0.25rem`,
-                  pb: `0.25rem`,
+                  paddingInline: `0.25rem`,
+                  paddingBlockEnd: `0.25rem`,
                   display: `flex`,
                   justifyContent: `flex-end`,
                 }}

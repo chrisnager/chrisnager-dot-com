@@ -42,7 +42,7 @@ const FourSevenEight: FC = () => {
 
   return (
     <Layout>
-      <Box sx={{ maxWidth: `1000px`, mx: `auto`, px: `1rem`, mb: 5, px: 3, display: `grid`, gap: `2rem` }}>
+      <Box sx={{ maxWidth: `1000px`, marginInline: `auto`, paddingInline: `1rem`, marginBlockEnd: 5, paddingInline: 3, display: `grid`, gap: `2rem` }}>
         <Intro
           title="4-7-8 breathing"
           description={

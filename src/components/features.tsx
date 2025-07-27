@@ -25,8 +25,8 @@ const Features: FC<FeaturesProps> = ({ data }) => {
   }
 
   return (
-    <Box sx={{ my: 5, px: 2 }}>
-      <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: 'none' }}>
+    <Box sx={{ marginBlock: 5, paddingInline: 2 }}>
+      <Box as="ul" sx={{ marginBlock: 0, paddingInlineStart: 0, listStyleType: 'none' }}>
         {data.map(({ node }) => {
           const isInternalPost =
             node.link.substring(0, 6) === `/blog/` ||
@@ -35,7 +35,7 @@ const Features: FC<FeaturesProps> = ({ data }) => {
             node.link === `/system-ui`
 
           return (
-            <Box key={node.title} as="li" sx={{ my: 2 }}>
+            <Box key={node.title} as="li" sx={{ marginBlock: 2 }}>
               <Text
                 as={Link}
                 // @ts-ignore
