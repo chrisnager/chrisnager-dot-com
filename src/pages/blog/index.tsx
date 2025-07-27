@@ -16,12 +16,12 @@ export interface BlogProps {
 const Blog: FC<BlogProps> = ({ data }) => {
   return (
     <Layout>
-      <Box sx={{ maxWidth: `50ch`, mb: 5, px: 3 }}>
+      <Box sx={{ maxWidth: `50ch`, marginBlockEnd: 5, paddingInline: 3 }}>
         <Intro title="Blog" description="My written thoughts" />
-        <Box as="ul" sx={{ my: 0, pl: 0, listStyleType: `none` }}>
+        <Box as="ul" sx={{ marginBlock: 0, paddingInlineStart: 0, listStyleType: `none` }}>
           {data.allPostsYaml.edges.map(({ node }: { node: any }) => {
             return (
-              <Box as="li" key={node.slug} sx={{ pt: 4 }}>
+              <Box as="li" key={node.slug} sx={{ paddingBlockStart: 4 }}>
                 <ArticlePreview article={node} />
               </Box>
             )

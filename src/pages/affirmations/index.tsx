@@ -197,8 +197,8 @@ const Affirmations: FC = () => {
         <nav
           role="navigation"
           sx={{
-            pt: `2.25rem`,
-            pb: `0.75rem`,
+            paddingBlockStart: `2.25rem`,
+            paddingBlockEnd: `0.75rem`,
             display: `grid`,
             alignItems: `center`,
             mixBlendMode: `overlay`,
