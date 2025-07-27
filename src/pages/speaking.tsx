@@ -75,7 +75,16 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
 
 export default Speaking
 
-export const Head = () => <Halo title="Speaking" url="https://chrisnager.com/speaking" />
+export const Head = () => (
+  <Halo
+    title="Speaking"
+    url="https://chrisnager.com/speaking"
+    feedLinks={[
+      { href: '/speaking/feed.xml', type: 'application/rss+xml', title: 'Speaking Feed' },
+      { href: '/speaking/feed.json', type: 'application/json', title: 'Speaking Feed' },
+    ]}
+  />
+)
 
 export const pageQuery = graphql`
   query SpeakingQuery {
