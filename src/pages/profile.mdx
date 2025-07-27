@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
-import { Box, Text } from 'theme-ui'
+import { Box } from 'theme-ui'
 
+import Intro from '../components/intro'
 import Halo from '../components/halo'
 import Layout from '../components/layout'
 
@@ -10,14 +11,10 @@ export const Head = () => <Halo title="Profile" url="https://chrisnager.com/prof
 
 <Box sx={{ maxWidth: `50ch`, marginBlockEnd: 5, paddingInline: 3 }}>
 
-<Text as="h1" sx={{ marginBlock: 0 }}>
-  Profile
-</Text>
-
-<Text as="p" sx={{ marginBlock: 3, fontSize: `1.2em`, fontFamily: `Georgia, serif` }}>
-  I'm a software engineer with a background in design, 15 years of work experience, a minimalist aesthetic, and a deep
-  concern for performance and accessibility.
-</Text>
+<Intro
+  title="Profile"
+  description="I'm a software engineer with a background in design, 15 years of work experience, a minimalist aesthetic, and a deep concern for performance and accessibility."
+/>
 
 ![Chris Nager, smiling and wearing a hat](/images/profile/hat.jpg)
 
