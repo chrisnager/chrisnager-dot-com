@@ -12,6 +12,11 @@ const base = {
   hasCodePenEmbed: false,
 }
 
+const rootFeedLinks = [
+  { href: '/feed.xml', type: 'application/rss+xml' },
+  { href: '/feed.json', type: 'application/json' },
+]
+
 export interface HaloProps {
   title?: string
   url?: string
@@ -19,6 +24,7 @@ export interface HaloProps {
   image?: string
   author?: string
   hasCodePenEmbed?: boolean
+  feedLinks?: { href: string; type?: string; title?: string }[]
   children?: React.ReactNode
 }
 
@@ -29,6 +35,7 @@ const Halo: FC<HaloProps> = ({
   image = base.image,
   author = base.author,
   hasCodePenEmbed = base.hasCodePenEmbed,
+  feedLinks,
   children,
 }) => {
   return (
@@ -64,6 +71,16 @@ const Halo: FC<HaloProps> = ({
       <meta name="twitter:creator" content={author} />
 
       {hasCodePenEmbed && <script async src="https://static.codepen.io/assets/embed/ei.js"></script>}
+
+      {[...rootFeedLinks, ...(feedLinks || [])].map((link) => (
+        <link
+          key={`${link.href}-${link.type}`}
+          rel="alternate"
+          type={link.type ?? 'application/rss+xml'}
+          href={link.href}
+          title={link.title}
+        />
+      ))}
 
       {children}
     </Fragment>

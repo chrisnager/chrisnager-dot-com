@@ -32,7 +32,16 @@ const Blog: FC<BlogProps> = ({ data }) => {
   )
 }
 
-export const Head = () => <Halo title="Blog" url="https://chrisnager.com/blog" />
+export const Head = () => (
+  <Halo
+    title="Blog"
+    url="https://chrisnager.com/blog"
+    feedLinks={[
+      { href: '/blog/feed.xml', type: 'application/rss+xml', title: 'Blog feed' },
+      { href: '/blog/feed.json', type: 'application/json', title: 'Blog feed' },
+    ]}
+  />
+)
 
 export default Blog
 

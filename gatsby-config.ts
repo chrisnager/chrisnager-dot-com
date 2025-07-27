@@ -30,6 +30,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     description: `Developer and designer in Brooklyn, NY, passionate about performance, accessibility, and design systems`,
     title: `Chris Nager`,
+    siteUrl: `https://chrisnager.com`,
   },
 }
 

@@ -26,7 +26,16 @@ const Projects: FC<ProjectsProps> = ({ data }) => {
 
 export default Projects
 
-export const Head = () => <Halo title="Projects" url="https://chrisnager.com/projects" />
+export const Head = () => (
+  <Halo
+    title="Projects"
+    url="https://chrisnager.com/projects"
+    feedLinks={[
+      { href: '/projects/feed.xml', type: 'application/rss+xml', title: 'Projects feed' },
+      { href: '/projects/feed.json', type: 'application/json', title: 'Projects feed' },
+    ]}
+  />
+)
 
 export const pageQuery = graphql`
   query ProjectsQuery {
