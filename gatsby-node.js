@@ -2,8 +2,8 @@
 // import { mkdirSync, writeFileSync } from 'fs'
 // import path from 'path'
 
-const { mkdirSync, writeFileSync } = require('fs')
-const path = require('path')
+const { mkdirSync, writeFileSync } = require(`fs`)
+const path = require(`path`)
 
 // interface FeedItem {
 //   title: string
@@ -20,16 +20,16 @@ function buildFeeds(
 ) {
   const feedItems = items
     .map((item) => {
-      const pubDate = item.date ? `<pubDate>${new Date(item.date).toUTCString()}</pubDate>` : ''
-      const desc = item.description ? `<description><![CDATA[${item.description}]]></description>` : ''
+      const pubDate = item.date ? `<pubDate>${new Date(item.date).toUTCString()}</pubDate>` : ``
+      const desc = item.description ? `<description><![CDATA[${item.description}]]></description>` : ``
       return `    <item>\n      <title><![CDATA[${item.title}]]></title>\n      <link>${item.link}</link>\n      ${pubDate}\n      ${desc}\n    </item>`
     })
-    .join('\n')
+    .join(`\n`)
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>${meta.title}</title>\n    <link>${meta.siteUrl}/${prefix}</link>\n    <description>${meta.description}</description>\n${feedItems}\n </channel>\n</rss>`
 
   const json = {
-    version: 'https://jsonfeed.org/version/1',
+    version: `https://jsonfeed.org/version/1`,
     title: meta.title,
     home_page_url: `${meta.siteUrl}${prefix ? `/` : ``}${prefix}`,
     feed_url: `${meta.siteUrl}${prefix ? `/` : ``}${prefix}/feed.json`,
@@ -42,11 +42,11 @@ function buildFeeds(
     })),
   }
 
-  const dir = path.join('public', prefix)
+  const dir = path.join(`public`, prefix)
   mkdirSync(dir, { recursive: true })
-  writeFileSync(path.join(dir, 'feed.xml'), xml)
-  writeFileSync(path.join(dir, 'feed.json'), JSON.stringify(json, null, 2))
-  reporter.info(`feed created at ${prefix || '/'}feed.{xml,json}`)
+  writeFileSync(path.join(dir, `feed.xml`), xml)
+  writeFileSync(path.join(dir, `feed.json`), JSON.stringify(json, null, 2))
+  reporter.info(`feed created at ${prefix || `/`}feed.{xml,json}`)
 }
 
 const onPostBuild/*: GatsbyNode['onPostBuild']*/ = async ({ graphql, reporter }) => {
@@ -90,12 +90,12 @@ const onPostBuild/*: GatsbyNode['onPostBuild']*/ = async ({ graphql, reporter })
   `)
 
   if (result.errors || !result.data) {
-    reporter.panic('Error generating feed', result.errors)
+    reporter.panic(`Error generating feed`, result.errors)
     return
   }
 
   const { site, posts, projects, speaking } = result.data
-  const makeLink = (url/*: string*/) => (url.startsWith('http') ? url : `${site.siteMetadata.siteUrl}${url}`)
+  const makeLink = (url/*: string*/) => (url.startsWith(`http`) ? url : `${site.siteMetadata.siteUrl}${url}`)
 
   const blogItems/*: FeedItem[]*/ = posts.nodes.map((node) => ({
     title: node.title,
@@ -122,10 +122,10 @@ const onPostBuild/*: GatsbyNode['onPostBuild']*/ = async ({ graphql, reporter })
     return bDate - aDate
   })
 
-  buildFeeds('', allItems, site.siteMetadata, reporter)
-  buildFeeds('blog', blogItems, site.siteMetadata, reporter)
-  buildFeeds('projects', projectItems, site.siteMetadata, reporter)
-  buildFeeds('speaking', speakingItems, site.siteMetadata, reporter)
+  buildFeeds(``, allItems, site.siteMetadata, reporter)
+  buildFeeds(`blog`, blogItems, site.siteMetadata, reporter)
+  buildFeeds(`projects`, projectItems, site.siteMetadata, reporter)
+  buildFeeds(`speaking`, speakingItems, site.siteMetadata, reporter)
 }
 
 
