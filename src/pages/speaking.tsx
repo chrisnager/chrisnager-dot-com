@@ -80,8 +80,8 @@ export const Head = () => (
     title="Speaking"
     url="https://chrisnager.com/speaking"
     feedLinks={[
-      { href: '/speaking/feed.xml', type: 'application/rss+xml', title: 'Speaking feed' },
-      { href: '/speaking/feed.json', type: 'application/json', title: 'Speaking feed' },
+      { href: `/speaking/feed.xml`, type: `application/rss+xml`, title: `Speaking feed / Chris Nager` },
+      { href: `/speaking/feed.json`, type: `application/json`, title: `Speaking feed / Chris Nager` },
     ]}
   />
 )

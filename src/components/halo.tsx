@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { FC, Fragment } from 'react'
+import { FC, Fragment, ReactNode } from 'react'
 import { jsx } from 'theme-ui'
 
 const base = {
@@ -13,8 +13,8 @@ const base = {
 }
 
 const rootFeedLinks = [
-  { href: '/feed.xml', type: 'application/rss+xml' },
-  { href: '/feed.json', type: 'application/json' },
+  { href: `/feed.xml`, type: `application/rss+xml`, title: `Feed / Chris Nager` },
+  { href: `/feed.json`, type: `application/json`, title: `Feed / Chris Nager` },
 ]
 
 export interface HaloProps {
@@ -25,7 +25,7 @@ export interface HaloProps {
   author?: string
   hasCodePenEmbed?: boolean
   feedLinks?: { href: string; type?: string; title?: string }[]
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 const Halo: FC<HaloProps> = ({
