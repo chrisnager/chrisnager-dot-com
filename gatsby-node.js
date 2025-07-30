@@ -20,17 +20,18 @@ function buildFeeds(
 ) {
   const feedItems = items
     .map((item) => {
-      const pubDate = item.date ? `<pubDate>${new Date(item.date).toUTCString()}</pubDate>` : ``
-      const desc = item.description ? `<description><![CDATA[${item.description}]]></description>` : ``
-      return `    <item>\n      <title><![CDATA[${item.title}]]></title>\n      <link>${item.link}</link>\n      ${pubDate}\n      ${desc}\n    </item>`
+      const { title = ``, link = ``, description = `` } = item
+      const pubDate = item.date ? new Date(item.date).toUTCString() : ``
+
+      return `    <item>\n      <title><![CDATA[${title}]]></title>\n      <link>${link}</link>${pubDate ? `\n      <pubDate>${pubDate}</pubDate>` : ``}${description ? `\n      <description><![CDATA[${description}]]></description>` : ``}\n    </item>`
     })
     .join(`\n`)
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>${meta.title}</title>\n    <link>${meta.siteUrl}/${prefix}</link>\n    <description>${meta.description}</description>\n${feedItems}\n </channel>\n</rss>`
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>${prefix ? `${prefix[0].toUpperCase()}${prefix.slice(1)} / ` : ``}${meta.title}</title>\n    <link>${`${meta.siteUrl}${prefix ? `/` : ``}${prefix}`}</link>\n    <description>${meta.description}</description>\n${feedItems}\n </channel>\n</rss>`
 
   const json = {
     version: `https://jsonfeed.org/version/1`,
-    title: meta.title,
+    title: `${prefix ? `${prefix[0].toUpperCase()}${prefix.slice(1)} / ` : ``}${meta.title}`,
     home_page_url: `${meta.siteUrl}${prefix ? `/` : ``}${prefix}`,
     feed_url: `${meta.siteUrl}${prefix ? `/` : ``}${prefix}/feed.json`,
     items: items.map((item) => ({

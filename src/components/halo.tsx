@@ -13,8 +13,8 @@ const base = {
 }
 
 const rootFeedLinks = [
-  { href: `/feed.xml`, type: `application/rss+xml`, title: `Feed / Chris Nager` },
-  { href: `/feed.json`, type: `application/json`, title: `Feed / Chris Nager` },
+  { href: `/feed.xml`, type: `application/rss+xml`, title: `RSS feed / Chris Nager` },
+  { href: `/feed.json`, type: `application/json`, title: `JSON feed / Chris Nager` },
 ]
 
 export interface HaloProps {
@@ -72,14 +72,8 @@ const Halo: FC<HaloProps> = ({
 
       {hasCodePenEmbed && <script async src="https://static.codepen.io/assets/embed/ei.js"></script>}
 
-      {[...rootFeedLinks, ...(feedLinks || [])].map((link) => (
-        <link
-          key={`${link.href}-${link.type}`}
-          rel="alternate"
-          type={link.type ?? 'application/rss+xml'}
-          href={link.href}
-          title={link.title}
-        />
+      {[...rootFeedLinks, ...(feedLinks || [])].map(({ href, title, type }) => (
+        <link key={`${href}-${type}`} rel="alternate" {...{ href, title, type }} />
       ))}
 
       {children}

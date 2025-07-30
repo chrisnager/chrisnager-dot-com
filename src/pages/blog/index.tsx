@@ -37,8 +37,8 @@ export const Head = () => (
     title="Blog"
     url="https://chrisnager.com/blog"
     feedLinks={[
-      { href: `/blog/feed.xml`, type: `application/rss+xml`, title: `Blog feed / Chris Nager` },
-      { href: `/blog/feed.json`, type: `application/json`, title: `Blog feed / Chris Nager` },
+      { href: `/blog/feed.xml`, type: `application/rss+xml`, title: `Blog RSS feed / Chris Nager` },
+      { href: `/blog/feed.json`, type: `application/json`, title: `Blog JSON feed / Chris Nager` },
     ]}
   />
 )
