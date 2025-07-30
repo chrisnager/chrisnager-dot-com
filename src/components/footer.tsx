@@ -9,6 +9,7 @@ const links = [
   { href: `https://github.com/chrisnager`, children: `GitHub` },
   { href: `https://twitter.com/chrisnager`, children: `Twitter` },
   { href: `https://medium.com/@chrisnager`, children: `Medium` },
+  { href: `/feed.xml`, children: `RSS` },
 ]
 
 const Footer: FC = () => {
