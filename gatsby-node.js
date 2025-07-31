@@ -5,6 +5,18 @@
 const { mkdirSync, writeFileSync } = require(`fs`)
 const path = require(`path`)
 
+const C_LOGO_COMMENT = `\n\n<!--\n` +
+  `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡶⠶⠶⠶⢦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n` +
+  `⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⡇⠀⢸⡇⠀⠀⠀⠀⠈⠙⢷⣄⠀⠀⠀⠀⠀⠀⠀⠀\n` +
+  `⠀⠀⠀⠀⠀⠀⠀⣼⠋⢸⡇⠀⢸⣇⣀⣀⣀⠀⠀⠀⠀⢹⣆⠀⠀⠀⠀⠀⠀⠀\n` +
+  `⠀⠀⠀⠀⠀⠀⢸⡏⠀⢸⡇⠀⢸⡏⠁⠈⠙⢷⣤⠶⠞⠋⠁⠀⠀⠀⠀⠀⠀⠀\n` +
+  `⠀⠀⠀⠀⠀⠀⠘⠃⠀⢸⡇⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n` +
+  `⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⢸⣇⡀⢀⣠⡾⠛⠶⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀\n` +
+  `⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⢸⡏⠉⠉⠉⠀⠀⠀⠀⣹⠏⠀⠀⠀⠀⠀⠀⠀\n` +
+  `⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⡀⢸⡇⠀⠀⠀⠀⢀⣠⡾⠋⠀⠀⠀⠀⠀⠀⠀⠀\n` +
+  `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⠷⠶⠶⠶⠞⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n` +
+  `-->\n\n`
+
 // interface FeedItem {
 //   title: string
 //   link: string
@@ -48,6 +60,33 @@ function buildFeeds(
   writeFileSync(path.join(dir, `feed.xml`), xml)
   writeFileSync(path.join(dir, `feed.json`), JSON.stringify(json, null, 2))
   reporter.info(`feed created at ${prefix || `/`}feed.{xml,json}`)
+}
+
+function addAsciiComments(dir, reporter) {
+  const htmlFiles = []
+
+  const walk = (folder) => {
+    for (const entry of require(`fs`).readdirSync(folder)) {
+      const absolute = path.join(folder, entry)
+      if (require(`fs`).statSync(absolute).isDirectory()) {
+        walk(absolute)
+      } else if (absolute.endsWith(`.html`)) {
+        htmlFiles.push(absolute)
+      }
+    }
+  }
+
+  walk(dir)
+
+  htmlFiles.forEach((file) => {
+    const contents = require(`fs`).readFileSync(file, `utf8`)
+    if (!contents.includes(C_LOGO_COMMENT)) {
+      const updated = contents.replace(`<!DOCTYPE html>`, `<!DOCTYPE html>\n${C_LOGO_COMMENT}`)
+      require(`fs`).writeFileSync(file, updated)
+    }
+  })
+
+  reporter.info(`added ASCII comment to ${htmlFiles.length} HTML files`)
 }
 
 const onPostBuild/*: GatsbyNode['onPostBuild']*/ = async ({ graphql, reporter }) => {
@@ -127,6 +166,8 @@ const onPostBuild/*: GatsbyNode['onPostBuild']*/ = async ({ graphql, reporter })
   buildFeeds(`blog`, blogItems, site.siteMetadata, reporter)
   buildFeeds(`projects`, projectItems, site.siteMetadata, reporter)
   buildFeeds(`speaking`, speakingItems, site.siteMetadata, reporter)
+
+  addAsciiComments(path.join(__dirname, `public`), reporter)
 }
 
 
