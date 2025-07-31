@@ -61,7 +61,7 @@
     "dev": "netlify dev",
     "dev:gatsby": "gatsby develop",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,md,mdx}'",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --ignore-pattern public .",
+    "lint": "eslint . --ignore-pattern public",
     "typecheck": "tsc --noEmit"
   },
   "version": "1.0.0"
