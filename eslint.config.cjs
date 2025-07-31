@@ -5,7 +5,6 @@ const reactPlugin = require('eslint-plugin-react')
 module.exports = [
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
-    ignores: ['public/**'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
