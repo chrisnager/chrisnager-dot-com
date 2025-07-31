@@ -24,7 +24,6 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({ article: { url, date, title, 
     <Box>
       <Box
         as={isInternalPost ? Link : `a`}
-        // @ts-ignore
         href={isInternalPost ? undefined : url}
         to={isInternalPost ? url : undefined}
         target={isInternalPost ? undefined : '_blank'}

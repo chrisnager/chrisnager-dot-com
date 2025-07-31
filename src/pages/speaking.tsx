@@ -27,7 +27,6 @@ const Speaking: FC<SpeakingProps> = ({ data }) => {
                 <Box key={node.name} as="li" sx={{ paddingBlockStart: 4 }}>
                   <Box
                     as={node.url ? `a` : `div`}
-                    // @ts-ignore
                     href={!!node.url ? node.url : undefined}
                     target="_blank"
                     rel="noopener noreferrer"

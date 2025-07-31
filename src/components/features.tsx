@@ -38,7 +38,7 @@ const Features: FC<FeaturesProps> = ({ data }) => {
             <Box key={node.title} as="li" sx={{ marginBlock: 2 }}>
               <Text
                 as={Link}
-                // @ts-ignore
+                // @ts-expect-error TODO: Address category type
                 to={categories[node.category]}
                 sx={{
                   bg: `tag`,
@@ -64,7 +64,6 @@ const Features: FC<FeaturesProps> = ({ data }) => {
               </Text>
               <Text
                 as={isInternalPost ? Link : `a`}
-                // @ts-ignore
                 href={isInternalPost ? undefined : node.link}
                 to={isInternalPost ? node.link : undefined}
                 target={isInternalPost ? undefined : '_blank'}
