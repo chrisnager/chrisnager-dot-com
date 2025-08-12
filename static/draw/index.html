@@ -1,0 +1,118 @@
+<!doctype html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>Draw / Projects / Chris Nager</title>
+
+    <meta name="twitter:title" content="Draw">
+    <meta name="twitter:description" content="Draw with mocked pressure sensitivity.">
+    <meta name="twitter:creator" content="@chrisnager">
+    <meta property="og:title" content="Draw">
+    <meta property="og:description" content="Draw with mocked pressure sensitivity.">
+</head>
+
+<body>
+    <canvas id="c" style="touch-action:none;border:1px solid #ccc"></canvas>
+</body>
+
+<script>
+    const canvas = document.getElementById('c');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
+    addEventListener('resize', resize); resize();
+
+    let drawing = false;
+    let last = null;
+    let pressure = 0;          // current effective pressure (0–1)
+    let base = 0.35;           // user-adjustable baseline
+    let velPressure = 0;       // velocity-derived component
+    let dwellPressure = 0;     // dwell/ramp component
+    let lastMoveTs = 0;
+
+    canvas.addEventListener('pointerdown', e => {
+        canvas.setPointerCapture(e.pointerId);
+        drawing = true;
+        last = { x: e.clientX, y: e.clientY, t: e.timeStamp };
+        dwellPressure = 0;
+        drawDot(e);
+    });
+
+    canvas.addEventListener('pointermove', e => {
+        if (!drawing) return;
+        const now = e.timeStamp;
+        const dx = e.clientX - last.x;
+        const dy = e.clientY - last.y;
+        const dt = Math.max(1, now - last.t);
+        const speed = Math.hypot(dx, dy) / dt; // px per ms
+
+        // 1) Real pressure if provided (pens, some platforms)
+        const real = (typeof e.pressure === 'number' && e.pressure > 0 && e.pressure <= 1) ? e.pressure : null;
+
+        // 2) Velocity-based (slower => heavier). Tune k & clamp.
+        const k = 0.9;
+        const v = 1 - Math.min(1, speed * 20); // speed 0..0.05 -> v ~ 1..0
+        velPressure = k * v;
+
+        // 3) Dwell ramp if barely moving
+        const moving = Math.hypot(dx, dy) > 0.5;
+        if (!moving) {
+            // ramp up to +0.4 over ~500ms of stillness
+            const since = now - lastMoveTs;
+            const target = Math.min(0.4, since / 500 * 0.4);
+            dwellPressure = dwellPressure * 0.85 + target * 0.15;
+        } else {
+            dwellPressure *= 0.85;
+            lastMoveTs = now;
+        }
+
+        // Combine: prefer real, else synthesize
+        let synth = base + 0.6 * velPressure + dwellPressure;
+        synth = Math.max(0.05, Math.min(1, synth));
+
+        // Smooth (low-pass)
+        const target = real ?? synth;
+        pressure = pressure * 0.75 + target * 0.25;
+
+        // Draw segment
+        drawStroke(last.x, last.y, e.clientX, e.clientY, pressure);
+        last = { x: e.clientX, y: e.clientY, t: now };
+    });
+
+    canvas.addEventListener('pointerup', end);
+    canvas.addEventListener('pointercancel', end);
+    function end() {
+        drawing = false;
+        last = null;
+        // ease pressure back to base
+        const id = setInterval(() => {
+            pressure = pressure * 0.7 + base * 0.3;
+            if (Math.abs(pressure - base) < 0.01) clearInterval(id);
+        }, 16);
+    }
+
+    // Wheel/pinch adjusts baseline while drawing (or anytime)
+    canvas.addEventListener('wheel', e => {
+        base += (e.deltaY < 0 ? 0.03 : -0.03);
+        base = Math.min(0.9, Math.max(0.05, base));
+        e.preventDefault();
+    }, { passive: false });
+
+    function drawDot(e) {
+        const p = (typeof e.pressure === 'number' && e.pressure > 0 && e.pressure <= 1) ? e.pressure : base;
+        drawStroke(e.clientX, e.clientY, e.clientX, e.clientY, p);
+    }
+
+    function drawStroke(x0, y0, x1, y1, p) {
+        const size = 2 + p * 40; // map 0–1 to 2–42 px
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#222';
+        ctx.lineWidth = size;
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+        ctx.lineTo(x1, y1);
+        ctx.stroke();
+    }
+</script>
