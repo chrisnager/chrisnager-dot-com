@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from 'gatsby'
+import adapter from 'gatsby-adapter-netlify'
 import * as dotenv from "dotenv";
 
 dotenv.config({
@@ -6,6 +7,7 @@ dotenv.config({
 })
 
 const config: GatsbyConfig = {
+  adapter: adapter(),
   pathPrefix: `/`,
 
   plugins: [

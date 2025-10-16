@@ -19,7 +19,7 @@
     "eslint": "^9.16.0",
     "eslint-plugin-react": "^7.37.2",
     "gatsby": "^5.14.0",
-    "gatsby-adapter-netlify": "^1.2.0",
+    "gatsby-adapter-netlify": "^1.2.1",
     "gatsby-plugin-google-analytics": "^5.14.0",
     "gatsby-plugin-mdx": "^5.14.0",
     "gatsby-plugin-theme-ui": "^0.16.2",
@@ -27,6 +27,7 @@
     "gatsby-transformer-remark": "^6.14.0",
     "gatsby-transformer-yaml": "^5.14.0",
     "netlify-cli": "^17.38.0",
+    "node-addon-api": "^7.1.0",
     "prettier": "^3.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -44,7 +45,7 @@
   ],
   "license": "MIT",
   "name": "chrisnager",
-  "packageManager": "yarn@4.5.3",
+  "packageManager": "yarn@4.6.0",
   "prettier": {
     "printWidth": 120,
     "semi": false,
@@ -56,12 +57,13 @@
     "url": "git+https://github.com/chrisnager/chrisnager-dot-com.git"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "netlify build",
     "clean": "gatsby clean",
     "dev": "netlify dev",
     "dev:gatsby": "gatsby develop",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,md,mdx}'",
     "lint": "eslint src",
+    "serve": "netlify serve",
     "typecheck": "tsc --noEmit"
   },
   "version": "1.0.0"
