@@ -65,7 +65,8 @@
     "lint": "eslint src",
     "serve": "netlify serve",
     "typecheck": "tsc --noEmit",
-    "cli": "node scripts/cli.js"
+    "cli": "node scripts/cli.js",
+    "move-cli": "cp scripts/cli.js static"
   },
   "version": "1.0.0"
 }
