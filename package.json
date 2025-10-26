@@ -66,7 +66,7 @@
     "serve": "netlify serve",
     "typecheck": "tsc --noEmit",
     "cli": "node scripts/cli.js",
-    "move-cli": "cp scripts/cli.js static"
+    "move-cli": "mkdir static/cli && mkdir static/cli/src && mkdir static/cli/src/gatsby-plugin-theme-ui && mkdir static/cli/src/data && cp src/gatsby-plugin-theme-ui/* static/cli/src/gatsby-plugin-theme-ui && cp src/data/* static/cli/src/data && cp scripts/cli.js static/cli/src/index.js"
   },
   "version": "1.0.0"
 }

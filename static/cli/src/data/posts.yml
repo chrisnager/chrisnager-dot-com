@@ -1,0 +1,185 @@
+- title: Custom design system MCP
+  slug: custom-design-system-mcp
+  url: https://www.linkedin.com/posts/activity-7344402049108766720-PH8G
+  date: 2025-06-27
+  tags: [AI, Design systems, Engineering]
+
+- title: Vibe coding with your design system
+  slug: vibe-coding-with-your-design-system
+  url: /blog/vibe-coding-with-your-design-system
+  date: 2025-05-18
+  tags: [AI, Design systems]
+
+- title: Vibe coding
+  slug: vibe-coding
+  url: /blog/vibe-coding
+  date: 2025-04-06
+  tags: [AI, Game development, Creation]
+
+- title: Design engineering
+  slug: design-engineering
+  url: /blog/design-engineering
+  date: 2024-08-11
+  tags: [Design, Engineering]
+
+- title: Return to Vim
+  slug: return-to-vim
+  url: /blog/return-to-vim
+  date: 2024-02-28
+  tags: [Developer experience (DX)]
+
+- title: My GPTs
+  slug: my-gpts
+  url: /blog/my-gpts
+  date: 2023-11-06
+  tags: [AI, Creation]
+
+- title: AI image prompts
+  slug: ai-image-prompts
+  url: /blog/ai-image-prompts
+  date: 2023-04-22
+  tags: [AI]
+
+# - title: Accessible gradients determined by the greatest contrast per colorspace
+#   slug: accessible-gradients-determined-by-the-greatest-contrast-per-colorspace
+#   url: /blog/aaa
+#   date: 2022-03-29
+#   tags: [accessibility, CSS]
+
+- title: Time for a change
+  slug: time-for-a-change
+  url: /blog/time-for-a-change
+  date: 2020-04-23
+  tags: [News]
+
+- title: Takeaways from F8 2018
+  slug: takeaways-from-f8-2018
+  url: https://medium.com/@chrisnager/takeaways-from-f8-2018-3dde54919490
+  date: 2018-05-11
+  tags: [Conference]
+
+- title: Case for a monorepo
+  slug: case-for-a-monorepo
+  url: https://medium.com/@chrisnager/case-for-a-monorepo-28cebf26e1aa
+  date: 2018-03-20
+  tags: [Developer experience (DX), Monorepo, Engineering]
+
+- title: Stack your classes within template literals
+  slug: stack-your-classes-within-template-literals
+  url: https://medium.com/@chrisnager/stack-your-classes-within-template-literals-d537bf463d4a
+  date: 2016-03-09
+  tags: [Developer experience (DX), CSS-in-JS, Engineering]
+
+- title: Center and crop images with a single line of CSS
+  slug: center-and-crop-images-with-a-single-line-of-css
+  url: https://medium.com/@chrisnager/center-and-crop-images-with-a-single-line-of-css-ad140d5b4a87
+  date: 2015-01-19
+  tags: [CSS, Design, Engineering]
+
+- title: Bespoke SVG reference
+  slug: bespoke-svg-reference
+  url: https://medium.com/@chrisnager/bespoke-svg-reference-e22eb733272
+  date: 2014-05-23
+  tags: [SVG, Documentation, Engineering]
+
+- title: Analog-style LED clock concept
+  slug: analog-style-led-clock-concept
+  url: /analog-style-led-clock-concept
+  date: 2014-03-25
+  tags: [CSS, Design]
+
+- title: Simple vertical centering with CSS
+  slug: simple-vertical-centering-with-css
+  url: /blog/simple-vertical-centering-with-css
+  date: 2014-01-10
+  tags: [CSS]
+
+- title: NYC Subway Lines reimagined with long shadow design
+  slug: nyc-subway-lines-reimagined-with-longshadowdesign
+  url: /nyc-subway-lines-reimagined-with-longshadowdesign
+  date: 2013-06-29
+  tags: [CSS]
+
+- title: Time-based media queries
+  slug: time-based-media-queries
+  url: /time-based-media-queries
+  date: 2013-03-25
+  tags: [CSS, Idea]
+
+- title: Hue bump with Sass @for control directive
+  slug: hue-bump-with-sass-for-control-directive
+  url: /hue-bump-with-sass-for-control-directive
+  date: 2013-01-17
+  tags: [CSS, Sass]
+
+- title: Display icons with custom data-attributes
+  slug: display-icons-with-custom-data-attributes
+  url: /display-icons-with-custom-data-attributes
+  date: 2012-12-21
+  tags: [CSS, Design]
+
+- title: Circles
+  slug: circles
+  url: /circles
+  date: 2012-12-19
+  tags: [CSS]
+
+- title: Video and audio in CSS
+  slug: video-and-audio-in-css
+  url: /blog/video-and-audio-in-css
+  date: 2012-12-04
+  tags: [CSS, Idea, Audio, Video]
+
+- title: Natural curves
+  slug: natural-curves
+  url: /natural-curves
+  date: 2012-11-08
+  tags: [CSS]
+
+- title: My initials
+  slug: my-initials
+  url: /my-initials
+  date: 2012-10-23
+  tags: [CSS, Design]
+
+- title: Touchable textures with CSS - can you feel me?
+  slug: touchable-textures-with-css-can-you-feel-me
+  url: /touchable-textures-with-css-can-you-feel-me
+  date: 2012-10-18
+  tags: [CSS, Idea]
+
+- title: Further simplified hexcodes
+  slug: further-simplified-hexcodes
+  url: /further-simplified-hexcodes
+  date: 2012-12-18
+  tags: [CSS, Idea]
+
+- title: Box sizing for pseudo elements
+  slug: box-sizing-for-pseudo-elements
+  url: /box-sizing-for-pseudo-elements
+  date: 2012-12-09
+  tags: [CSS]
+
+- title: An Event Apart and a designer’s view of the web
+  slug: an-event-apart-and-a-designer-e2-80-99s-view-of-the-web
+  url: /an-event-apart-and-a-designer-e2-80-99s-view-of-the-web
+  date: 2011-12-23
+  tags: [Conference, News]
+
+- title: CSS3 ::selection background color trick
+  slug: css3-selection-background-color-trick
+  url: /blog/css3-selection-background-color-trick
+  date: 2011-09-09
+  tags: [CSS]
+
+- title: Chris Nager 2012 (responsive design)
+  slug: chris-nager-2012
+  url: /chris-nager-2012
+  date: 2011-08-18
+  tags: [Responsive design, Design, News]
+
+- title: ChrisNager.com v2 is live
+  slug: chrisnager-com-v2-is-live
+  url: chrisnager-com-v2-is-live
+  date: 2011-06-12
+  tags: [News]
