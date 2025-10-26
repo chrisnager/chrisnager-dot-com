@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const Module = require('module')
-const { spawn } = require('child_process')
+const { spawn, spawnSync } = require('child_process')
 
 const stdout = process.stdout
 const stdin = process.stdin
@@ -23,6 +23,28 @@ const namedColors = {
   white: '#ffffff',
   gold: '#ffd700',
   rebeccapurple: '#663399',
+}
+
+const FOOTER_LINKS = [
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/chrisnager' },
+  { label: 'CodePen', href: 'https://codepen.io/chrisnager' },
+  { label: 'GitHub', href: 'https://github.com/chrisnager' },
+  { label: 'Twitter', href: 'https://twitter.com/chrisnager' },
+  { label: 'Medium', href: 'https://medium.com/@chrisnager' },
+  { label: 'RSS', href: 'https://chrisnager.com/feed.xml' },
+]
+
+const FOOTER_META_LINKS = [
+  { label: 'Source', href: 'https://github.com/chrisnager/chrisnager-dot-com' },
+  {
+    label: 'Follow my progress',
+    href: 'https://www.notion.so/chrisnager/ChrisNager-com-a8e63b19f10a4b0580ff029355e28dd8',
+  },
+]
+
+const FOOTER_PAGESPEED_LINK = {
+  label: 'PageSpeed Insights-approved',
+  href: 'https://pagespeed.web.dev/analysis/https-chrisnager-com/xsdnmn5fb7?form_factor=mobile',
 }
 
 const useColor = isTTY
@@ -136,6 +158,8 @@ if (requestedThemeId) {
 
 let currentColors = themeModes[currentThemeIndex].colors
 styles = createStyles(currentColors)
+
+const repoUpdatedInfo = getRepoUpdatedInfo()
 
 if (useColor) {
   clearScreen()
@@ -695,8 +719,12 @@ function renderNavigation(layout, activeSectionIndex) {
     return styleText(section.display, style, styles.base)
   })
 
-  const spacer = Array.from({ length: 3 }, () => buildLine([''], layout.margin))
-  return [...spacer, buildLine([segments.join('   ')], layout.margin), buildLine([''], layout.margin)]
+  const verticalSpacer = Array.from({ length: 3 }, () => buildLine([''], layout.margin))
+  const { contentWidth } = computeLayout()
+  const logo = '🅒'
+  const nav = segments.join('  ')
+  const horizontalSpacer = Array(contentWidth - 59).fill(' ').join('')
+  return [...verticalSpacer, buildLine([`${logo}${horizontalSpacer}${nav}`], layout.margin), buildLine([''], layout.margin)]
 }
 
 function buildHeroLines(home, layout) {
@@ -724,7 +752,7 @@ function buildSectionHeadingLines(section, home, layout) {
   const lines = [buildLine([styleText(heading, styles.heading, styles.base)], layout.margin)]
   lines.push(buildLine([''], layout.margin))
 
-  const intro = getSectionIntro(section.id, home)
+  const intro = getSectionIntro(section.id)
   if (intro) {
     const introLines = wrapText(intro, layout.contentWidth)
     introLines.forEach((line) => {
@@ -845,6 +873,36 @@ function renderFooter(layout, state, options) {
   // const sectionLabel = `Section • ${sections[state.sectionIndex].label}`
   // lines.push(buildLine([styleText(sectionLabel, styles.instruction, styles.base)], layout.margin))
 
+
+  // const themeLabel = `--theme=${themeModes[state.themeIndex].label.toLowerCase()}, ${themeModes.map(t => t.label.toLowerCase()).join(' | ')}`
+  // lines.push(buildLine([styleText(themeLabel, styles.instruction, styles.base)], layout.margin))
+
+  const linkSegments = []
+  FOOTER_LINKS.forEach((link, index) => {
+    if (index > 0) {
+      linkSegments.push('  ')
+    }
+    linkSegments.push(formatFooterLink(link.label, link.href))
+  })
+  lines.push(buildLine(linkSegments, layout.margin))
+
+  const metaSegments = [
+    formatFooterLink(FOOTER_META_LINKS[0].label, FOOTER_META_LINKS[0].href),
+    ' • ',
+    formatFooterLink(FOOTER_META_LINKS[1].label, FOOTER_META_LINKS[1].href),
+  ]
+  if (repoUpdatedInfo && repoUpdatedInfo.display) {
+    metaSegments.push(' • ', formatFooterLink(`Updated ${repoUpdatedInfo.display}`, repoUpdatedInfo.href))
+  }
+  lines.push(buildLine([''], layout.margin), buildLine([`© ${new Date().getFullYear()} Chris Nager`], layout.margin), buildLine(metaSegments, layout.margin))
+
+  const techSegments = [
+    'Gatsby-built, Netlify-hosted, ',
+    formatFooterLink(FOOTER_PAGESPEED_LINK.label, FOOTER_PAGESPEED_LINK.href),
+    ' (💯)',
+  ]
+  lines.push(buildLine([''], layout.margin), buildLine(techSegments, layout.margin))
+
   if (options.interactive) {
     const instructions = []
     if (options.itemsCount > 0) {
@@ -856,11 +914,8 @@ function renderFooter(layout, state, options) {
     }
     instructions.push('[Q] Quit')
 
-    lines.push(buildLine([styleText(instructions.join('  '), styles.instruction, styles.base)], layout.margin))
+    lines.push(buildLine([''], layout.margin), buildLine([styleText(instructions.join('  '), styles.instruction, styles.base)], layout.margin))
   }
-
-  // const themeLabel = `--theme=${themeModes[state.themeIndex].label.toLowerCase()}, ${themeModes.map(t => t.label.toLowerCase()).join(' | ')}`
-  // lines.push(buildLine([styleText(themeLabel, styles.instruction, styles.base)], layout.margin))
 
   if (state.statusMessage) {
     lines.push(buildLine([styleText(state.statusMessage, styles.status, styles.base)], layout.margin))
@@ -869,16 +924,16 @@ function renderFooter(layout, state, options) {
   return lines
 }
 
-function getSectionIntro(sectionId, home) {
+function getSectionIntro(sectionId) {
   switch (sectionId) {
     case 'profile':
-      return home.description || 'Explore the profile to learn more about Chris.'
+      return "I'm a software engineer with a background in design, 15 years of work experience, a minimalist aesthetic, and a deep concern for performance and accessibility."
     case 'projects':
-      return 'Selected projects, experiments, and client work.'
+      return "A handful of things I've built" // 'Selected projects, experiments, and client work'
     case 'speaking':
-      return 'Talks, interviews, and appearances.'
+      return "Fun stuff I've presented" // 'Talks, interviews, and appearances'
     case 'blog':
-      return 'Writing on design engineering, systems, and experimentation.'
+      return 'My written thoughts' // 'Writing on design engineering, systems, and experimentation'
     default:
       return ''
   }
@@ -986,6 +1041,48 @@ function findEntryInAnySection(sectionEntries, value) {
   }
 
   return null
+}
+
+function getRepoUpdatedInfo() {
+  try {
+    const result = spawnSync('git', ['log', '-1', '--date=iso-strict', '--format=%cd'], { encoding: 'utf8' })
+    if (result.status !== 0) {
+      return null
+    }
+
+    const iso = result.stdout.trim()
+    if (!iso) {
+      return null
+    }
+
+    const parsed = new Date(iso)
+    if (Number.isNaN(parsed.getTime())) {
+      return null
+    }
+
+    const now = new Date()
+    const display = parsed.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: parsed.getFullYear() !== now.getFullYear() ? 'numeric' : undefined,
+    })
+
+    return {
+      display,
+      href: 'https://github.com/chrisnager/chrisnager-dot-com/commits/master',
+    }
+  } catch (_error) {
+    return null
+  }
+}
+
+function formatFooterLink(label, url) {
+  if (!url) {
+    return label
+  }
+
+  const linked = hyperlink(label, url)
+  return styleText(linked, styles.link, styles.base)
 }
 
 function getOpenCommand(url) {
