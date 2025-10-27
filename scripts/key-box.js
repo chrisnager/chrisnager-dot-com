@@ -168,7 +168,6 @@ function renderBox(label) {
 
 function draw(label) {
   clearScreen()
-  stdout.write('Press any key to see it here. Ctrl+C exits.\n\n')
   if (label) {
     stdout.write(`${renderBox(label)}\n`)
   }
