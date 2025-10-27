@@ -65,8 +65,7 @@
     "lint": "eslint src",
     "serve": "netlify serve",
     "typecheck": "tsc --noEmit",
-    "cli": "node scripts/cli.js",
-    "move-cli": "rm -rf static/cli && mkdir static/cli && mkdir static/cli/src && mkdir static/cli/src/gatsby-plugin-theme-ui && mkdir static/cli/src/data && mkdir static/cli/src/scripts && cp src/gatsby-plugin-theme-ui/* static/cli/src/gatsby-plugin-theme-ui && cp src/data/* static/cli/src/data && cp scripts/cli.js static/cli/src/scripts/index.js"
+    "cli": "node scripts/cli.js"
   },
   "version": "1.0.0"
 }
