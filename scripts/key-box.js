@@ -17,9 +17,11 @@ if (typeof stdin.setRawMode !== 'function') {
 readline.emitKeypressEvents(stdin)
 
 const CLEAR_DELAY_MS = 700
+const MAX_HISTORY = 8
 
 let cursorHidden = false
 let clearTimer = null
+const keyHistory = []
 
 const metaKeyLabel = process.platform === 'darwin' ? 'Option' : 'Alt'
 
@@ -57,6 +59,14 @@ function formatKeypress(str, key) {
   }
 
   return parts.length ? parts.join(' + ') : 'Unknown'
+}
+
+function recordKey(label) {
+  if (!label) return
+  keyHistory.unshift(label)
+  if (keyHistory.length > MAX_HISTORY) {
+    keyHistory.length = MAX_HISTORY
+  }
 }
 
 function mapKeyName(key, str) {
@@ -149,27 +159,52 @@ function mapKeyName(key, str) {
   return key.name || null
 }
 
-function renderBox(label) {
-  const content = label || ''
-  const lines = content.split('\n')
-  const innerWidth = Math.max(...lines.map((line) => line.length))
+function draw() {
+  clearScreen()
+  // stdout.write('Press any key to see it here. Ctrl+C exits.\n\n')
+  if (keyHistory.length) {
+    stdout.write(`${renderBoxes(keyHistory)}\n`)
+  }
+}
+
+function renderBoxes(labels) {
+  if (!labels.length) return ''
+  const boxes = labels.map(createBox)
+  const maxHeight = Math.max(...boxes.map((box) => box.lines.length))
+
+  const normalized = boxes.map((box) => {
+    if (box.lines.length === maxHeight) return box.lines
+    const padLine = `│ ${' '.repeat(box.innerWidth)} │`
+    const adjusted = box.lines.slice()
+    while (adjusted.length < maxHeight) {
+      adjusted.splice(adjusted.length - 1, 0, padLine)
+    }
+    return adjusted
+  })
+
+  const rows = []
+  for (let row = 0; row < maxHeight; row += 1) {
+    rows.push(normalized.map((lines) => lines[row]).join(' '))
+  }
+
+  return rows.join('\n')
+}
+
+function createBox(label) {
+  const text = typeof label === 'string' ? label : String(label ?? '')
+  const contentLines = text.split('\n')
+  const innerWidth = Math.max(1, ...contentLines.map((line) => line.length))
   const horizontal = '─'.repeat(innerWidth + 2)
   const top = `┌${horizontal}┐`
   const bottom = `└${horizontal}┘`
-  const middle = lines
-    .map((line) => {
-      const padded = line.padEnd(innerWidth, ' ')
-      return `│ ${padded} │`
-    })
-    .join('\n')
+  const middle = contentLines.map((line) => {
+    const padded = line.padEnd(innerWidth, ' ')
+    return `│ ${padded} │`
+  })
 
-  return `${top}\n${middle}\n${bottom}`
-}
-
-function draw(label) {
-  clearScreen()
-  if (label) {
-    stdout.write(`${renderBox(label)}\n`)
+  return {
+    innerWidth,
+    lines: [top, ...middle, bottom],
   }
 }
 
@@ -191,7 +226,7 @@ function cleanupAndExit(code = 0) {
 stdin.setRawMode(true)
 stdin.resume()
 hideCursor()
-draw(null)
+draw()
 
 stdin.on('keypress', (str, key) => {
   if (!key) return
@@ -202,7 +237,8 @@ stdin.on('keypress', (str, key) => {
   }
 
   const label = formatKeypress(str, key)
-  draw(label)
+  recordKey(label)
+  draw()
   resetClearTimer()
 })
 
@@ -220,7 +256,8 @@ function resetClearTimer() {
   }
   clearTimer = setTimeout(() => {
     clearTimer = null
-    draw(null)
+    keyHistory.length = 0
+    draw()
   }, CLEAR_DELAY_MS)
 }
 
