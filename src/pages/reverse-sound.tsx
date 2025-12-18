@@ -178,7 +178,7 @@ export default function ReverseSound() {
             Choose a file
           </label>
           <input
-            accept="audio/*"
+            accept="audio/*,.m4a"
             id="sound-input"
             name="sound"
             onChange={handleFileChange}
