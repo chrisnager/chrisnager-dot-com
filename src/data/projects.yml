@@ -58,6 +58,11 @@
   summary: Make ASCII art with AI.
   tags: [AI, OpenAI, GPT-4, OpenAI API]
 
+- url: /rubiks-art
+  name: Rubik's Cube Art
+  summary: Design a Rubik's cube mosaic with prompts or images.
+  tags: [Generative art, Rubik's Cube, Design, React]
+
 - url: https://supportnycdtc.com
   name: Support NYC DTC
   summary: Interactive map to support the DTC brands of NYC affected by COVID-19, recently featured in the Wall Street Journal and in Mapbox's newsletter
@@ -279,4 +284,3 @@
   name: Totally Fresh
   summary: Experimental CSS3 design featured on Smashing Magazine
   tags: [Design, HTML, CSS]
-
