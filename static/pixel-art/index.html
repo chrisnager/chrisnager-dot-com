@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel art</title>
+
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+        }
+
+        #pixel-art {
+            --pixel-size: 1rem;
+            background-color: transparent;
+            block-size: var(--pixel-size);
+            box-shadow: var(--shadows);
+            image-rendering: pixelated;
+            inline-size: var(--pixel-size);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="pixel-art" style="--pixel-size:2rem;"
+        data-pattern="9:r10b7r2b1w5b1r2b1w1g3w1b1r2b1w1g1y1g1w1b1r2b1w1g3w1b1r2b1w5b1r2b7r10">
+    </div>
+
+    <script>
+        // TODO: Use URL to get pattern: `const { pathname } = new URL(window.location.href);`
+        const el = document.getElementById('pixel-art');
+        const { pattern } = el.dataset
+        const [dimensions, compressedData] = pattern.split(':');
+        const width = parseInt(dimensions.split('x')[0]);
+        const palette = { r: 'red', b: 'royalblue', g: 'limegreen', w: 'white', y: 'gold' };
+
+        const pixels = compressedData.match(/([a-z])(\d+)/gi).flatMap(pair => {
+            const char = pair.charAt(0);
+            const count = parseInt(pair.slice(1));
+            return Array(count).fill(palette[char] || char);
+        });
+
+        const shadows = pixels.map((color, index) => {
+            return `calc(mod(${index}, ${width}) * var(--pixel-size)) calc(round(down, ${index} / ${width}, 1) * var(--pixel-size)) ${color}`
+        }).join(',');
+
+        el.style.setProperty('--shadows', `${shadows}, inset 0 0 999px ${pixels[0]}`);
+    </script>
+</body>
+
+</html>
