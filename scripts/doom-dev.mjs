@@ -22,30 +22,31 @@ const mimeTypes = {
   '.wasm': 'application/wasm',
 }
 
+function writeBuildPackage() {
+  spawnSync(process.execPath, [join(rootDir, 'scripts', 'doom-write-build-package.mjs')], {
+    cwd: rootDir,
+    stdio: 'inherit',
+  })
+}
+
 function runInitialCompile() {
-  const result = spawnSync(
-    process.execPath,
-    [join(rootDir, 'node_modules', 'typescript', 'bin', 'tsc'), '-p', 'tsconfig.doom.json'],
-    {
-      cwd: rootDir,
-      stdio: 'inherit',
-    },
-  )
+  const result = spawnSync('yarn', ['tsc', '-p', 'tsconfig.doom.json'], {
+    cwd: rootDir,
+    stdio: 'inherit',
+  })
 
   if (result.status !== 0) {
     process.exit(result.status ?? 1)
   }
+
+  writeBuildPackage()
 }
 
 function startWatcher() {
-  return spawn(
-    process.execPath,
-    [join(rootDir, 'node_modules', 'typescript', 'bin', 'tsc'), '-p', 'tsconfig.doom.json', '--watch', '--preserveWatchOutput'],
-    {
-      cwd: rootDir,
-      stdio: 'inherit',
-    },
-  )
+  return spawn('yarn', ['tsc', '-p', 'tsconfig.doom.json', '--watch', '--preserveWatchOutput'], {
+    cwd: rootDir,
+    stdio: 'inherit',
+  })
 }
 
 function mapRequestToFile(pathname) {

@@ -1,4 +1,5 @@
 import { bootstrapSessionFromLocation } from '../session/bootstrap.js'
+import type { SessionBootstrap } from '../session/bootstrap.js'
 
 export type AppRoute =
   | {
@@ -6,16 +7,19 @@ export type AppRoute =
     }
   | {
       type: 'play'
-      session: ReturnType<typeof bootstrapSessionFromLocation>
+      session: SessionBootstrap
     }
 
 export function createRouter() {
   return {
-    getCurrentRoute(): AppRoute {
-      if (window.location.pathname === '/play') {
+    async getCurrentRoute(): Promise<AppRoute> {
+      const normalizedPathname =
+        window.location.pathname.length > 1 ? window.location.pathname.replace(/\/+$/, '') : window.location.pathname
+
+      if (normalizedPathname === '/play' || normalizedPathname === '/doom/play') {
         return {
           type: 'play',
-          session: bootstrapSessionFromLocation(window.location),
+          session: await bootstrapSessionFromLocation(window.location),
         }
       }
 

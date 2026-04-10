@@ -8,18 +8,19 @@ const buildRoot = join(rootDir, '.doom-build')
 const webDir = join(rootDir, 'apps', 'web')
 const distDir = join(webDir, 'dist')
 
-const tscResult = spawnSync(
-  process.execPath,
-  [join(rootDir, 'node_modules', 'typescript', 'bin', 'tsc'), '-p', 'tsconfig.doom.json'],
-  {
-    cwd: rootDir,
-    stdio: 'inherit',
-  },
-)
+const tscResult = spawnSync('yarn', ['tsc', '-p', 'tsconfig.doom.json'], {
+  cwd: rootDir,
+  stdio: 'inherit',
+})
 
 if (tscResult.status !== 0) {
   process.exit(tscResult.status ?? 1)
 }
+
+spawnSync(process.execPath, [join(rootDir, 'scripts', 'doom-write-build-package.mjs')], {
+  cwd: rootDir,
+  stdio: 'inherit',
+})
 
 await rm(distDir, { force: true, recursive: true })
 await mkdir(join(distDir, 'src'), { recursive: true })

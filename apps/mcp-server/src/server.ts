@@ -1,11 +1,11 @@
 import http from 'node:http'
 
 import { getDoomMcpConfig } from './config.js'
-import { MemoryDoomPersistence } from './domain/memoryPersistence.js'
+import { createDoomPersistence } from './domain/createPersistence.js'
 import { handleJsonRpcRequest } from './protocol/jsonRpc.js'
 
 const config = getDoomMcpConfig()
-const persistence = new MemoryDoomPersistence()
+const persistence = createDoomPersistence()
 
 function sendJson(response: http.ServerResponse, statusCode: number, body: unknown) {
   response.writeHead(statusCode, {

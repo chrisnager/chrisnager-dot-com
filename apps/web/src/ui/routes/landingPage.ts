@@ -10,7 +10,7 @@ export function renderLandingPage(root: HTMLDivElement, options: { playUrl: stri
         </p>
         <div class="landing-actions">
           <a class="button button-primary" href="${options.playUrl}">Launch Demo Session</a>
-          <a class="button button-secondary" href="/play?session=demo123">Open /play directly</a>
+          <a class="button button-secondary" href="${options.playUrl}">Open Play Route</a>
         </div>
       </section>
       <section class="landing-grid">

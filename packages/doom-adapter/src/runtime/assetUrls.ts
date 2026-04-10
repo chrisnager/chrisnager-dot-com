@@ -1,6 +1,22 @@
-export const DOOM_WASM_BASE_URL = '/vendor/doom/'
-export const DOOM_WASM_SCRIPT_URL = `${DOOM_WASM_BASE_URL}websockets-doom.js`
-export const FREEDOOM_PHASE1_CONTENT_URL = '/content/freedoom/freedoom1.wad'
+function getDoomBasePath() {
+  if (typeof window === 'undefined') {
+    return ''
+  }
+
+  return window.location.pathname === '/doom' || window.location.pathname.startsWith('/doom/') ? '/doom' : ''
+}
+
+export function getDoomWasmBaseUrl() {
+  return `${getDoomBasePath()}/vendor/doom/`
+}
+
+export function getDoomWasmScriptUrl() {
+  return `${getDoomWasmBaseUrl()}websockets-doom.js`
+}
+
+export function getFreedoomPhase1ContentUrl() {
+  return `${getDoomBasePath()}/content/freedoom/freedoom1.wad`
+}
 
 export const DEFAULT_CFG_TEXT = `
 use_libsamplerate             0

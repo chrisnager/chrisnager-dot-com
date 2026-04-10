@@ -2,6 +2,7 @@ import type { DoomPersistence } from './persistence.js'
 import type { DoomSaveRecord, DoomSessionRecord } from './model.js'
 
 export class MemoryDoomPersistence implements DoomPersistence {
+  readonly kind = 'memory-stub' as const
   private readonly sessions = new Map<string, DoomSessionRecord>()
   private readonly saves = new Map<string, DoomSaveRecord>()
 

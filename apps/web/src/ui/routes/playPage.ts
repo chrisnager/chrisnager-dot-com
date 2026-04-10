@@ -10,6 +10,13 @@ export async function renderPlayPage(
     session: SessionBootstrap
   },
 ) {
+  const bootstrapCopy =
+    route.session.bootstrapSource === 'verified-api'
+      ? 'This launch used the server-verified session bootstrap endpoint.'
+      : route.session.bootstrapSource === 'signed-token-local'
+        ? 'This launch used a local signed-token fallback because the verified bootstrap endpoint was unavailable.'
+        : 'Legacy query-string bootstrap is active for local demo sessions.'
+
   const launchUrl = buildLaunchUrl({
     sessionToken: route.session.sessionToken,
     contentMode: route.session.contentMode,
@@ -23,7 +30,7 @@ export async function renderPlayPage(
           <p class="eyebrow">Session</p>
           <h1>${route.session.sessionToken}</h1>
           <p class="meta-copy">
-            Fake bootstrap from the URL for Phase 1. Later phases should replace this with a signed session bootstrap.
+            ${bootstrapCopy}
           </p>
         </div>
         <div class="session-metadata">

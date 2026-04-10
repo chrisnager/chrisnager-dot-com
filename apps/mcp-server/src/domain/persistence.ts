@@ -1,6 +1,7 @@
 import type { DoomSaveRecord, DoomSessionRecord } from './model.js'
 
 export interface DoomPersistence {
+  readonly kind: 'memory-stub' | 'netlify-blobs'
   createSession(session: DoomSessionRecord): Promise<void>
   getSession(sessionId: string): Promise<DoomSessionRecord | null>
   saveGame(save: DoomSaveRecord): Promise<void>

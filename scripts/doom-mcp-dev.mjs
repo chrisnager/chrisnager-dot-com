@@ -3,15 +3,14 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
-const tscPath = join(rootDir, 'node_modules', 'typescript', 'bin', 'tsc')
 const runtimeEnv = { ...process.env }
 let serverProcess = null
 let hasObservedInitialWatchReady = false
 
 delete runtimeEnv.NODE_OPTIONS
 
-function runInitialCompile() {
-  const result = spawnSync(process.execPath, [tscPath, '-p', 'tsconfig.doom.json'], {
+function writeBuildPackage() {
+  const result = spawnSync(process.execPath, [join(rootDir, 'scripts', 'doom-write-build-package.mjs')], {
     cwd: rootDir,
     stdio: 'inherit',
   })
@@ -21,16 +20,25 @@ function runInitialCompile() {
   }
 }
 
+function runInitialCompile() {
+  const result = spawnSync('yarn', ['tsc', '-p', 'tsconfig.doom.json'], {
+    cwd: rootDir,
+    stdio: 'inherit',
+  })
+
+  if (result.status !== 0) {
+    process.exit(result.status ?? 1)
+  }
+
+  writeBuildPackage()
+}
+
 function spawnServer() {
-  serverProcess = spawn(
-    process.execPath,
-    ['--experimental-default-type=module', join(rootDir, '.doom-build', 'apps', 'mcp-server', 'src', 'server.js')],
-    {
-      cwd: rootDir,
-      stdio: 'inherit',
-      env: runtimeEnv,
-    },
-  )
+  serverProcess = spawn('yarn', ['node', join(rootDir, '.doom-build', 'apps', 'mcp-server', 'src', 'server.js')], {
+    cwd: rootDir,
+    stdio: 'inherit',
+    env: runtimeEnv,
+  })
 
   serverProcess.on('exit', () => {
     serverProcess = null
@@ -53,7 +61,7 @@ function restartServer() {
 runInitialCompile()
 spawnServer()
 
-const watcher = spawn(process.execPath, [tscPath, '-p', 'tsconfig.doom.json', '--watch', '--preserveWatchOutput'], {
+const watcher = spawn('yarn', ['tsc', '-p', 'tsconfig.doom.json', '--watch', '--preserveWatchOutput'], {
   cwd: rootDir,
   stdio: ['ignore', 'pipe', 'inherit'],
 })

@@ -1,7 +1,12 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 
-import { createSignedSessionToken, decodeSignedSessionToken, verifySignedSessionToken } from '../../../../packages/doom-session/src/index.js'
+import {
+  buildSignedDoomLaunchUrl,
+  createSignedSessionToken,
+  decodeSignedSessionToken,
+  verifySignedSessionToken,
+} from '../../../../packages/doom-session/src/index.js'
 
 test('signed token round-trips and verifies', () => {
   const token = createSignedSessionToken('secret', {
@@ -28,4 +33,14 @@ test('expired token is rejected', () => {
   })
 
   assert.throws(() => verifySignedSessionToken('secret', token, new Date('2026-04-10T00:00:02.000Z')), /expired/)
+})
+
+test('launch URL supports a custom play path', () => {
+  const launchUrl = buildSignedDoomLaunchUrl({
+    origin: 'https://doom.example.com',
+    playPath: '/play',
+    token: 'abc123',
+  })
+
+  assert.equal(launchUrl, 'https://doom.example.com/play?token=abc123')
 })

@@ -12,5 +12,6 @@ export interface DoomSessionClaims {
 
 export interface DoomLaunchUrlOptions {
   origin: string
+  playPath?: string
   token: string
 }

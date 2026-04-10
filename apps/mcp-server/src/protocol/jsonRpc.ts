@@ -45,7 +45,7 @@ export async function handleJsonRpcRequest(body: unknown, persistence: DoomPersi
         protocolVersion: '2024-11-05',
         serverInfo: {
           name: 'doom-mcp-server',
-          version: '0.2.0',
+          version: '0.3.0',
         },
         capabilities: {
           tools: {},

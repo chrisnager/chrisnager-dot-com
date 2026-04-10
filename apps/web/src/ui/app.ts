@@ -7,7 +7,7 @@ export function mountApplication(root: HTMLDivElement) {
   const router = createRouter()
 
   const render = async () => {
-    const route = router.getCurrentRoute()
+    const route = await router.getCurrentRoute()
 
     if (route.type === 'landing') {
       renderLandingPage(root, {

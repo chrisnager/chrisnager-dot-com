@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 
 import { MemoryDoomPersistence } from '../domain/memoryPersistence.js'
 import { handleDoomToolCall } from '../mcp/tools.js'
+import { resolveVerifiedSessionBootstrap } from '../session/bootstrap.js'
 
 const config = {
   host: '127.0.0.1',
@@ -10,6 +11,8 @@ const config = {
   publicBaseUrl: 'https://mcp.example.com',
   tokenSecret: 'test-secret',
   defaultWebOrigin: 'https://doom.example.com',
+  playPath: '/play',
+  bootstrapPath: '/api/doom-session-bootstrap',
   defaultSessionTtlSeconds: 3600,
   issuer: 'test-suite',
 }
@@ -29,6 +32,24 @@ test('create_doom_session returns a signed launch URL', async () => {
   assert.equal(typeof structured.session_id, 'string')
   assert.match(structured.launch_url as string, /^https:\/\/doom\.example\.com\/play\?token=/)
   assert.equal(structured.persistence, 'memory-stub')
+})
+
+test('verified bootstrap loads the persisted session after token verification', async () => {
+  const persistence = new MemoryDoomPersistence()
+  const createResult = await handleDoomToolCall(
+    'create_doom_session',
+    {
+      host_origin: 'https://doom.example.com',
+    },
+    persistence,
+    config,
+  )
+
+  const structured = createResult.structuredContent as Record<string, string>
+  const bootstrap = await resolveVerifiedSessionBootstrap(structured.signed_token, persistence, config)
+
+  assert.equal(bootstrap.sessionToken, structured.session_id)
+  assert.equal(bootstrap.bootstrapSource, 'verified-api')
 })
 
 test('save and load round-trip through stub persistence', async () => {

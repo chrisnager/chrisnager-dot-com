@@ -73,11 +73,11 @@ function formatToolResult(data: unknown) {
 function buildClaims(config: DoomMcpConfig, session: DoomSessionRecord): DoomSessionClaims {
   return {
     sessionId: session.id,
-    contentMode: session.contentMode,
-    contentPath: session.contentPath,
-    saveNamespace: session.saveNamespace,
-    issuedAt: new Date().toISOString(),
-    expiresAt: session.expiresAt,
+      contentMode: session.contentMode,
+      contentPath: session.contentPath,
+      saveNamespace: session.saveNamespace,
+      issuedAt: new Date().toISOString(),
+      expiresAt: session.expiresAt,
     issuer: config.issuer,
   }
 }
@@ -127,6 +127,7 @@ export async function handleDoomToolCall(
     const token = createSignedSessionToken(config.tokenSecret, buildClaims(config, session))
     const launchUrl = buildSignedDoomLaunchUrl({
       origin: resolveHostOrigin(config, args.host_origin as string | undefined),
+      playPath: config.playPath,
       token,
     })
 
@@ -137,7 +138,7 @@ export async function handleDoomToolCall(
       expires_at: session.expiresAt,
       content_mode: session.contentMode,
       content_path: session.contentPath,
-      persistence: 'memory-stub',
+      persistence: persistence.kind,
     })
   }
 
@@ -150,6 +151,7 @@ export async function handleDoomToolCall(
     const token = createSignedSessionToken(config.tokenSecret, buildClaims(config, session))
     const launchUrl = buildSignedDoomLaunchUrl({
       origin: resolveHostOrigin(config, args.host_origin as string | undefined),
+      playPath: config.playPath,
       token,
     })
 
@@ -158,6 +160,7 @@ export async function handleDoomToolCall(
       launch_url: launchUrl,
       signed_token: token,
       expires_at: session.expiresAt,
+      persistence: persistence.kind,
     })
   }
 
@@ -179,7 +182,7 @@ export async function handleDoomToolCall(
       save_namespace: session.saveNamespace,
       metadata: session.metadata,
       has_screenshot: Boolean(latestScreenshot?.screenshotDataUrl),
-      persistence: 'memory-stub',
+      persistence: persistence.kind,
     })
   }
 
@@ -210,7 +213,7 @@ export async function handleDoomToolCall(
       saved_at: save.savedAt,
       has_save_data: Boolean(save.saveDataBase64),
       has_screenshot: Boolean(save.screenshotDataUrl),
-      persistence: 'memory-stub',
+      persistence: persistence.kind,
     })
   }
 
@@ -230,7 +233,7 @@ export async function handleDoomToolCall(
       save_data_base64: save?.saveDataBase64,
       screenshot_data_url: save?.screenshotDataUrl,
       metadata: save?.metadata || {},
-      persistence: 'memory-stub',
+      persistence: persistence.kind,
     })
   }
 
@@ -250,7 +253,7 @@ export async function handleDoomToolCall(
       message: latestScreenshot?.screenshotDataUrl
         ? 'Returning the latest persisted screenshot. Live capture will plug into a browser session bridge later.'
         : 'No persisted screenshot is available yet. Live capture is deferred until the browser session bridge exists.',
-      persistence: 'memory-stub',
+      persistence: persistence.kind,
     })
   }
 

@@ -1,4 +1,4 @@
-import { DOOM_WASM_BASE_URL, DOOM_WASM_SCRIPT_URL } from './assetUrls.js'
+import { getDoomWasmBaseUrl, getDoomWasmScriptUrl } from './assetUrls.js'
 
 interface DoomFileSystem {
   analyzePath(path: string): { exists: boolean }
@@ -43,14 +43,14 @@ export async function loadDoomWasmModule(moduleConfig: DoomModuleConfig) {
   if (!window.__doomWasmLoadPromise__) {
     window.__doomWasmLoadPromise__ = new Promise<void>((resolve, reject) => {
       const script = document.createElement('script')
-      script.src = DOOM_WASM_SCRIPT_URL
+      script.src = getDoomWasmScriptUrl()
       script.async = true
       script.onload = () => resolve()
-      script.onerror = () => reject(new Error(`Failed to load ${DOOM_WASM_SCRIPT_URL}`))
+      script.onerror = () => reject(new Error(`Failed to load ${getDoomWasmScriptUrl()}`))
       document.head.append(script)
     })
   }
 
-  moduleConfig.locateFile = (path) => `${DOOM_WASM_BASE_URL}${path}`
+  moduleConfig.locateFile = (path) => `${getDoomWasmBaseUrl()}${path}`
   await window.__doomWasmLoadPromise__
 }

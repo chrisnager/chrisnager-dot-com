@@ -3,12 +3,11 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
-const tscPath = join(rootDir, 'node_modules', 'typescript', 'bin', 'tsc')
 const runtimeEnv = { ...process.env }
 
 delete runtimeEnv.NODE_OPTIONS
 
-const compileResult = spawnSync(process.execPath, [tscPath, '-p', 'tsconfig.doom.json'], {
+const compileResult = spawnSync('yarn', ['tsc', '-p', 'tsconfig.doom.json'], {
   cwd: rootDir,
   stdio: 'inherit',
   env: runtimeEnv,
@@ -16,6 +15,16 @@ const compileResult = spawnSync(process.execPath, [tscPath, '-p', 'tsconfig.doom
 
 if (compileResult.status !== 0) {
   process.exit(compileResult.status ?? 1)
+}
+
+const buildPackage = spawnSync(process.execPath, [join(rootDir, 'scripts', 'doom-write-build-package.mjs')], {
+  cwd: rootDir,
+  stdio: 'inherit',
+  env: runtimeEnv,
+})
+
+if (buildPackage.status !== 0) {
+  process.exit(buildPackage.status ?? 1)
 }
 
 const testResult = spawnSync(
