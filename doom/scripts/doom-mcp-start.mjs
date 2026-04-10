@@ -17,7 +17,7 @@ if (buildPackage.status !== 0) {
   process.exit(buildPackage.status ?? 1)
 }
 
-const child = spawn('yarn', ['node', join(rootDir, '.doom-build', 'apps', 'mcp-server', 'src', 'server.js')], {
+const child = spawn('yarn', ['node', join(rootDir, '.doom-build', 'apps', 'doom-mcp-server', 'src', 'server.js')], {
   cwd: rootDir,
   stdio: 'inherit',
   env,

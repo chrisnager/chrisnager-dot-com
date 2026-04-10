@@ -32,8 +32,8 @@ const testResult = spawnSync(
   [
     '--experimental-default-type=module',
     '--test',
-    join(rootDir, '.doom-build', 'apps', 'mcp-server', 'src', 'tests', 'token.test.js'),
-    join(rootDir, '.doom-build', 'apps', 'mcp-server', 'src', 'tests', 'tools.test.js'),
+    join(rootDir, '.doom-build', 'apps', 'doom-mcp-server', 'src', 'tests', 'token.test.js'),
+    join(rootDir, '.doom-build', 'apps', 'doom-mcp-server', 'src', 'tests', 'tools.test.js'),
   ],
   {
     cwd: rootDir,

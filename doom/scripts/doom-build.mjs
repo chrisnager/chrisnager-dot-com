@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 
 const rootDir = fileURLToPath(new URL('../..', import.meta.url))
 const buildRoot = join(rootDir, '.doom-build')
-const webDir = join(rootDir, 'apps', 'web')
+const webDir = join(rootDir, 'apps', 'doom-web')
 const distDir = join(webDir, 'dist')
 
 const tscResult = spawnSync('yarn', ['tsc', '-p', 'doom/tsconfig.json'], {
@@ -28,7 +28,7 @@ await mkdir(join(distDir, 'src'), { recursive: true })
 await cp(join(webDir, 'index.html'), join(distDir, 'index.html'))
 await cp(join(webDir, 'public'), distDir, { recursive: true })
 await cp(join(webDir, 'src', 'styles.css'), join(distDir, 'src', 'styles.css'))
-await cp(join(buildRoot, 'apps', 'web', 'src'), join(distDir, 'src'), { recursive: true })
+await cp(join(buildRoot, 'apps', 'doom-web', 'src'), join(distDir, 'src'), { recursive: true })
 await cp(join(buildRoot, 'packages'), join(distDir, 'packages'), { recursive: true })
 await cp(join(distDir, 'index.html'), join(distDir, '404.html'))
 await writeFile(join(distDir, '_redirects'), '/* /index.html 200\n')

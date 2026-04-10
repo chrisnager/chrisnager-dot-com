@@ -58,7 +58,7 @@ The deployed production path is Netlify-native:
 - `netlify/functions/doom-mcp.mts` serves the public MCP endpoint at `/doom/mcp`
 - `netlify/functions/doom-session-bootstrap.mts` verifies signed launch tokens at `/doom/api/doom-session-bootstrap`
 - `netlify/functions/doom-health.mts` provides a lightweight health endpoint at `/doom/api/doom-health`
-- `apps/mcp-server/src/domain/netlifyBlobsPersistence.ts` stores sessions and saves in Netlify Blobs
+- `apps/doom-mcp-server/src/domain/netlifyBlobsPersistence.ts` stores sessions and saves in Netlify Blobs
 
 The local Node server still exists for focused MCP development, but Netlify Functions are now the intended public HTTPS deployment path.
 

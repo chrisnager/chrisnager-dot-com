@@ -34,7 +34,7 @@ function runInitialCompile() {
 }
 
 function spawnServer() {
-  serverProcess = spawn('yarn', ['node', join(rootDir, '.doom-build', 'apps', 'mcp-server', 'src', 'server.js')], {
+  serverProcess = spawn('yarn', ['node', join(rootDir, '.doom-build', 'apps', 'doom-mcp-server', 'src', 'server.js')], {
     cwd: rootDir,
     stdio: 'inherit',
     env: runtimeEnv,

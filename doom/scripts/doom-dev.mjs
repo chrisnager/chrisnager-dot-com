@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 
 const rootDir = fileURLToPath(new URL('../..', import.meta.url))
 const buildDir = join(rootDir, '.doom-build')
-const webDir = join(rootDir, 'apps', 'web')
+const webDir = join(rootDir, 'apps', 'doom-web')
 const publicDir = join(webDir, 'public')
 const host = process.env.HOST || '127.0.0.1'
 const port = Number(process.env.PORT || 4321)
@@ -64,7 +64,7 @@ function mapRequestToFile(pathname) {
   }
 
   if (pathname.startsWith('/src/')) {
-    return join(buildDir, 'apps', 'web', pathname)
+    return join(buildDir, 'apps', 'doom-web', pathname)
   }
 
   if (pathname.startsWith('/packages/')) {

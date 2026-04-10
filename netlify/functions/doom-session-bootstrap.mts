@@ -1,6 +1,6 @@
-import { getDoomMcpConfig } from '../../apps/mcp-server/src/config.js'
-import { createDoomPersistence } from '../../apps/mcp-server/src/domain/createPersistence.js'
-import { resolveVerifiedSessionBootstrap } from '../../apps/mcp-server/src/session/bootstrap.js'
+import { getDoomMcpConfig } from '../../apps/doom-mcp-server/src/config.js'
+import { createDoomPersistence } from '../../apps/doom-mcp-server/src/domain/createPersistence.js'
+import { resolveVerifiedSessionBootstrap } from '../../apps/doom-mcp-server/src/session/bootstrap.js'
 
 function jsonResponse(status: number, body: unknown) {
   return new Response(JSON.stringify(body, null, 2), {

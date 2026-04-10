@@ -10,8 +10,8 @@ This repo now includes:
 
 ```text
 apps/
-  web/                 iframe-friendly browser shell
-  mcp-server/          MCP tool/domain logic reused by local Node and Netlify Functions
+  doom-web/            iframe-friendly browser shell
+  doom-mcp-server/     MCP tool/domain logic reused by local Node and Netlify Functions
 packages/
   doom-adapter/        stable runtime wrapper around cloudflare/doom-wasm
   doom-session/        signed token and launch URL helpers
@@ -70,7 +70,7 @@ yarn doom:mcp:build
 yarn doom:netlify:prepare
 ```
 
-- The production-ready DOOM web output is written to `apps/web/dist`.
+- The production-ready DOOM web output is written to `apps/doom-web/dist`.
 - `yarn doom:netlify:prepare` copies the DOOM app into the root `public/doom/` output so Netlify can publish `/doom/*` on the same site as Gatsby.
 - The deployed MCP and bootstrap endpoints live in `netlify/functions/`.
 - `netlify.toml` configures the build command, publish directory, and functions directory.
@@ -106,4 +106,4 @@ Deployed Netlify endpoints:
 - On Netlify, persistence now uses Netlify Blobs. Outside Netlify, the local Node server still falls back to in-memory persistence for development.
 - The browser shell now prefers a verified bootstrap fetch to `/doom/api/doom-session-bootstrap` and only falls back to local token decoding when that endpoint is unavailable.
 
-See [LEGAL.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/doom/LEGAL.md), [NEXT_STEPS.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/doom/NEXT_STEPS.md), and [apps/mcp-server/README.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/apps/mcp-server/README.md) for legal notes and host integration details.
+See [LEGAL.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/doom/LEGAL.md), [NEXT_STEPS.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/doom/NEXT_STEPS.md), and [apps/doom-mcp-server/README.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/apps/doom-mcp-server/README.md) for legal notes and host integration details.

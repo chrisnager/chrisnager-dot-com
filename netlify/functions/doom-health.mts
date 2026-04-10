@@ -1,4 +1,4 @@
-import { createDoomPersistence } from '../../apps/mcp-server/src/domain/createPersistence.js'
+import { createDoomPersistence } from '../../apps/doom-mcp-server/src/domain/createPersistence.js'
 
 export default async function handler() {
   const persistence = createDoomPersistence(process.env)

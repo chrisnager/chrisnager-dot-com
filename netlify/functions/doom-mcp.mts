@@ -1,9 +1,9 @@
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
 import { toFetchResponse, toReqRes } from 'fetch-to-node'
 
-import { getDoomMcpConfig } from '../../apps/mcp-server/src/config.js'
-import { createDoomPersistence } from '../../apps/mcp-server/src/domain/createPersistence.js'
-import { createDoomMcpServer } from '../../apps/mcp-server/src/mcp/server.js'
+import { getDoomMcpConfig } from '../../apps/doom-mcp-server/src/config.js'
+import { createDoomPersistence } from '../../apps/doom-mcp-server/src/domain/createPersistence.js'
+import { createDoomMcpServer } from '../../apps/doom-mcp-server/src/mcp/server.js'
 
 function corsHeaders() {
   return {

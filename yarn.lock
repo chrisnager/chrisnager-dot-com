@@ -1765,9 +1765,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@chrisnager/doom-mcp-server@workspace:apps/mcp-server":
+"@chrisnager/doom-mcp-server@workspace:apps/doom-mcp-server":
   version: 0.0.0-use.local
-  resolution: "@chrisnager/doom-mcp-server@workspace:apps/mcp-server"
+  resolution: "@chrisnager/doom-mcp-server@workspace:apps/doom-mcp-server"
   languageName: unknown
   linkType: soft
 
@@ -1777,9 +1777,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@chrisnager/doom-web@workspace:apps/web":
+"@chrisnager/doom-web@workspace:apps/doom-web":
   version: 0.0.0-use.local
-  resolution: "@chrisnager/doom-web@workspace:apps/web"
+  resolution: "@chrisnager/doom-web@workspace:apps/doom-web"
   languageName: unknown
   linkType: soft
 
