@@ -5,7 +5,7 @@ import http from 'node:http'
 import { extname, join, normalize } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const rootDir = fileURLToPath(new URL('..', import.meta.url))
+const rootDir = fileURLToPath(new URL('../..', import.meta.url))
 const buildDir = join(rootDir, '.doom-build')
 const webDir = join(rootDir, 'apps', 'web')
 const publicDir = join(webDir, 'public')
@@ -23,14 +23,14 @@ const mimeTypes = {
 }
 
 function writeBuildPackage() {
-  spawnSync(process.execPath, [join(rootDir, 'scripts', 'doom-write-build-package.mjs')], {
+  spawnSync(process.execPath, [join(rootDir, 'doom', 'scripts', 'doom-write-build-package.mjs')], {
     cwd: rootDir,
     stdio: 'inherit',
   })
 }
 
 function runInitialCompile() {
-  const result = spawnSync('yarn', ['tsc', '-p', 'tsconfig.doom.json'], {
+  const result = spawnSync('yarn', ['tsc', '-p', 'doom/tsconfig.json'], {
     cwd: rootDir,
     stdio: 'inherit',
   })
@@ -43,7 +43,7 @@ function runInitialCompile() {
 }
 
 function startWatcher() {
-  return spawn('yarn', ['tsc', '-p', 'tsconfig.doom.json', '--watch', '--preserveWatchOutput'], {
+  return spawn('yarn', ['tsc', '-p', 'doom/tsconfig.json', '--watch', '--preserveWatchOutput'], {
     cwd: rootDir,
     stdio: 'inherit',
   })

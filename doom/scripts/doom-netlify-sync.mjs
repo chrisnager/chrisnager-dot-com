@@ -2,7 +2,7 @@ import { cp, mkdir, rm } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const rootDir = fileURLToPath(new URL('..', import.meta.url))
+const rootDir = fileURLToPath(new URL('../..', import.meta.url))
 const doomDistDir = join(rootDir, 'apps', 'web', 'dist')
 const publicDir = join(rootDir, 'public')
 

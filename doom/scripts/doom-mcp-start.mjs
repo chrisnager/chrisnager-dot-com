@@ -3,12 +3,12 @@ import { spawnSync } from 'node:child_process'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const rootDir = fileURLToPath(new URL('..', import.meta.url))
+const rootDir = fileURLToPath(new URL('../..', import.meta.url))
 const env = { ...process.env }
 
 delete env.NODE_OPTIONS
 
-const buildPackage = spawnSync(process.execPath, [join(rootDir, 'scripts', 'doom-write-build-package.mjs')], {
+const buildPackage = spawnSync(process.execPath, [join(rootDir, 'doom', 'scripts', 'doom-write-build-package.mjs')], {
   cwd: rootDir,
   stdio: 'inherit',
 })

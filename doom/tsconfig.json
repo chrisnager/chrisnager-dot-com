@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "strict": true,
+    "rootDir": "..",
+    "outDir": "../.doom-build",
+    "skipLibCheck": true,
+    "noEmitOnError": true
+  },
+  "include": [
+    "../apps/web/src/**/*.ts",
+    "../apps/mcp-server/src/**/*.ts",
+    "../packages/doom-adapter/src/**/*.ts",
+    "../packages/doom-session/src/**/*.ts",
+    "../netlify/functions/doom-*.mts",
+    "./types/**/*.d.ts"
+  ]
+}

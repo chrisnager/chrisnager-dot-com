@@ -3,12 +3,12 @@ import { cp, mkdir, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const rootDir = fileURLToPath(new URL('..', import.meta.url))
+const rootDir = fileURLToPath(new URL('../..', import.meta.url))
 const buildRoot = join(rootDir, '.doom-build')
 const webDir = join(rootDir, 'apps', 'web')
 const distDir = join(webDir, 'dist')
 
-const tscResult = spawnSync('yarn', ['tsc', '-p', 'tsconfig.doom.json'], {
+const tscResult = spawnSync('yarn', ['tsc', '-p', 'doom/tsconfig.json'], {
   cwd: rootDir,
   stdio: 'inherit',
 })
@@ -17,7 +17,7 @@ if (tscResult.status !== 0) {
   process.exit(tscResult.status ?? 1)
 }
 
-spawnSync(process.execPath, [join(rootDir, 'scripts', 'doom-write-build-package.mjs')], {
+spawnSync(process.execPath, [join(rootDir, 'doom', 'scripts', 'doom-write-build-package.mjs')], {
   cwd: rootDir,
   stdio: 'inherit',
 })

@@ -106,4 +106,4 @@ Deployed Netlify endpoints:
 - On Netlify, persistence now uses Netlify Blobs. Outside Netlify, the local Node server still falls back to in-memory persistence for development.
 - The browser shell now prefers a verified bootstrap fetch to `/doom/api/doom-session-bootstrap` and only falls back to local token decoding when that endpoint is unavailable.
 
-See [LEGAL.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/LEGAL.md), [NEXT_STEPS.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/NEXT_STEPS.md), and [apps/mcp-server/README.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/apps/mcp-server/README.md) for legal notes and host integration details.
+See [LEGAL.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/doom/LEGAL.md), [NEXT_STEPS.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/doom/NEXT_STEPS.md), and [apps/mcp-server/README.md](/Users/chrisnager/Dropbox/Chris/Projects/chrisnager-dot-com/apps/mcp-server/README.md) for legal notes and host integration details.
