@@ -46,6 +46,10 @@
   "license": "MIT",
   "name": "chrisnager",
   "packageManager": "yarn@4.6.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "prettier": {
     "printWidth": 120,
     "semi": false,
@@ -61,6 +65,9 @@
     "clean": "gatsby clean",
     "dev": "netlify dev",
     "dev:gatsby": "gatsby develop",
+    "doom:build": "node scripts/doom-build.mjs",
+    "doom:dev": "node scripts/doom-dev.mjs",
+    "doom:typecheck": "node ./node_modules/typescript/bin/tsc -p tsconfig.doom.json --noEmit",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,md,mdx}'",
     "lint": "eslint src",
     "serve": "netlify serve",

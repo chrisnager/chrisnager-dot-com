@@ -8,9 +8,11 @@
 .env
 .netlify
 .netlify-home
+.doom-build
 .pnp.*
 .yarn/*
 backup
+apps/web/dist
 node_modules
 public
 temporary*

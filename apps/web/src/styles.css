@@ -1,0 +1,317 @@
+:root {
+  color-scheme: dark;
+  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --bg: #120d0b;
+  --bg-panel: rgba(33, 22, 17, 0.9);
+  --bg-panel-strong: rgba(20, 14, 11, 0.95);
+  --border: rgba(255, 190, 120, 0.2);
+  --text: #f7ead7;
+  --muted: rgba(247, 234, 215, 0.72);
+  --accent: #ff7b2c;
+  --accent-strong: #ffb347;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(255, 123, 44, 0.24), transparent 26%),
+    linear-gradient(180deg, #1e1511 0%, var(--bg) 42%, #060404 100%);
+  color: var(--text);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent);
+}
+
+a {
+  color: inherit;
+}
+
+code {
+  font-family: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-shell,
+.play-shell {
+  width: min(1200px, calc(100vw - 24px));
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+.landing-shell {
+  display: grid;
+  gap: 20px;
+  min-height: 100vh;
+  align-content: center;
+}
+
+.landing-grid,
+.play-layout {
+  display: grid;
+  gap: 20px;
+}
+
+.landing-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.play-layout {
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: start;
+}
+
+.panel {
+  background: linear-gradient(180deg, rgba(45, 31, 24, 0.92), var(--bg-panel-strong));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.landing-hero,
+.play-header,
+.play-stage,
+.controls-drawer {
+  padding: 24px;
+}
+
+.landing-hero h1,
+.play-header h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2.1rem, 5vw, 4.25rem);
+  line-height: 0.96;
+  max-width: 11ch;
+}
+
+.landing-hero .lede,
+.meta-copy,
+.stage-footnote,
+.controls-drawer p,
+.controls-drawer dd {
+  color: var(--muted);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent-strong);
+  font-family: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.landing-actions,
+.toolbar-actions,
+.session-metadata {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.button,
+button {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: inherit;
+  min-height: 44px;
+  padding: 0 18px;
+  text-decoration: none;
+  transition:
+    transform 120ms ease,
+    border-color 120ms ease,
+    background 120ms ease;
+}
+
+.button:hover,
+button:hover {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--accent), #ff5533);
+  color: #160d07;
+  font-weight: 700;
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.play-header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.session-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  font-family: 'IBM Plex Mono', 'SFMono-Regular', monospace;
+  font-size: 0.9rem;
+}
+
+.play-stage {
+  display: grid;
+  gap: 16px;
+}
+
+.stage-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.status-stack {
+  display: grid;
+  gap: 4px;
+}
+
+.stage-frame {
+  position: relative;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stage-frame::before {
+  content: '';
+  display: block;
+  padding-top: 75%;
+}
+
+.doom-canvas,
+.focus-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.doom-canvas {
+  display: block;
+  background: #000;
+  outline: none;
+}
+
+.focus-overlay {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0.18), rgba(5, 5, 5, 0.55));
+  text-align: center;
+  transition: opacity 120ms ease;
+}
+
+.focus-overlay[data-visible='false'] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.controls-drawer {
+  position: sticky;
+  top: 16px;
+}
+
+.controls-list {
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.controls-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.controls-list dt {
+  font-weight: 700;
+}
+
+.controls-list dd {
+  margin: 0;
+}
+
+.callout-panel {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+
+ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+li + li {
+  margin-top: 8px;
+}
+
+@media (max-width: 960px) {
+  .play-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .controls-drawer {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-shell,
+  .play-shell {
+    width: min(100vw - 16px, 1200px);
+    padding: 16px 0 28px;
+  }
+
+  .landing-hero,
+  .play-header,
+  .play-stage,
+  .controls-drawer {
+    padding: 18px;
+  }
+}
