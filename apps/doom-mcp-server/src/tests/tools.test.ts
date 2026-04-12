@@ -49,6 +49,28 @@ test('create_doom_session ignores chatgpt host_origin when default origin is con
   assert.match(structured.launch_url as string, /^https:\/\/doom\.example\.com\/play\?token=/)
 })
 
+test('create_doom_session prefers deployment origin over caller host_origin', async () => {
+  const persistence = new MemoryDoomPersistence()
+  const previewConfig = {
+    ...config,
+    defaultWebOrigin: undefined,
+    publicBaseUrl: 'https://deploy-preview-54--chrisnager.netlify.app/doom/mcp',
+    playPath: '/doom/play',
+  }
+
+  const result = await handleDoomToolCall(
+    'create_doom_session',
+    {
+      host_origin: 'https://example.com',
+    },
+    persistence,
+    previewConfig,
+  )
+
+  const structured = result.structuredContent as Record<string, unknown>
+  assert.match(structured.launch_url as string, /^https:\/\/deploy-preview-54--chrisnager\.netlify\.app\/doom\/play\?token=/)
+})
+
 test('verified bootstrap loads the persisted session after token verification', async () => {
   const persistence = new MemoryDoomPersistence()
   const createResult = await handleDoomToolCall(

@@ -92,9 +92,29 @@ function isHostedChatOrigin(origin: string) {
   }
 }
 
+function getDeploymentOrigin(config: DoomMcpConfig) {
+  try {
+    const origin = new URL(config.publicBaseUrl).origin
+    const { hostname } = new URL(origin)
+
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      return undefined
+    }
+
+    return origin
+  } catch {
+    return undefined
+  }
+}
+
 function resolveHostOrigin(config: DoomMcpConfig, requestedOrigin?: string) {
   if (config.defaultWebOrigin) {
     return config.defaultWebOrigin
+  }
+
+  const deploymentOrigin = getDeploymentOrigin(config)
+  if (deploymentOrigin) {
+    return deploymentOrigin
   }
 
   if (requestedOrigin && !isHostedChatOrigin(requestedOrigin)) {
