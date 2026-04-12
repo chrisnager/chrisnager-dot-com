@@ -66,8 +66,9 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
     <script>
       const status = document.getElementById('status');
       const frame = document.getElementById('doom-frame');
+      const resourceUrl = new URL(window.location.href);
       const toolOutput = window.openai?.toolOutput;
-      const launchUrl = toolOutput?.launch_url || toolOutput?.launchUrl;
+      const launchUrl = resourceUrl.searchParams.get('launch_url') || toolOutput?.launch_url || toolOutput?.launchUrl;
       if (launchUrl) {
         frame.src = launchUrl;
         status.textContent = 'Launching session in the iframe.';

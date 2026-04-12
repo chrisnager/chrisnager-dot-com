@@ -71,6 +71,10 @@ function formatToolResult(data: unknown, meta?: Record<string, unknown>) {
   }
 }
 
+function buildWidgetOutputTemplate(launchUrl: string) {
+  return `ui://widget/doom-play.html?launch_url=${encodeURIComponent(launchUrl)}`
+}
+
 function buildClaims(config: DoomMcpConfig, session: DoomSessionRecord): DoomSessionClaims {
   return {
     sessionId: session.id,
@@ -132,6 +136,14 @@ function resolveHostOrigin(config: DoomMcpConfig, requestedOrigin?: string) {
   throw new Error('host_origin must not be a ChatGPT or OpenAI origin; configure DOOM_WEB_ORIGIN for hosted launches')
 }
 
+function buildWidgetMeta(launchUrl: string) {
+  return {
+    'openai/outputTemplate': buildWidgetOutputTemplate(launchUrl),
+    'openai/resultCanProduceWidget': true,
+    'openai/widgetAccessible': true,
+  }
+}
+
 export async function handleDoomToolCall(
   name: string,
   input: unknown,
@@ -181,11 +193,7 @@ export async function handleDoomToolCall(
         content_path: session.contentPath,
         persistence: persistence.kind,
       },
-      {
-        'openai/outputTemplate': 'ui://widget/doom-play.html',
-        'openai/resultCanProduceWidget': true,
-        'openai/widgetAccessible': true,
-      },
+      buildWidgetMeta(launchUrl),
     )
   }
 
@@ -210,11 +218,7 @@ export async function handleDoomToolCall(
         expires_at: session.expiresAt,
         persistence: persistence.kind,
       },
-      {
-        'openai/outputTemplate': 'ui://widget/doom-play.html',
-        'openai/resultCanProduceWidget': true,
-        'openai/widgetAccessible': true,
-      },
+      buildWidgetMeta(launchUrl),
     )
   }
 
