@@ -1768,6 +1768,11 @@ __metadata:
 "@chrisnager/doom-mcp-server@workspace:apps/doom-mcp-server":
   version: 0.0.0-use.local
   resolution: "@chrisnager/doom-mcp-server@workspace:apps/doom-mcp-server"
+  dependencies:
+    "@modelcontextprotocol/sdk": "npm:^1.29.0"
+    "@netlify/blobs": "npm:^10.7.4"
+    fetch-to-node: "npm:^2.1.0"
+    zod: "npm:^4.3.6"
   languageName: unknown
   linkType: soft
 

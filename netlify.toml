@@ -2,3 +2,7 @@
   command = "yarn gatsby build && node doom/scripts/doom-build.mjs && node doom/scripts/doom-netlify-sync.mjs"
   publish = "public"
   functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@modelcontextprotocol/sdk", "@netlify/blobs", "fetch-to-node", "zod"]
