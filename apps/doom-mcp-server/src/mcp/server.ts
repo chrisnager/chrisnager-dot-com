@@ -34,6 +34,7 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
       mimeType: 'text/html',
       _meta: {
         'openai/widgetAccessible': true,
+        'openai/widgetDescription': 'Embeds the current DOOM session inline inside ChatGPT.',
       },
     },
     async (uri: URL) => ({

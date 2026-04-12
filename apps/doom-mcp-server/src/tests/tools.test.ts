@@ -54,7 +54,8 @@ test('create_doom_session prefers deployment origin over caller host_origin', as
   const previewConfig = {
     ...config,
     defaultWebOrigin: undefined,
-    publicBaseUrl: 'https://deploy-preview-54--chrisnager.netlify.app/doom/mcp',
+    publicBaseUrl: 'http://127.0.0.1:8787',
+    deploymentOrigin: 'https://deploy-preview-54--chrisnager.netlify.app',
     playPath: '/doom/play',
   }
 

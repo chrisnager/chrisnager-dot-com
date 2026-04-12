@@ -93,6 +93,10 @@ function isHostedChatOrigin(origin: string) {
 }
 
 function getDeploymentOrigin(config: DoomMcpConfig) {
+  if (config.deploymentOrigin) {
+    return config.deploymentOrigin
+  }
+
   try {
     const origin = new URL(config.publicBaseUrl).origin
     const { hostname } = new URL(origin)

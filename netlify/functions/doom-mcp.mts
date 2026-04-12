@@ -29,6 +29,7 @@ export default async function handler(request: Request) {
   }
 
   try {
+    const deploymentOrigin = new URL(request.url).origin
     const { req: nodeRequest, res: nodeResponse } = toReqRes(request)
     const responseHandle = nodeResponse as {
       on(event: 'close', callback: () => void): void
@@ -36,7 +37,7 @@ export default async function handler(request: Request) {
     const transport = new StreamableHTTPServerTransport({
       sessionIdGenerator: undefined,
     })
-    const config = getDoomMcpConfig()
+    const config = getDoomMcpConfig(process.env, deploymentOrigin)
     const persistence = createDoomPersistence(process.env)
     const server = createDoomMcpServer(persistence, config)
     const body = (await request.json()) as unknown
