@@ -25,11 +25,72 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
     },
   )
 
+  ;(server as any).resource(
+    'doom-play-widget',
+    'ui://widget/doom-play.html',
+    {
+      title: 'DOOM Play Widget',
+      description: 'Inline iframe widget for the currently created DOOM session.',
+      mimeType: 'text/html',
+      _meta: {
+        'openai/widgetAccessible': true,
+      },
+    },
+    async (uri: URL) => ({
+      contents: [
+        {
+          uri: uri.toString(),
+          mimeType: 'text/html',
+          text: `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DOOM</title>
+    <style>
+      :root { color-scheme: dark; }
+      html, body { margin: 0; width: 100%; height: 100%; background: #050505; color: #e5e7eb; font: 14px/1.4 system-ui, sans-serif; }
+      body { display: grid; place-items: center; }
+      .frame { width: min(100vw, 1280px); height: min(100vh, 800px); border: 0; background: #050505; }
+      .hint { position: fixed; inset: auto 1rem 1rem 1rem; max-width: 32rem; padding: .75rem 1rem; border-radius: .75rem; background: rgba(0,0,0,.68); backdrop-filter: blur(10px); }
+      .hint strong { display: block; margin-bottom: .25rem; }
+    </style>
+  </head>
+  <body>
+    <iframe id="doom-frame" class="frame" allow="fullscreen" referrerpolicy="no-referrer"></iframe>
+    <div class="hint">
+      <strong>DOOM</strong>
+      <span id="status">Waiting for tool output…</span>
+    </div>
+    <script>
+      const status = document.getElementById('status');
+      const frame = document.getElementById('doom-frame');
+      const toolOutput = window.openai?.toolOutput;
+      const launchUrl = toolOutput?.launch_url || toolOutput?.launchUrl;
+      if (launchUrl) {
+        frame.src = launchUrl;
+        status.textContent = 'Launching session in the iframe.';
+      } else {
+        status.textContent = 'No launch URL was provided by the tool result.';
+      }
+    </script>
+  </body>
+</html>`,
+        },
+      ],
+    }),
+  )
+
   server.registerTool(
     'create_doom_session',
     {
       description: 'Create a DOOM session and return a signed launch URL for the hosted /play page.',
       inputSchema: createDoomSessionInputSchema,
+      _meta: {
+        'openai/outputTemplate': 'ui://widget/doom-play.html',
+        'openai/resultCanProduceWidget': true,
+        'openai/widgetAccessible': true,
+      },
     },
     async (args) => handleDoomToolCall('create_doom_session', args, persistence, config),
   )
