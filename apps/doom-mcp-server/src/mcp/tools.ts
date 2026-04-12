@@ -58,7 +58,7 @@ export function getDoomToolDefinitions() {
   ]
 }
 
-function formatToolResult(data: unknown) {
+function formatToolResult(data: unknown, meta?: Record<string, unknown>) {
   return {
     content: [
       {
@@ -67,6 +67,7 @@ function formatToolResult(data: unknown) {
       },
     ],
     structuredContent: data,
+    ...(meta ? { _meta: meta } : {}),
   }
 }
 
@@ -131,15 +132,22 @@ export async function handleDoomToolCall(
       token,
     })
 
-    return formatToolResult({
-      session_id: session.id,
-      launch_url: launchUrl,
-      signed_token: token,
-      expires_at: session.expiresAt,
-      content_mode: session.contentMode,
-      content_path: session.contentPath,
-      persistence: persistence.kind,
-    })
+    return formatToolResult(
+      {
+        session_id: session.id,
+        launch_url: launchUrl,
+        signed_token: token,
+        expires_at: session.expiresAt,
+        content_mode: session.contentMode,
+        content_path: session.contentPath,
+        persistence: persistence.kind,
+      },
+      {
+        'openai/outputTemplate': 'ui://widget/doom-play.html',
+        'openai/resultCanProduceWidget': true,
+        'openai/widgetAccessible': true,
+      },
+    )
   }
 
   if (name === 'get_doom_launch_url') {
@@ -155,13 +163,20 @@ export async function handleDoomToolCall(
       token,
     })
 
-    return formatToolResult({
-      session_id: session.id,
-      launch_url: launchUrl,
-      signed_token: token,
-      expires_at: session.expiresAt,
-      persistence: persistence.kind,
-    })
+    return formatToolResult(
+      {
+        session_id: session.id,
+        launch_url: launchUrl,
+        signed_token: token,
+        expires_at: session.expiresAt,
+        persistence: persistence.kind,
+      },
+      {
+        'openai/outputTemplate': 'ui://widget/doom-play.html',
+        'openai/resultCanProduceWidget': true,
+        'openai/widgetAccessible': true,
+      },
+    )
   }
 
   if (name === 'get_doom_status') {
