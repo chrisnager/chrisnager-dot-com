@@ -31,7 +31,7 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
     {
       title: 'DOOM Play Widget',
       description: 'Inline iframe widget for the currently created DOOM session.',
-      mimeType: 'text/html',
+      mimeType: 'text/html;profile=mcp-app',
       _meta: {
         'openai/widgetAccessible': true,
         'openai/widgetDescription': 'Embeds the current DOOM session inline inside ChatGPT.',
@@ -41,7 +41,7 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
       contents: [
         {
           uri: uri.toString(),
-          mimeType: 'text/html',
+          mimeType: 'text/html;profile=mcp-app',
           text: `<!doctype html>
 <html lang="en">
   <head>
@@ -78,6 +78,13 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
     </script>
   </body>
 </html>`,
+          _meta: {
+            ui: {
+              csp: {
+                frameDomains: uri.searchParams.get('launch_url') ? [new URL(uri.searchParams.get('launch_url') as string).origin] : [],
+              },
+            },
+          },
         },
       ],
     }),
