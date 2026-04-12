@@ -50,28 +50,36 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
     <title>DOOM</title>
     <style>
       :root { color-scheme: dark; }
-      html, body { margin: 0; width: 100%; height: 100%; background: #050505; color: #e5e7eb; font: 14px/1.4 system-ui, sans-serif; }
-      body { display: grid; place-items: center; }
-      .frame { width: min(100vw, 1280px); height: min(100vh, 800px); border: 0; background: #050505; }
-      .hint { position: fixed; inset: auto 1rem 1rem 1rem; max-width: 32rem; padding: .75rem 1rem; border-radius: .75rem; background: rgba(0,0,0,.68); backdrop-filter: blur(10px); }
+      html, body { margin: 0; width: 100%; min-height: 100%; background: #050505; color: #e5e7eb; font: 14px/1.4 system-ui, sans-serif; }
+      body { display: grid; place-items: center; padding: 1rem; box-sizing: border-box; }
+      .panel { width: min(100vw, 1280px); min-height: min(100vh, 800px); border-radius: 1rem; overflow: hidden; background: #050505; box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 24px 72px rgba(0,0,0,.35); }
+      .hint { padding: 1rem 1.25rem; background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.08); }
       .hint strong { display: block; margin-bottom: .25rem; }
+      .content { padding: 1rem 1.25rem; }
+      a { color: #93c5fd; }
     </style>
   </head>
   <body>
-    <iframe id="doom-frame" class="frame" allow="fullscreen" referrerpolicy="no-referrer"></iframe>
-    <div class="hint">
-      <strong>DOOM</strong>
-      <span id="status">Waiting for tool output…</span>
+    <div class="panel">
+      <div class="hint">
+        <strong>DOOM</strong>
+        <span id="status">Waiting for tool output…</span>
+      </div>
+      <div class="content">
+        <p>The session will open inline in this MCP App view.</p>
+        <p><a id="launch-link" href="#" target="_blank" rel="noreferrer">Open in a new tab</a></p>
+      </div>
     </div>
     <script>
       const status = document.getElementById('status');
-      const frame = document.getElementById('doom-frame');
+      const launchLink = document.getElementById('launch-link');
       const resourceUrl = new URL(window.location.href);
       const toolOutput = window.openai?.toolOutput;
       const launchUrl = resourceUrl.searchParams.get('launch_url') || toolOutput?.launch_url || toolOutput?.launchUrl;
       if (launchUrl) {
-        frame.src = launchUrl;
-        status.textContent = 'Launching session in the iframe.';
+        launchLink.href = launchUrl;
+        status.textContent = 'Launching session inline.';
+        window.location.replace(launchUrl);
       } else {
         status.textContent = 'No launch URL was provided by the tool result.';
       }
