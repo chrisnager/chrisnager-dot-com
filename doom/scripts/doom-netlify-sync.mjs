@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { cp, mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -24,6 +24,39 @@ await cp(join(doomDistDir, 'src'), join(publicDir, 'doom', 'src'), { recursive: 
 await cp(join(doomDistDir, 'packages'), join(publicDir, 'doom', 'packages'), { recursive: true })
 await cp(join(doomDistDir, 'vendor', 'doom'), join(publicDir, 'doom', 'vendor', 'doom'), { recursive: true })
 await cp(join(doomDistDir, 'content', 'freedoom'), join(publicDir, 'doom', 'content', 'freedoom'), { recursive: true })
+
+async function rewritePublishedImports(folder) {
+  const entries = await readdir(folder, { withFileTypes: true })
+
+  for (const entry of entries) {
+    const entryPath = join(folder, entry.name)
+
+    if (entry.isDirectory()) {
+      await rewritePublishedImports(entryPath)
+      continue
+    }
+
+    if (!entry.name.endsWith('.js')) {
+      continue
+    }
+
+    const fileStats = await stat(entryPath)
+    if (!fileStats.isFile()) {
+      continue
+    }
+
+    const contents = await readFile(entryPath, 'utf8')
+    const rewritten = contents
+      .replaceAll('../../../../packages/', '../../packages/')
+      .replaceAll('../../../../../packages/', '../../../packages/')
+
+    if (rewritten !== contents) {
+      await writeFile(entryPath, rewritten)
+    }
+  }
+}
+
+await rewritePublishedImports(join(publicDir, 'doom', 'src'))
 
 try {
   const currentHeaders = await readFile(headersPath, 'utf8')
