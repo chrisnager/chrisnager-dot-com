@@ -71,13 +71,7 @@ function formatToolResult(data: unknown, meta?: Record<string, unknown>) {
   }
 }
 
-function buildWidgetOutputTemplate(launchUrl: string) {
-  return `ui://widget/doom-play.html?launch_url=${encodeURIComponent(launchUrl)}`
-}
-
-function buildWidgetResourceUri(launchUrl: string) {
-  return buildWidgetOutputTemplate(launchUrl)
-}
+const DOOM_WIDGET_RESOURCE_URI = 'ui://doom/play.html'
 
 function buildClaims(config: DoomMcpConfig, session: DoomSessionRecord): DoomSessionClaims {
   return {
@@ -142,11 +136,7 @@ function resolveHostOrigin(config: DoomMcpConfig, requestedOrigin?: string) {
 
 function buildWidgetMeta(launchUrl: string) {
   return {
-    ui: {
-      resourceUri: buildWidgetResourceUri(launchUrl),
-      visibility: ['model', 'app'],
-    },
-    'openai/outputTemplate': buildWidgetOutputTemplate(launchUrl),
+    'openai/outputTemplate': DOOM_WIDGET_RESOURCE_URI,
     'openai/resultCanProduceWidget': true,
     'openai/widgetAccessible': true,
   }

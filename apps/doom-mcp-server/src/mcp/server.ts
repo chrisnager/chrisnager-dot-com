@@ -1,4 +1,5 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { registerAppResource, registerAppTool, RESOURCE_MIME_TYPE } from '@modelcontextprotocol/ext-apps/server'
 
 import type { DoomMcpConfig } from '../config.js'
 import type { DoomPersistence } from '../domain/persistence.js'
@@ -25,23 +26,24 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
     },
   )
 
-  ;(server as any).resource(
-    'doom-play-widget',
-    'ui://widget/doom-play.html',
+  const resourceUri = 'ui://doom/play.html'
+
+  registerAppResource(
+    server as unknown as { registerResource: (...args: unknown[]) => unknown },
+    'DOOM Play Widget',
+    resourceUri,
     {
-      title: 'DOOM Play Widget',
-      description: 'Inline iframe widget for the currently created DOOM session.',
-      mimeType: 'text/html;profile=mcp-app',
       _meta: {
-        'openai/widgetAccessible': true,
-        'openai/widgetDescription': 'Embeds the current DOOM session inline inside ChatGPT.',
+        ui: {
+          prefersBorder: true,
+        },
       },
     },
     async (uri: URL) => ({
       contents: [
         {
           uri: uri.toString(),
-          mimeType: 'text/html;profile=mcp-app',
+          mimeType: RESOURCE_MIME_TYPE,
           text: `<!doctype html>
 <html lang="en">
   <head>
@@ -73,23 +75,84 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
     <script>
       const status = document.getElementById('status');
       const launchLink = document.getElementById('launch-link');
-      const resourceUrl = new URL(window.location.href);
-      const toolOutput = window.openai?.toolOutput;
-      const launchUrl = resourceUrl.searchParams.get('launch_url') || toolOutput?.launch_url || toolOutput?.launchUrl;
-      if (launchUrl) {
+      let nextId = 1;
+      let initialized = false;
+
+      function extractLaunchUrl(result) {
+        if (!result || typeof result !== 'object') {
+          return undefined;
+        }
+
+        if (result.structuredContent && typeof result.structuredContent === 'object') {
+          const structuredLaunchUrl = result.structuredContent.launch_url || result.structuredContent.launchUrl;
+          if (typeof structuredLaunchUrl === 'string' && structuredLaunchUrl.length > 0) {
+            return structuredLaunchUrl;
+          }
+        }
+
+        if (Array.isArray(result.content)) {
+          for (const item of result.content) {
+            if (item && item.type === 'text' && typeof item.text === 'string') {
+              try {
+                const parsed = JSON.parse(item.text);
+                if (parsed && typeof parsed.launch_url === 'string' && parsed.launch_url.length > 0) {
+                  return parsed.launch_url;
+                }
+              } catch {}
+            }
+          }
+        }
+
+        return undefined;
+      }
+
+      function launch(launchUrl) {
         launchLink.href = launchUrl;
         status.textContent = 'Launching session inline.';
         window.location.replace(launchUrl);
-      } else {
-        status.textContent = 'No launch URL was provided by the tool result.';
       }
+
+      function send(method, params, id) {
+        window.parent.postMessage(
+          id === undefined ? { jsonrpc: '2.0', method, params } : { jsonrpc: '2.0', id, method, params },
+          '*',
+        );
+      }
+
+      window.addEventListener('message', (event) => {
+        const message = event.data;
+        if (!message || message.jsonrpc !== '2.0') {
+          return;
+        }
+
+        if (message.id === 1 && message.result && !initialized) {
+          initialized = true;
+          send('ui/notifications/initialized', {});
+          return;
+        }
+
+        if (message.method === 'ui/notifications/tool-result') {
+          const launchUrl = extractLaunchUrl(message.params);
+          if (launchUrl) {
+            launch(launchUrl);
+          } else {
+            status.textContent = 'No launch URL was provided by the tool result.';
+          }
+        }
+      });
+
+      send('ui/initialize', {
+        appInfo: { name: 'DOOM Play Widget', version: '1.0.0' },
+        appCapabilities: {},
+        protocolVersion: '2026-01-26',
+      }, nextId++);
     </script>
   </body>
 </html>`,
           _meta: {
             ui: {
               csp: {
-                frameDomains: uri.searchParams.get('launch_url') ? [new URL(uri.searchParams.get('launch_url') as string).origin] : [],
+                frameDomains: [],
               },
             },
           },
@@ -98,18 +161,19 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
     }),
   )
 
-  server.registerTool(
+  registerAppTool(
+    server as unknown as { registerTool: (...args: unknown[]) => unknown },
     'create_doom_session',
     {
       description: 'Create a DOOM session and return a signed launch URL for the hosted /play page.',
       inputSchema: createDoomSessionInputSchema,
       _meta: {
-        'openai/outputTemplate': 'ui://widget/doom-play.html',
-        'openai/resultCanProduceWidget': true,
-        'openai/widgetAccessible': true,
+        ui: {
+          resourceUri,
+        },
       },
     },
-    async (args) => handleDoomToolCall('create_doom_session', args, persistence, config),
+    async (args: Record<string, unknown>) => handleDoomToolCall('create_doom_session', args, persistence, config),
   )
 
   server.registerTool(
