@@ -74,23 +74,38 @@ function formatToolResult(data: unknown, meta?: Record<string, unknown>) {
 function buildClaims(config: DoomMcpConfig, session: DoomSessionRecord): DoomSessionClaims {
   return {
     sessionId: session.id,
-      contentMode: session.contentMode,
-      contentPath: session.contentPath,
-      saveNamespace: session.saveNamespace,
-      issuedAt: new Date().toISOString(),
-      expiresAt: session.expiresAt,
+    contentMode: session.contentMode,
+    contentPath: session.contentPath,
+    saveNamespace: session.saveNamespace,
+    issuedAt: new Date().toISOString(),
+    expiresAt: session.expiresAt,
     issuer: config.issuer,
   }
 }
 
-function resolveHostOrigin(config: DoomMcpConfig, requestedOrigin?: string) {
-  const hostOrigin = requestedOrigin || config.defaultWebOrigin
+function isHostedChatOrigin(origin: string) {
+  try {
+    const host = new URL(origin).hostname.toLowerCase()
+    return host === 'chatgpt.com' || host.endsWith('.chatgpt.com') || host === 'chat.openai.com' || host.endsWith('.chat.openai.com')
+  } catch {
+    return false
+  }
+}
 
-  if (!hostOrigin) {
+function resolveHostOrigin(config: DoomMcpConfig, requestedOrigin?: string) {
+  if (config.defaultWebOrigin) {
+    return config.defaultWebOrigin
+  }
+
+  if (requestedOrigin && !isHostedChatOrigin(requestedOrigin)) {
+    return requestedOrigin
+  }
+
+  if (!requestedOrigin) {
     throw new Error('host_origin is required unless DOOM_WEB_ORIGIN is configured')
   }
 
-  return hostOrigin
+  throw new Error('host_origin must not be a ChatGPT or OpenAI origin; configure DOOM_WEB_ORIGIN for hosted launches')
 }
 
 export async function handleDoomToolCall(

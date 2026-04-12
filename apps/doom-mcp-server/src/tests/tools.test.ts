@@ -34,6 +34,21 @@ test('create_doom_session returns a signed launch URL', async () => {
   assert.equal(structured.persistence, 'memory-stub')
 })
 
+test('create_doom_session ignores chatgpt host_origin when default origin is configured', async () => {
+  const persistence = new MemoryDoomPersistence()
+  const result = await handleDoomToolCall(
+    'create_doom_session',
+    {
+      host_origin: 'https://chatgpt.com',
+    },
+    persistence,
+    config,
+  )
+
+  const structured = result.structuredContent as Record<string, unknown>
+  assert.match(structured.launch_url as string, /^https:\/\/doom\.example\.com\/play\?token=/)
+})
+
 test('verified bootstrap loads the persisted session after token verification', async () => {
   const persistence = new MemoryDoomPersistence()
   const createResult = await handleDoomToolCall(
