@@ -6,7 +6,8 @@ const rootDir = fileURLToPath(new URL('../..', import.meta.url))
 const doomDistDir = join(rootDir, 'apps', 'doom-web', 'dist')
 const publicDir = join(rootDir, 'public')
 const headersPath = join(publicDir, '_headers')
-const doomFrameAncestors = "frame-ancestors 'self' https: http://localhost:* http://127.0.0.1:*"
+const doomFrameAncestors =
+  "frame-ancestors 'self' https://claude.ai https://*.claude.ai https://chatgpt.com https://chat.openai.com http://localhost:* http://127.0.0.1:*"
 
 const targets = [join(publicDir, 'doom')]
 
@@ -60,7 +61,9 @@ await rewritePublishedImports(join(publicDir, 'doom', 'src'))
 
 try {
   const currentHeaders = await readFile(headersPath, 'utf8')
-  const sanitizedHeaders = currentHeaders.replace(/^\s*x-frame-options:\s*DENY\s*\n/gim, '')
+  const sanitizedHeaders = currentHeaders
+    .replace(/^\s*x-frame-options:\s*DENY\s*\n/gim, '')
+    .replace(/(?:^|\n)\/doom\n(?:  .*\n)+(?:\/doom\/\*\n(?:  .*\n)+)?/g, '\n')
   const doomHeaders = [
     '/doom',
     `  content-security-policy: ${doomFrameAncestors}`,
