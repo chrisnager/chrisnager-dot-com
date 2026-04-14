@@ -36,7 +36,6 @@ export function createDoomAdapter(): DoomAdapter {
   let bootPromise: Promise<void> | null = null
   let canvas: HTMLCanvasElement | null = null
   let sessionToken: string | undefined
-  let preloadedObjectUrls: string[] = []
 
   const getModule = () => {
     if (!window.Module) {
@@ -61,9 +60,6 @@ export function createDoomAdapter(): DoomAdapter {
 
       const contentBytes = await resolveContentBytes(options.contentMode, options.contentPath, options.contentBaseUrl)
       const configBytes = new TextEncoder().encode(DEFAULT_CFG_TEXT)
-      const contentUrl = URL.createObjectURL(new Blob([contentBytes], { type: 'application/octet-stream' }))
-      const configUrl = URL.createObjectURL(new Blob([configBytes], { type: 'text/plain;charset=utf-8' }))
-      preloadedObjectUrls = [contentUrl, configUrl]
 
       bootPromise = new Promise<void>((resolve, reject) => {
         const moduleConfig = {
@@ -72,9 +68,9 @@ export function createDoomAdapter(): DoomAdapter {
           onRuntimeInitialized: () => resolve(),
           preRun: [
             () => {
-              // Match the upstream startup flow so Emscripten tracks the preload lifecycle before main() runs.
-              window.Module?.FS.createPreloadedFile('', 'doom1.wad', contentUrl, true, true)
-              window.Module?.FS.createPreloadedFile('', 'default.cfg', configUrl, true, true)
+              // Write the runtime assets directly into the virtual filesystem to avoid blob-backed preload URLs.
+              window.Module?.FS.writeFile('doom1.wad', contentBytes)
+              window.Module?.FS.writeFile('default.cfg', configBytes)
             },
           ],
           print: (text: string) => console.log(text),
@@ -129,11 +125,6 @@ export function createDoomAdapter(): DoomAdapter {
 
     destroy() {
       this.pause()
-
-      for (const objectUrl of preloadedObjectUrls) {
-        URL.revokeObjectURL(objectUrl)
-      }
-      preloadedObjectUrls = []
 
       if (canvas) {
         const context = canvas.getContext('2d')
