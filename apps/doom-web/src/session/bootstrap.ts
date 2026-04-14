@@ -10,6 +10,10 @@ export interface SessionBootstrap {
   signedToken?: string
 }
 
+interface LaunchBootstrapOptions {
+  preferVerifiedBootstrap?: boolean
+}
+
 async function fetchVerifiedBootstrap(locationLike: Location, signedToken: string): Promise<SessionBootstrap | null> {
   try {
     const url = new URL(buildDoomPath('/api/doom-session-bootstrap', locationLike.pathname), locationLike.origin)
@@ -44,12 +48,25 @@ async function fetchVerifiedBootstrap(locationLike: Location, signedToken: strin
   }
 }
 
-export async function bootstrapSessionFromLaunchUrl(launchUrl: string): Promise<SessionBootstrap> {
+export async function bootstrapSessionFromLaunchUrl(launchUrl: string, options: LaunchBootstrapOptions = {}): Promise<SessionBootstrap> {
   const url = new URL(launchUrl)
   const signedToken = url.searchParams.get('token')?.trim()
 
   if (!signedToken) {
     throw new Error('launch_url is missing a signed token')
+  }
+
+  const claims = decodeSessionClaims(signedToken)
+  const localBootstrap: SessionBootstrap = {
+    sessionToken: claims.sessionId,
+    contentMode: claims.contentMode,
+    contentPath: claims.contentPath,
+    signedToken,
+    bootstrapSource: 'signed-token-local',
+  }
+
+  if (!options.preferVerifiedBootstrap) {
+    return localBootstrap
   }
 
   const fakeLocation = {
@@ -59,19 +76,7 @@ export async function bootstrapSessionFromLaunchUrl(launchUrl: string): Promise<
   } as Location
 
   const verifiedBootstrap = await fetchVerifiedBootstrap(fakeLocation, signedToken)
-
-  if (verifiedBootstrap) {
-    return verifiedBootstrap
-  }
-
-  const claims = decodeSessionClaims(signedToken)
-  return {
-    sessionToken: claims.sessionId,
-    contentMode: claims.contentMode,
-    contentPath: claims.contentPath,
-    signedToken,
-    bootstrapSource: 'signed-token-local',
-  }
+  return verifiedBootstrap || localBootstrap
 }
 
 export async function bootstrapSessionFromLocation(locationLike: Location): Promise<SessionBootstrap> {

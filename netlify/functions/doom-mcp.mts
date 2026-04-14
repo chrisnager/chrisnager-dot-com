@@ -32,7 +32,6 @@ export default async function handler(request: Request) {
     const deploymentOrigin = new URL(request.url).origin
     const env = {
       ...process.env,
-      DOOM_PERSISTENCE_BACKEND: 'netlify-blobs',
       DOOM_MCP_PUBLIC_BASE_URL: deploymentOrigin,
       DOOM_WEB_ORIGIN: deploymentOrigin,
       DOOM_WEB_PLAY_PATH: '/doom/play',
