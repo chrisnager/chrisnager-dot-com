@@ -39,7 +39,7 @@ export async function resolveContentBytes(contentMode: DoomContentMode, contentP
       throw new Error('custom-url mode requires a contentPath')
     }
 
-    const sourceUrl = new URL(contentPath, baseUrl || window.location.href).toString()
+    const sourceUrl = new URL(contentPath, baseUrl || `${window.location.origin}/doom/`).toString()
 
     if (sourceUrl.endsWith('.zip')) {
       return extractZipEntry(await fetchBytes(sourceUrl), 'freedoom1.wad')
@@ -50,7 +50,7 @@ export async function resolveContentBytes(contentMode: DoomContentMode, contentP
 
   const sourceUrl = baseUrl
     ? new URL(normalizeDefaultContentPath(contentPath), baseUrl).toString()
-    : new URL(normalizeDefaultContentPath(contentPath) || '/doom/content/freedoom/freedoom1.wad', window.location.href).toString()
+    : new URL(normalizeDefaultContentPath(contentPath) || '/doom/content/freedoom/freedoom1.wad', `${window.location.origin}/`).toString()
 
   if (sourceUrl.endsWith('.zip')) {
     return extractZipEntry(await fetchBytes(sourceUrl), 'freedoom1.wad')
