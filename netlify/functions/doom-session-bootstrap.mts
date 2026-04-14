@@ -6,6 +6,9 @@ function jsonResponse(status: number, body: unknown) {
   return new Response(JSON.stringify(body, null, 2), {
     status,
     headers: {
+      'access-control-allow-headers': 'accept, content-type',
+      'access-control-allow-methods': 'GET, OPTIONS',
+      'access-control-allow-origin': '*',
       'cache-control': 'no-store',
       'content-type': 'application/json; charset=utf-8',
     },
@@ -13,6 +16,18 @@ function jsonResponse(status: number, body: unknown) {
 }
 
 export default async function handler(request: Request) {
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'access-control-allow-headers': 'accept, content-type',
+        'access-control-allow-methods': 'GET, OPTIONS',
+        'access-control-allow-origin': '*',
+        'cache-control': 'no-store',
+      },
+    })
+  }
+
   if (request.method !== 'GET') {
     return jsonResponse(405, {
       error: 'Method not allowed',

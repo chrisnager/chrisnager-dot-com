@@ -8,6 +8,11 @@ const publicDir = join(rootDir, 'public')
 const headersPath = join(publicDir, '_headers')
 const doomFrameAncestors =
   "frame-ancestors 'self' https://claude.ai https://*.claude.ai https://chatgpt.com https://chat.openai.com http://localhost:* http://127.0.0.1:*"
+const doomCorsHeaders = [
+  'access-control-allow-origin: *',
+  'access-control-allow-methods: GET, OPTIONS',
+  'access-control-allow-headers: accept, content-type',
+]
 
 const targets = [join(publicDir, 'doom')]
 
@@ -67,8 +72,10 @@ try {
   const doomHeaders = [
     '/doom',
     `  content-security-policy: ${doomFrameAncestors}`,
+    ...doomCorsHeaders.map((header) => `  ${header}`),
     '/doom/*',
     `  content-security-policy: ${doomFrameAncestors}`,
+    ...doomCorsHeaders.map((header) => `  ${header}`),
     '',
   ].join('\n')
 

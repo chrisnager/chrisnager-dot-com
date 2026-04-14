@@ -34,6 +34,7 @@ declare global {
     Module?: DoomModule
     callMain?: (args: string[]) => void
     __doomWasmLoadPromise__?: Promise<void>
+    __doomAssetBaseUrl__?: string
   }
 }
 

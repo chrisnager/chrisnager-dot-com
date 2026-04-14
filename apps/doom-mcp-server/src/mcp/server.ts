@@ -13,6 +13,116 @@ import {
   saveDoomGameInputSchema,
 } from './zodSchemas.js'
 
+function buildWidgetHtml() {
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DOOM</title>
+    <style>
+      :root { color-scheme: dark; }
+      html, body { margin: 0; width: 100%; height: 100%; background: #050505; color: #e5e7eb; font: 14px/1.4 system-ui, sans-serif; overflow: hidden; }
+      body { position: relative; }
+      .shell { width: 100%; height: 100%; display: grid; place-items: center; }
+      .status { position: absolute; left: 12px; top: 12px; margin: 0; padding: .35rem .5rem; border-radius: .4rem; background: rgba(0,0,0,.65); color: #f3f4f6; font-size: 12px; line-height: 1.2; max-width: calc(100% - 24px); z-index: 2; }
+      .fallback { position: absolute; right: 12px; bottom: 12px; margin: 0; font-size: 12px; opacity: .8; z-index: 2; }
+      a { color: #93c5fd; }
+    </style>
+  </head>
+  <body>
+    <main class="shell" id="shell">
+      <p class="status" id="status">Waiting for DOOM session…</p>
+      <p class="fallback">
+        <a id="launch-link" href="#" target="_blank" rel="noreferrer">Open in a new tab</a>
+      </p>
+    </main>
+    <script>
+      const status = document.getElementById('status');
+      const launchLink = document.getElementById('launch-link');
+      let initialized = false;
+      let widgetLoaded = false;
+
+      function extractLaunchUrl(result) {
+        if (!result || typeof result !== 'object') return undefined;
+
+        if (result.structuredContent && typeof result.structuredContent === 'object') {
+          const structuredLaunchUrl = result.structuredContent.launch_url || result.structuredContent.launchUrl;
+          if (typeof structuredLaunchUrl === 'string' && structuredLaunchUrl.length > 0) return structuredLaunchUrl;
+        }
+
+        if (Array.isArray(result.content)) {
+          for (const item of result.content) {
+            if (item && item.type === 'text' && typeof item.text === 'string') {
+              try {
+                const parsed = JSON.parse(item.text);
+                if (parsed && typeof parsed.launch_url === 'string' && parsed.launch_url.length > 0) {
+                  return parsed.launch_url;
+                }
+              } catch {}
+            }
+          }
+        }
+
+        return undefined;
+      }
+
+      function send(method, params, id) {
+        window.parent.postMessage(
+          id === undefined ? { jsonrpc: '2.0', method, params } : { jsonrpc: '2.0', id, method, params },
+          '*',
+        );
+      }
+
+      function loadWidget(launchUrl) {
+        if (widgetLoaded) return;
+        widgetLoaded = true;
+        launchLink.href = launchUrl;
+        launchLink.textContent = 'Open in a new tab';
+        window.__doomWidgetLaunchUrl__ = launchUrl;
+
+        const assetOrigin = new URL(launchUrl).origin;
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = assetOrigin + '/doom/src/ui/routes/mcpWidget.js';
+        script.onerror = () => {
+          widgetLoaded = false;
+          status.textContent = 'Failed to load the DOOM widget module.';
+        };
+        document.head.append(script);
+      }
+
+      window.addEventListener('message', (event) => {
+        const message = event.data;
+        if (!message || message.jsonrpc !== '2.0') return;
+
+        if (message.id === 1 && message.result && !initialized) {
+          initialized = true;
+          send('ui/notifications/initialized', {});
+          return;
+        }
+
+        if (message.method === 'ui/notifications/tool-result') {
+          const launchUrl = extractLaunchUrl(message.params);
+          if (launchUrl) {
+            status.textContent = 'Loading DOOM canvas…';
+            loadWidget(launchUrl);
+          } else {
+            status.textContent = 'No launch URL was provided by the tool result.';
+          }
+        }
+      });
+
+      send('ui/initialize', {
+        appInfo: { name: 'DOOM Play Widget', version: '1.0.0' },
+        appCapabilities: {},
+        protocolVersion: '2026-01-26',
+      }, 1);
+    </script>
+  </body>
+</html>`
+}
+
 export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMcpConfig) {
   const server = new McpServer(
     {
@@ -44,115 +154,24 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
         {
           uri: uri.toString(),
           mimeType: RESOURCE_MIME_TYPE,
-          text: `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DOOM</title>
-    <style>
-      :root { color-scheme: dark; }
-      html, body { margin: 0; width: 100%; min-height: 100%; background: #050505; color: #e5e7eb; font: 14px/1.4 system-ui, sans-serif; }
-      body { display: grid; place-items: center; padding: 1rem; box-sizing: border-box; }
-      .panel { width: min(100vw, 1280px); min-height: min(100vh, 800px); border-radius: 1rem; overflow: hidden; background: #050505; box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 24px 72px rgba(0,0,0,.35); }
-      .hint { padding: 1rem 1.25rem; background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.08); }
-      .hint strong { display: block; margin-bottom: .25rem; }
-      .content { padding: 1rem 1.25rem; }
-      a { color: #93c5fd; }
-    </style>
-  </head>
-  <body>
-    <div class="panel">
-      <div class="hint">
-        <strong>DOOM</strong>
-        <span id="status">Waiting for tool output…</span>
-      </div>
-      <div class="content">
-        <p>The session will open inline in this MCP App view.</p>
-        <p><a id="launch-link" href="#" target="_blank" rel="noreferrer">Open in a new tab</a></p>
-      </div>
-    </div>
-    <script>
-      const status = document.getElementById('status');
-      const launchLink = document.getElementById('launch-link');
-      let nextId = 1;
-      let initialized = false;
-
-      function extractLaunchUrl(result) {
-        if (!result || typeof result !== 'object') {
-          return undefined;
-        }
-
-        if (result.structuredContent && typeof result.structuredContent === 'object') {
-          const structuredLaunchUrl = result.structuredContent.launch_url || result.structuredContent.launchUrl;
-          if (typeof structuredLaunchUrl === 'string' && structuredLaunchUrl.length > 0) {
-            return structuredLaunchUrl;
-          }
-        }
-
-        if (Array.isArray(result.content)) {
-          for (const item of result.content) {
-            if (item && item.type === 'text' && typeof item.text === 'string') {
-              try {
-                const parsed = JSON.parse(item.text);
-                if (parsed && typeof parsed.launch_url === 'string' && parsed.launch_url.length > 0) {
-                  return parsed.launch_url;
-                }
-              } catch {}
-            }
-          }
-        }
-
-        return undefined;
-      }
-
-      function launch(launchUrl) {
-        launchLink.href = launchUrl;
-        status.textContent = 'Launching session inline.';
-        window.location.replace(launchUrl);
-      }
-
-      function send(method, params, id) {
-        window.parent.postMessage(
-          id === undefined ? { jsonrpc: '2.0', method, params } : { jsonrpc: '2.0', id, method, params },
-          '*',
-        );
-      }
-
-      window.addEventListener('message', (event) => {
-        const message = event.data;
-        if (!message || message.jsonrpc !== '2.0') {
-          return;
-        }
-
-        if (message.id === 1 && message.result && !initialized) {
-          initialized = true;
-          send('ui/notifications/initialized', {});
-          return;
-        }
-
-        if (message.method === 'ui/notifications/tool-result') {
-          const launchUrl = extractLaunchUrl(message.params);
-          if (launchUrl) {
-            launch(launchUrl);
-          } else {
-            status.textContent = 'No launch URL was provided by the tool result.';
-          }
-        }
-      });
-
-      send('ui/initialize', {
-        appInfo: { name: 'DOOM Play Widget', version: '1.0.0' },
-        appCapabilities: {},
-        protocolVersion: '2026-01-26',
-      }, nextId++);
-    </script>
-  </body>
-</html>`,
+          text: buildWidgetHtml(),
           _meta: {
             ui: {
               csp: {
-                frameDomains: [],
+                resourceDomains: [
+                  'https://*.netlify.app',
+                  'https://chrisnager.com',
+                  'https://*.chrisnager.com',
+                  'http://localhost:*',
+                  'http://127.0.0.1:*',
+                ],
+                connectDomains: [
+                  'https://*.netlify.app',
+                  'https://chrisnager.com',
+                  'https://*.chrisnager.com',
+                  'http://localhost:*',
+                  'http://127.0.0.1:*',
+                ],
               },
             },
           },

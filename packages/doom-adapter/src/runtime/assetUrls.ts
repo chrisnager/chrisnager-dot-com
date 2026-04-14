@@ -1,13 +1,18 @@
-function getDoomBasePath() {
+function getDoomBaseUrl() {
   if (typeof window === 'undefined') {
     return ''
   }
 
-  return window.location.pathname === '/doom' || window.location.pathname.startsWith('/doom/') ? '/doom' : ''
+  const explicitBaseUrl = window.__doomAssetBaseUrl__?.trim()
+  if (explicitBaseUrl) {
+    return explicitBaseUrl.endsWith('/') ? explicitBaseUrl : `${explicitBaseUrl}/`
+  }
+
+  return window.location.pathname === '/doom' || window.location.pathname.startsWith('/doom/') ? `${window.location.origin}/doom/` : `${window.location.origin}/`
 }
 
 export function getDoomWasmBaseUrl() {
-  return `${getDoomBasePath()}/vendor/doom/`
+  return `${getDoomBaseUrl()}vendor/doom/`
 }
 
 export function getDoomWasmScriptUrl() {
@@ -15,7 +20,7 @@ export function getDoomWasmScriptUrl() {
 }
 
 export function getFreedoomPhase1ContentUrl() {
-  return `${getDoomBasePath()}/content/freedoom/freedoom1.wad`
+  return `${getDoomBaseUrl()}content/freedoom/freedoom1.wad`
 }
 
 export const DEFAULT_CFG_TEXT = `

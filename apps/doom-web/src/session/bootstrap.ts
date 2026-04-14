@@ -44,28 +44,42 @@ async function fetchVerifiedBootstrap(locationLike: Location, signedToken: strin
   }
 }
 
+export async function bootstrapSessionFromLaunchUrl(launchUrl: string): Promise<SessionBootstrap> {
+  const url = new URL(launchUrl)
+  const signedToken = url.searchParams.get('token')?.trim()
+
+  if (!signedToken) {
+    throw new Error('launch_url is missing a signed token')
+  }
+
+  const fakeLocation = {
+    href: url.href,
+    origin: url.origin,
+    pathname: url.pathname,
+  } as Location
+
+  const verifiedBootstrap = await fetchVerifiedBootstrap(fakeLocation, signedToken)
+
+  if (verifiedBootstrap) {
+    return verifiedBootstrap
+  }
+
+  const claims = decodeSessionClaims(signedToken)
+  return {
+    sessionToken: claims.sessionId,
+    contentMode: claims.contentMode,
+    contentPath: claims.contentPath,
+    signedToken,
+    bootstrapSource: 'signed-token-local',
+  }
+}
+
 export async function bootstrapSessionFromLocation(locationLike: Location): Promise<SessionBootstrap> {
   const url = new URL(locationLike.href)
   const signedToken = url.searchParams.get('token')?.trim()
 
   if (signedToken) {
-    const verifiedBootstrap = await fetchVerifiedBootstrap(locationLike, signedToken)
-
-    if (verifiedBootstrap) {
-      return verifiedBootstrap
-    }
-
-    const claims = decodeSessionClaims(signedToken)
-
-    // Local development still needs a browser-only fallback when the bootstrap
-    // endpoint is not present. Deployed environments should prefer verified-api.
-    return {
-      sessionToken: claims.sessionId,
-      contentMode: claims.contentMode,
-      contentPath: claims.contentPath,
-      signedToken,
-      bootstrapSource: 'signed-token-local',
-    }
+    return bootstrapSessionFromLaunchUrl(url.href)
   }
 
   const sessionToken = url.searchParams.get('session')?.trim() || 'demo123'
