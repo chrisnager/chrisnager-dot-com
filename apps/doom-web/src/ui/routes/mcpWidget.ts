@@ -8,6 +8,20 @@ declare global {
   }
 }
 
+function sendWidgetSizeChanged(width: number, height: number) {
+  window.parent.postMessage(
+    {
+      jsonrpc: '2.0',
+      method: 'ui/notifications/size-changed',
+      params: {
+        width,
+        height,
+      },
+    },
+    '*',
+  )
+}
+
 function ensureWidgetShell() {
   document.body.innerHTML = ''
   document.documentElement.style.width = '100%'
@@ -57,6 +71,15 @@ function ensureWidgetShell() {
 
   root.append(canvas, status)
   document.body.append(root)
+
+  const reportSize = () => {
+    const rect = root.getBoundingClientRect()
+    sendWidgetSizeChanged(Math.ceil(rect.width), Math.ceil(rect.height))
+  }
+
+  const resizeObserver = new ResizeObserver(reportSize)
+  resizeObserver.observe(root)
+  queueMicrotask(reportSize)
 
   return { canvas, status }
 }
