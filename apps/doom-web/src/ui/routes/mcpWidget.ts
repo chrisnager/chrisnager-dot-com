@@ -22,6 +22,10 @@ function sendWidgetSizeChanged(width: number, height: number) {
   )
 }
 
+function requestWidgetSize(width: number, height: number) {
+  sendWidgetSizeChanged(width, height)
+}
+
 function ensureWidgetShell() {
   document.body.innerHTML = ''
   document.documentElement.style.width = '100%'
@@ -73,8 +77,7 @@ function ensureWidgetShell() {
   document.body.append(root)
 
   const reportSize = () => {
-    const rect = root.getBoundingClientRect()
-    sendWidgetSizeChanged(Math.ceil(rect.width), Math.ceil(rect.height))
+    requestWidgetSize(800, 660)
   }
 
   const resizeObserver = new ResizeObserver(reportSize)
