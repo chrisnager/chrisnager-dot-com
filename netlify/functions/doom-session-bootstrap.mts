@@ -44,8 +44,17 @@ export default async function handler(request: Request) {
       })
     }
 
-    const config = getDoomMcpConfig()
-    const persistence = createDoomPersistence(process.env)
+    const deploymentOrigin = url.origin
+    const env = {
+      ...process.env,
+      DOOM_PERSISTENCE_BACKEND: 'netlify-blobs',
+      DOOM_MCP_PUBLIC_BASE_URL: deploymentOrigin,
+      DOOM_WEB_ORIGIN: deploymentOrigin,
+      DOOM_WEB_PLAY_PATH: '/doom/play',
+      DOOM_SESSION_BOOTSTRAP_PATH: '/doom/api/doom-session-bootstrap',
+    }
+    const config = getDoomMcpConfig(env, deploymentOrigin)
+    const persistence = createDoomPersistence(env)
     const bootstrap = await resolveVerifiedSessionBootstrap(token, persistence, config)
 
     return jsonResponse(200, bootstrap)

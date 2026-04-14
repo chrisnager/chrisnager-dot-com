@@ -30,6 +30,14 @@ export default async function handler(request: Request) {
 
   try {
     const deploymentOrigin = new URL(request.url).origin
+    const env = {
+      ...process.env,
+      DOOM_PERSISTENCE_BACKEND: 'netlify-blobs',
+      DOOM_MCP_PUBLIC_BASE_URL: deploymentOrigin,
+      DOOM_WEB_ORIGIN: deploymentOrigin,
+      DOOM_WEB_PLAY_PATH: '/doom/play',
+      DOOM_SESSION_BOOTSTRAP_PATH: '/doom/api/doom-session-bootstrap',
+    }
     const { req: nodeRequest, res: nodeResponse } = toReqRes(request)
     const responseHandle = nodeResponse as {
       on(event: 'close', callback: () => void): void
@@ -37,8 +45,8 @@ export default async function handler(request: Request) {
     const transport = new StreamableHTTPServerTransport({
       sessionIdGenerator: undefined,
     })
-    const config = getDoomMcpConfig(process.env, deploymentOrigin)
-    const persistence = createDoomPersistence(process.env)
+    const config = getDoomMcpConfig(env, deploymentOrigin)
+    const persistence = createDoomPersistence(env)
     const server = createDoomMcpServer(persistence, config)
     const body = (await request.json()) as unknown
 

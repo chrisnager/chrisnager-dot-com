@@ -23,6 +23,27 @@ function asMetadata(input: unknown) {
   return (input && typeof input === 'object' ? (input as Record<string, string>) : {}) || {}
 }
 
+function normalizeContentPath(contentMode: DoomSessionRecord['contentMode'], contentPath?: string) {
+  if (!contentPath) {
+    return undefined
+  }
+
+  const trimmed = contentPath.trim()
+  if (!trimmed) {
+    return undefined
+  }
+
+  if (contentMode === 'freedoom-phase1') {
+    if (trimmed.endsWith('.wad') || trimmed.endsWith('.zip') || trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('/')) {
+      return trimmed
+    }
+
+    return undefined
+  }
+
+  return trimmed
+}
+
 export function getDoomToolDefinitions() {
   return [
     {
@@ -166,7 +187,10 @@ export async function handleDoomToolCall(
     const session: DoomSessionRecord = {
       id: randomUUID(),
       contentMode: (args.content_mode as DoomSessionRecord['contentMode'] | undefined) || 'freedoom-phase1',
-      contentPath: args.content_path as string | undefined,
+      contentPath: normalizeContentPath(
+        (args.content_mode as DoomSessionRecord['contentMode'] | undefined) || 'freedoom-phase1',
+        args.content_path as string | undefined,
+      ),
       createdAt: new Date().toISOString(),
       expiresAt: toIsoInSeconds(ttlSeconds),
       saveNamespace: randomUUID(),
