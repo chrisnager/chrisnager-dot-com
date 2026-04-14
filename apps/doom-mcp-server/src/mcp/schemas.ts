@@ -38,7 +38,7 @@ export const createDoomSessionSchema: JsonSchema = {
   properties: {
     host_origin: { type: 'string', format: 'uri', description: 'Public web origin hosting the /play route.' },
     content_mode: { type: 'string', enum: ['freedoom-phase1', 'custom-url'], description: 'Playable content mode.' },
-    content_path: { type: 'string', description: 'Optional custom content URL or path.' },
+    content_path: { type: 'string', description: 'Optional custom content URL or path. Used only when content_mode is custom-url.' },
     session_ttl_seconds: { type: 'integer', minimum: 60, maximum: 86400, description: 'Requested session lifetime.' },
     metadata: { type: 'object', additionalProperties: { type: 'string' }, description: 'Host-neutral metadata labels.' },
   },

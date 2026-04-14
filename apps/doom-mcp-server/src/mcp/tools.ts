@@ -33,11 +33,7 @@ function normalizeContentPath(contentMode: DoomSessionRecord['contentMode'], con
     return undefined
   }
 
-  if (contentMode === 'freedoom-phase1') {
-    if (trimmed.endsWith('.wad') || trimmed.endsWith('.zip') || trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('/')) {
-      return trimmed
-    }
-
+  if (contentMode !== 'custom-url') {
     return undefined
   }
 

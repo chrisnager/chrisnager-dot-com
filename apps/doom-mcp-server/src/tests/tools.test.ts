@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import { MemoryDoomPersistence } from '../domain/memoryPersistence.js'
 import { handleDoomToolCall } from '../mcp/tools.js'
 import { resolveVerifiedSessionBootstrap } from '../session/bootstrap.js'
+import { decodeSignedSessionToken } from '../../../../packages/doom-session/src/token.js'
 
 const config = {
   host: '127.0.0.1',
@@ -70,6 +71,26 @@ test('create_doom_session prefers deployment origin over caller host_origin', as
 
   const structured = result.structuredContent as Record<string, unknown>
   assert.match(structured.launch_url as string, /^https:\/\/deploy-preview-54--chrisnager\.netlify\.app\/doom\/play\?token=/)
+})
+
+test('create_doom_session ignores content_path for freedoom-phase1', async () => {
+  const persistence = new MemoryDoomPersistence()
+  const result = await handleDoomToolCall(
+    'create_doom_session',
+    {
+      host_origin: 'https://doom.example.com',
+      content_mode: 'freedoom-phase1',
+      content_path: 'doom.wad',
+    },
+    persistence,
+    config,
+  )
+
+  const structured = result.structuredContent as Record<string, string | undefined>
+  assert.equal(structured.content_path, undefined)
+
+  const claims = decodeSignedSessionToken(structured.signed_token as string)
+  assert.equal(claims.contentPath, undefined)
 })
 
 test('verified bootstrap loads the persisted session after token verification', async () => {
