@@ -1,5 +1,4 @@
 import type { DoomContentMode } from '../types.js'
-import { getFreedoomPhase1ContentUrl } from './assetUrls.js'
 import { extractZipEntry } from './zip.js'
 
 async function fetchBytes(url: string) {
@@ -12,20 +11,34 @@ async function fetchBytes(url: string) {
   return new Uint8Array(await response.arrayBuffer())
 }
 
-export async function resolveContentBytes(contentMode: DoomContentMode, contentPath?: string) {
+function resolveBaseUrl(contentBaseUrl?: string) {
+  if (!contentBaseUrl) {
+    return undefined
+  }
+
+  return contentBaseUrl.endsWith('/') ? contentBaseUrl : `${contentBaseUrl}/`
+}
+
+export async function resolveContentBytes(contentMode: DoomContentMode, contentPath?: string, contentBaseUrl?: string) {
+  const baseUrl = resolveBaseUrl(contentBaseUrl)
+
   if (contentMode === 'custom-url') {
     if (!contentPath) {
       throw new Error('custom-url mode requires a contentPath')
     }
 
-    if (contentPath.endsWith('.zip')) {
-      return extractZipEntry(await fetchBytes(contentPath), 'freedoom1.wad')
+    const sourceUrl = new URL(contentPath, baseUrl || window.location.href).toString()
+
+    if (sourceUrl.endsWith('.zip')) {
+      return extractZipEntry(await fetchBytes(sourceUrl), 'freedoom1.wad')
     }
 
-    return fetchBytes(contentPath)
+    return fetchBytes(sourceUrl)
   }
 
-  const sourceUrl = contentPath || getFreedoomPhase1ContentUrl()
+  const sourceUrl = baseUrl
+    ? new URL(contentPath || 'content/freedoom/freedoom1.wad', baseUrl).toString()
+    : new URL(contentPath || '/doom/content/freedoom/freedoom1.wad', window.location.href).toString()
 
   if (sourceUrl.endsWith('.zip')) {
     return extractZipEntry(await fetchBytes(sourceUrl), 'freedoom1.wad')

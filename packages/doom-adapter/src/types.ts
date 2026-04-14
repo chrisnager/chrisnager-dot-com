@@ -5,6 +5,7 @@ export interface DoomInitializeOptions {
   contentMode: DoomContentMode
   contentPath?: string
   sessionToken?: string
+  contentBaseUrl?: string
 }
 
 export interface DoomSaveSnapshot {

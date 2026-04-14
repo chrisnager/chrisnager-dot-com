@@ -59,7 +59,7 @@ export function createDoomAdapter(): DoomAdapter {
       canvas.width = 800
       canvas.height = 600
 
-      const contentBytes = await resolveContentBytes(options.contentMode, options.contentPath)
+      const contentBytes = await resolveContentBytes(options.contentMode, options.contentPath, options.contentBaseUrl)
       const configBytes = new TextEncoder().encode(DEFAULT_CFG_TEXT)
       const contentUrl = URL.createObjectURL(new Blob([contentBytes], { type: 'application/octet-stream' }))
       const configUrl = URL.createObjectURL(new Blob([configBytes], { type: 'text/plain;charset=utf-8' }))

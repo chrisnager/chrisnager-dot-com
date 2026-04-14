@@ -77,6 +77,7 @@ async function bootWidget(launchUrl: string) {
       contentMode: session.contentMode,
       contentPath: session.contentPath,
       sessionToken: session.sessionToken,
+      contentBaseUrl: assetBaseUrl,
     })
 
     status.textContent = 'Starting engine…'
