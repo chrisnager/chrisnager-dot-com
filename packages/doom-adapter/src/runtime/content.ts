@@ -19,6 +19,18 @@ function resolveBaseUrl(contentBaseUrl?: string) {
   return contentBaseUrl.endsWith('/') ? contentBaseUrl : `${contentBaseUrl}/`
 }
 
+function normalizeDefaultContentPath(contentPath?: string) {
+  if (!contentPath) {
+    return 'content/freedoom/freedoom1.wad'
+  }
+
+  if (contentPath.endsWith('.wad') || contentPath.endsWith('.zip') || contentPath.startsWith('http://') || contentPath.startsWith('https://') || contentPath.startsWith('/')) {
+    return contentPath
+  }
+
+  return 'content/freedoom/freedoom1.wad'
+}
+
 export async function resolveContentBytes(contentMode: DoomContentMode, contentPath?: string, contentBaseUrl?: string) {
   const baseUrl = resolveBaseUrl(contentBaseUrl)
 
@@ -37,8 +49,8 @@ export async function resolveContentBytes(contentMode: DoomContentMode, contentP
   }
 
   const sourceUrl = baseUrl
-    ? new URL(contentPath || 'content/freedoom/freedoom1.wad', baseUrl).toString()
-    : new URL(contentPath || '/doom/content/freedoom/freedoom1.wad', window.location.href).toString()
+    ? new URL(normalizeDefaultContentPath(contentPath), baseUrl).toString()
+    : new URL(normalizeDefaultContentPath(contentPath) || '/doom/content/freedoom/freedoom1.wad', window.location.href).toString()
 
   if (sourceUrl.endsWith('.zip')) {
     return extractZipEntry(await fetchBytes(sourceUrl), 'freedoom1.wad')
