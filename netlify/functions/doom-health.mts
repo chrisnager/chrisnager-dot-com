@@ -1,13 +1,8 @@
-import { createDoomPersistence } from '../../apps/doom-mcp-server/src/domain/createPersistence.js'
-
 export default async function handler() {
-  const persistence = createDoomPersistence(process.env)
-
   return new Response(
     JSON.stringify(
       {
         ok: true,
-        persistence: persistence.kind,
         service: 'doom-mcp-server',
       },
       null,

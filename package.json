@@ -8,7 +8,6 @@
     "@mdx-js/react": "^3.1.0",
     "@modelcontextprotocol/ext-apps": "^1.5.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@netlify/blobs": "^10.7.4",
     "@netlify/functions": "^2.8.2",
     "@netlify/plugin-gatsby": "^3.8.1",
     "@theme-ui/mdx": "^0.16.2",

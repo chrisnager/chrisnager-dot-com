@@ -1,4 +1,3 @@
-import type { DoomPersistence } from '../domain/persistence.js'
 import type { DoomMcpConfig } from '../config.js'
 import { getDoomToolDefinitions, handleDoomToolCall } from '../mcp/tools.js'
 
@@ -28,7 +27,7 @@ function failure(id: JsonRpcRequest['id'], code: number, message: string) {
   }
 }
 
-export async function handleJsonRpcRequest(body: unknown, persistence: DoomPersistence, config: DoomMcpConfig) {
+export async function handleJsonRpcRequest(body: unknown, config: DoomMcpConfig) {
   if (!body || typeof body !== 'object') {
     return failure(null, -32600, 'Invalid JSON-RPC request')
   }
@@ -65,7 +64,7 @@ export async function handleJsonRpcRequest(body: unknown, persistence: DoomPersi
         return failure(request.id, -32602, 'tools/call requires a tool name')
       }
 
-      const result = await handleDoomToolCall(name, request.params?.arguments || {}, persistence, config)
+      const result = await handleDoomToolCall(name, request.params?.arguments || {}, config)
       return success(request.id, result)
     }
 

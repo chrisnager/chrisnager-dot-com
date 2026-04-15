@@ -5,4 +5,4 @@
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["@modelcontextprotocol/sdk", "@netlify/blobs", "fetch-to-node", "zod"]
+  external_node_modules = ["@modelcontextprotocol/sdk", "fetch-to-node", "zod"]

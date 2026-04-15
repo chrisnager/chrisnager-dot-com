@@ -1,49 +1,13 @@
 import { resolveContentBytes } from './runtime/content.js'
 import { DEFAULT_CFG_TEXT } from './runtime/assetUrls.js'
 import { loadDoomWasmModule } from './runtime/doomWasmLoader.js'
-import type { DoomAdapter, DoomInitializeOptions, DoomSaveSnapshot } from './types.js'
-
-const SAVE_FILE_TEMPLATE = 'doomsav%s.dsg'
-
-function encodeBase64(bytes: Uint8Array) {
-  let binary = ''
-
-  for (const byte of bytes) {
-    binary += String.fromCharCode(byte)
-  }
-
-  return window.btoa(binary)
-}
-
-function decodeBase64(value: string) {
-  const binary = window.atob(value)
-  const bytes = new Uint8Array(binary.length)
-
-  for (let index = 0; index < binary.length; index += 1) {
-    bytes[index] = binary.charCodeAt(index)
-  }
-
-  return bytes
-}
-
-function getSavePath(slot: string) {
-  return SAVE_FILE_TEMPLATE.replace('%s', slot)
-}
+import type { DoomAdapter, DoomInitializeOptions } from './types.js'
 
 export function createDoomAdapter(): DoomAdapter {
   let initialized = false
   let started = false
   let bootPromise: Promise<void> | null = null
   let canvas: HTMLCanvasElement | null = null
-  let sessionToken: string | undefined
-
-  const getModule = () => {
-    if (!window.Module) {
-      throw new Error('DOOM runtime is not available')
-    }
-
-    return window.Module
-  }
 
   return {
     async initialize(options: DoomInitializeOptions) {
@@ -53,7 +17,6 @@ export function createDoomAdapter(): DoomAdapter {
 
       initialized = true
       canvas = options.canvas
-      sessionToken = options.sessionToken
 
       canvas.width = 800
       canvas.height = 600
@@ -131,47 +94,7 @@ export function createDoomAdapter(): DoomAdapter {
         context?.clearRect(0, 0, canvas.width, canvas.height)
       }
     },
-
-    async save(slot: string) {
-      const module = getModule()
-      const savePath = getSavePath(slot)
-      const screenshotDataUrl = this.screenshot()
-      const snapshot: DoomSaveSnapshot = {
-        slot,
-        savedAt: new Date().toISOString(),
-        sessionToken,
-        screenshotDataUrl,
-      }
-
-      if (module.FS.analyzePath(savePath).exists) {
-        snapshot.saveFileBase64 = encodeBase64(module.FS.readFile(savePath))
-      }
-
-      return snapshot
-    },
-
-    async load(slot: string, snapshot?: DoomSaveSnapshot) {
-      const module = getModule()
-
-      if (!snapshot) {
-        return null
-      }
-
-      if (snapshot.saveFileBase64) {
-        module.FS.writeFile(getSavePath(slot), decodeBase64(snapshot.saveFileBase64))
-      }
-
-      return snapshot
-    },
-
-    screenshot() {
-      if (!canvas) {
-        throw new Error('Canvas is not initialized')
-      }
-
-      return canvas.toDataURL('image/png')
-    },
   }
 }
 
-export type { DoomAdapter, DoomContentMode, DoomInitializeOptions, DoomSaveSnapshot } from './types.js'
+export type { DoomAdapter, DoomContentMode, DoomInitializeOptions } from './types.js'

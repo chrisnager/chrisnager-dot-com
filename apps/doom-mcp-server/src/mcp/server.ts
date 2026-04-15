@@ -2,35 +2,8 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { registerAppResource, registerAppTool, RESOURCE_MIME_TYPE } from '@modelcontextprotocol/ext-apps/server'
 
 import type { DoomMcpConfig } from '../config.js'
-import type { DoomPersistence } from '../domain/persistence.js'
 import { handleDoomToolCall } from './tools.js'
-import {
-  captureDoomScreenshotInputSchema,
-  createDoomSessionInputSchema,
-  getDoomLaunchUrlInputSchema,
-  getDoomStatusInputSchema,
-  loadDoomGameInputSchema,
-  saveDoomGameInputSchema,
-} from './zodSchemas.js'
-
-const DOOM_FAVICON_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="16" height="16">
-  <title>"C" logo of Chris Nager</title>
-  <style>
-    svg {
-      background-color: red;
-    }
-
-    path {
-      fill: none;
-      stroke: #fff;
-      stroke-linejoin: round;
-      stroke-width: 10px;
-    }
-  </style>
-  <path d="M21,100A78.06,78.06,0,0,1,52.25,37.48h0v125h0a78.17,78.17,0,0,0,118.52-31.26l-43-18.76.15-.33a31.26,31.26,0,0,1-44.43,14.9" />
-  <path d="M82,176.18,82,23.42a95.41,95.41,0,0,1,17.19-1.56,78.16,78.16,0,0,1,72,47.72l-43.2,18.25h0A31.26,31.26,0,0,0,81.67,74.08" />
-</svg>`
-const DOOM_FAVICON_DATA_URI = `data:image/svg+xml,${encodeURIComponent(DOOM_FAVICON_SVG)}`
+import { createDoomSessionInputSchema } from './zodSchemas.js'
 
 function buildWidgetHtml() {
   return `<!doctype html>
@@ -142,21 +115,11 @@ function buildWidgetHtml() {
 </html>`
 }
 
-export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMcpConfig) {
+export function createDoomMcpServer(config: DoomMcpConfig) {
   const server = new McpServer(
     {
       name: 'doom-mcp-server',
-      title: 'DOOM',
       version: '0.3.0',
-      description: 'A playable DOOM MCP server and embedded app.',
-      icons: [
-        {
-          src: DOOM_FAVICON_DATA_URI,
-          mimeType: 'image/svg+xml',
-          sizes: ['any'],
-          theme: 'dark',
-        },
-      ],
     },
     {
       capabilities: {
@@ -223,52 +186,7 @@ export function createDoomMcpServer(persistence: DoomPersistence, config: DoomMc
         },
       },
     },
-    async (args: Record<string, unknown>) => handleDoomToolCall('create_doom_session', args, persistence, config),
-  )
-
-  server.registerTool(
-    'get_doom_launch_url',
-    {
-      description: 'Refresh or fetch the signed launch URL for an existing DOOM session.',
-      inputSchema: getDoomLaunchUrlInputSchema,
-    },
-    async (args) => handleDoomToolCall('get_doom_launch_url', args, persistence, config),
-  )
-
-  server.registerTool(
-    'get_doom_status',
-    {
-      description: 'Inspect session metadata and persistence status.',
-      inputSchema: getDoomStatusInputSchema,
-    },
-    async (args) => handleDoomToolCall('get_doom_status', args, persistence, config),
-  )
-
-  server.registerTool(
-    'save_doom_game',
-    {
-      description: 'Persist a save payload and optional screenshot for a DOOM session.',
-      inputSchema: saveDoomGameInputSchema,
-    },
-    async (args) => handleDoomToolCall('save_doom_game', args, persistence, config),
-  )
-
-  server.registerTool(
-    'load_doom_game',
-    {
-      description: 'Load a previously saved DOOM slot if one exists.',
-      inputSchema: loadDoomGameInputSchema,
-    },
-    async (args) => handleDoomToolCall('load_doom_game', args, persistence, config),
-  )
-
-  server.registerTool(
-    'capture_doom_screenshot',
-    {
-      description: 'Return the latest persisted screenshot for a session. Live capture is stubbed until a runtime bridge exists.',
-      inputSchema: captureDoomScreenshotInputSchema,
-    },
-    async (args) => handleDoomToolCall('capture_doom_screenshot', args, persistence, config),
+    async (args: Record<string, unknown>) => handleDoomToolCall('create_doom_session', args, config),
   )
 
   return server

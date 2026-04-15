@@ -75,10 +75,6 @@ export function validateInput(schema: JsonSchema, value: unknown) {
       }
     }
 
-    if (property.type === 'boolean' && typeof fieldValue !== 'boolean') {
-      errors.push(`Field ${key} must be a boolean`)
-    }
-
     if (property.type === 'object') {
       if (!isRecord(fieldValue)) {
         errors.push(`Field ${key} must be an object`)

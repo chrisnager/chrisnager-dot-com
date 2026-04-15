@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@netlify/blobs": "^10.7.4",
     "fetch-to-node": "^2.1.0",
     "zod": "^4.3.6"
   },

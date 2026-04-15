@@ -2,7 +2,6 @@ import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/
 import { toFetchResponse, toReqRes } from 'fetch-to-node'
 
 import { getDoomMcpConfig } from '../../apps/doom-mcp-server/src/config.js'
-import { createDoomPersistence } from '../../apps/doom-mcp-server/src/domain/createPersistence.js'
 import { createDoomMcpServer } from '../../apps/doom-mcp-server/src/mcp/server.js'
 
 function corsHeaders() {
@@ -35,7 +34,6 @@ export default async function handler(request: Request) {
       DOOM_MCP_PUBLIC_BASE_URL: deploymentOrigin,
       DOOM_WEB_ORIGIN: deploymentOrigin,
       DOOM_WEB_PLAY_PATH: '/doom/play',
-      DOOM_SESSION_BOOTSTRAP_PATH: '/doom/api/doom-session-bootstrap',
     }
     const { req: nodeRequest, res: nodeResponse } = toReqRes(request)
     const responseHandle = nodeResponse as {
@@ -45,8 +43,7 @@ export default async function handler(request: Request) {
       sessionIdGenerator: undefined,
     })
     const config = getDoomMcpConfig(env, deploymentOrigin)
-    const persistence = createDoomPersistence(env)
-    const server = createDoomMcpServer(persistence, config)
+    const server = createDoomMcpServer(config)
     const body = (await request.json()) as unknown
 
     await server.connect(transport)

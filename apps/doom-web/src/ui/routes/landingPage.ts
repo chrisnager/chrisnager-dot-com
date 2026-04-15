@@ -2,11 +2,11 @@ export function renderLandingPage(root: HTMLDivElement, options: { playUrl: stri
   root.innerHTML = `
     <main class="landing-shell">
       <section class="landing-hero panel">
-        <p class="eyebrow">DOOM MCP / Phase 1</p>
-        <h1>Browser-playable DOOM shell, ready for later MCP session orchestration.</h1>
+        <p class="eyebrow">DOOM MCP</p>
+        <h1>Playable DOOM in a browser page or inline MCP app.</h1>
         <p class="lede">
           This build uses <code>cloudflare/doom-wasm</code> as the runtime layer, defaults to Freedoom Phase 1,
-          and keeps the launch/session seams explicit so a future MCP server can mint signed URLs instead of hard-coded demos.
+          and signs a launch URL that can open either the standalone <code>/doom/play</code> route or an MCP app view.
         </p>
         <div class="landing-actions">
           <a class="button button-primary" href="${options.playUrl}">Launch Demo Session</a>
@@ -15,12 +15,12 @@ export function renderLandingPage(root: HTMLDivElement, options: { playUrl: stri
       </section>
       <section class="landing-grid">
         <article class="panel">
-          <h2>What ships in Phase 1</h2>
+          <h2>What ships now</h2>
           <ul>
-            <li>Responsive iframe-friendly play shell</li>
-            <li>Stable adapter interface for engine glue</li>
-            <li>Fake session bootstrap from the query string</li>
-            <li>Placeholder launch and save/load seams for MCP later</li>
+            <li>Signed DOOM session creation through MCP</li>
+            <li>Inline MCP app canvas for hosts that support it</li>
+            <li>Browser fallback at <code>/doom/play?token=...</code></li>
+            <li>Freedoom Phase 1 as the default bundled content</li>
           </ul>
         </article>
         <article class="panel">

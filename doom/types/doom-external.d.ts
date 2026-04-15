@@ -15,15 +15,6 @@ declare module '@modelcontextprotocol/sdk/server/streamableHttp.js' {
   }
 }
 
-declare module '@netlify/blobs' {
-  export interface Store {
-    get(key: string, options?: unknown): Promise<any>
-    setJSON(key: string, data: unknown, options?: unknown): Promise<unknown>
-  }
-
-  export function getStore(name: string): Store
-}
-
 declare module 'fetch-to-node' {
   export function toReqRes(request: Request): { req: unknown; res: unknown }
   export function toFetchResponse(response: unknown): Promise<Response>

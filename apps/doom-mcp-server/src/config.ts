@@ -6,7 +6,6 @@ export interface DoomMcpConfig {
   defaultWebOrigin?: string
   deploymentOrigin?: string
   playPath: string
-  bootstrapPath: string
   defaultSessionTtlSeconds: number
   issuer: string
 }
@@ -27,7 +26,6 @@ export function getDoomMcpConfig(env: NodeJS.ProcessEnv = process.env, deploymen
     defaultWebOrigin: env.DOOM_WEB_ORIGIN,
     deploymentOrigin,
     playPath: env.DOOM_WEB_PLAY_PATH || '/doom/play',
-    bootstrapPath: env.DOOM_SESSION_BOOTSTRAP_PATH || '/doom/api/doom-session-bootstrap',
     defaultSessionTtlSeconds: Number(env.DOOM_DEFAULT_SESSION_TTL_SECONDS || 3600),
     issuer: env.DOOM_MCP_ISSUER || 'doom-mcp-server',
   }

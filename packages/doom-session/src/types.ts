@@ -4,7 +4,6 @@ export interface DoomSessionClaims {
   sessionId: string
   contentMode: DoomContentMode
   contentPath?: string
-  saveNamespace: string
   issuedAt: string
   expiresAt: string
   issuer: string

@@ -80,8 +80,7 @@ code {
 }
 
 .play-layout {
-  grid-template-columns: minmax(0, 1fr) 300px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .panel {
@@ -93,8 +92,7 @@ code {
 
 .landing-hero,
 .play-header,
-.play-stage,
-.controls-drawer {
+.play-stage {
   padding: 24px;
 }
 
@@ -108,9 +106,7 @@ code {
 
 .landing-hero .lede,
 .meta-copy,
-.stage-footnote,
-.controls-drawer p,
-.controls-drawer dd {
+.stage-footnote {
   color: var(--muted);
 }
 
@@ -242,33 +238,6 @@ button:hover {
   pointer-events: none;
 }
 
-.controls-drawer {
-  position: sticky;
-  top: 16px;
-}
-
-.controls-list {
-  margin: 0;
-  display: grid;
-  gap: 14px;
-}
-
-.controls-list div {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.controls-list dt {
-  font-weight: 700;
-}
-
-.controls-list dd {
-  margin: 0;
-}
-
 .callout-panel {
   margin-top: 20px;
   padding: 18px;
@@ -291,10 +260,6 @@ li + li {
   .play-layout {
     grid-template-columns: 1fr;
   }
-
-  .controls-drawer {
-    position: static;
-  }
 }
 
 @media (max-width: 640px) {
@@ -306,8 +271,7 @@ li + li {
 
   .landing-hero,
   .play-header,
-  .play-stage,
-  .controls-drawer {
+  .play-stage {
     padding: 18px;
   }
 }

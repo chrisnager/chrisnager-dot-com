@@ -1,6 +1,5 @@
 import { createDoomAdapter } from '../../../../../packages/doom-adapter/src/index.js'
 import { buildLaunchUrl } from '../../session/launchUrl.js'
-import { createBrowserSaveApi } from '../../session/saveApi.js'
 import type { SessionBootstrap } from '../../session/bootstrap.js'
 
 export async function renderPlayPage(
@@ -11,11 +10,9 @@ export async function renderPlayPage(
   },
 ) {
   const bootstrapCopy =
-    route.session.bootstrapSource === 'verified-api'
-      ? 'This launch used the server-verified session bootstrap endpoint.'
-      : route.session.bootstrapSource === 'signed-token-local'
-        ? 'This launch used a local signed-token fallback because the verified bootstrap endpoint was unavailable.'
-        : 'Legacy query-string bootstrap is active for local demo sessions.'
+    route.session.bootstrapSource === 'signed-token-local'
+      ? 'This launch is driven directly by a signed session token.'
+      : 'Legacy query-string bootstrap is active for local demo sessions.'
 
   const launchUrl = buildLaunchUrl({
     sessionToken: route.session.sessionToken,
@@ -49,8 +46,6 @@ export async function renderPlayPage(
             <div class="toolbar-actions">
               <button id="focus-button" class="button button-primary" type="button">Capture Keyboard</button>
               <button id="pause-button" class="button button-secondary" type="button">Pause Input</button>
-              <button id="save-button" class="button button-secondary" type="button">Save Slot 1</button>
-              <button id="load-button" class="button button-secondary" type="button">Load Slot 1</button>
               <button id="fullscreen-button" class="button button-secondary" type="button">Fullscreen</button>
             </div>
           </div>
@@ -66,25 +61,6 @@ export async function renderPlayPage(
             The shell avoids top-level navigation assumptions so it can live inside an iframe. Focus is explicit to prevent stealing parent-page keyboard input.
           </p>
         </div>
-
-        <aside class="controls-drawer panel">
-          <p class="eyebrow">Controls Drawer</p>
-          <h2>Defaults</h2>
-          <dl class="controls-list">
-            <div><dt>Move</dt><dd>Arrow keys</dd></div>
-            <div><dt>Fire</dt><dd>Ctrl</dd></div>
-            <div><dt>Use</dt><dd>Space</dd></div>
-            <div><dt>Run</dt><dd>Shift</dd></div>
-            <div><dt>Fullscreen</dt><dd>Toolbar button</dd></div>
-          </dl>
-
-          <div class="panel callout-panel">
-            <p class="eyebrow">MCP Hooks</p>
-            <p class="meta-copy">
-              Session bootstrap, launch URL creation, and save/load transport all live behind small modules so an MCP server can replace the Phase 1 browser-local placeholders.
-            </p>
-          </div>
-        </aside>
       </section>
     </main>
   `
@@ -95,16 +71,13 @@ export async function renderPlayPage(
   const stageFrame = root.querySelector<HTMLElement>('#stage-frame')
   const focusButton = root.querySelector<HTMLButtonElement>('#focus-button')
   const pauseButton = root.querySelector<HTMLButtonElement>('#pause-button')
-  const saveButton = root.querySelector<HTMLButtonElement>('#save-button')
-  const loadButton = root.querySelector<HTMLButtonElement>('#load-button')
   const fullscreenButton = root.querySelector<HTMLButtonElement>('#fullscreen-button')
 
-  if (!canvas || !status || !focusOverlay || !stageFrame || !focusButton || !pauseButton || !saveButton || !loadButton || !fullscreenButton) {
+  if (!canvas || !status || !focusOverlay || !stageFrame || !focusButton || !pauseButton || !fullscreenButton) {
     throw new Error('Play page elements were not rendered correctly')
   }
 
   const adapter = createDoomAdapter()
-  const saveApi = createBrowserSaveApi(route.session.sessionToken)
 
   const updateStatus = (message: string) => {
     status.textContent = message
@@ -131,19 +104,6 @@ export async function renderPlayPage(
     adapter.pause()
     focusOverlay.dataset.visible = 'true'
     updateStatus('Input paused')
-  })
-
-  saveButton.addEventListener('click', async () => {
-    const snapshot = await adapter.save('1')
-    await saveApi.save(snapshot)
-    updateStatus(`Saved slot 1 at ${new Date(snapshot.savedAt).toLocaleTimeString()}`)
-  })
-
-  loadButton.addEventListener('click', async () => {
-    const snapshot = await saveApi.load('1')
-    const restored = await adapter.load('1', snapshot ?? undefined)
-
-    updateStatus(restored ? `Loaded slot 1 from ${new Date(restored.savedAt).toLocaleTimeString()}` : 'No saved slot found')
   })
 
   fullscreenButton.addEventListener('click', async () => {

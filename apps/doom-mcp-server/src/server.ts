@@ -1,11 +1,9 @@
 import http from 'node:http'
 
 import { getDoomMcpConfig } from './config.js'
-import { createDoomPersistence } from './domain/createPersistence.js'
 import { handleJsonRpcRequest } from './protocol/jsonRpc.js'
 
 const config = getDoomMcpConfig()
-const persistence = createDoomPersistence()
 
 function sendJson(response: http.ServerResponse, statusCode: number, body: unknown) {
   response.writeHead(statusCode, {
@@ -44,7 +42,7 @@ const server = http.createServer(async (request, response) => {
     request.on('end', async () => {
       try {
         const body = JSON.parse(Buffer.concat(chunks).toString('utf8')) as unknown
-        const result = await handleJsonRpcRequest(body, persistence, config)
+        const result = await handleJsonRpcRequest(body, config)
         sendJson(response, 200, result)
       } catch (error) {
         sendJson(response, 400, {
