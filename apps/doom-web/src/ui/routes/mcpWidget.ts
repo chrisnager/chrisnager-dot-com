@@ -65,6 +65,29 @@ function ensureWidgetShell() {
   stage.style.overflow = 'hidden'
   stage.style.background = '#000'
 
+  const controls = document.createElement('section')
+  controls.setAttribute('aria-label', 'DOOM controls')
+  controls.style.width = '100%'
+  controls.style.maxWidth = '100%'
+  controls.style.marginTop = '12px'
+  controls.style.color = '#f3f4f6'
+  controls.style.fontSize = '13px'
+  controls.style.lineHeight = '1.45'
+
+  controls.innerHTML = `
+    <div style="display:grid; gap: 8px;">
+      <strong style="font-size: 14px;">Controls</strong>
+      <div style="display:grid; gap: 4px; opacity: 0.92;">
+        <div><strong>Move:</strong> WASD or arrow keys</div>
+        <div><strong>Look:</strong> Mouse movement</div>
+        <div><strong>Fire:</strong> Left click or Ctrl</div>
+        <div><strong>Use:</strong> Spacebar</div>
+        <div><strong>Run:</strong> Shift</div>
+        <div><strong>Fullscreen:</strong> F</div>
+      </div>
+    </div>
+  `
+
   const status = document.createElement('p')
   status.id = 'doom-widget-status'
   status.style.position = 'absolute'
@@ -84,12 +107,13 @@ function ensureWidgetShell() {
   canvas.style.inset = '0'
 
   stage.append(canvas, status)
-  root.append(stage)
+  root.append(stage, controls)
   document.body.append(root)
 
   const reportSize = () => {
     const rect = stage.getBoundingClientRect()
-    requestWidgetSize(Math.round(rect.width), Math.round(rect.width * 3 / 4))
+    const controlsHeight = Math.ceil(controls.getBoundingClientRect().height)
+    requestWidgetSize(Math.round(rect.width), Math.round(rect.width * 3 / 4) + controlsHeight + 12)
   }
 
   const resizeObserver = new ResizeObserver(reportSize)
