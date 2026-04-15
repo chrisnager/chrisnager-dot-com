@@ -45,7 +45,7 @@ function ensureWidgetShell() {
   root.style.display = 'grid'
   root.style.placeItems = 'center'
   root.style.background = 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.14))'
-  // root.style.padding = '12px'
+  root.style.padding = '12px'
 
   const canvas = document.createElement('canvas')
   canvas.id = 'canvas'
@@ -59,13 +59,13 @@ function ensureWidgetShell() {
   canvas.style.outline = 'none'
 
   const stage = document.createElement('section')
-  // stage.style.position = 'relative'
+  stage.style.position = 'relative'
   stage.style.width = '100%'
   stage.style.maxWidth = 'min(100%, calc((100vh - 24px) * 4 / 3))'
   stage.style.aspectRatio = '4 / 3'
-  // stage.style.borderRadius = '20px'
+  stage.style.borderRadius = '20px'
   stage.style.overflow = 'hidden'
-  // stage.style.border = '1px solid rgba(255, 255, 255, 0.08)'
+  stage.style.border = '1px solid rgba(255, 255, 255, 0.08)'
   stage.style.background = '#000'
   stage.style.display = 'block'
 
@@ -83,10 +83,26 @@ function ensureWidgetShell() {
   status.style.lineHeight = '1.2'
   status.style.maxWidth = 'calc(100% - 24px)'
 
+  const fullscreenButton = document.createElement('button')
+  fullscreenButton.type = 'button'
+  fullscreenButton.textContent = 'Fullscreen'
+  fullscreenButton.style.position = 'absolute'
+  fullscreenButton.style.right = '12px'
+  fullscreenButton.style.bottom = '12px'
+  fullscreenButton.style.zIndex = '2'
+  fullscreenButton.style.minHeight = '32px'
+  fullscreenButton.style.padding = '0 12px'
+  fullscreenButton.style.borderRadius = '999px'
+  fullscreenButton.style.border = '1px solid rgba(255, 255, 255, 0.16)'
+  fullscreenButton.style.background = 'rgba(0, 0, 0, 0.65)'
+  fullscreenButton.style.color = '#f3f4f6'
+  fullscreenButton.style.fontSize = '12px'
+  fullscreenButton.style.backdropFilter = 'blur(8px)'
+
   canvas.style.position = 'absolute'
   canvas.style.inset = '0'
 
-  stage.append(canvas, status)
+  stage.append(canvas, status, fullscreenButton)
   root.append(stage)
   document.body.append(root)
 
@@ -98,7 +114,16 @@ function ensureWidgetShell() {
   resizeObserver.observe(root)
   queueMicrotask(reportSize)
 
-  return { canvas, status }
+  fullscreenButton.addEventListener('click', async () => {
+    if (document.fullscreenElement) {
+      await document.exitFullscreen()
+      return
+    }
+
+    await stage.requestFullscreen()
+  })
+
+  return { canvas, status, stage }
 }
 
 async function bootWidget(launchUrl: string) {
