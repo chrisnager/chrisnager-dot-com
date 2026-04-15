@@ -14,12 +14,32 @@ import {
 } from './zodSchemas.js'
 
 function buildWidgetHtml() {
+  const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="16" height="16">
+  <title>"C" logo of Chris Nager</title>
+  <style>
+    svg {
+      background-color: red;
+    }
+
+    path {
+      fill: none;
+      stroke: #fff;
+      stroke-linejoin: round;
+      stroke-width: 10px;
+    }
+  </style>
+  <path d="M21,100A78.06,78.06,0,0,1,52.25,37.48h0v125h0a78.17,78.17,0,0,0,118.52-31.26l-43-18.76.15-.33a31.26,31.26,0,0,1-44.43,14.9" />
+  <path d="M82,176.18,82,23.42a95.41,95.41,0,0,1,17.19-1.56,78.16,78.16,0,0,1,72,47.72l-43.2,18.25h0A31.26,31.26,0,0,0,81.67,74.08" />
+</svg>`
+  const faviconHref = `data:image/svg+xml,${encodeURIComponent(faviconSvg)}`
+
   return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DOOM</title>
+    <link rel="icon" href="${faviconHref}" type="image/svg+xml" />
     <style>
       :root { color-scheme: dark; }
       html, body { margin: 0; width: 100%; height: 100%; background: #050505; color: #e5e7eb; font: 14px/1.4 system-ui, sans-serif; overflow: hidden; }
