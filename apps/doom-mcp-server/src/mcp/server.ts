@@ -119,7 +119,16 @@ export function createDoomMcpServer(config: DoomMcpConfig) {
   const server = new McpServer(
     {
       name: 'doom-mcp-server',
+      title: 'DOOM',
       version: '0.3.0',
+      icons: [
+        {
+          src: '/doom-favicon.svg',
+          mimeType: 'image/svg+xml',
+          sizes: ['any'],
+          theme: 'dark',
+        },
+      ],
     },
     {
       capabilities: {
