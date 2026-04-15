@@ -45,6 +45,7 @@ function ensureWidgetShell() {
   root.style.display = 'grid'
   root.style.placeItems = 'center'
   root.style.background = 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.14))'
+  root.style.padding = '12px'
 
   const canvas = document.createElement('canvas')
   canvas.id = 'canvas'
@@ -54,10 +55,19 @@ function ensureWidgetShell() {
   canvas.style.display = 'block'
   canvas.style.width = '100%'
   canvas.style.height = '100%'
-  canvas.style.maxWidth = '100%'
-  canvas.style.maxHeight = '100%'
   canvas.style.background = '#000'
   canvas.style.outline = 'none'
+
+  const stage = document.createElement('section')
+  stage.style.position = 'relative'
+  stage.style.width = '100%'
+  stage.style.maxWidth = 'min(100%, calc((100vh - 24px) * 4 / 3))'
+  stage.style.aspectRatio = '4 / 3'
+  stage.style.borderRadius = '20px'
+  stage.style.overflow = 'hidden'
+  stage.style.border = '1px solid rgba(255, 255, 255, 0.08)'
+  stage.style.background = '#000'
+  stage.style.display = 'block'
 
   const status = document.createElement('p')
   status.id = 'doom-widget-status'
@@ -73,11 +83,15 @@ function ensureWidgetShell() {
   status.style.lineHeight = '1.2'
   status.style.maxWidth = 'calc(100% - 24px)'
 
-  root.append(canvas, status)
+  canvas.style.position = 'absolute'
+  canvas.style.inset = '0'
+
+  stage.append(canvas, status)
+  root.append(stage)
   document.body.append(root)
 
   const reportSize = () => {
-    requestWidgetSize(800, 660)
+    requestWidgetSize(800, 600)
   }
 
   const resizeObserver = new ResizeObserver(reportSize)

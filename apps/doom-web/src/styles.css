@@ -206,16 +206,12 @@ button:hover {
 
 .stage-frame {
   position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
   background: #000;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.stage-frame::before {
-  content: '';
-  display: block;
-  padding-top: 75%;
 }
 
 .doom-canvas,
