@@ -60,7 +60,7 @@ function ensureWidgetShell() {
   const stage = document.createElement('section')
   stage.style.position = 'relative'
   stage.style.width = '100%'
-  stage.style.maxWidth = 'min(100%, calc((100vh - 24px) * 4 / 3))'
+  stage.style.maxWidth = '100%'
   stage.style.aspectRatio = '4 / 3'
   stage.style.overflow = 'hidden'
   stage.style.background = '#000'
@@ -84,7 +84,7 @@ function ensureWidgetShell() {
   fullscreenButton.textContent = 'Fullscreen'
   fullscreenButton.style.position = 'absolute'
   fullscreenButton.style.right = '12px'
-  fullscreenButton.style.bottom = '12px'
+  fullscreenButton.style.top = '12px'
   fullscreenButton.style.zIndex = '2'
   fullscreenButton.style.minHeight = '32px'
   fullscreenButton.style.padding = '0 12px'
@@ -103,7 +103,8 @@ function ensureWidgetShell() {
   document.body.append(root)
 
   const reportSize = () => {
-    requestWidgetSize(800, 600)
+    const rect = stage.getBoundingClientRect()
+    requestWidgetSize(Math.round(rect.width), Math.round(rect.width * 3 / 4))
   }
 
   const resizeObserver = new ResizeObserver(reportSize)
