@@ -36,6 +36,11 @@ export function getDoomToolDefinitions() {
       description: 'Create a DOOM session and return a signed launch URL for the hosted /play page.',
       inputSchema: createDoomSessionSchema,
     },
+    {
+      name: 'get_doom_launch_url',
+      description: 'Return a signed DOOM launch URL for clients that cannot render the inline session view.',
+      inputSchema: createDoomSessionSchema,
+    },
   ]
 }
 
@@ -122,17 +127,7 @@ function buildWidgetMeta() {
   }
 }
 
-export async function handleDoomToolCall(name: string, input: unknown, config: DoomMcpConfig) {
-  if (name !== 'create_doom_session') {
-    throw new Error(`Unknown tool: ${name}`)
-  }
-
-  const errors = validateInput(createDoomSessionSchema, input)
-  if (errors.length > 0) {
-    throw new Error(`Invalid arguments: ${errors.join('; ')}`)
-  }
-
-  const args = (input || {}) as CreateSessionArgs
+function buildLaunchResult(config: DoomMcpConfig, args: CreateSessionArgs, includeWidgetMeta: boolean) {
   const contentMode = args.content_mode || 'freedoom-phase1'
   const session = {
     id: randomUUID(),
@@ -157,6 +152,20 @@ export async function handleDoomToolCall(name: string, input: unknown, config: D
       content_mode: session.contentMode,
       content_path: session.contentPath,
     },
-    buildWidgetMeta(),
+    includeWidgetMeta ? buildWidgetMeta() : undefined,
   )
+}
+
+export async function handleDoomToolCall(name: string, input: unknown, config: DoomMcpConfig) {
+  if (name !== 'create_doom_session' && name !== 'get_doom_launch_url') {
+    throw new Error(`Unknown tool: ${name}`)
+  }
+
+  const errors = validateInput(createDoomSessionSchema, input)
+  if (errors.length > 0) {
+    throw new Error(`Invalid arguments: ${errors.join('; ')}`)
+  }
+
+  const args = (input || {}) as CreateSessionArgs
+  return buildLaunchResult(config, args, name === 'create_doom_session')
 }

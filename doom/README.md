@@ -22,7 +22,8 @@ netlify/
 
 ## What is included
 
-- `create_doom_session` as the only MCP tool
+- `create_doom_session` as the inline-session tool
+- `get_doom_launch_url` as the fallback-only tool
 - signed launch URLs for `/doom/play`
 - inline MCP app rendering for hosts that support MCP Apps
 - Freedoom Phase 1 as the default bundled content

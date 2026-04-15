@@ -5,6 +5,7 @@ This package owns the lean MCP server for the DOOM project.
 Its current job is simple:
 
 - expose `create_doom_session`
+- expose `get_doom_launch_url` as a plain-text fallback for clients that cannot render the inline app
 - sign a launch token
 - return a `launch_url` for `/doom/play`
 - advertise an inline MCP app view for hosts that support MCP Apps
@@ -12,6 +13,7 @@ Its current job is simple:
 ## Tool surface
 
 - `create_doom_session`
+- `get_doom_launch_url`
 
 The returned payload includes:
 

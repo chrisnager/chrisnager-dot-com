@@ -29,6 +29,21 @@ test('create_doom_session returns a signed launch URL', async () => {
   assert.match(structured.launch_url as string, /^https:\/\/doom\.example\.com\/play\?token=/)
 })
 
+test('get_doom_launch_url returns a signed launch URL without widget metadata', async () => {
+  const result = await handleDoomToolCall(
+    'get_doom_launch_url',
+    {
+      host_origin: 'https://doom.example.com',
+    },
+    config,
+  )
+
+  const structured = result.structuredContent as Record<string, unknown>
+  assert.equal(typeof structured.session_id, 'string')
+  assert.match(structured.launch_url as string, /^https:\/\/doom\.example\.com\/play\?token=/)
+  assert.equal((result as { _meta?: Record<string, unknown> })._meta, undefined)
+})
+
 test('create_doom_session ignores chatgpt host_origin when default origin is configured', async () => {
   const result = await handleDoomToolCall(
     'create_doom_session',
