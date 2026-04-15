@@ -75,12 +75,12 @@ export function getDoomToolDefinitions() {
   ]
 }
 
-function formatToolResult(data: unknown, meta?: Record<string, unknown>) {
+function formatToolResult(data: unknown, meta?: Record<string, unknown>, textPrefix?: string) {
   return {
     content: [
       {
         type: 'text',
-        text: JSON.stringify(data, null, 2),
+        text: textPrefix ? `${textPrefix}\n\n${JSON.stringify(data, null, 2)}` : JSON.stringify(data, null, 2),
       },
     ],
     structuredContent: data,
@@ -159,6 +159,19 @@ function buildWidgetMeta(launchUrl: string) {
   }
 }
 
+function buildControlsText() {
+  return [
+    '| Action | Control |',
+    '| --- | --- |',
+    '| Move | WASD or arrow keys |',
+    '| Look | Mouse movement |',
+    '| Fire | Left click or Ctrl |',
+    '| Use | Spacebar |',
+    '| Run | Shift |',
+    '| Fullscreen | F |',
+  ].join('\n')
+}
+
 export async function handleDoomToolCall(
   name: string,
   input: unknown,
@@ -212,6 +225,7 @@ export async function handleDoomToolCall(
         persistence: persistence.kind,
       },
       buildWidgetMeta(launchUrl),
+      buildControlsText(),
     )
   }
 
@@ -237,6 +251,7 @@ export async function handleDoomToolCall(
         persistence: persistence.kind,
       },
       buildWidgetMeta(launchUrl),
+      buildControlsText(),
     )
   }
 
