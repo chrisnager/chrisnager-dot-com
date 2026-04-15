@@ -75,14 +75,11 @@ export function getDoomToolDefinitions() {
   ]
 }
 
-function formatToolResult(data: unknown, meta?: Record<string, unknown>, textPrefix?: string) {
+function formatToolResult(data: unknown, meta?: Record<string, unknown>, textBlocks?: string[]) {
+  const content = [...(textBlocks || []).map((text) => ({ type: 'text' as const, text })), { type: 'text' as const, text: JSON.stringify(data, null, 2) }]
+
   return {
-    content: [
-      {
-        type: 'text',
-        text: textPrefix ? `${textPrefix}\n\n${JSON.stringify(data, null, 2)}` : JSON.stringify(data, null, 2),
-      },
-    ],
+    content,
     structuredContent: data,
     ...(meta ? { _meta: meta } : {}),
   }
@@ -151,7 +148,7 @@ function resolveHostOrigin(config: DoomMcpConfig, requestedOrigin?: string) {
   throw new Error('host_origin must not be a ChatGPT or OpenAI origin; configure DOOM_WEB_ORIGIN for hosted launches')
 }
 
-function buildWidgetMeta(launchUrl: string) {
+function buildWidgetMeta() {
   return {
     'openai/outputTemplate': DOOM_WIDGET_RESOURCE_URI,
     'openai/resultCanProduceWidget': true,
@@ -161,20 +158,21 @@ function buildWidgetMeta(launchUrl: string) {
 
 function buildControlsText() {
   return [
-    '<table>',
-    '  <thead>',
-    '    <tr><th>Action</th><th>Control</th></tr>',
-    '  </thead>',
-    '  <tbody>',
-    '    <tr><td>Move</td><td>WASD or arrow keys</td></tr>',
-    '    <tr><td>Look</td><td>Mouse movement</td></tr>',
-    '    <tr><td>Fire</td><td>Left click or Ctrl</td></tr>',
-    '    <tr><td>Use</td><td>Spacebar</td></tr>',
-    '    <tr><td>Run</td><td>Shift</td></tr>',
-    '    <tr><td>Fullscreen</td><td>F</td></tr>',
-    '  </tbody>',
-    '</table>',
+    'Controls',
+    '',
+    '| Action | Control |',
+    '| --- | --- |',
+    '| Move | WASD or arrow keys |',
+    '| Look | Mouse movement |',
+    '| Fire | Left click or Ctrl |',
+    '| Use | Spacebar |',
+    '| Run | Shift |',
+    '| Fullscreen | F |',
   ].join('\n')
+}
+
+function buildLaunchInstructions() {
+  return 'The DOOM session is ready. The controls are listed below.'
 }
 
 export async function handleDoomToolCall(
@@ -229,8 +227,8 @@ export async function handleDoomToolCall(
         content_path: session.contentPath,
         persistence: persistence.kind,
       },
-      buildWidgetMeta(launchUrl),
-      buildControlsText(),
+      buildWidgetMeta(),
+      [buildLaunchInstructions(), buildControlsText()],
     )
   }
 
@@ -255,8 +253,8 @@ export async function handleDoomToolCall(
         expires_at: session.expiresAt,
         persistence: persistence.kind,
       },
-      buildWidgetMeta(launchUrl),
-      buildControlsText(),
+      buildWidgetMeta(),
+      [buildLaunchInstructions(), buildControlsText()],
     )
   }
 
