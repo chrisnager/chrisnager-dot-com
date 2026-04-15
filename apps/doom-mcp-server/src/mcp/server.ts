@@ -198,5 +198,20 @@ export function createDoomMcpServer(config: DoomMcpConfig) {
     async (args: Record<string, unknown>) => handleDoomToolCall('create_doom_session', args, config),
   )
 
+  registerAppTool(
+    server as unknown as { registerTool: (...args: unknown[]) => unknown },
+    'get_doom_launch_url',
+    {
+      description: 'Return a signed DOOM launch URL for clients that cannot render the inline app.',
+      inputSchema: createDoomSessionInputSchema,
+      _meta: {
+        ui: {
+          resourceUri,
+        },
+      },
+    },
+    async (args: Record<string, unknown>) => handleDoomToolCall('get_doom_launch_url', args, config),
+  )
+
   return server
 }
