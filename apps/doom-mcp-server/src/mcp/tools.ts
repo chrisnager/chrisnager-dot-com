@@ -161,14 +161,19 @@ function buildWidgetMeta(launchUrl: string) {
 
 function buildControlsText() {
   return [
-    '| Action | Control |',
-    '| --- | --- |',
-    '| Move | WASD or arrow keys |',
-    '| Look | Mouse movement |',
-    '| Fire | Left click or Ctrl |',
-    '| Use | Spacebar |',
-    '| Run | Shift |',
-    '| Fullscreen | F |',
+    '<table>',
+    '  <thead>',
+    '    <tr><th>Action</th><th>Control</th></tr>',
+    '  </thead>',
+    '  <tbody>',
+    '    <tr><td>Move</td><td>WASD or arrow keys</td></tr>',
+    '    <tr><td>Look</td><td>Mouse movement</td></tr>',
+    '    <tr><td>Fire</td><td>Left click or Ctrl</td></tr>',
+    '    <tr><td>Use</td><td>Spacebar</td></tr>',
+    '    <tr><td>Run</td><td>Shift</td></tr>',
+    '    <tr><td>Fullscreen</td><td>F</td></tr>',
+    '  </tbody>',
+    '</table>',
   ].join('\n')
 }
 
