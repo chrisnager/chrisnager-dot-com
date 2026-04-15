@@ -25,9 +25,7 @@ function buildWidgetHtml() {
   <body>
     <main class="shell" id="shell">
       <p class="status" id="status">Waiting for DOOM session…</p>
-      <p class="fallback">
-        <a id="launch-link" href="#" target="_blank" rel="noreferrer">Open in a new tab</a>
-      </p>
+      <a id="launch-link" href="#" target="_blank" rel="noreferrer" aria-label="Launch DOOM in a new tab"></a>
     </main>
     <script>
       const status = document.getElementById('status');
@@ -70,7 +68,7 @@ function buildWidgetHtml() {
         if (widgetLoaded) return;
         widgetLoaded = true;
         launchLink.href = launchUrl;
-        launchLink.textContent = 'Open in a new tab';
+        launchLink.textContent = '';
         window.__doomWidgetLaunchUrl__ = launchUrl;
 
         const assetOrigin = new URL(launchUrl).origin;
