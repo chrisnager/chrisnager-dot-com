@@ -1,5 +1,4 @@
 import { createDoomAdapter } from '../../../../../packages/doom-adapter/src/index.js'
-import { buildLaunchUrl } from '../../session/launchUrl.js'
 import type { SessionBootstrap } from '../../session/bootstrap.js'
 
 export async function renderPlayPage(
@@ -9,58 +8,28 @@ export async function renderPlayPage(
     session: SessionBootstrap
   },
 ) {
-  const bootstrapCopy =
-    route.session.bootstrapSource === 'signed-token-local'
-      ? 'This launch is driven directly by a signed session token.'
-      : 'Legacy query-string bootstrap is active for local demo sessions.'
-
-  const launchUrl = buildLaunchUrl({
-    sessionToken: route.session.sessionToken,
-    contentMode: route.session.contentMode,
-    contentPath: route.session.contentPath,
-  })
+  const launchUrl = `${window.location.origin}/doom/play?session=${encodeURIComponent(route.session.sessionToken)}`
 
   root.innerHTML = `
     <main class="play-shell">
-      <header class="play-header panel">
-        <div>
-          <p class="eyebrow">Session</p>
-          <h1>${route.session.sessionToken}</h1>
-          <p class="meta-copy">
-            ${bootstrapCopy}
-          </p>
-        </div>
-        <div class="session-metadata">
-          <span class="session-chip">Mode: ${route.session.contentMode}</span>
-          <span class="session-chip">Launch: ${launchUrl}</span>
-        </div>
+      <header class="play-meta">
+        <span class="play-line">Session: ${route.session.sessionToken}</span>
+        <span class="play-line">${launchUrl}</span>
       </header>
 
-      <section class="play-layout">
-        <div class="play-stage panel">
-          <div class="stage-toolbar">
-            <div class="status-stack">
-              <p class="eyebrow">Runtime</p>
-              <strong id="runtime-status">Booting runtime…</strong>
-            </div>
-            <div class="toolbar-actions">
-              <button id="focus-button" class="button button-primary" type="button">Capture Keyboard</button>
-              <button id="pause-button" class="button button-secondary" type="button">Pause Input</button>
-              <button id="fullscreen-button" class="button button-secondary" type="button">Fullscreen</button>
-            </div>
-          </div>
+      <div class="play-status" id="runtime-status">Booting runtime…</div>
 
-          <div class="stage-frame" id="stage-frame">
-            <div class="focus-overlay" id="focus-overlay">
-              <p>Click the canvas or use Capture Keyboard to route keys into DOOM.</p>
-            </div>
-            <canvas id="canvas" class="doom-canvas" tabindex="0"></canvas>
-          </div>
+      <div class="play-actions">
+        <button id="focus-button" class="button button-primary" type="button">Capture keyboard</button>
+        <button id="pause-button" class="button button-secondary" type="button">Pause input</button>
+        <button id="fullscreen-button" class="button button-secondary" type="button">Fullscreen</button>
+      </div>
 
-          <p class="stage-footnote">
-            The shell avoids top-level navigation assumptions so it can live inside an iframe. Focus is explicit to prevent stealing parent-page keyboard input.
-          </p>
+      <section class="play-stage" id="stage-frame">
+        <div class="focus-overlay" id="focus-overlay">
+          <p>Click the canvas or Capture Keyboard to route input into DOOM.</p>
         </div>
+        <canvas id="canvas" class="doom-canvas" tabindex="0"></canvas>
       </section>
     </main>
   `

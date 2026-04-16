@@ -1,15 +1,20 @@
+@font-face {
+  font-family: 'Perfect DOS VGA 437';
+  src: url('/doom/fonts/Perfect%20DOS%20VGA%20437.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   color-scheme: dark;
-  font-family: 'IBM Plex Sans', 'Segoe UI', sans-serif;
-  --bg: #120d0b;
-  --bg-panel: rgba(33, 22, 17, 0.9);
-  --bg-panel-strong: rgba(20, 14, 11, 0.95);
-  --border: rgba(255, 190, 120, 0.2);
-  --text: #f7ead7;
-  --muted: rgba(247, 234, 215, 0.72);
-  --accent: #ff7b2c;
-  --accent-strong: #ffb347;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  font-family: 'Perfect DOS VGA 437', monospace;
+  font-size: 16px;
+  line-height: 1.25;
+  --bg: blue;
+  --text: white;
+  --meta: white;
+  --panel: #000;
 }
 
 * {
@@ -17,220 +22,116 @@
 }
 
 html,
-body {
+body,
+#app {
   margin: 0;
+  width: 100%;
   min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
 }
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top, rgba(255, 123, 44, 0.24), transparent 26%),
-    linear-gradient(180deg, #1e1511 0%, var(--bg) 42%, #060404 100%);
-  color: var(--text);
+  overflow: hidden;
 }
 
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent);
-}
-
-a {
+a,
+button {
   color: inherit;
 }
 
-code {
-  font-family: 'IBM Plex Mono', 'SFMono-Regular', monospace;
-}
-
-#app {
-  position: relative;
-  z-index: 1;
-}
-
-.landing-shell,
-.play-shell {
-  width: min(1200px, calc(100vw - 24px));
-  margin: 0 auto;
-  padding: 24px 0 40px;
-}
-
-.landing-shell {
-  display: grid;
-  gap: 20px;
-  min-height: 100vh;
-  align-content: center;
-}
-
-.landing-grid,
-.play-layout {
-  display: grid;
-  gap: 20px;
-}
-
-.landing-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.play-layout {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.panel {
-  background: linear-gradient(180deg, rgba(45, 31, 24, 0.92), var(--bg-panel-strong));
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-}
-
-.landing-hero,
-.play-header,
-.play-stage {
-  padding: 24px;
-}
-
-.landing-hero h1,
-.play-header h1 {
-  margin: 0 0 12px;
-  font-size: clamp(2.1rem, 5vw, 4.25rem);
-  line-height: 0.96;
-  max-width: 11ch;
-}
-
-.landing-hero .lede,
-.meta-copy,
-.stage-footnote {
-  color: var(--muted);
-}
-
-.eyebrow {
-  margin: 0 0 10px;
-  color: var(--accent-strong);
-  font-family: 'IBM Plex Mono', 'SFMono-Regular', monospace;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.landing-actions,
-.toolbar-actions,
-.session-metadata {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.button,
 button {
   appearance: none;
-  border: 1px solid transparent;
-  border-radius: 999px;
+  border: 1px solid #001b1b;
+  border-radius: 0;
+  background: transparent;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
   font: inherit;
+  font-size: inherit;
   min-height: 44px;
-  padding: 0 18px;
-  text-decoration: none;
-  transition:
-    transform 120ms ease,
-    border-color 120ms ease,
-    background 120ms ease;
-}
-
-.button:hover,
-button:hover {
-  transform: translateY(-1px);
+  padding: 0 14px;
 }
 
 .button-primary {
-  background: linear-gradient(135deg, var(--accent), #ff5533);
-  color: #160d07;
-  font-weight: 700;
+  background: #000;
+  color: white;
 }
 
 .button-secondary {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: var(--border);
-  color: var(--text);
+  background: transparent;
+  color: white;
+  border-color: white;
 }
 
-.play-header {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
+canvas {
+  display: block;
 }
 
-.session-chip {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
-  font-family: 'IBM Plex Mono', 'SFMono-Regular', monospace;
-  font-size: 0.9rem;
+.play-shell {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  padding: 12px 0 0;
+  background: var(--bg);
+}
+
+.play-meta {
+  width: min(100vw, calc((100vh - 240px) * 4 / 3));
+  margin: 0;
+  color: var(--meta);
+  font: inherit;
+  display: grid;
+  gap: 0;
+}
+
+.play-line {
+  display: block;
+  font-weight: 700;
+  color: white;
+}
+
+.play-status,
+.play-actions {
+  width: min(100vw, calc((100vh - 240px) * 4 / 3));
+  color: white;
+  font: inherit;
+}
+
+.play-status {
+  font-weight: 700;
 }
 
 .play-stage {
-  display: grid;
-  gap: 16px;
-}
-
-.stage-toolbar {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.status-stack {
-  display: grid;
-  gap: 4px;
-}
-
-.stage-frame {
   position: relative;
   aspect-ratio: 4 / 3;
-  width: 100%;
-  background: #000;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.doom-canvas,
-.focus-overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  width: min(100vw, calc((100vh - 240px) * 4 / 3));
+  background: var(--panel);
+  box-shadow: 2rem 2rem 0 black;
 }
 
 .doom-canvas {
-  display: block;
+  width: 100%;
+  height: 100%;
   background: #000;
   outline: none;
 }
 
 .focus-overlay {
+  position: absolute;
+  inset: 0;
   display: grid;
   place-items: center;
-  padding: 24px;
-  background: linear-gradient(180deg, rgba(5, 5, 5, 0.18), rgba(5, 5, 5, 0.55));
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.55);
   text-align: center;
+  color: white;
   transition: opacity 120ms ease;
+  z-index: 1;
 }
 
 .focus-overlay[data-visible='false'] {
@@ -238,40 +139,8 @@ button:hover {
   pointer-events: none;
 }
 
-.callout-panel {
-  margin-top: 20px;
-  padding: 18px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-
-ul {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
-}
-
-li + li {
-  margin-top: 8px;
-}
-
-@media (max-width: 960px) {
-  .play-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .landing-shell,
-  .play-shell {
-    width: min(100vw - 16px, 1200px);
-    padding: 16px 0 28px;
-  }
-
-  .landing-hero,
-  .play-header,
-  .play-stage {
-    padding: 18px;
-  }
+.play-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
