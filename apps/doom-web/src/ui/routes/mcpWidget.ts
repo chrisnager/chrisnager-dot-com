@@ -39,13 +39,15 @@ function ensureWidgetShell() {
   root.style.height = '100%'
   root.style.position = 'relative'
   root.style.display = 'grid'
+  root.style.gridTemplateRows = 'auto 1fr'
   root.style.background = '#000'
 
   const stage = document.createElement('section')
   stage.style.position = 'relative'
   stage.style.width = '100%'
-  stage.style.height = '100%'
+  stage.style.aspectRatio = '4 / 3'
   stage.style.background = '#000'
+  stage.style.justifySelf = 'center'
 
   const canvas = document.createElement('canvas')
   canvas.id = 'canvas'
@@ -71,7 +73,7 @@ function ensureWidgetShell() {
   }
 
   const resizeObserver = new ResizeObserver(reportSize)
-  resizeObserver.observe(root)
+  resizeObserver.observe(stage)
   queueMicrotask(reportSize)
 
   return { canvas, reportSize }
