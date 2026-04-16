@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 
 const rootDir = fileURLToPath(new URL('../..', import.meta.url))
 const buildDir = join(rootDir, '.doom-build')
+const staticDir = join(rootDir, 'static')
 const webDir = join(rootDir, 'apps', 'doom-web')
 const publicDir = join(webDir, 'public')
 const host = process.env.HOST || '127.0.0.1'
@@ -19,6 +20,7 @@ const mimeTypes = {
   '.json': 'application/json; charset=utf-8',
   '.map': 'application/json; charset=utf-8',
   '.svg': 'image/svg+xml',
+  '.ttf': 'font/ttf',
   '.wasm': 'application/wasm',
 }
 
@@ -63,6 +65,10 @@ function mapRequestToFile(pathname) {
     return join(webDir, 'src', 'styles.css')
   }
 
+  if (pathname.startsWith('/doom/fonts/')) {
+    return join(staticDir, 'fonts', decodeURIComponent(pathname.replace('/doom/fonts/', '')))
+  }
+
   if (pathname.startsWith('/src/')) {
     return join(buildDir, 'apps', 'doom-web', pathname)
   }
@@ -80,7 +86,7 @@ function mapRequestToFile(pathname) {
 
 async function serveFile(filePath, response) {
   const normalized = normalize(filePath)
-  const allowedRoots = [buildDir, webDir, publicDir]
+  const allowedRoots = [buildDir, webDir, publicDir, staticDir]
 
   if (!allowedRoots.some((root) => normalized.startsWith(root))) {
     response.writeHead(403, { 'content-type': 'text/plain; charset=utf-8' })
