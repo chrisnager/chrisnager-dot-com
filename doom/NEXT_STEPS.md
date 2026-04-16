@@ -2,7 +2,7 @@
 
 The current project scope is intentionally lean:
 
-- two tools: `create_doom_session` and `get_doom_launch_url`
+- one tool: `create_doom_session`
 - one standalone play route: `/doom/play`
 - one inline MCP app path for hosts that support it
 

@@ -55,6 +55,7 @@ yarn doom:mcp:dev
 
 Default endpoints:
 
+- `http://127.0.0.1:8787/health`
 - `http://127.0.0.1:8787/mcp`
 
 ## Netlify-shaped local testing
@@ -77,6 +78,7 @@ Then test:
 
 - `http://127.0.0.1:4173/doom/`
 - `http://127.0.0.1:4173/doom/play?session=demo123`
+- `http://127.0.0.1:8787/health`
 - `http://127.0.0.1:8787/mcp`
 
 ## Build and test
@@ -93,6 +95,7 @@ Netlify publishes:
 
 - `/doom/play`
 - `/doom/mcp`
+- `/doom/api/doom-health`
 
 The browser launch path is self-contained: the signed token in the URL is enough to boot the game.
 

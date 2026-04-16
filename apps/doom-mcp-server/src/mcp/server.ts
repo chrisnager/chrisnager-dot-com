@@ -1,10 +1,9 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { registerAppResource, registerAppTool, RESOURCE_MIME_TYPE } from '@modelcontextprotocol/ext-apps/server'
-import type { AnySchema } from '@modelcontextprotocol/sdk/server/zod-compat.js'
 
 import type { DoomMcpConfig } from '../config.js'
-import { createDoomSessionSchema } from './schemas.js'
 import { handleDoomToolCall } from './tools.js'
+import { createDoomSessionInputSchema } from './zodSchemas.js'
 
 function buildWidgetHtml() {
   return `<!doctype html>
@@ -19,15 +18,18 @@ function buildWidgetHtml() {
       body { position: relative; }
       .shell { width: 100%; height: 100%; display: grid; place-items: center; }
       .status { position: absolute; left: 12px; top: 12px; margin: 0; padding: .35rem .5rem; border-radius: .4rem; background: rgba(0,0,0,.65); color: #f3f4f6; font-size: 12px; line-height: 1.2; max-width: calc(100% - 24px); z-index: 2; }
+      .fallback { position: absolute; right: 12px; bottom: 12px; margin: 0; font-size: 12px; opacity: .8; z-index: 2; }
       a { color: #93c5fd; }
     </style>
   </head>
   <body>
     <main class="shell" id="shell">
       <p class="status" id="status">Waiting for DOOM session…</p>
+      <a id="launch-link" href="#" target="_blank" rel="noreferrer" aria-label="Launch DOOM in a new tab"></a>
     </main>
     <script>
       const status = document.getElementById('status');
+      const launchLink = document.getElementById('launch-link');
       let initialized = false;
       let widgetLoaded = false;
 
@@ -65,6 +67,8 @@ function buildWidgetHtml() {
       function loadWidget(launchUrl) {
         if (widgetLoaded) return;
         widgetLoaded = true;
+        launchLink.href = launchUrl;
+        launchLink.textContent = '';
         window.__doomWidgetLaunchUrl__ = launchUrl;
 
         const assetOrigin = new URL(launchUrl).origin;
@@ -182,7 +186,7 @@ export function createDoomMcpServer(config: DoomMcpConfig) {
     'create_doom_session',
     {
       description: 'Create a DOOM session and return a signed launch URL for the hosted /play page.',
-      inputSchema: createDoomSessionSchema as unknown as AnySchema,
+      inputSchema: createDoomSessionInputSchema,
       _meta: {
         ui: {
           resourceUri,
@@ -197,7 +201,7 @@ export function createDoomMcpServer(config: DoomMcpConfig) {
     'get_doom_launch_url',
     {
       description: 'Return a signed DOOM launch URL for clients that cannot render the inline app.',
-      inputSchema: createDoomSessionSchema as unknown as AnySchema,
+      inputSchema: createDoomSessionInputSchema,
       _meta: {
         ui: {
           resourceUri,

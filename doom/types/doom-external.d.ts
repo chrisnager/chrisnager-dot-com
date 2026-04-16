@@ -19,3 +19,7 @@ declare module 'fetch-to-node' {
   export function toReqRes(request: Request): { req: unknown; res: unknown }
   export function toFetchResponse(response: unknown): Promise<Response>
 }
+
+declare module 'zod' {
+  export const z: any
+}

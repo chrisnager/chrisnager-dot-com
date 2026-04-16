@@ -33,6 +33,7 @@ yarn doom:mcp:dev
 The standalone Node server listens on:
 
 - `http://127.0.0.1:8787/mcp`
+- `http://127.0.0.1:8787/health`
 
 ## Build and test
 
@@ -46,5 +47,6 @@ yarn doom:mcp:test
 Netlify serves:
 
 - `/doom/mcp`
+- `/doom/api/doom-health`
 
 The session launch path is intentionally self-contained. The browser reads the signed token directly from the `launch_url` and does not depend on server-side session persistence.
