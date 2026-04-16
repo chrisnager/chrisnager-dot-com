@@ -27,7 +27,7 @@ export async function renderPlayPage(
 
       <section class="play-stage" id="stage-frame">
         <div class="focus-overlay" id="focus-overlay">
-          <p>Click the canvas or Capture Keyboard to route input into DOOM.</p>
+          <p>Press Capture Keyboard button to route input into DOOM.</p>
         </div>
         <canvas id="canvas" class="doom-canvas" tabindex="0"></canvas>
       </section>
