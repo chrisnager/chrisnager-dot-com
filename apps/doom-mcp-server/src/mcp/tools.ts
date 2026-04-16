@@ -29,6 +29,23 @@ function normalizeContentPath(contentMode: DoomContentMode, contentPath?: string
   return trimmed || undefined
 }
 
+function buildControlsText() {
+  return [
+    '## Controls',
+    '',
+    '| Action | Input |',
+    '|---|---|',
+    '| Move | WASD / Arrow keys |',
+    '| Look | Mouse |',
+    '| Shoot | Space / Left Click |',
+    '| Use / Interact | E |',
+    '| Switch weapons | Number keys 1-9 |',
+    '| Fullscreen | F |',
+    '| Map | Tab |',
+    '| Menu | Escape |',
+  ].join('\n')
+}
+
 export function getDoomToolDefinitions() {
   return [
     {
@@ -47,6 +64,10 @@ export function getDoomToolDefinitions() {
 function formatToolResult(data: unknown, meta?: Record<string, unknown>) {
   return {
     content: [
+      {
+        type: 'text',
+        text: buildControlsText(),
+      },
       {
         type: 'text',
         text: JSON.stringify(data, null, 2),
