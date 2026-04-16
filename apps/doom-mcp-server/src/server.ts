@@ -28,14 +28,6 @@ const server = http.createServer(async (request, response) => {
     return
   }
 
-  if (request.method === 'GET' && url.pathname === '/health') {
-    sendJson(response, 200, {
-      ok: true,
-      service: 'doom-mcp-server',
-    })
-    return
-  }
-
   if (request.method === 'POST' && url.pathname === '/mcp') {
     const chunks: Buffer[] = []
     request.on('data', (chunk) => chunks.push(Buffer.from(chunk)))
@@ -60,7 +52,7 @@ const server = http.createServer(async (request, response) => {
 
   sendJson(response, 404, {
     error: 'Not Found',
-    endpoints: ['/health', '/mcp'],
+    endpoints: ['/mcp'],
   })
 })
 
