@@ -4,13 +4,17 @@
 !.yarn/sdks
 !.yarn/versions
 .cache
+.doom-build
 .DS_Store
 .env
 .netlify
 .netlify-home
 .pnp.*
 .yarn/*
+apps/web/dist
 backup
+dist*
 node_modules
 public
+static
 temporary*
