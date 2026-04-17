@@ -14,7 +14,20 @@ export const Head = () => (
   />
 );
 
-<Box as="article" sx={{ maxInlineSize: `55ch`, marginBlockEnd: 5, paddingInline: 3 }}>
+<Box
+  as="article"
+  sx={{
+    maxInlineSize: `55ch`,
+    marginBlockEnd: 5,
+    paddingInline: 3,
+    video: {
+      display: `block`,
+      inlineSize: `100%`,
+      maxInlineSize: `100%`,
+      blockSize: `auto`,
+    },
+  }}
+>
 # DOOM runs in ChatGPT and Claude
 
 Apr 17, 2026
@@ -39,6 +52,7 @@ There’s something delightful about taking a protocol designed for tools and st
 <video
   aria-label="DOOM running on Claude web"
   autoPlay
+  controls
   loop
   muted
   playsInline
@@ -112,6 +126,7 @@ That was the biggest conceptual shift in the project. Once I stopped trying to e
 <video
   aria-label="DOOM running on web from Codex terminal"
   autoPlay
+  controls
   loop
   muted
   playsInline
@@ -167,6 +182,7 @@ It’s enough to be fun, technically interesting, and actually usable.
 <video
   aria-label="DOOM running on Claude macOS"
   autoPlay
+  controls
   loop
   muted
   playsInline
@@ -195,6 +211,7 @@ The combination of protocol design and browser quirks is a fun problem to solve.
 <video
   aria-label="DOOM running on ChatGPT web"
   autoPlay
+  controls
   loop
   muted
   playsInline
@@ -227,6 +244,7 @@ DOOM partially runs on ChatGPT and Claude iOS apps.
   <video
     aria-label="DOOM running on ChatGPT iOS"
     autoPlay
+    controls
     loop
     muted
     playsInline
@@ -235,6 +253,7 @@ DOOM partially runs on ChatGPT and Claude iOS apps.
   <video
     aria-label="DOOM running on Claude iOS"
     autoPlay
+    controls
     loop
     muted
     playsInline
