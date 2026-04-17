@@ -17,7 +17,7 @@ export const Head = () => (
 <Box as="article" sx={{ maxInlineSize: `55ch`, marginBlockEnd: 5, paddingInline: 3 }}>
 # DOOM runs in ChatGPT and Claude
 
-Apr 16, 2026
+Apr 17, 2026
 
 <Tag>AI</Tag> <Tag>Game development</Tag> <Tag>Creation</Tag> <Tag>MCP</Tag>
 
@@ -36,7 +36,14 @@ The final version is intentionally lean:
 
 There’s something delightful about taking a protocol designed for tools and structured interactions, and asking: “[can it run DOOM?](https://canitrundoom.org)”
 
-![DOOM running on Claude web](/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-claude-web.mp4)
+<video
+  aria-label="DOOM running on Claude web"
+  autoPlay
+  loop
+  muted
+  playsInline
+  src="/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-claude-web.mp4"
+/>
 <small>_DOOM running on Claude web_</small>
 
 ## The basic idea
@@ -102,7 +109,14 @@ Instead of treating the app view as a shell around another frame, I made the DOO
 
 That was the biggest conceptual shift in the project. Once I stopped trying to embed a browser page inside the MCP app, and instead treated the MCP app as the browser page, things got much cleaner.
 
-![DOOM running on web from Codex terminal](/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-codex-terminal.mp4)
+<video
+  aria-label="DOOM running on web from Codex terminal"
+  autoPlay
+  loop
+  muted
+  playsInline
+  src="/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-codex-terminal.mp4"
+/>
 <small>_DOOM running on web from Codex terminal_</small>
 
 ## Netlify and the deployment path
@@ -150,7 +164,14 @@ The final shape is focused:
 
 It’s enough to be fun, technically interesting, and actually usable.
 
-![DOOM running on Claude macOS](/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-claude-macos.mp4)
+<video
+  aria-label="DOOM running on Claude macOS"
+  autoPlay
+  loop
+  muted
+  playsInline
+  src="/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-claude-macos.mp4"
+/>
 <small>_DOOM running on Claude macOS_</small>
 
 ## What works now
@@ -171,7 +192,14 @@ This side project forced me to think clearly about what an MCP app actually is. 
 
 The combination of protocol design and browser quirks is a fun problem to solve.
 
-![DOOM running on ChatGPT web](/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-chatgpt-web.mp4)
+<video
+  aria-label="DOOM running on ChatGPT web"
+  autoPlay
+  loop
+  muted
+  playsInline
+  src="/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-chatgpt-web.mp4"
+/>
 <small>_DOOM running on ChatGPT web_</small>
 
 ## Final thoughts
@@ -196,8 +224,22 @@ See the [source code](https://github.com/chrisnager/chrisnager-dot-com/pull/54).
 DOOM partially runs on ChatGPT and Claude iOS apps.
 
 <Box sx={{ display: `grid`, gridTemplateColumns: `repeat(2, 1fr)`, gap: `0.5rem` }}>
-![DOOM running on ChatGPT iOS](/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-chatgpt-ios.mp4)
-![DOOM running on Claude iOS](/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-claude-ios.mp4)
+  <video
+    aria-label="DOOM running on ChatGPT iOS"
+    autoPlay
+    loop
+    muted
+    playsInline
+    src="/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-chatgpt-ios.mp4"
+  />
+  <video
+    aria-label="DOOM running on Claude iOS"
+    autoPlay
+    loop
+    muted
+    playsInline
+    src="/images/blog/doom-runs-in-chatgpt-and-claude/chrisnager-doom-claude-ios.mp4"
+  />
 </Box>
 <small>_DOOM partially running on ChatGPT iOS and Claude iOS_</small>
 </Box>
