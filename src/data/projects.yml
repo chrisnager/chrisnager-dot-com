@@ -18,6 +18,11 @@
   summary: Generate a brand palette from a single color.
   tags: [Color, CSS]
 
+- url: /projects/reverse-a-sound
+  name: Reverse a sound
+  summary: Upload an audio clip and hear it backwards.
+  tags: [Web Audio API, JavaScript, Audio]
+
 - url: https://chat.openai.com/g/g-4P6Atbe0O-elevator-pitch
   name: Elevator Pitch
   summary: GPT that summarizes companies in a single sentence
