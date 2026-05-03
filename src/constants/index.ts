@@ -117,6 +117,8 @@ export const slugTagPairs = {
   [`local storage`]: `Local storage`,
   [`logo-design`]: `Logo design`,
   [`mapbox`]: `Mapbox`,
+  [`mcp`]: `MCP`,
+  [`mcp-apps`]: `MCP apps`,
   [`mdx`]: `MDX`,
   [`monorepo`]: `Monorepo`,
   [`music`]: `Music`,
