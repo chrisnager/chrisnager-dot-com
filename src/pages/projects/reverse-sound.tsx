@@ -323,4 +323,4 @@ export default function ReverseSound() {
     )
 }
 
-export const Head = () => <Halo title="Reverse Sound / Projects" url="https://chrisnager.com/projects/reverse-sound" />
+export const Head = () => <Halo title="Reverse sound / Projects" url="https://chrisnager.com/projects/reverse-sound" />
