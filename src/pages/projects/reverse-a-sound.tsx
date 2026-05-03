@@ -74,7 +74,7 @@ function audioBufferToWav(audioBuffer: AudioBuffer) {
     return buffer
 }
 
-export default function ReverseSound() {
+export default function ReverseASound() {
     const [audioFile, setAudioFile] = useState<File | null>(null)
     const [originalUrl, setOriginalUrl] = useState(``)
     const [reversedUrl, setReversedUrl] = useState(``)
@@ -248,7 +248,7 @@ export default function ReverseSound() {
                             textDecoration: isProcessing ? `line-through` : `none`,
                         }}
                     >
-                        {isProcessing ? `Reversing...` : `Reverse sound`}
+                        {isProcessing ? `Reversing…` : `Reverse a sound`}
                     </button>
 
                     {errorMessage && (
@@ -325,4 +325,4 @@ export default function ReverseSound() {
     )
 }
 
-export const Head = () => <Halo title="Reverse a sound / Projects" url="https://chrisnager.com/projects/reverse-sound" />
+export const Head = () => <Halo title="Reverse a sound / Projects" url="https://chrisnager.com/projects/reverse-a-sound" />
