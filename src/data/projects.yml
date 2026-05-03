@@ -1,3 +1,13 @@
+- url: /blog/doom-runs-in-chatgpt-and-claude
+  name: DOOM runs in ChatGPT and Claude
+  summary: Playable DOOM MCP app that runs inline in compatible AI clients and falls back to a browser launch URL
+  tags: [AI, Game development, MCP, MCP apps]
+
+- url: /projects/barcode/
+  name: CSS-only barcodes
+  summary: Generate real EAN-13 barcodes with CSS-only visuals.
+  tags: [CSS, JavaScript, Generative art]
+
 - url: /snowball/
   name: Snowball
   summary: You're a snowball. Collect snow to grow. Avoid lava. (Vibe Jam 2025 entry)
@@ -279,4 +289,3 @@
   name: Totally Fresh
   summary: Experimental CSS3 design featured on Smashing Magazine
   tags: [Design, HTML, CSS]
-
