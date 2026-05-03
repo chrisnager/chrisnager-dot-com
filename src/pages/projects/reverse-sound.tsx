@@ -206,7 +206,9 @@ export default function ReverseSound() {
                     onSubmit={handleFormSubmit}
                     sx={{
                         bg: `muted`,
-                        borderRadius: `0.75rem`,
+                        borderRadius: `0.5rem`,
+                        border: `1px solid`,
+                        borderColor: `action`,
                         padding: [3, 4],
                         display: `flex`,
                         flexDirection: `column`,
@@ -238,6 +240,7 @@ export default function ReverseSound() {
                             fontFamily: `inherit`,
                             fontSize: `inherit`,
                             fontWeight: 600,
+                            marginBlockStart: `1rem`,
                             paddingBlock: `0.5rem`,
                             paddingInline: `1.25rem`,
                             textDecoration: isProcessing ? `line-through` : `none`,
