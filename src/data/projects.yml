@@ -1,3 +1,13 @@
+- url: /blog/doom-runs-in-chatgpt-and-claude
+  name: DOOM runs in ChatGPT and Claude
+  summary: Playable DOOM MCP app that runs inline in compatible AI clients and falls back to a browser launch URL
+  tags: [AI, Game development, MCP, MCP apps]
+
+- url: /projects/barcode/
+  name: CSS-only barcodes
+  summary: Generate real EAN-13 barcodes with CSS-only visuals.
+  tags: [CSS, JavaScript, Generative art]
+
 - url: /snowball/
   name: Snowball
   summary: You're a snowball. Collect snow to grow. Avoid lava. (Vibe Jam 2025 entry)
@@ -7,6 +17,11 @@
   name: Palegen
   summary: Generate a brand palette from a single color.
   tags: [Color, CSS]
+
+- url: /projects/reverse-a-sound
+  name: Reverse a sound
+  summary: Upload an audio clip and hear it backwards.
+  tags: [Web Audio API, JavaScript, Audio]
 
 - url: https://chat.openai.com/g/g-4P6Atbe0O-elevator-pitch
   name: Elevator Pitch
@@ -279,4 +294,3 @@
   name: Totally Fresh
   summary: Experimental CSS3 design featured on Smashing Magazine
   tags: [Design, HTML, CSS]
-

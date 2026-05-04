@@ -1,0 +1,89 @@
+import { cp, mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const rootDir = fileURLToPath(new URL('../..', import.meta.url))
+const doomDistDir = join(rootDir, 'apps', 'doom-web', 'dist')
+const publicDir = join(rootDir, 'public')
+const headersPath = join(publicDir, '_headers')
+const doomFrameAncestors =
+  "frame-ancestors 'self' https://claude.ai https://*.claude.ai https://chatgpt.com https://chat.openai.com http://localhost:* http://127.0.0.1:*"
+const doomCorsHeaders = [
+  'access-control-allow-origin: *',
+  'access-control-allow-methods: GET, OPTIONS',
+  'access-control-allow-headers: accept, content-type',
+]
+
+const targets = [join(publicDir, 'doom')]
+
+for (const target of targets) {
+  await rm(target, { force: true, recursive: true })
+}
+
+await mkdir(join(publicDir, 'doom', 'play'), { recursive: true })
+await mkdir(join(publicDir, 'doom', 'vendor'), { recursive: true })
+await mkdir(join(publicDir, 'doom', 'content'), { recursive: true })
+await mkdir(join(publicDir, 'doom', 'fonts'), { recursive: true })
+
+await cp(join(doomDistDir, 'index.html'), join(publicDir, 'doom', 'index.html'))
+await cp(join(doomDistDir, 'index.html'), join(publicDir, 'doom', 'play', 'index.html'))
+await cp(join(doomDistDir, 'src'), join(publicDir, 'doom', 'src'), { recursive: true })
+await cp(join(doomDistDir, 'packages'), join(publicDir, 'doom', 'packages'), { recursive: true })
+await cp(join(doomDistDir, 'vendor', 'doom'), join(publicDir, 'doom', 'vendor', 'doom'), { recursive: true })
+await cp(join(doomDistDir, 'content', 'freedoom'), join(publicDir, 'doom', 'content', 'freedoom'), { recursive: true })
+await cp(join(rootDir, 'static', 'fonts'), join(publicDir, 'doom', 'fonts'), { recursive: true })
+
+async function rewritePublishedImports(folder) {
+  const entries = await readdir(folder, { withFileTypes: true })
+
+  for (const entry of entries) {
+    const entryPath = join(folder, entry.name)
+
+    if (entry.isDirectory()) {
+      await rewritePublishedImports(entryPath)
+      continue
+    }
+
+    if (!entry.name.endsWith('.js')) {
+      continue
+    }
+
+    const fileStats = await stat(entryPath)
+    if (!fileStats.isFile()) {
+      continue
+    }
+
+    const contents = await readFile(entryPath, 'utf8')
+    const rewritten = contents
+      .replaceAll('../../../../packages/', '../../packages/')
+      .replaceAll('../../../../../packages/', '../../../packages/')
+
+    if (rewritten !== contents) {
+      await writeFile(entryPath, rewritten)
+    }
+  }
+}
+
+await rewritePublishedImports(join(publicDir, 'doom', 'src'))
+
+try {
+  const currentHeaders = await readFile(headersPath, 'utf8')
+  const sanitizedHeaders = currentHeaders
+    .replace(/^\s*x-frame-options:\s*DENY\s*\n/gim, '')
+    .replace(/(?:^|\n)\/doom\n(?:  .*\n)+(?:\/doom\/\*\n(?:  .*\n)+)?/g, '\n')
+  const doomHeaders = [
+    '/doom',
+    `  content-security-policy: ${doomFrameAncestors}`,
+    ...doomCorsHeaders.map((header) => `  ${header}`),
+    '/doom/*',
+    `  content-security-policy: ${doomFrameAncestors}`,
+    ...doomCorsHeaders.map((header) => `  ${header}`),
+    '',
+  ].join('\n')
+
+  await writeFile(headersPath, `${sanitizedHeaders.trimEnd()}\n\n${doomHeaders}`)
+} catch (error) {
+  console.warn(`skipping DOOM header patch: ${String(error)}`)
+}
+
+console.log(`synced DOOM web app into ${publicDir}`)
