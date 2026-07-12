@@ -3,6 +3,11 @@
   summary: Playable DOOM MCP app that runs inline in compatible AI clients and falls back to a browser launch URL
   tags: [AI, Game development, MCP, MCP apps]
 
+- url: https://github.com/chrisnager/fr
+  name: fr.sh
+  summary: Code-golfed bash script that uses ANSI colors to display the French flag 🇫🇷
+  tags: [Code golfing, ANSI, Bash, Shell]
+
 - url: /projects/barcode/
   name: CSS-only barcodes
   summary: Generate real EAN-13 barcodes with CSS-only visuals.
