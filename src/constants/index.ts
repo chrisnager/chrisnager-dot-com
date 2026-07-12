@@ -83,7 +83,7 @@ export const slugTagPairs = {
   [`charting`]: `Charting`,
   [`chatbot`]: `Chatbot`,
   [`cms`]: `CMS`,
-  [`code golfing`]: `Code golfing`,
+  [`code-golfing`]: `Code golfing`,
   [`color-contrast`]: `color-contrast()`,
   [`color-mix`]: `color-mix()`,
   [`color`]: `Color`,

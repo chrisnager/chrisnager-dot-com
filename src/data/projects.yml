@@ -6,7 +6,7 @@
 - url: https://github.com/chrisnager/fr
   name: fr.sh
   summary: Code-golfed bash script that uses ANSI colors to display the French flag 🇫🇷
-  tags: [Code golfing, ANSI, Bash, Shell]
+  tags: [Code golfing, ANSI colors, Bash, Shell]
 
 - url: /projects/barcode/
   name: CSS-only barcodes
