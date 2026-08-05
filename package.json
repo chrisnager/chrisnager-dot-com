@@ -80,7 +80,8 @@
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,md,mdx}'",
     "lint": "eslint src",
     "serve": "netlify serve",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "cli": "node scripts/cli.js"
   },
   "version": "1.0.0"
 }
